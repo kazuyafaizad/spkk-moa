@@ -4,14 +4,11 @@ import Welcome from '@/Components/Welcome.vue';
 </script>
 
 <template>
-    <AppLayout title="Dashboard">
+    <AppLayout title="Kitar Semula">
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Dashboard
+                Kitar Semula
             </h2>
         </template>
-
-        <h1>Analytic Dashboard</h1>
-
     </AppLayout>
 </template>

@@ -1,7 +1,17 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import "./main.css";
+@import "./structure.css";
+@import "./datatables.css";
+@import "./dt-global.css";
+/* @import "../../public/plugins/table/datatable/datatables.css"; */
+
+
 
 [x-cloak] {
     display: none;
 }
+
+

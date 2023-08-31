@@ -1,3 +1,4 @@
+
 <script setup>
 import { ref } from 'vue';
 import { Head, Link, router } from '@inertiajs/vue3';
@@ -29,261 +30,365 @@ const logout = () => {
 
 <template>
     <div>
+
         <Head :title="title" />
 
         <Banner />
 
-        <div class="min-h-screen bg-gray-100">
-            <nav class="bg-white border-b border-gray-100">
-                <!-- Primary Navigation Menu -->
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="flex justify-between h-16">
-                        <div class="flex">
-                            <!-- Logo -->
-                            <div class="shrink-0 flex items-center">
-                                <Link :href="route('dashboard')">
-                                    <ApplicationMark class="block h-9 w-auto" />
-                                </Link>
-                            </div>
+        <!--  BEGIN NAVBAR  -->
+        <div class="header-container">
+            <header class="header navbar navbar-expand-sm  relative flex flex-wrap items-center content-between py-3 px-4 ">
 
-                            <!-- Navigation Links -->
-                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                                    Dashboard
-                                </NavLink>
-                            </div>
-                        </div>
-
-                        <div class="hidden sm:flex sm:items-center sm:ml-6">
-                            <div class="ml-3 relative">
-                                <!-- Teams Dropdown -->
-                                <Dropdown v-if="$page.props.jetstream.hasTeamFeatures" align="right" width="60">
-                                    <template #trigger>
-                                        <span class="inline-flex rounded-md">
-                                            <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition ease-in-out duration-150">
-                                                {{ $page.props.auth.user.current_team.name }}
-
-                                                <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
-                                                </svg>
-                                            </button>
-                                        </span>
-                                    </template>
-
-                                    <template #content>
-                                        <div class="w-60">
-                                            <!-- Team Management -->
-                                            <div class="block px-4 py-2 text-xs text-gray-400">
-                                                Manage Team
-                                            </div>
-
-                                            <!-- Team Settings -->
-                                            <DropdownLink :href="route('teams.show', $page.props.auth.user.current_team)">
-                                                Team Settings
-                                            </DropdownLink>
-
-                                            <DropdownLink v-if="$page.props.jetstream.canCreateTeams" :href="route('teams.create')">
-                                                Create New Team
-                                            </DropdownLink>
-
-                                            <!-- Team Switcher -->
-                                            <template v-if="$page.props.auth.user.all_teams.length > 1">
-                                                <div class="border-t border-gray-200" />
-
-                                                <div class="block px-4 py-2 text-xs text-gray-400">
-                                                    Switch Teams
-                                                </div>
-
-                                                <template v-for="team in $page.props.auth.user.all_teams" :key="team.id">
-                                                    <form @submit.prevent="switchToTeam(team)">
-                                                        <DropdownLink as="button">
-                                                            <div class="flex items-center">
-                                                                <svg v-if="team.id == $page.props.auth.user.current_team_id" class="mr-2 h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                                                </svg>
-
-                                                                <div>{{ team.name }}</div>
-                                                            </div>
-                                                        </DropdownLink>
-                                                    </form>
-                                                </template>
-                                            </template>
-                                        </div>
-                                    </template>
-                                </Dropdown>
-                            </div>
-
-                            <!-- Settings Dropdown -->
-                            <div class="ml-3 relative">
-                                <Dropdown align="right" width="48">
-                                    <template #trigger>
-                                        <button v-if="$page.props.jetstream.managesProfilePhotos" class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
-                                            <img class="h-8 w-8 rounded-full object-cover" :src="$page.props.auth.user.profile_photo_url" :alt="$page.props.auth.user.name">
-                                        </button>
-
-                                        <span v-else class="inline-flex rounded-md">
-                                            <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition ease-in-out duration-150">
-                                                {{ $page.props.auth.user.name }}
-
-                                                <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                                                </svg>
-                                            </button>
-                                        </span>
-                                    </template>
-
-                                    <template #content>
-                                        <!-- Account Management -->
-                                        <div class="block px-4 py-2 text-xs text-gray-400">
-                                            Manage Account
-                                        </div>
-
-                                        <DropdownLink :href="route('profile.show')">
-                                            Profile
-                                        </DropdownLink>
-
-                                        <DropdownLink v-if="$page.props.jetstream.hasApiFeatures" :href="route('api-tokens.index')">
-                                            API Tokens
-                                        </DropdownLink>
-
-                                        <div class="border-t border-gray-200" />
-
-                                        <!-- Authentication -->
-                                        <form @submit.prevent="logout">
-                                            <DropdownLink as="button">
-                                                Log Out
-                                            </DropdownLink>
-                                        </form>
-                                    </template>
-                                </Dropdown>
-                            </div>
-                        </div>
-
-                        <!-- Hamburger -->
-                        <div class="-mr-2 flex items-center sm:hidden">
-                            <button class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out" @click="showingNavigationDropdown = ! showingNavigationDropdown">
-                                <svg
-                                    class="h-6 w-6"
-                                    stroke="currentColor"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path
-                                        :class="{'hidden': showingNavigationDropdown, 'inline-flex': ! showingNavigationDropdown }"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="2"
-                                        d="M4 6h16M4 12h16M4 18h16"
-                                    />
-                                    <path
-                                        :class="{'hidden': ! showingNavigationDropdown, 'inline-flex': showingNavigationDropdown }"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="2"
-                                        d="M6 18L18 6M6 6l12 12"
-                                    />
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
+                <div class="nav-logo self-center flex flex-row">
+                    <a class="navbar-brand pt-1 pb-1 mr-4 text-lg whitespace-no-wrap flex flex-row items-center gap-2" href="index.html">
+                    <img alt="logo" src="assets/img/logo.png" class="max-w-full"> <span class="navbar-brand-name">SWCorp Modul Orang Awam</span></a>
                 </div>
 
+                <ul class="navbar-item flex-row mr-auto">
+                    <li class=" self-center search-animated">
+                        <!-- <form class="flex items-center search-full flex items-center search" role="search">
+                        <div class="search-bar">
+                            <input type="text" class="block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded search-form-control  lg:ml-auto" placeholder="Search...">
+                        </div>
+                    </form> -->
+                    </li>
+                </ul>
+
+                <ul class="navbar-item flex-row nav-dropdowns">
+
+                    <li class=" relative notification-dropdown hidden">
+                        <a href="javascript:void(0);" class=" py-2 px-4 no-underline  inline-block w-0 h-0 ml-1 align border-b-0 border-t-1 border-r-1 border-l-1" id="notificationDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg><span class="inline-block p-1 text-center font-semibold text-sm align-baseline leading-none rounded bg-green-500 text-white hover:green-600"></span>
+                        </a>
+                        <div class="  left-0 z-50 float-left hidden list-reset	 py-2 mt-1 text-base bg-white border border-gray-300 rounded absolute animated fadeInUp" aria-labelledby="notificationDropdown">
+                            <div class="notification-scroll">
+
+                                <div class="block w-full py-1 px-6 font-normal text-gray-900 whitespace-no-wrap border-0">
+                                    <div class="flex items-start server-log">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-server"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6" y2="6"></line><line x1="6" y1="18" x2="6" y2="18"></line></svg>
+                                        <div class="flex-1">
+                                            <div class="data-info">
+                                                <h6 class="">Server Rebooted</h6>
+                                                <p class="">45 min ago</p>
+                                            </div>
+
+                                            <div class="icon-status">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="block w-full py-1 px-6 font-normal text-gray-900 whitespace-no-wrap border-0">
+                                    <div class="flex items-start ">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                                        <div class="flex-1">
+                                            <div class="data-info">
+                                                <h6 class="">Licence Expiring Soon</h6>
+                                                <p class="">8 hrs ago</p>
+                                            </div>
+
+                                            <div class="icon-status">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="block w-full py-1 px-6 font-normal text-gray-900 whitespace-no-wrap border-0">
+                                    <div class="flex items-start file-upload">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                                        <div class="flex-1">
+                                            <div class="data-info">
+                                                <h6 class="">Kelly Portfolio.pdf</h6>
+                                                <p class="">670 kb</p>
+                                            </div>
+
+                                            <div class="icon-status">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class=" relative user-profile-dropdown lg:order-0 order-1 nav-item dropdown  order-lg-0">
+
+                         <Dropdown align="right" width="48" v-if="$page.props.auth.user">
+                                        <template #trigger>
+                                            <button v-if="$page.props.jetstream.managesProfilePhotos"
+                                                class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
+                                                <img class="h-8 w-8 rounded-full object-cover"
+                                                    :src="$page.props.auth.user.profile_photo_url ? $page.props.auth.user.profile_photo_url : 'assets/img/hanif.png'"
+                                                    :alt="$page.props.auth.user.name">
+                                            </button>
+
+                                            <span v-else class="inline-flex rounded-md">
+                                                <button type="button"
+                                                    class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition ease-in-out duration-150">
+                                                    {{ $page.props.auth.user ? $page.props.auth.user.name : 'Pelawat' }}
+
+                                                    <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg"
+                                                        fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                                        stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                                    </svg>
+                                                </button>
+                                            </span>
+                                        </template>
+
+                                        <template #content>
+                                            <!-- Account Management -->
+                                            <div class="block px-4 py-2 text-xs text-gray-400">
+                                                Manage Account
+                                            </div>
+
+                                            <DropdownLink :href="route('profile.show')">
+                                                Profile
+                                            </DropdownLink>
+
+                                            <DropdownLink v-if="$page.props.jetstream.hasApiFeatures"
+                                                :href="route('api-tokens.index')">
+                                                API Tokens
+                                            </DropdownLink>
+
+                                            <div class="border-t border-gray-200" />
+
+                                            <!-- Authentication -->
+                                            <form @submit.prevent="logout">
+                                                <DropdownLink as="button">
+                                                    Log Out
+                                                </DropdownLink>
+                                            </form>
+                                        </template>
+                                    </Dropdown>
+
+                                    <Dropdown align="right" width="48" v-else class="">
+
+                                        <template #trigger>
+                                    <a href="javascript:void(0);" class="nav-link dropdown-toggle user" id="user-profile-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <div class="media flex">
+                                        <img
+                                         :src="$page.props.auth.user?.profile_photo_url ? $page.props.auth.user.profile_photo_url : 'assets/img/hanif.png'"
+                                        class="img-fluid" alt="user">
+                                        <div class="media-body align-self-center">
+                                           <h6><span>Hi,</span> {{ $page.props.auth.user ? $page.props.auth.user.name : 'Pelawat' }}</h6>
+                                        </div>
+                                    </div>
+                                </a>
+
+                                        </template>
+
+                                        <template #content>
+
+                                            <div class="border-t border-gray-200" />
+
+                                            <!-- Authentication -->
+                                            <DropdownLink :href="route('login')">
+                                                Log In
+                                            </DropdownLink>
+                                        </template>
+                                    </Dropdown>
+
+
+
+                        <div class=" absolute left-0 z-50 float-left hidden list-reset	 py-2 mt-1 text-base bg-white border border-gray-300 rounded  animated fadeInUp" aria-labelledby="user-profile-dropdown">
+                            <div class="">
+                                <div class="block w-full py-1 px-6 font-normal text-gray-900 whitespace-no-wrap border-0">
+                                    <a class="" href="user_profile.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg> My Profile</a>
+                                </div>
+                                <div class="block w-full py-1 px-6 font-normal text-gray-900 whitespace-no-wrap border-0">
+                                    <a class="" href="apps_mailbox.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-inbox"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"></polyline><path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path></svg> Inbox</a>
+                                </div>
+                                <div class="block w-full py-1 px-6 font-normal text-gray-900 whitespace-no-wrap border-0">
+                                    <a class="" href="auth_lockscreen.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-lock"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg> Lock Screen</a>
+                                </div>
+                                <div class="block w-full py-1 px-6 font-normal text-gray-900 whitespace-no-wrap border-0">
+                                    <a class="" href="auth_login.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg> Sign Out</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </li>
+                </ul>
+            </header>
+        </div>
+        <!--  END NAVBAR  -->
+
+        <div class="min-h-screen ">
+             <div class="topbar-nav header relative flex flex-wrap items-center content-between py-3 px-4 " role="banner">
+
+            <nav  id="topbar" class="bg-white border-b border-gray-100 flex">
+                 <!-- Navigation Links -->
+                                  <ul class="list-unstyled menu-categories" id="topAccordion">
+
+                                         <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
+                                                <div class="flex items-center justify-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                                                <span>Home</span>
+                                                </div>
+                                            </NavLink>
+                                             <NavLink :href="route('jadual')" :active="route().current('jadual')">
+                                                    <div class="flex items-center justify-center">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-cpu"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
+                                                    <span>Jadual Kutipan/Pembersihan</span>
+                                                    </div>
+                                        </NavLink>
+                                        <NavLink :href="route('sisa')" :active="route().current('sisa')">
+                                                        <div class="flex items-center justify-center">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-box"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                                        <span>Kutipan Sisa Industri</span>
+                                                        </div>
+                                            </NavLink>
+                                            <NavLink :href="route('aduan')" :active="route().current('aduan')">
+                                                        <div class="flex items-center justify-center">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-zap"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                                        <span>Aduan</span>
+                                                        </div>
+                                            </NavLink>
+                                            <NavLink :href="route('kitarsemula')" :active="route().current('kitarsemula')">
+                                                            <div class="flex items-center justify-center">
+                                                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layout"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                                        <span>Kemudahan Kitar Semula</span>
+                                                            </div>
+                                                </NavLink>
+                                            <NavLink :href="route('resepileftover')" :active="route().current('resepileftover')">
+                                                        <div class="flex items-center justify-center">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clipboard"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
+                                        <span>Resepi Leftover</span>
+                                                        </div>
+                                            </NavLink>
+                                            <NavLink :href="route('admin.index')" :active="route().current('admin.index')">
+                                                            <div class="flex items-center justify-center">
+                                                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
+                                        <span>Admin</span>
+                                                            </div>
+                                                </NavLink>
+
+                                  </ul>
+                <!-- Primary Navigation Menu -->
+
+
                 <!-- Responsive Navigation Menu -->
-                <div :class="{'block': showingNavigationDropdown, 'hidden': ! showingNavigationDropdown}" class="sm:hidden">
+                <div :class="{ 'block': showingNavigationDropdown, 'hidden': !showingNavigationDropdown }" class="sm:hidden">
                     <div class="pt-2 pb-3 space-y-1">
                         <ResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
                             Dashboard
                         </ResponsiveNavLink>
                     </div>
 
-                    <!-- Responsive Settings Options -->
-                    <div class="pt-4 pb-1 border-t border-gray-200">
-                        <div class="flex items-center px-4">
-                            <div v-if="$page.props.jetstream.managesProfilePhotos" class="shrink-0 mr-3">
-                                <img class="h-10 w-10 rounded-full object-cover" :src="$page.props.auth.user.profile_photo_url" :alt="$page.props.auth.user.name">
-                            </div>
 
-                            <div>
-                                <div class="font-medium text-base text-gray-800">
-                                    {{ $page.props.auth.user.name }}
-                                </div>
-                                <div class="font-medium text-sm text-gray-500">
-                                    {{ $page.props.auth.user.email }}
-                                </div>
-                            </div>
+                    <!-- Responsive Settings Options -->
+                <div class="pt-4 pb-1 border-t border-gray-200" v-if="$page.props.auth.user != null">
+                    <div class="flex items-center px-4">
+                        <div v-if="$page.props.jetstream.managesProfilePhotos" class="shrink-0 mr-3">
+                            <img class="h-10 w-10 rounded-full object-cover"
+                                :src="$page.props.auth.user.profile_photo_url" :alt="$page.props.auth.user.name">
                         </div>
 
-                        <div class="mt-3 space-y-1">
-                            <ResponsiveNavLink :href="route('profile.show')" :active="route().current('profile.show')">
-                                Profile
+                        <div>
+                            <div class="font-medium text-base text-gray-800">
+                                {{ $page.props.auth.user.name }}
+                            </div>
+                            <div class="font-medium text-sm text-gray-500">
+                                {{ $page.props.auth.user.email }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-3 space-y-1">
+                        <ResponsiveNavLink :href="route('profile.show')" :active="route().current('profile.show')">
+                            Profile
+                        </ResponsiveNavLink>
+
+                        <ResponsiveNavLink v-if="$page.props.jetstream.hasApiFeatures" :href="route('api-tokens.index')"
+                            :active="route().current('api-tokens.index')">
+                            API Tokens
+                        </ResponsiveNavLink>
+
+                        <!-- Authentication -->
+                        <form method="POST" @submit.prevent="logout">
+                            <ResponsiveNavLink as="button">
+                                Log Out
+                            </ResponsiveNavLink>
+                        </form>
+
+                        <!-- Team Management -->
+                        <template v-if="$page.props.jetstream.hasTeamFeatures">
+                            <div class="border-t border-gray-200" />
+
+                            <div class="block px-4 py-2 text-xs text-gray-400">
+                                Manage Team
+                            </div>
+
+                            <!-- Team Settings -->
+                            <ResponsiveNavLink :href="route('teams.show', $page.props.auth.user.current_team)"
+                                :active="route().current('teams.show')">
+                                Team Settings
                             </ResponsiveNavLink>
 
-                            <ResponsiveNavLink v-if="$page.props.jetstream.hasApiFeatures" :href="route('api-tokens.index')" :active="route().current('api-tokens.index')">
-                                API Tokens
+                            <ResponsiveNavLink v-if="$page.props.jetstream.canCreateTeams" :href="route('teams.create')"
+                                :active="route().current('teams.create')">
+                                Create New Team
                             </ResponsiveNavLink>
 
-                            <!-- Authentication -->
-                            <form method="POST" @submit.prevent="logout">
-                                <ResponsiveNavLink as="button">
-                                    Log Out
-                                </ResponsiveNavLink>
-                            </form>
-
-                            <!-- Team Management -->
-                            <template v-if="$page.props.jetstream.hasTeamFeatures">
+                            <!-- Team Switcher -->
+                            <template v-if="$page.props.auth.user.all_teams.length > 1">
                                 <div class="border-t border-gray-200" />
 
                                 <div class="block px-4 py-2 text-xs text-gray-400">
-                                    Manage Team
+                                    Switch Teams
                                 </div>
 
-                                <!-- Team Settings -->
-                                <ResponsiveNavLink :href="route('teams.show', $page.props.auth.user.current_team)" :active="route().current('teams.show')">
-                                    Team Settings
-                                </ResponsiveNavLink>
-
-                                <ResponsiveNavLink v-if="$page.props.jetstream.canCreateTeams" :href="route('teams.create')" :active="route().current('teams.create')">
-                                    Create New Team
-                                </ResponsiveNavLink>
-
-                                <!-- Team Switcher -->
-                                <template v-if="$page.props.auth.user.all_teams.length > 1">
-                                    <div class="border-t border-gray-200" />
-
-                                    <div class="block px-4 py-2 text-xs text-gray-400">
-                                        Switch Teams
-                                    </div>
-
-                                    <template v-for="team in $page.props.auth.user.all_teams" :key="team.id">
-                                        <form @submit.prevent="switchToTeam(team)">
-                                            <ResponsiveNavLink as="button">
-                                                <div class="flex items-center">
-                                                    <svg v-if="team.id == $page.props.auth.user.current_team_id" class="mr-2 h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                                    </svg>
-                                                    <div>{{ team.name }}</div>
-                                                </div>
-                                            </ResponsiveNavLink>
-                                        </form>
-                                    </template>
+                                <template v-for="team in $page.props.auth.user.all_teams" :key="team.id">
+                                    <form @submit.prevent="switchToTeam(team)">
+                                        <ResponsiveNavLink as="button">
+                                            <div class="flex items-center">
+                                                <svg v-if="team.id == $page.props.auth.user.current_team_id"
+                                                    class="mr-2 h-5 w-5 text-green-400"
+                                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                    stroke-width="1.5" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                                </svg>
+                                                <div>{{ team.name }}</div>
+                                            </div>
+                                        </ResponsiveNavLink>
+                                    </form>
                                 </template>
                             </template>
-                        </div>
+                        </template>
                     </div>
                 </div>
+            </div>
             </nav>
+            </div>
 
-            <!-- Page Heading -->
-            <header v-if="$slots.header" class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    <slot name="header" />
-                </div>
-            </header>
 
-            <!-- Page Content -->
-            <main>
-                <slot />
-            </main>
-        </div>
+            <div id="content" class="main-content">
+                        <div class="layout-px-spacing">
+
+                            <div class="flex flex-wrap  layout-top-spacing" id="cancel-row">
+
+                                <div class="xl:w-full  lg:w-full   sm:w-full pr-4 pl-4 layout-spacing">
+                                    <div class="widget-content widget-content-area br-6">
+                                        <div class="block w-full overflow-auto scrolling-touch mb-4 mt-4">
+                                             <!-- Page Heading -->
+
+                    <div class="flex flex-wrap mb-5" v-if="$slots.header">
+                        <div class="xl:w-full  md:w-full  sm:w-full pr-4 pl-4 w-full">
+                            <slot name="header" />
+                        </div>
+                    </div>
+                                                  <slot />
+                                          </div>
+                                          </div>
+                                          </div>
+                                          </div>
+                                          </div>
+                                          </div>
     </div>
-</template>
+</div></template>
