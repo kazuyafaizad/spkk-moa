@@ -6,7 +6,7 @@ import Welcome from '@/Components/Welcome.vue';
 <template>
     <AppLayout title="Resepi Leftover">
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            <h2 class="font-semibold text-2xl  text-[#3b3f5c]">
                 Resepi Leftover
             </h2>
         </template>

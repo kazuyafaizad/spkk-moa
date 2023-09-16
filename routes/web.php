@@ -28,7 +28,9 @@ Route::get('/', function () {
     ]);
 })->name('dashboard');
 
-Route::get('/jadual', [JadualController::class,'index'])->name('jadual');
+Route::get('/jadual', [JadualController::class, 'index'])->name('jadual');
+
+Route::post('/jadual', [JadualController::class, 'post'])->name('jadual.submit');
 
 Route::get('/sisa-industri', function () {
     return Inertia::render('Sisa', [
@@ -65,13 +67,13 @@ Route::get('/admin', function () {
     ]);
 })->name('admin.index');
 
-Route::get('/pbt/{negeri_id}',function($negeri_id){
-    return IntegrationPbt::where('states_id',$negeri_id)->get();
+Route::get('/pbt/{negeri_id}', function ($negeri_id) {
+    return IntegrationPbt::where('states_id', $negeri_id)->get();
 });
 
 Route::get('/taman/{pbt_id}', function ($pbt_id) {
     $subquery = IntegrationScheme::select('id')
-    ->where('pbts_id', $pbt_id);
+        ->where('pbts_id', $pbt_id);
 
     return IntegrationPark::whereIn('schemes_id', $subquery)->get();
 });

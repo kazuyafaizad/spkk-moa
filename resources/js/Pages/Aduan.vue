@@ -6,7 +6,7 @@ import Welcome from '@/Components/Welcome.vue';
 <template>
     <AppLayout title="Aduan">
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            <h2 class="font-semibold text-2xl  text-[#3b3f5c]">
                 Aduan
             </h2>
         </template>
