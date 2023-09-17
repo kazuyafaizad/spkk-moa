@@ -30,31 +30,29 @@ Route::get('/', function () {
 
 Route::get('/jadual', [JadualController::class, 'index'])->name('jadual');
 
-Route::post('/jadual', [JadualController::class, 'post'])->name('jadual.submit');
-
 Route::get('/sisa-industri', function () {
-    return Inertia::render('Sisa', [
+    return Inertia::render('Sisa/Index', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
     ]);
 })->name('sisa');
 
 Route::get('/aduan', function () {
-    return Inertia::render('Aduan', [
+    return Inertia::render('Aduan/Index', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
     ]);
 })->name('aduan');
 
 Route::get('/kitar-semula', function () {
-    return Inertia::render('KitarSemula', [
+    return Inertia::render('KitarSemula/Index', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
     ]);
 })->name('kitarsemula');
 
 Route::get('/resepi-leftover', function () {
-    return Inertia::render('ResepiLeftover', [
+    return Inertia::render('ResepiLeftover/Index', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
     ]);

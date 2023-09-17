@@ -13,7 +13,7 @@ class JadualController extends Controller
 {
     public function index(Request $request)
     {
-        return Inertia::render('Jadual', [
+        return Inertia::render('Jadual/Index', [
             'filters' => RequestFacade::all('aktiviti', 'negeri', 'pbt', 'taman'),
             'negeriOption' => IntegrationState::select('id', 'name')->where('act_status', 1)->get(),
             'jadual' => fn () => Pemantauan::when(request('aktiviti'), function ($q) {
