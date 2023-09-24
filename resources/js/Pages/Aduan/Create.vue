@@ -1,6 +1,6 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
-import { Link } from '@inertiajs/vue3';
+import FormMaklumatAsas from './Partials/FormMaklumatAsas.vue';
 </script>
 
 <template>
@@ -11,8 +11,10 @@ import { Link } from '@inertiajs/vue3';
             </h2>
         </template>
 
+
+        <FormMaklumatAsas />
         <div class="w-full max-w-full mb-4 bg-transparent">
-            <Link class="btn btn-primary rounded" :href="route('aduan.create')">Tambah Aduan</Link>
+
 
         </div>
     </AppLayout>

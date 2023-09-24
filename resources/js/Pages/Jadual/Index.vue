@@ -101,6 +101,18 @@ const search = () => router.get(route('jadual',form),{
                                     label="name" track-by="id" @select="changeTaman()">
                                 </multiselect>
                             </div>
+                            <div class="relative flex-grow max-w-full flex-1 px-4">
+                                <label>Jalan</label>
+                                <multiselect v-model="form.taman" :options="tamanOptions" placeholder="Select one"
+                                    label="name" track-by="id" @select="changeTaman()">
+                                </multiselect>
+                            </div>
+                            <div class="relative flex-grow max-w-full flex-1 px-4">
+                                <label>Tarikh</label>
+                                <multiselect v-model="form.taman" :options="tamanOptions" placeholder="Select one"
+                                    label="name" track-by="id" @select="changeTaman()">
+                                </multiselect>
+                            </div>
                         </div>
                         <!-- <button class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded py-1 px-3 leading-normal no-underline text-blue-600 border-blue-600 hover:bg-blue-600 hover:text-white bg-white hover:bg-blue-600 mb-2">Primary</button> -->
                         <button @click="search" class="btn btn-primary rounded">Cari</button>

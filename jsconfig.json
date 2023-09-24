@@ -3,7 +3,8 @@
         "baseUrl": ".",
         "paths": {
             "@/*": ["resources/js/*"],
-            "~/*": ["node_modules/*"]
+            "~/*": ["node_modules/*"],
+            "$/*": ["resources/*"]
         }
     },
     "exclude": ["node_modules", "public"]

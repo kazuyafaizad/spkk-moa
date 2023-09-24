@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\IntegrationState;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Inertia\Middleware;
@@ -40,6 +41,7 @@ class HandleInertiaRequests extends Middleware
         return array_merge(parent::share($request), [
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
+            'negeriOption' => IntegrationState::select('id', 'name')->where('act_status', 1)->get(),
         ]);
     }
 }
