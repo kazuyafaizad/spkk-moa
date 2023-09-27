@@ -1,5 +1,6 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
+import { Link } from '@inertiajs/vue3';
 
 
 const resepi = [
@@ -8,7 +9,7 @@ const resepi = [
         "bahan":"Nasi"
     },
     {
-        "nama":"resepi baru 2",
+        "nama":"resepi baru 24",
         "bahan":"Nasi"
     },
     {
@@ -27,6 +28,8 @@ const resepi = [
         </template>
 
         <div class="w-full max-w-full mb-4 bg-transparent">
+                <Link class="btn btn-primary rounded my-4" :href="route('aduan.create')">Tambah Resepi</Link>
+
             <div class="grid grid-cols-4 gap-4">
                 <div v-for="(r, i) in resepi" :key="i">
                     <div class="max-w-sm rounded overflow-hidden shadow-lg">

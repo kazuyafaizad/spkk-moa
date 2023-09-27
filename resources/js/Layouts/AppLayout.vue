@@ -31,7 +31,7 @@ const logout = () => {
 </script>
 
 <template>
-    <div>
+    <div style="    background: rgb(220 220 220 / 50%);">
 
         <Head :title="title" />
 
@@ -170,7 +170,7 @@ const logout = () => {
                         <Dropdown align="right" width="48" v-if="$page.props.auth.user">
                             <template #trigger>
                                 <button v-if="$page.props.jetstream.managesProfilePhotos"
-                                    class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
+                                    class="flex text-sm border-2 border-transparent rounded-full text-black transition">
                                     <img class="h-8 w-8 rounded-full object-cover"
                                         :src="$page.props.auth.user.profile_photo_url ? $page.props.auth.user.profile_photo_url : Profile"
                                         :alt="$page.props.auth.user.name">
@@ -225,7 +225,7 @@ const logout = () => {
                                         <img :src="$page.props.auth.user?.profile_photo_url ? $page.props.auth.user.profile_photo_url : Profile"
                                             class="img-fluid" alt="user">
                                         <div class="media-body align-self-center">
-                                            <h6><span>Hi,</span> {{ $page.props.auth.user ? $page.props.auth.user.name :
+                                            <h6><span class="text-black">Hi,</span> {{ $page.props.auth.user ? $page.props.auth.user.name :
                                                 'Pelawat' }}</h6>
                                         </div>
                                     </div>
