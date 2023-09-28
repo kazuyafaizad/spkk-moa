@@ -31,7 +31,7 @@ const logout = () => {
 </script>
 
 <template>
-    <div style="    background: rgb(220 220 220 / 50%);">
+    <div class="app-bg">
 
         <Head :title="title" />
 
@@ -300,7 +300,7 @@ const logout = () => {
         <div class="min-h-screen ">
             <div class="topbar-nav header relative flex flex-wrap items-center content-between py-3 px-4 " role="banner">
 
-                <nav id="topbar" class="bg-white border-b border-gray-100 flex">
+                <nav id="topbar" class="bg-white  flex">
                     <!-- Navigation Links -->
                     <ul class="list-unstyled menu-categories" id="topAccordion">
 
@@ -382,7 +382,7 @@ const logout = () => {
                                 <span>Resepi Leftover</span>
                             </div>
                         </NavLink>
-                        <NavLink :href="route('admin.index')" :active="route().current('admin.index')">
+                        <!-- <NavLink :href="route('admin.index')" :active="route().current('admin.index')">
                             <div class="flex items-center justify-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -392,7 +392,7 @@ const logout = () => {
                                 </svg>
                                 <span>Admin</span>
                             </div>
-                        </NavLink>
+                        </NavLink> -->
 
                     </ul>
                     <!-- Primary Navigation Menu -->
@@ -520,3 +520,11 @@ const logout = () => {
         </div>
     </div>
 </template>
+
+
+<style>
+.app-bg{
+    background: rgb(9,121,33);
+    background: linear-gradient(90deg, rgba(9,121,33,0.29968483975621496) 0%, rgba(0,212,255,1) 100%);
+}
+</style>

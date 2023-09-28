@@ -9,5 +9,5 @@ class IntegrationState extends Model
 {
     use HasFactory;
 
-    protected $connection = 'spkk';
+    // protected $connection = 'spkk';
 }

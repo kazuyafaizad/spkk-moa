@@ -8,6 +8,12 @@
 @import "./dt-global.css";
 /* @import "../../public/plugins/table/datatable/datatables.css"; */
 
+/* *, ::before, ::after {
+    box-sizing: border-box;
+    border-width: 0;
+    border-style: solid;
+    border-color: transparent!important;
+} */
 
 
 [x-cloak] {
