@@ -21,7 +21,7 @@ const form = useForm({
 });
 
 
-const aktivitiOptions = ref(['Kutipan', 'Pembersihan']);
+const aktivitiOptions = ref(['Kutipan Sisa Pepejal', 'Pembersihan Awam']);
 const pbtOptions = ref([{
     name:"",
     id:""
@@ -77,50 +77,52 @@ const search = () => router.get(route('jadual',form),{
             <tbody>
                 <tr>
                     <td colspan="2">
-                        <div class="flex flex-wrap -mr-1 -ml-1 mb-4">
+                        <div class="grid grid-cols-2 gap-2">
                             <div class="relative flex-grow max-w-full flex-1 px-4">
-                                <label>Aktiviti</label>
-                                <Multiselect v-model="form.aktiviti" :options="aktivitiOptions" placeholder="Select one">
+                                <label>Pilih Jenis Jadual</label>
+                                <Multiselect v-model="form.aktiviti" :options="aktivitiOptions" placeholder="Sila Pilih">
                                 </Multiselect>
                             </div>
                             <div class="relative flex-grow max-w-full flex-1 px-4">
-                                <label>Negeri</label>
+                                <label>Pilih Negeri</label>
                                 <multiselect v-model="form.negeri" :options="$page.props.negeriOption"
-                                    placeholder="Select one" label="name" track-by="id" @select="changeNegeri()">
+                                    placeholder="Sila Pilih" label="name" track-by="id" @select="changeNegeri()">
                                 </multiselect>
                             </div>
                             <div class="relative flex-grow max-w-full flex-1 px-4">
-                                <label>PBT</label>
-                                <multiselect v-model="form.pbt" :options="pbtOptions" placeholder="Select one" label="name"
+                                <label>Pilih PBT</label>
+                                <multiselect v-model="form.pbt" :options="pbtOptions" placeholder="Sila Pilih" label="name"
                                     track-by="id" @select="changeTaman()">
                                 </multiselect>
                             </div>
                             <div class="relative flex-grow max-w-full flex-1 px-4">
-                                <label>Taman</label>
-                                <multiselect v-model="form.taman" :options="tamanOptions" placeholder="Select one"
+                                <label>Pilih Taman</label>
+                                <multiselect v-model="form.taman" :options="tamanOptions" placeholder="Sila Pilih"
                                     label="name" track-by="id" @select="changeTaman()">
                                 </multiselect>
                             </div>
                             <div class="relative flex-grow max-w-full flex-1 px-4">
-                                <label>Jalan</label>
-                                <multiselect v-model="form.taman" :options="tamanOptions" placeholder="Select one"
+                                <label>Pilih Jalan</label>
+                                <multiselect v-model="form.taman" :options="tamanOptions" placeholder="Sila Pilih"
                                     label="name" track-by="id" @select="changeTaman()">
                                 </multiselect>
                             </div>
                             <div class="relative flex-grow max-w-full flex-1 px-4">
-                                <label>Tarikh</label>
-                                <multiselect v-model="form.taman" :options="tamanOptions" placeholder="Select one"
+                                <label>Pilih Tarikh</label>
+                                <multiselect v-model="form.taman" :options="tamanOptions" placeholder="Sila Pilih"
                                     label="name" track-by="id" @select="changeTaman()">
                                 </multiselect>
                             </div>
                         </div>
-                        <!-- <button class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded py-1 px-3 leading-normal no-underline text-blue-600 border-blue-600 hover:bg-blue-600 hover:text-white bg-white hover:bg-blue-600 mb-2">Primary</button> -->
-                        <button @click="search" class="btn btn-primary rounded">Cari</button>
                     </td>
 
                 </tr>
             </tbody>
         </table>
+
+
+                            <!-- <button class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded py-1 px-3 leading-normal no-underline text-blue-600 border-blue-600 hover:bg-blue-600 hover:text-white bg-white hover:bg-blue-600 mb-2">Primary</button> -->
+                            <button @click="search" class="btn btn-primary rounded my-5">Cari</button>
 
         <DataTable :data="$page.props.jadual" class="display table" :columns="columns">
             <thead>

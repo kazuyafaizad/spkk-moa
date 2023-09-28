@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AduanController;
 use App\Http\Controllers\JadualController;
+use App\Http\Controllers\RecipeLeftoverController;
 use App\Models\IntegrationPark;
 use App\Models\IntegrationPbt;
 use App\Models\IntegrationScheme;
@@ -48,12 +49,8 @@ Route::get('/kitar-semula', function () {
     ]);
 })->name('kitarsemula');
 
-Route::get('/resepi-leftover', function () {
-    return Inertia::render('ResepiLeftover/Index', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-    ]);
-})->name('resepileftover');
+Route::get('/resepi-leftover', [RecipeLeftoverController::class,'index'])->name('resepileftover');
+Route::get('/admin/resepi-leftover', [RecipeLeftoverController::class, 'list'])->name('resepileftover.admin');
 
 Route::get('/admin', function () {
     return Inertia::render('Admin', [

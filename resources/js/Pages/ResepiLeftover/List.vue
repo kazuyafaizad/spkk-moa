@@ -30,7 +30,7 @@ const resepi = [
         <div class="w-full max-w-full mb-4 bg-transparent">
             <div class="my-4">
                 <Link class="btn btn-primary rounded my-4" :href="route('aduan.create')">Tambah Resepi</Link>
-                </div>
+            </div>
 
             <div class="grid grid-cols-4 gap-4">
                 <div v-for="(r, i) in resepi" :key="i">
