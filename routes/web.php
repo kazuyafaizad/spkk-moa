@@ -50,7 +50,8 @@ Route::get('/kitar-semula', function () {
 })->name('kitarsemula');
 
 Route::get('/resepi-leftover', [RecipeLeftoverController::class,'index'])->name('resepileftover');
-Route::get('/admin/resepi-leftover', [RecipeLeftoverController::class, 'list'])->name('resepileftover.admin');
+Route::get('/resepi-leftover/create', [RecipeLeftoverController::class, 'create'])->name('resepileftover.admin');
+Route::post('/resepi-leftover', [RecipeLeftoverController::class, 'store'])->name('resepileftover.admin.store');
 
 Route::get('/admin', function () {
     return Inertia::render('Admin', [
