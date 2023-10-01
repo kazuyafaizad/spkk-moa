@@ -6,6 +6,7 @@ use App\Http\Controllers\RecipeLeftoverController;
 use App\Models\IntegrationPark;
 use App\Models\IntegrationPbt;
 use App\Models\IntegrationScheme;
+use App\Models\IntegrationStreet;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -61,14 +62,18 @@ Route::get('/admin', function () {
 })->name('admin.index');
 
 Route::get('/pbt/{negeri_id}', function ($negeri_id) {
-    return IntegrationPbt::where('states_id', $negeri_id)->get();
+    return IntegrationPbt::select('id', 'name')->where('states_id', $negeri_id)->get();
 });
 
 Route::get('/taman/{pbt_id}', function ($pbt_id) {
     $subquery = IntegrationScheme::select('id')
         ->where('pbts_id', $pbt_id);
 
-    return IntegrationPark::whereIn('schemes_id', $subquery)->get();
+    return IntegrationPark::select('id', 'name')->whereIn('schemes_id', $subquery)->get();
+});
+
+Route::get('/jalan/{park_id}', function ($park_id) {
+    return IntegrationStreet::select('id','name')->where('parks_id', $park_id)->get();
 });
 
 

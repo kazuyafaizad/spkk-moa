@@ -1,6 +1,6 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
-import Welcome from '@/Components/Welcome.vue';
+
 </script>
 
 <template>
@@ -10,8 +10,5 @@ import Welcome from '@/Components/Welcome.vue';
                 Makluman Awam
             </h2>
         </template>
-
-        <h1>Analytic Dashboard</h1>
-
     </AppLayout>
 </template>

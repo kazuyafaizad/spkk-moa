@@ -14,7 +14,7 @@ class JadualController extends Controller
     public function index(Request $request)
     {
         return Inertia::render('Jadual/Index', [
-            'filters' => RequestFacade::all('aktiviti', 'negeri', 'pbt', 'taman'),
+            'filters' => RequestFacade::all('aktiviti', 'negeri', 'pbt', 'taman','jalan','tarikh'),
             'negeriOption' => IntegrationState::select('id', 'name')->where('act_status', 1)->get(),
             'jadual' => fn () => Pemantauan::when(request('aktiviti'), function ($q) {
                 return $q->where('jenis_jadual', '=', substr(request('aktiviti'), 0, 1));
@@ -24,6 +24,12 @@ class JadualController extends Controller
                 })
                 ->when(request('taman'), function ($q) {
                     return $q->where('park_id', '=', request('taman')['id']);
+                })
+                ->when(request('jalan'), function ($q) {
+                     return $q->where('street_id', '=', request('jalan')['id']);
+                })
+                ->when(request('`tarikh`'), function ($q) {
+                     return $q->where('date', '=', request('tarikh'));
                 })
                 ->when(!request('taman'), function ($q) {
                     return $q->limit(0);

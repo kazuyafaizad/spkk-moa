@@ -18,6 +18,8 @@ const form = useForm({
     negeri:props.filters.negeri,
     pbt:props.filters.pbt,
     taman:props.filters.taman,
+    jalan:props.filters.jalan,
+    tarikh:props.filters.tarikh
 });
 
 
@@ -26,7 +28,13 @@ const pbtOptions = ref([{
     name:"",
     id:""
 }]);
+
 const tamanOptions = ref([{
+    name:"",
+    id:""
+}]);
+
+const jalanOptions = ref([{
     name:"",
     id:""
 }]);
@@ -37,6 +45,10 @@ const changeNegeri = async () => {
 
 const changeTaman = async () => {
     await axios.get('/taman/'+form.pbt.id).then(response => tamanOptions.value = response.data).catch(error => console.log(error))
+}
+
+const changeJalan = async () => {
+    await axios.get('/jalan/'+form.taman.id).then(response => jalanOptions.value = response.data).catch(error => console.log(error))
 }
 
 onBeforeMount(() => {
@@ -98,20 +110,18 @@ const search = () => router.get(route('jadual',form),{
                             <div class="relative flex-grow max-w-full flex-1 px-4">
                                 <label>Pilih Taman</label>
                                 <multiselect v-model="form.taman" :options="tamanOptions" placeholder="Sila Pilih"
-                                    label="name" track-by="id" @select="changeTaman()">
+                                    label="name" track-by="id" @select="changeJalan()">
                                 </multiselect>
                             </div>
                             <div class="relative flex-grow max-w-full flex-1 px-4">
                                 <label>Pilih Jalan</label>
-                                <multiselect v-model="form.taman" :options="tamanOptions" placeholder="Sila Pilih"
-                                    label="name" track-by="id" @select="changeTaman()">
+                                <multiselect v-model="form.jalan" :options="jalanOptions" placeholder="Sila Pilih"
+                                    label="name" track-by="id">
                                 </multiselect>
                             </div>
                             <div class="relative flex-grow max-w-full flex-1 px-4">
                                 <label>Pilih Tarikh</label>
-                                <multiselect v-model="form.taman" :options="tamanOptions" placeholder="Sila Pilih"
-                                    label="name" track-by="id" @select="changeTaman()">
-                                </multiselect>
+                               <input type="date" v-model="form.tarikh" class="multiselect__input">
                             </div>
                         </div>
                     </td>
@@ -121,8 +131,8 @@ const search = () => router.get(route('jadual',form),{
         </table>
 
 
-                            <!-- <button class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded py-1 px-3 leading-normal no-underline text-blue-600 border-blue-600 hover:bg-blue-600 hover:text-white bg-white hover:bg-blue-600 mb-2">Primary</button> -->
-                            <button @click="search" class="btn btn-primary rounded my-5">Cari</button>
+        <!-- <button class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded py-1 px-3 leading-normal no-underline text-blue-600 border-blue-600 hover:bg-blue-600 hover:text-white bg-white hover:bg-blue-600 mb-2">Primary</button> -->
+        <button @click="search" class="btn btn-primary rounded my-5" :class="{'p-10':form.processing}" >Cari</button>
 
         <DataTable :data="$page.props.jadual" class="display table" :columns="columns">
             <thead>
