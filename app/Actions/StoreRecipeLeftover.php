@@ -15,21 +15,25 @@ class StoreRecipeLeftover
      *
      * @param  array<string, string>  $input
      */
-    public function __invoke(Any $input): void
+    public function __invoke($request): void
     {
-        Validator::make($input, [
+        $input = Validator::make($request->all(), [
             'title' => ['required', 'string', 'max:255'],
             'description' => ['required', 'string'],
             'image' => ['nullable', 'mimes:jpg,jpeg,png', 'max:1024'],
         ])->validateWithBag('updateProfileInformation');
 
-        $data = new PublicRecipeLeftover();
 
+        $PublicRecipeLeftover = new PublicRecipeLeftover();
+        //  dd($input);
         if (isset($input['image'])) {
-            $file = $input->file('image');
+            $file = $input['image'];
             $filename = date('YmdHi') . $file->getClientOriginalName();
-            $file->move(public_path('public/Image'), $filename);
-            $data['image'] = $filename;
+            // Store the file in the 'public' disk (you can configure other disks if needed)
+            $file->storeAs('public/Image', $filename);
+
+            // Update the model's image attribute with the stored file path
+            $PublicRecipeLeftover->image = 'storage/Image/' . $filename;
 
             // tap($this->profile_photo_path, function ($previous) use ($photo, $storagePath) {
             //     $this->forceFill([
@@ -45,11 +49,13 @@ class StoreRecipeLeftover
             // });
         }
 
-        PublicRecipeLeftover::create([
-            'title' => $input['title'],
-            'description' => $input['description'],
-            'status' => 0
-        ]);
+        $PublicRecipeLeftover->title = $input['title'];
+        $PublicRecipeLeftover->description = $input['description'];
+        $PublicRecipeLeftover->status = 1;
+        $PublicRecipeLeftover->created_by = auth()->user()->id;
+
+
+        $PublicRecipeLeftover->save();
     }
 
 }

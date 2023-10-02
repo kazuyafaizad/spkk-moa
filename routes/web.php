@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AduanController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\JadualController;
 use App\Http\Controllers\RecipeLeftoverController;
 use App\Models\IntegrationPark;
@@ -23,14 +24,7 @@ use Illuminate\Support\Facades\Request as RequestFacade;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Dashboard', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-})->name('dashboard');
+Route::get('/', [DashboardController::class,'index'])->name('dashboard');
 
 Route::get('/jadual', [JadualController::class, 'index'])->name('jadual');
 
@@ -53,6 +47,8 @@ Route::get('/kitar-semula', function () {
 Route::get('/resepi-leftover', [RecipeLeftoverController::class,'index'])->name('resepileftover');
 Route::get('/resepi-leftover/create', [RecipeLeftoverController::class, 'create'])->name('resepileftover.admin');
 Route::post('/resepi-leftover', [RecipeLeftoverController::class, 'store'])->name('resepileftover.admin.store');
+Route::get('/resepi-leftover/show/{recipe}', [RecipeLeftoverController::class, 'show'])->name('recipe.show');
+
 
 Route::get('/admin', function () {
     return Inertia::render('Admin', [

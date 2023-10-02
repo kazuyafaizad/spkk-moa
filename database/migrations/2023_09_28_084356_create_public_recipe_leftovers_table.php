@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->text('description');
             $table->integer('status');
+            $table->integer('created_by');
             $table->timestamps();
         });
     }

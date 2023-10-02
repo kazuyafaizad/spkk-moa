@@ -16,22 +16,22 @@ const props = defineProps({
 const form = useForm({
     title: "",
     description: "",
-    photo: null,
+    image: null,
 });
 
 const verificationLinkSent = ref(null);
-const photoPreview = ref(null);
-const photoInput = ref(null);
+const imagePreview = ref(null);
+const imageInput = ref(null);
 
 const updateProfileInformation = () => {
-    if (photoInput.value) {
-        form.photo = photoInput.value.files[0];
+    if (imageInput.value) {
+        form.image = imageInput.value.files[0];
     }
 
     form.post(route('resepileftover.admin.store'), {
         errorBag: 'updateProfileInformation',
         preserveScroll: true,
-        onSuccess: () => clearPhotoFileInput(),
+        onSuccess: () => clearImageFileInput(),
     });
 };
 
@@ -39,37 +39,37 @@ const sendEmailVerification = () => {
     verificationLinkSent.value = true;
 };
 
-const selectNewPhoto = () => {
-    photoInput.value.click();
+const selectNewImage = () => {
+    imageInput.value.click();
 };
 
-const updatePhotoPreview = () => {
-    const photo = photoInput.value.files[0];
+const updateImagePreview = () => {
+    const image = imageInput.value.files[0];
 
-    if (! photo) return;
+    if (! image) return;
 
     const reader = new FileReader();
 
     reader.onload = (e) => {
-        photoPreview.value = e.target.result;
+        imagePreview.value = e.target.result;
     };
 
-    reader.readAsDataURL(photo);
+    reader.readAsDataURL(image);
 };
 
-const deletePhoto = () => {
-    router.delete(route('current-user-photo.destroy'), {
+const deleteImage = () => {
+    router.delete(route('current-user-image.destroy'), {
         preserveScroll: true,
         onSuccess: () => {
-            photoPreview.value = null;
-            clearPhotoFileInput();
+            imagePreview.value = null;
+            clearImageFileInput();
         },
     });
 };
 
-const clearPhotoFileInput = () => {
-    if (photoInput.value?.value) {
-        photoInput.value.value = null;
+const clearImageFileInput = () => {
+    if (imageInput.value?.value) {
+        imageInput.value.value = null;
     }
 };
 </script>
@@ -85,28 +85,28 @@ const clearPhotoFileInput = () => {
         </template>
 
         <template #form>
-            <!-- Profile Photo -->
+            <!-- Profile Image -->
             <div class="col-span-12 sm:col-span-6 flex flex-col items-center">
-                <!-- Profile Photo File Input -->
-                <input ref="photoInput" type="file" class="hidden" @change="updatePhotoPreview">
+                <!-- Profile Image File Input -->
+                <input ref="imageInput" type="file" class="hidden" @change="updateImagePreview">
 
-                <InputLabel for="photo" value="Imej" />
+                <InputLabel for="image" value="Imej" />
 
-                <!-- New Profile Photo Preview -->
-                <div v-show="photoPreview" class="mt-2">
+                <!-- New Profile Image Preview -->
+                <div v-show="imagePreview" class="mt-2">
                     <span class="block  w-72 h-72 bg-cover bg-no-repeat bg-center"
-                        :style="'background-image: url(\'' + photoPreview + '\');'" />
+                        :style="'background-image: url(\'' + imagePreview + '\');'" />
                 </div>
 
-                <SecondaryButton class="mt-2 mr-2" type="button" @click.prevent="selectNewPhoto">
+                <SecondaryButton class="mt-2 mr-2" type="button" @click.prevent="selectNewImage">
                     Pilih imej di Komputer
                 </SecondaryButton>
 
-                <SecondaryButton v-if="resepi.image" type="button" class="mt-2" @click.prevent="deletePhoto">
-                    Remove Photo
+                <SecondaryButton v-if="resepi.image" type="button" class="mt-2" @click.prevent="deleteImage">
+                    Remove Image
                 </SecondaryButton>
 
-                <InputError :message="form.errors.photo" class="mt-2" />
+                <InputError :message="form.errors.image" class="mt-2" />
             </div>
 
             <!-- Name -->

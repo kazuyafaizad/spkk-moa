@@ -11,24 +11,28 @@ class RecipeLeftoverController extends Controller
 {
     public function index()
     {
-        $resepi = PublicRecipeLeftover::all();
+        $recipe = PublicRecipeLeftover::with('created_by_user')->orderBy('id','desc')->paginate();
 
         return Inertia::render('ResepiLeftover/Index',[
-            'resepi' => $resepi
+            'recipe' => $recipe
         ]);
     }
 
     public function create()
     {
-        $resepi = PublicRecipeLeftover::all();
 
-        return Inertia::render('ResepiLeftover/Create', [
-            'resepi' => $resepi
-        ]);
+        return Inertia::render('ResepiLeftover/Create');
     }
 
     public function store(Request $request)
     {
         (new StoreRecipeLeftover)->__invoke($request);
+    }
+
+    public function show(PublicRecipeLeftover $recipe)
+    {
+        return Inertia::render('ResepiLeftover/Show', [
+            'recipe' => $recipe
+        ]);
     }
 }

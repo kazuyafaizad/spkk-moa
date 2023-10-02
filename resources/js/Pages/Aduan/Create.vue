@@ -1,6 +1,12 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
 import FormMaklumatAsas from './Partials/FormMaklumatAsas.vue';
+import FormJadual from './Partials/FormJadual.vue';
+
+defineProps({
+    filters: Object,
+});
+
 </script>
 
 <template>
@@ -11,11 +17,7 @@ import FormMaklumatAsas from './Partials/FormMaklumatAsas.vue';
             </h2>
         </template>
 
-
-        <FormMaklumatAsas />
-        <div class="w-full max-w-full mb-4 bg-transparent">
-
-
-        </div>
+        <!-- <FormMaklumatAsas /> -->
+        <FormJadual :filters="filters"/>
     </AppLayout>
 </template>
