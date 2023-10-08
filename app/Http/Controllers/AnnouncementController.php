@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Actions\EditAnnouncement;
+use App\Actions\StoreAnnouncement;
 use App\Models\PublicAnnouncement;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -10,10 +12,10 @@ class AnnouncementController extends Controller
 {
     public function index()
     {
-        $recipe = PublicAnnouncement::with('created_by_user')->orderBy('id', 'desc')->paginate();
+        $announcement = PublicAnnouncement::with('created_by_user')->orderBy('id', 'desc')->paginate();
 
         return Inertia::render('Announcement/Index', [
-            'recipe' => $recipe
+            'announcement' => $announcement
         ]);
     }
 
@@ -25,25 +27,25 @@ class AnnouncementController extends Controller
 
     public function store(Request $request)
     {
-        (new StoreRecipeLeftover)->__invoke($request);
+        (new StoreAnnouncement)->__invoke($request);
     }
 
-    public function show(PublicAnnouncement $recipe)
+    public function show(PublicAnnouncement $announcement)
     {
         return Inertia::render('Announcement/Show', [
-            'recipe' => $recipe
+            'announcement' => $announcement
         ]);
     }
 
-    public function edit(PublicAnnouncement $recipe)
+    public function edit(PublicAnnouncement $announcement)
     {
         return Inertia::render('Announcement/Edit', [
-            'recipe' => $recipe
+            'announcement' => $announcement
         ]);
     }
 
     public function update(Request $request)
     {
-        (new EditRecipeLeftover)->__invoke($request);
+        (new EditAnnouncement)->__invoke($request);
     }
 }

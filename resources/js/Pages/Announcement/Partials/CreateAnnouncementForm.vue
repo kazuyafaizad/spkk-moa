@@ -15,7 +15,8 @@ const props = defineProps({
 
 const form = useForm({
     title: "",
-    description: "",
+    content: "",
+    display_at:new Date(),
     image: null,
 });
 
@@ -23,13 +24,13 @@ const verificationLinkSent = ref(null);
 const imagePreview = ref(null);
 const imageInput = ref(null);
 
-const storeRecipe = () => {
+const storeAnnouncement = () => {
     if (imageInput.value) {
         form.image = imageInput.value.files[0];
     }
 
-    form.post(route('resepileftover.store'), {
-        errorBag: 'storeRecipe',
+    form.post(route('announcement.store'), {
+        errorBag: 'storeAnnouncement',
         preserveScroll: true,
         onSuccess: () => clearImageFileInput(),
     });
@@ -75,7 +76,7 @@ const clearImageFileInput = () => {
 </script>
 
 <template>
-    <FormSection @submitted="storeRecipe">
+    <FormSection @submitted="storeAnnouncement">
         <template #title>
 
         </template>
@@ -117,12 +118,19 @@ const clearImageFileInput = () => {
                 <InputError :message="form.errors.title" class="mt-2" />
             </div>
 
-            <!-- Email -->
             <div class="col-span-12 sm:col-span-6">
-                <InputLabel for="email" value="Keterangan" />
-                <textarea id="description" v-model="form.description" type="text" class="mt-1 block w-full h-32" required
-                    autocomplete="description" />
-                <InputError :message="form.errors.description" class="mt-2" />
+                    <InputLabel for="display_at" value="Papar Pada" />
+                    <input id="display_at" v-model="form.display_at" type="datetime-local" class="mt-1 block w-full" required
+                        autocomplete="display_at" />
+                    <InputError :message="form.errors.display_at" class="mt-2" />
+            </div>
+
+
+            <div class="col-span-12 sm:col-span-6">
+                <InputLabel for="email" value="Kandungan" />
+                <textarea id="content" v-model="form.content" type="text" class="mt-1 block w-full h-32" required
+                    autocomplete="content" />
+                <InputError :message="form.errors.content" class="mt-2" />
             </div>
         </template>
 

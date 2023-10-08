@@ -17,6 +17,11 @@ class PublicAnnouncement extends Model
         $this->attributes['display_at'] = \Carbon\Carbon::parse($value);
     }
 
+    protected $casts = [
+        'display_at' => "date:Y-m-d\TH:i",
+        'status' => 'boolean'
+    ];
+
     // Define a scope to get announcements that are ready to be displayed based on time
     public function scopeReadyToDisplay($query)
     {

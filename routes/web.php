@@ -83,8 +83,8 @@ use Illuminate\Support\Facades\Request as RequestFacade;
     Route::get('/tambah', [AnnouncementController::class, 'create'])->name('create');
     Route::post('/', [AnnouncementController::class, 'store'])->name('store');
     Route::put('/', [AnnouncementController::class, 'update'])->name('update');
-    Route::get('/id/{recipe}', [AnnouncementController::class, 'show'])->name('show');
-    Route::get('/edit/{recipe}', [AnnouncementController::class, 'edit'])->name('edit');
+    Route::get('/id/{announcement}', [AnnouncementController::class, 'show'])->name('show');
+    Route::get('/edit/{announcement}', [AnnouncementController::class, 'edit'])->name('edit');
     });
 
 

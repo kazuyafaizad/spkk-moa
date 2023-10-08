@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->text('content');
             $table->timestamp('display_at')->nullable();
+            $table->integer('status');
+            $table->integer('created_by');
             $table->timestamps();
         });
     }

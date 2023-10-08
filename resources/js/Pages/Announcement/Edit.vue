@@ -1,7 +1,7 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
 import SectionBorder from '@/Components/SectionBorder.vue';
-import EditRecipeLeftoverForm from './Partials/EditAnnouncementForm.vue';
+import EditAnnouncementForm from './Partials/EditAnnouncementForm.vue';
 
 defineProps({
     confirmsTwoFactorAuthentication: Boolean,
@@ -19,7 +19,7 @@ defineProps({
 
         <div>
             <div class="w-full max-w-full mb-4 bg-transparent">
-                <EditRecipeLeftoverForm :recipe="$page.props.recipe" />
+                <EditAnnouncementForm :announcement="$page.props.announcement" />
             </div>
         </div>
     </AppLayout>

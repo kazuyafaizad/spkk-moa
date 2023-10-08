@@ -184,7 +184,7 @@ code {
   background: transparent; }
 
 .navbar {
-  z-index: 1030;
+  /* z-index: 1030; */
   padding: 10px 0 20px 0;
   background: transparent;
   margin: 0 32px; }

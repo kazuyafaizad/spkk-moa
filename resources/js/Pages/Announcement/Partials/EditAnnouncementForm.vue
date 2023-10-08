@@ -10,14 +10,15 @@ import SecondaryButton from '@/Components/SecondaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 
 const props = defineProps({
-    recipe: Object,
+    announcement: Object,
 });
 
 const form = useForm({
     _method: 'PUT',
-    id:props.recipe.id,
-    title: props.recipe.title,
-    description: props.recipe.description,
+    id:props.announcement.id,
+    title: props.announcement.title,
+    display_at : props.announcement.display_at,
+    content: props.announcement.content,
     image: null,
 });
 
@@ -30,7 +31,7 @@ const updateRecipe = () => {
         form.image = imageInput.value.files[0];
     }
 
-    form.post(route('resepileftover.update'), {
+    form.post(route('announcement.update'), {
         errorBag: 'updateRecipeLeftover',
         preserveScroll: true,
         onSuccess: () => clearImageFileInput(),
@@ -88,7 +89,7 @@ const checkURL = (url) =>{
         </template>
 
         <template #description>
-            Tambah resepi leftover beserta dengan imej, tajuk dan keterangan. Gambar hendaklah berukuran 1024px x 1024px.
+            Sunting Pengumuman beserta dengan imej, tajuk dan keterangan. Gambar hendaklah berukuran 1024px x 1024px.
         </template>
 
         <template #form>
@@ -100,7 +101,7 @@ const checkURL = (url) =>{
                 <InputLabel for="image" value="Imej" />
 
                 <div v-show="!imagePreview" class="mt-2">
-                        <img :src="checkURL($page.props.recipe.image) ? $page.props.recipe.image : '/' + $page.props.recipe.image" :alt="recipe.title" class="w-72 h-72 bg-cover bg-no-repeat bg-center">
+                        <img :src="checkURL($page.props.announcement.image) ? $page.props.announcement.image : '/' + $page.props.announcement.image" :alt="announcement.title" class="w-72 h-72 bg-cover bg-no-repeat bg-center">
                     </div>
                 <!-- New Profile Image Preview -->
                 <div v-show="imagePreview" class="mt-2">
@@ -112,14 +113,14 @@ const checkURL = (url) =>{
                     Pilih imej di Komputer
                 </SecondaryButton>
 
-                <!-- <SecondaryButton v-if="recipe?.image" type="button" class="mt-2" @click.prevent="deleteImage">
+                <!-- <SecondaryButton v-if="announcement?.image" type="button" class="mt-2" @click.prevent="deleteImage">
                     Remove Image
                 </SecondaryButton> -->
 
                 <InputError :message="form.errors.image" class="mt-2" />
             </div>
 
-            <!-- Name -->
+
             <div class="col-span-12 sm:col-span-6">
                 <InputLabel for="title" value="Tajuk" />
                 <TextInput id="title" v-model="form.title" type="text" class="mt-1 block w-full" required
@@ -127,12 +128,18 @@ const checkURL = (url) =>{
                 <InputError :message="form.errors.title" class="mt-2" />
             </div>
 
-            <!-- Email -->
+            <div class="col-span-12 sm:col-span-6">
+                        <InputLabel for="display_at" value="Papar Pada" />
+                        <input id="display_at" v-model="form.display_at" type="datetime-local" class="mt-1 block w-full" required
+                            autocomplete="display_at" />
+                        <InputError :message="form.errors.display_at" class="mt-2" />
+            </div>
+
             <div class="col-span-12 sm:col-span-6">
                 <InputLabel for="email" value="Keterangan" />
-                <textarea id="description" v-model="form.description" type="text" class="mt-1 block w-full h-32" required
-                    autocomplete="description" />
-                <InputError :message="form.errors.description" class="mt-2" />
+                <textarea id="content" v-model="form.content" type="text" class="mt-1 block w-full h-32" required
+                    autocomplete="content" />
+                <InputError :message="form.errors.content" class="mt-2" />
             </div>
         </template>
 

@@ -20,6 +20,11 @@ const useSearch = () => {
         only:['recipe','jadual']
     })
 }
+
+const checkURL = (url) =>{
+     const urlRegex = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i;
+    return urlRegex.test(url);
+}
 </script>
 
 <template>
@@ -36,12 +41,14 @@ const useSearch = () => {
                 </template>
 
                 <template #content>
-                    {{ content }}
+                    <template v-if="$page.props.announcement.length > 0">
+                     <img :src="checkURL($page.props.announcement[0].image) ? $page.props.announcement[0].image : '/' + $page.props.announcement[0].image" class="w-full max-w-lg mx-auto" >
+                    </template>
                 </template>
 
                 <template #footer>
                     <SecondaryButton @click="closeModal">
-                        Cancel
+                        Batal
                     </SecondaryButton>
                 </template>
             </DialogModal>

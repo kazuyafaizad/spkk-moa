@@ -58,11 +58,11 @@ const form = useForm({
 
             <template #actions>
                 <ActionMessage :on="form.recentlySuccessful" class="mr-3">
-                    Saved.
+                    Berjaya Disimpan.
                 </ActionMessage>
 
                 <PrimaryButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Save
+                    Simpan
                 </PrimaryButton>
             </template>
         </FormSection>

@@ -53,7 +53,15 @@ function update() {
     <AppLayout title="Admin">
         <template #header>
             <h2 class="font-semibold text-2xl  text-[#3b3f5c]">
-                Admin
+                <template v-if="pageView == 'aduan'">
+                    Aduan Awam
+                </template>
+                <template v-if="pageView == 'announcement'">
+                        Pengumuman Awam
+                </template>
+                <template v-if="pageView == 'recipe'">
+                    Resepi Leftover
+                </template>
             </h2>
         </template>
 
@@ -71,7 +79,6 @@ function update() {
 
             <div class="mt-5 md:mt-0 md:col-span-2">
                  <div v-if="pageView == 'aduan'">
-                            <h2>Aduan</h2>
 
                             <table>
                                 <thead>
@@ -91,27 +98,25 @@ function update() {
                     </div>
 
                  <div v-if="pageView == 'announcement'">
-                        <h2>Pengumuman Awam</h2>
                         <Link class="btn btn-primary rounded my-4"  :href="route('announcement.create')" as="button" v-if="$page.props.auth.user?.role_id === 2">Tambah Pengumuman</Link>
-                        <table>
-                            <thead>
-                                <th>Bil.</th>
-                                <th>Tajuk</th>
+                        <table class="table w-full">
+                            <thead class="border">
+                                <th class="p-2 bg-blue-100">Bil.</th>
+                                <th class="p-2 bg-blue-100">Tajuk</th>
                             </thead>
-                            <tbody>
+                            <tbody class="border">
                                 <tr v-for="(announcement, i) in $page.props.announcement.data" :key="i">
-                                    <td>{{ (pageSize * currentPage) - pageSize + i + 1 }}</td>
-                                    <td><Link :href="route('announcement.edit', { announcement: announcement.id })">{{ announcement.title }}</Link></td>
+                                    <td class="p-2">{{ ($page.props.announcement.per_page * $page.props.announcement.current_page) - $page.props.announcement.per_page + i + 1 }}</td>
+                                    <td class="p-2"><Link :href="route('announcement.edit', { announcement: announcement.id })">{{ announcement.title }}</Link></td>
                                 </tr>
                             </tbody>
                         </table>
-                        <!-- <div class="mt-4">
+                        <div class="mt-4">
                            <Pagination class="mt-6" :links="$page.props.announcement.links" />
-                        </div> -->
+                        </div>
                 </div>
                 <div v-if="pageView == 'recipe'">
 
-                    <h2>Resepi Leftover</h2>
                     <Link class="btn btn-primary rounded my-4"  :href="route('resepileftover.create')" as="button" v-if="$page.props.auth.user?.role_id === 2">Tambah Resipi</Link>
 <!--
                     <DataTable :data="$page.props.recipe" class="display table"  :columns="recipeColumns"  :options="{ select: true }" ref="table">
@@ -120,8 +125,8 @@ function update() {
 
                     <table class="table w-full">
                         <thead class="border">
-                            <th class="p-2 bg-teal-100">Bil.</th>
-                            <th class="p-2 bg-teal-100">Tajuk</th>
+                            <th class="p-2 bg-blue-100">Bil.</th>
+                            <th class="p-2 bg-blue-100">Tajuk</th>
                         </thead>
                         <tbody class="border">
                             <tr v-for="(recipe,i) in $page.props.recipe.data" :key="i">
