@@ -20,7 +20,7 @@ const prop = defineProps({
         </template>
 
         <div class="w-full max-w-full mb-4 bg-transparent">
-            <Link class="btn btn-primary rounded" :href="route('aduan.create')" as="button">Tambah Aduan</Link>
+            <Link class="btn btn-primary rounded" :href="route('complaint.create')" as="button">Tambah Aduan</Link>
 
             <section class="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
             <div class="flex items-center p-8 bg-white shadow rounded-lg">

@@ -70,7 +70,7 @@ const data = [
 
 const showNoJadual = ref(false)
 
-const search = () => router.visit(route('aduan.create',form),{
+const search = () => router.visit(route('complaint.create',form),{
     preserveState: true,
     only:['jadual'],
     onSuccess:() =>{

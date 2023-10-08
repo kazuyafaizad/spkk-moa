@@ -349,7 +349,7 @@ const logout = () => {
                                 <span>Kutipan Sisa Industri</span>
                             </div>
                         </NavLink>
-                        <NavLink :href="route('aduan.index')" :active="route().current('aduan.*')">
+                        <NavLink :href="route('complaint.index')" :active="route().current('complaint.*')">
                             <div class="flex items-center justify-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -383,7 +383,7 @@ const logout = () => {
                                 <span>Resepi Leftover</span>
                             </div>
                         </NavLink>
-                        <NavLink :href="route('admin.index')" :active="route().current('admin.index')">
+                        <NavLink :href="route('admin.index')" :active="route().current('admin.index')" v-if="$page.props.auth.user?.role_id === 2">
                             <div class="flex items-center justify-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -503,7 +503,7 @@ const logout = () => {
 
                         <div class="xl:w-full  lg:w-full   sm:w-full  layout-spacing">
                             <div class="widget-content widget-content-area br-6">
-                                <div class="block w-full overflow-auto scrolling-touch mb-4 mt-4">
+                                <div class="block w-full overflow-auto scrolling-touch mb-4 mt-4 max-w-7xl mx-auto">
                                     <!-- Page Heading -->
 
                                     <div class="flex flex-wrap mb-5" v-if="$slots.header">
@@ -525,6 +525,7 @@ const logout = () => {
 
 <style>
 .app-bg{
+    height:100vh;
     background: rgb(9,121,33);
     background: linear-gradient(90deg, rgba(9,121,33,0.29968483975621496) 0%, rgba(0,212,255,1) 100%);
 }

@@ -17,7 +17,7 @@
 </head>
 
 <body class="font-sans antialiased sidebar-noneoverflow"
-    style="background:url('/assets/img/pexels-shvets-production-7512859.jpg') no-repeat center center fixed;
+    style="background:url('/assets/img/pexels-anete-lusina-4792666.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

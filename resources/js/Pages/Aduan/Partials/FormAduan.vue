@@ -11,6 +11,13 @@ import TextInput from '@/Components/TextInput.vue';
 const storeAduan = ()=>{
 
 }
+
+const form = useForm({
+    taman:route().params.taman?.name,
+    jalan:route().params.jalan?.name,
+    aduan:""
+
+})
 </script>
 
 <template>
@@ -39,12 +46,12 @@ const storeAduan = ()=>{
 
                 <!-- Name -->
                 <div class="col-span-6 sm:col-span-4">
-                    <InputLabel for="name" value=" Keterangan Aduan" />
+                    <InputLabel for="aduan" value=" Keterangan Aduan" />
                      <textarea
                         class="block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded"
-                        id="alamat" rows="3"
+                        id="aduan" rows="3"
                         placeholder="Masukkan keterangan aduan"></textarea>
-                    <InputError :message="form.errors.name" class="mt-2" />
+                    <InputError :message="form.errors.aduan" class="mt-2" />
                 </div>
 
             </template>

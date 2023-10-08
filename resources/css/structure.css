@@ -20,7 +20,7 @@ body {
   overflow-y: auto;
   letter-spacing: 0.0312rem;
   font-family: 'Quicksand', sans-serif;
-  max-width: 1600px;
+  /* max-width: 1600px; */
   margin: 0 auto; }
 
 h1, h2, h3, h4, h5, h6 {

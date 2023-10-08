@@ -5,6 +5,7 @@ use App\Http\Controllers\AduanController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\JadualController;
 use App\Http\Controllers\KitarSemulaController;
+use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\RecipeLeftoverController;
 use App\Http\Controllers\SisaIndustriController;
 use App\Models\IntegrationPark;
@@ -45,7 +46,7 @@ use Illuminate\Support\Facades\Request as RequestFacade;
 
 
     // Aduan Routes
-    Route::prefix('aduan')->name('aduan.')->group(function () {
+    Route::prefix('aduan')->name('complaint.')->group(function () {
         Route::get('/', [AduanController::class, 'index'])->name('index');
         Route::middleware('auth')->group(function () {
             Route::get('/tambah', [AduanController::class, 'create'])->name('create');
@@ -74,6 +75,18 @@ use Illuminate\Support\Facades\Request as RequestFacade;
     Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/', [AdminController::class, 'index'])->name('index');
     });
+
+
+     // Annoucement Routes
+    Route::prefix('announcement')->name('announcement.')->group(function () {
+    Route::get('/', [AnnouncementController::class, 'index'])->name('index');
+    Route::get('/tambah', [AnnouncementController::class, 'create'])->name('create');
+    Route::post('/', [AnnouncementController::class, 'store'])->name('store');
+    Route::put('/', [AnnouncementController::class, 'update'])->name('update');
+    Route::get('/id/{recipe}', [AnnouncementController::class, 'show'])->name('show');
+    Route::get('/edit/{recipe}', [AnnouncementController::class, 'edit'])->name('edit');
+    });
+
 
 
 

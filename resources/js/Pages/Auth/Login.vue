@@ -61,7 +61,7 @@ const submit = () => {
                 <TextInput
                     id="password"
                     v-model="form.password"
-                    type="password"
+                    typeValue="password"
                     class="mt-1 block w-full"
                     required
                     autocomplete="current-password"
