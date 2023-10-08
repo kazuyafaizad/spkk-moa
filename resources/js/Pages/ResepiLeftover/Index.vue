@@ -2,56 +2,13 @@
 import { ref } from 'vue';
 import AppLayout from '@/Layouts/AppLayout.vue';
 import { Link, router, useForm } from '@inertiajs/vue3';
-import DialogModal from '@/Components/DialogModal.vue';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
-import TextInput from '@/Components/TextInput.vue';
-import ActionMessage from '@/Components/ActionMessage.vue';
-import InputError from '@/Components/InputError.vue';
-import InputLabel from '@/Components/InputLabel.vue';
-import SecondaryButton from '@/Components/SecondaryButton.vue';
 
-
-const displayingToken = ref(false);
-const photoPreview = ref(null);
-const photoInput = ref(null);
-
-const selectNewPhoto = () => {
-    photoInput.value.click();
-};
 
 
 
 const form = useForm({
-    title: "",
-    description: "",
-    image: null,
+    search: "",
 });
-
-const updateProfileInformation = () => {
-    if (photoInput.value) {
-        form.image = photoInput.value.files[0];
-    }
-
-    form.post(route(''), {
-        errorBag: 'updateProfileInformation',
-        preserveScroll: true,
-        onSuccess: () => clearPhotoFileInput(),
-    });
-};
-
-const updatePhotoPreview = () => {
-    const photo = photoInput.value.files[0];
-
-    if (! photo) return;
-
-    const reader = new FileReader();
-
-    reader.onload = (e) => {
-        photoPreview.value = e.target.result;
-    };
-
-    reader.readAsDataURL(photo);
-};
 
 
 </script>
@@ -67,8 +24,8 @@ const updatePhotoPreview = () => {
 
         <div class="w-full max-w-full mb-4 bg-transparent">
             <div class="my-4">
-                <Link class="btn btn-primary rounded my-4"  :href="route('resepileftover.admin')" as="button" v-if="$page.props.auth.user?.role_id === 2">Tambah Resipi</Link>
-                <button class="btn btn-secondary rounded ml-4 my-4" v-if="$page.props.auth.user?.role_id === 2" >Post saya</button>
+
+                <!-- <button class="btn btn-secondary rounded ml-4 my-4" v-if="$page.props.auth.user?.role_id === 2" >Post saya</button> -->
                 <div class="font-sans text-black   bg-white flex items-center justify-center w-1/4">
                     <div class="border rounded overflow-hidden grid grid-cols-6 w-full">
                         <input type="text" class="px-4 py-2 col-span-5" placeholder="Cari Resipi Leftover" v-model="form.search">
@@ -85,8 +42,8 @@ const updatePhotoPreview = () => {
               </h4>
             <div class="mt-8 grid lg:grid-cols-3 gap-10">
             <template v-for="(r, i) in $page.props.recipe.data" :key="i">
-                <Link :href="route('recipe.show', { recipe: r.id })">
-                <div class="card hover:shadow-lg transform transition duration-500 hover:scale-110 z-10" >
+                <Link :href="route('resepileftover.show', { recipe: r.id })">
+                <div class="card hover:shadow-lg transform transition duration-500 z-10" >
                     <img
                     :src="r.image"
                     alt="stew"

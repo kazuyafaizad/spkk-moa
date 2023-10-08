@@ -1,10 +1,19 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
+import { ref, reactive, nextTick } from 'vue';
 import { useForm,router } from '@inertiajs/vue3';
+import DialogModal from '@/Components/DialogModal.vue';
+import SecondaryButton from '@/Components/SecondaryButton.vue';
 
 const form = useForm({
     "search":""
 });
+
+const showAnnouncement = ref(true);
+
+const closeModal = () => {
+    showAnnouncement.value = false;
+};
 
 const useSearch = () => {
     form.get(route('dashboard'),{
@@ -16,14 +25,28 @@ const useSearch = () => {
 <template>
     <AppLayout title="Dashboard">
         <template #header>
-            <h2 class="font-semibold text-2xl  text-[#3b3f5c] text-center">
-               Selamat Datang ke Modul Orang Awam SWCorp
+            <h2 class="font-semibold text-2xl text-[#3b3f5c] "  >
+               Senarai Kemudahan Modul Orang Awam
             </h2>
-
-
         </template>
 
-            <div class="relative flex items-stretch w-full my-4">
+        <DialogModal :show="showAnnouncement" @close="closeModal">
+                <template #title>
+                  PENGUMUMAN
+                </template>
+
+                <template #content>
+                    {{ content }}
+                </template>
+
+                <template #footer>
+                    <SecondaryButton @click="closeModal">
+                        Cancel
+                    </SecondaryButton>
+                </template>
+            </DialogModal>
+
+            <div class="relative flex items-stretch w-full max-w-screen-xl mx-auto mt-4">
                 <div class="font-sans text-black   bg-white flex items-center justify-center w-full">
                 <div class="border rounded overflow-hidden grid grid-cols-6 w-full">
                     <input type="text" class="px-4 py-2 col-span-5" placeholder="Cari Jadual, Resipi Leftover" v-model="form.search">
@@ -33,33 +56,8 @@ const useSearch = () => {
                 </div>
                 </div>
             </div>
-            <template v-if="$page.props.recipe">
 
-                <div class="card component-card_1" v-for="(recipe, i) in $page.props.recipe.data" :key="i">
-                        <div class="card-body">
-                            <div class="icon-svg">
-                                <svg> ... </svg>
-                            </div>
-                            <h5 class="card-title">{{ recipe.title }}</h5>
-                        </div>
-                </div>
-
-            </template>
-
-            <template v-if="$page.props.jadual">
-                 <div class="card component-card_1" v-for="(jadual, i) in $page.props.jadual.data" :key="i">
-                    <div class="card-body">
-                        <div class="icon-svg">
-                            <svg> ... </svg>
-                        </div>
-                        <h5 class="card-title">{{ jadual.date }}</h5>
-                        <p class="card-text">{{ jadual.park_name }}</p>
-                    </div>
-                 </div>
-
-            </template>
-            <h2 class="text-2xl mt-5">Senarai Kemudahan Modul Orang Awam</h2>
-            <div class="grid md:grid-cols-3 max-w-screen-lg mx-auto gap-10 mt-16 px-5">
+            <div class="grid md:grid-cols-3 max-w-screen-xl mx-auto gap-10 mt-16 px-5">
 
                 <div class="flex gap-4 items-start flex-col ">
                     <span class="text-teal-600 bg-violet-500/10 p-3 rounded-full"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5"><path d="M9.96424 2.68571C10.0668 2.42931 9.94209 2.13833 9.6857 2.03577C9.4293 1.93322 9.13832 2.05792 9.03576 2.31432L5.03576 12.3143C4.9332 12.5707 5.05791 12.8617 5.3143 12.9642C5.5707 13.0668 5.86168 12.9421 5.96424 12.6857L9.96424 2.68571ZM3.85355 5.14646C4.04882 5.34172 4.04882 5.6583 3.85355 5.85356L2.20711 7.50001L3.85355 9.14646C4.04882 9.34172 4.04882 9.6583 3.85355 9.85356C3.65829 10.0488 3.34171 10.0488 3.14645 9.85356L1.14645 7.85356C0.951184 7.6583 0.951184 7.34172 1.14645 7.14646L3.14645 5.14646C3.34171 4.9512 3.65829 4.9512 3.85355 5.14646ZM11.1464 5.14646C11.3417 4.9512 11.6583 4.9512 11.8536 5.14646L13.8536 7.14646C14.0488 7.34172 14.0488 7.6583 13.8536 7.85356L11.8536 9.85356C11.6583 10.0488 11.3417 10.0488 11.1464 9.85356C10.9512 9.6583 10.9512 9.34172 11.1464 9.14646L12.7929 7.50001L11.1464 5.85356C10.9512 5.6583 10.9512 5.34172 11.1464 5.14646Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></span>
@@ -101,10 +99,38 @@ const useSearch = () => {
                             <p class="mt-1 text-gray-500">Panduand dan resepi Guna semula leftover </p>
                         </div>
                     </div>
-
-
-
             </div>
+
+            <div class="max-w-screen-xl mx-auto gap-10 mt-16 px-5">
+             <template v-if="$page.props.recipe">
+                <h3 class="text-lg mb-4">Resepi</h3>
+                    <div class="card component-card_1" v-for="(recipe, i) in $page.props.recipe.data" :key="i">
+                            <div class="card-body">
+                                <div class="icon-svg">
+                                    <img :src="recipe.image" class="w-24">
+                                </div>
+                                <h5 class="card-title">{{ recipe.title }}</h5>
+                            </div>
+                    </div>
+
+                </template>
+
+                <template v-if="$page.props.jadual">
+                    <h3 class="text-lg mb-4">Jadual</h3>
+                     <div class="card component-card_1" v-for="(jadual, i) in $page.props.jadual.data" :key="i">
+                        <div class="card-body">
+                            <div class="icon-svg">
+                                <svg> ... </svg>
+                            </div>
+                            <h5 class="card-title">{{ jadual.date }}</h5>
+                            <p class="card-text">{{ jadual.park_name }}</p>
+                        </div>
+                     </div>
+                </template>
+            </div>
+
+
+
 
 
     </AppLayout>

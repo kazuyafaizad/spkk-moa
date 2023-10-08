@@ -10,12 +10,14 @@ import SecondaryButton from '@/Components/SecondaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 
 const props = defineProps({
-    resepi: Object,
+    recipe: Object,
 });
 
 const form = useForm({
-    title: "",
-    description: "",
+    _method: 'PUT',
+    id:props.recipe.id,
+    title: props.recipe.title,
+    description: props.recipe.description,
     image: null,
 });
 
@@ -23,13 +25,13 @@ const verificationLinkSent = ref(null);
 const imagePreview = ref(null);
 const imageInput = ref(null);
 
-const storeRecipe = () => {
+const updateRecipe = () => {
     if (imageInput.value) {
         form.image = imageInput.value.files[0];
     }
 
-    form.post(route('resepileftover.store'), {
-        errorBag: 'storeRecipe',
+    form.post(route('resepileftover.update'), {
+        errorBag: 'updateRecipeLeftover',
         preserveScroll: true,
         onSuccess: () => clearImageFileInput(),
     });
@@ -72,10 +74,15 @@ const clearImageFileInput = () => {
         imageInput.value.value = null;
     }
 };
+
+const checkURL = (url) =>{
+     const urlRegex = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i;
+    return urlRegex.test(url);
+}
 </script>
 
 <template>
-    <FormSection @submitted="storeRecipe">
+    <FormSection @submitted="updateRecipe">
         <template #title>
 
         </template>
@@ -92,6 +99,9 @@ const clearImageFileInput = () => {
 
                 <InputLabel for="image" value="Imej" />
 
+                <div v-show="!imagePreview" class="mt-2">
+                        <img :src="checkURL($page.props.recipe.image) ? $page.props.recipe.image : '/' + $page.props.recipe.image" :alt="recipe.title" class="w-72 h-72 bg-cover bg-no-repeat bg-center">
+                    </div>
                 <!-- New Profile Image Preview -->
                 <div v-show="imagePreview" class="mt-2">
                     <span class="block  w-72 h-72 bg-cover bg-no-repeat bg-center"
@@ -102,9 +112,9 @@ const clearImageFileInput = () => {
                     Pilih imej di Komputer
                 </SecondaryButton>
 
-                <SecondaryButton v-if="resepi?.image" type="button" class="mt-2" @click.prevent="deleteImage">
+                <!-- <SecondaryButton v-if="recipe?.image" type="button" class="mt-2" @click.prevent="deleteImage">
                     Remove Image
-                </SecondaryButton>
+                </SecondaryButton> -->
 
                 <InputError :message="form.errors.image" class="mt-2" />
             </div>

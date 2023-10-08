@@ -70,7 +70,7 @@ const columns = [
 const data = [
 ];
 
-const search = () => router.get(route('jadual',form),{
+const search = () => router.visit(route('jadual.index',form),{
      preserveState: true,
     only:['jadual'],
 

@@ -14,8 +14,8 @@ class DashboardController extends Controller
 
 
         return Inertia::render('Dashboard',[
-            'recipe' => Inertia::lazy(fn () => PublicRecipeLeftover::search(request('search'))->paginate()),
-            'jadual' => Inertia::lazy(fn () => Pemantauan::search(request('search'))->paginate()),
+            'recipe' => Inertia::lazy(fn () => PublicRecipeLeftover::search(request('search'))->paginate(3)),
+            'jadual' => Inertia::lazy(fn () => Pemantauan::search(request('search'))->paginate(3)),
         ]);
    }
 }

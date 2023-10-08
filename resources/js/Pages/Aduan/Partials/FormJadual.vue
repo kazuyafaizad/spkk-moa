@@ -68,9 +68,14 @@ const columns = [
 const data = [
 ];
 
-const search = () => router.get(route('aduan.create',form),{
-     preserveState: true,
+const showNoJadual = ref(false)
+
+const search = () => router.visit(route('aduan.create',form),{
+    preserveState: true,
     only:['jadual'],
+    onSuccess:() =>{
+        showNoJadual.value = true;
+    }
 
 });
 
@@ -150,9 +155,10 @@ const search = () => router.get(route('aduan.create',form),{
             </thead>
         </DataTable>
         </template>
-        <template v-else>
+        <template v-if="showNoJadual  && $page.props.jadual.length == 0">
             <div class="flex justify-center">
-             <Link href="#" class="btn btn-secondary">Cipta Aduan Tanpa Jadual</Link>
+                Tiada Jadual Dijumpai
+             <Link href="#" class="btn btn-secondary" as="button" style="font-size:1.2rem!important">Cipta Aduan Tanpa Jadual</Link>
              </div>
         </template>
 

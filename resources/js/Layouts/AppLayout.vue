@@ -170,10 +170,11 @@ const logout = () => {
                         <Dropdown align="right" width="48" v-if="$page.props.auth.user">
                             <template #trigger>
                                 <button v-if="$page.props.jetstream.managesProfilePhotos"
-                                    class="flex text-sm border-2 border-transparent rounded-full text-black transition">
+                                    class="flex text-sm border-2 border-transparent rounded-full text-black transition items-center gap-2 font-medium text-sm leading-4">
                                     <img class="h-8 w-8 rounded-full object-cover"
                                         :src="$page.props.auth.user.profile_photo_url ? $page.props.auth.user.profile_photo_url : Profile"
                                         :alt="$page.props.auth.user.name">
+                                    {{ $page.props.auth.user ? $page.props.auth.user.name : 'Pelawat' }}
                                 </button>
 
                                 <span v-else class="inline-flex rounded-md">
@@ -297,7 +298,7 @@ const logout = () => {
         </div>
         <!--  END NAVBAR  -->
 
-        <div class="min-h-screen ">
+        <div >
             <div class="topbar-nav header relative flex flex-wrap items-center content-between py-3 px-4 " role="banner">
 
                 <nav id="topbar" class="bg-white  flex">
@@ -315,7 +316,7 @@ const logout = () => {
                                 <span>Home</span>
                             </div>
                         </NavLink>
-                        <NavLink :href="route('jadual')" :active="route().current('jadual')">
+                        <NavLink :href="route('jadual.index')" :active="route().current('jadual.*')">
                             <div class="flex items-center justify-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -334,7 +335,7 @@ const logout = () => {
                                 <span>Jadual Kutipan/Pembersihan</span>
                             </div>
                         </NavLink>
-                        <NavLink :href="route('sisa')" :active="route().current('sisa')">
+                        <NavLink :href="route('sisaindustri.index')" :active="route().current('sisaindustri.*')">
                             <div class="flex items-center justify-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -348,7 +349,7 @@ const logout = () => {
                                 <span>Kutipan Sisa Industri</span>
                             </div>
                         </NavLink>
-                        <NavLink :href="route('aduan')" :active="route().current('aduan')">
+                        <NavLink :href="route('aduan.index')" :active="route().current('aduan.*')">
                             <div class="flex items-center justify-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -358,7 +359,7 @@ const logout = () => {
                                 <span>Aduan</span>
                             </div>
                         </NavLink>
-                        <NavLink :href="route('kitarsemula')" :active="route().current('kitarsemula')">
+                        <NavLink :href="route('kitarsemula.index')" :active="route().current('kitarsemula.*')">
                             <div class="flex items-center justify-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -370,7 +371,7 @@ const logout = () => {
                                 <span>Kemudahan Kitar Semula</span>
                             </div>
                         </NavLink>
-                        <NavLink :href="route('resepileftover')" :active="route().current('resepileftover')">
+                        <NavLink :href="route('resepileftover.index')" :active="route().current('resepileftover.*')">
                             <div class="flex items-center justify-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -382,7 +383,7 @@ const logout = () => {
                                 <span>Resepi Leftover</span>
                             </div>
                         </NavLink>
-                        <!-- <NavLink :href="route('admin.index')" :active="route().current('admin.index')">
+                        <NavLink :href="route('admin.index')" :active="route().current('admin.index')">
                             <div class="flex items-center justify-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -392,7 +393,7 @@ const logout = () => {
                                 </svg>
                                 <span>Admin</span>
                             </div>
-                        </NavLink> -->
+                        </NavLink>
 
                     </ul>
                     <!-- Primary Navigation Menu -->
