@@ -51,7 +51,7 @@ const form = useForm({
                     />
                     <div class="m-4">
                     <span class="font-bold">{{ r.title }}</span>
-                    <span class="block text-gray-500 text-sm">Resepi Oleh {{ r.created_by_user.name }}</span>
+                    <span class="block  text-sm">Resepi Oleh {{ r.created_by_user.name }}</span>
                     </div>
                     <div class="badge">
                     <svg

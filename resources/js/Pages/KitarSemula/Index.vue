@@ -3,6 +3,10 @@ import AppLayout from '@/Layouts/AppLayout.vue';
 import { onMounted, ref,onBeforeMount } from 'vue';
 import { Head, useForm,router,usePage  } from '@inertiajs/vue3';
 import {Multiselect} from 'vue-multiselect';
+import DataTable from 'datatables.net-vue3';
+import DataTablesCore from 'datatables.net';
+
+DataTable.use(DataTablesCore);
 
 const props = defineProps({
      filters: Object,
@@ -52,6 +56,16 @@ const changeTaman = async () => {
 const changeJalan = async () => {
     await axios.get('/jalan/'+form.taman.id).then(response => jalanOptions.value = response.data).catch(error => console.log(error))
 }
+
+const search = () => {
+    axios.post('http://spmtb.swcorp.my/api/spkkapi').then(response => {
+        if (response.data) {
+           console.log(response)
+        } else {
+        }
+    });
+};
+
 </script>
 
 <template>
@@ -67,16 +81,16 @@ const changeJalan = async () => {
                     <tr>
                         <td colspan="2">
                             <div class="grid grid-cols-2 gap-2">
-                                <div class="relative flex-grow max-w-full flex-1 px-4">
+                                <!-- <div class="relative flex-grow max-w-full flex-1 px-4">
                                     <label>Pilih Senarai Kemudahan</label>
                                     <Multiselect v-model="form.kemudahan" :options="kemudahanOption" placeholder="Sila Pilih">
                                     </Multiselect>
-                                </div>
-                                <div class="relative flex-grow max-w-full flex-1 px-4">
+                                </div> -->
+                                <!-- <div class="relative flex-grow max-w-full flex-1 px-4">
                                         <label>Pilih Senarai Barangan</label>
                                         <Multiselect v-model="form.barangan" :options="baranganOptions" placeholder="Sila Pilih">
                                         </Multiselect>
-                                    </div>
+                                    </div> -->
                                 <div class="relative flex-grow max-w-full flex-1 px-4">
                                     <label>Pilih Negeri</label>
                                     <multiselect v-model="form.negeri" :options="$page.props.negeriOption"
@@ -89,7 +103,7 @@ const changeJalan = async () => {
                                         track-by="id" @select="changeTaman()">
                                     </multiselect>
                                 </div>
-                                <div class="relative flex-grow max-w-full flex-1 px-4">
+                                <!-- <div class="relative flex-grow max-w-full flex-1 px-4">
                                     <label>Pilih Taman</label>
                                     <multiselect v-model="form.taman" :options="tamanOptions" placeholder="Sila Pilih"
                                         label="name" track-by="id" @select="changeJalan()">
@@ -106,12 +120,28 @@ const changeJalan = async () => {
                                   <multiselect v-model="form.radius" :options="radiusOptions" placeholder="Sila Pilih"
                                             label="name" track-by="id">
                                         </multiselect>
-                                </div>
+                                </div> -->
                             </div>
                         </td>
 
                     </tr>
                 </tbody>
             </table>
+             <button @click="search" class="btn btn-primary rounded">Cari</button>
+
+              <DataTable :data="[]" class="display table" >
+                <thead>
+                    <tr>
+                        <th>Jalan</th>
+                        <th>Premis</th>
+                        <th>Lokasi</th>
+                        <th>Aktiviti</th>
+                        <th>Tarikh</th>
+                        <th>Hari Kutipan</th>
+                        <th>Mula</th>
+                        <th>Tamat</th>
+                    </tr>
+                </thead>
+            </DataTable>
     </AppLayout>
 </template>

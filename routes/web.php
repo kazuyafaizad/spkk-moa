@@ -91,19 +91,25 @@ use Illuminate\Support\Facades\Request as RequestFacade;
 
 
     Route::get('/pbt/{negeri_id}', function ($negeri_id) {
-        return IntegrationPbt::select('id', 'name')->where('states_id', $negeri_id)->get();
+        return IntegrationPbt::select('id', 'name')->where('status', 1)->where('states_id', $negeri_id)->get();
     });
 
     Route::get('/taman/{pbt_id}', function ($pbt_id) {
         $subquery = IntegrationScheme::select('id')
+            ->where('status', 1)
             ->where('pbts_id', $pbt_id);
 
-        return IntegrationPark::select('id', 'name')->whereIn('schemes_id', $subquery)->get();
+        return IntegrationPark::select('id', 'name')->where('status',1)->whereIn('schemes_id', $subquery)->get();
     });
 
     Route::get('/jalan/{park_id}', function ($park_id) {
-        return IntegrationStreet::select('id','name')->where('parks_id', $park_id)->get();
+        return IntegrationStreet::select('id','name')->where('status',1)->where('parks_id', $park_id)->get();
     });
+
+    Route::get('/scheme/{pbt_id}', function ($pbt_id) {
+        return IntegrationScheme::select('id', 'name')->where('status',1)->where('pbts_id', $pbt_id)->get();
+    });
+
 
 
     Route::middleware([

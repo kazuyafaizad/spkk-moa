@@ -179,7 +179,7 @@ const logout = () => {
 
                                 <span v-else class="inline-flex rounded-md">
                                     <button type="button"
-                                        class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition ease-in-out duration-150">
+                                        class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md  bg-white hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition ease-in-out duration-150">
                                         {{ $page.props.auth.user ? $page.props.auth.user.name : 'Pelawat' }}
 
                                         <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -223,7 +223,7 @@ const logout = () => {
                                     id="user-profile-dropdown" data-toggle="dropdown" aria-haspopup="true"
                                     aria-expanded="false">
                                     <div class="media flex">
-                                        <img :src="$page.props.auth.user?.profile_photo_url ? $page.props.auth.user.profile_photo_url : Profile"
+                                        <img v-if="$page.props.auth.user?.profile_photo_url" :src=" $page.props.auth.user.profile_photo_url"
                                             class="img-fluid" alt="user">
                                         <div class="media-body align-self-center">
                                             <h6><span class="text-black">Hi,</span> {{ $page.props.auth.user ? $page.props.auth.user.name :
@@ -421,7 +421,7 @@ const logout = () => {
                                     <div class="font-medium text-base text-gray-800">
                                         {{ $page.props.auth.user.name }}
                                     </div>
-                                    <div class="font-medium text-sm text-gray-500">
+                                    <div class="font-medium text-sm ">
                                         {{ $page.props.auth.user.email }}
                                     </div>
                                 </div>
@@ -503,7 +503,7 @@ const logout = () => {
 
                         <div class="xl:w-full  lg:w-full   sm:w-full  layout-spacing">
                             <div class="widget-content widget-content-area br-6">
-                                <div class="block w-full overflow-auto scrolling-touch mb-4 mt-4 max-w-7xl mx-auto">
+                                <div class=" max-w-7xl mx-auto">
                                     <!-- Page Heading -->
 
                                     <div class="flex flex-wrap mb-5" v-if="$slots.header">
@@ -519,13 +519,28 @@ const logout = () => {
                 </div>
             </div>
         </div>
+
+        <div id="footer-bottom" class=" bg-[#191e3a] ">
+            <div class="grid grid-cols-2 w-full max-w-7xl mx-auto py-4">
+    				<!-- Footer Info -->
+    				<p id="footer-info" class="text-white" data-wahfont="14">Hakcipta Terpelihara © 2008 - 2023. Perbadanan Pengurusan Sisa Pepejal Dan Pembersihan Awam (SWCorp) <br>Paparan terbaik skrin beresolusi 1024x768 piksel menggunakan pelayar web <br> Mozilla Firefox atau Google Chrome versi terkini</p>
+    				<!-- Footer Navigation -->
+    				 <div id="footer-nav" class="">
+    					<ul id="footer-menu" class="bottom-nav flex flex-row gap-5"><li id="menu-item-239" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-239 "><a href="https://www.swcorp.gov.my/penafian/" data-wahfont="14" class="text-white">Penafian</a></li>
+                        <li id="menu-item-238" class="splwpk-privacy-policy menu-item menu-item-type-post_type menu-item-object-post menu-item-238"><a href="https://www.swcorp.gov.my/dasar-privasi-keselamatan/" data-wahfont="14" class="text-white">Dasar Privasi &amp; Keselamatan</a></li>
+                        <li id="menu-item-237" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-237"><a href="https://www.swcorp.gov.my/soalan-lazim/" data-wahfont="14" class="text-white">Soalan Lazim</a></li>
+                        <li id="menu-item-236" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-236"><a href="https://www.swcorp.gov.my/peta-laman/" data-wahfont="14" class="text-white">Peta Laman</a></li>
+                        </ul>
+                    </div>
+            </div>
+    	</div>
     </div>
 </template>
 
 
 <style>
 .app-bg{
-    height:100vh;
+    height:100%;
     background: rgb(9,121,33);
     background: linear-gradient(90deg, rgba(9,121,33,0.29968483975621496) 0%, rgba(0,212,255,1) 100%);
 }

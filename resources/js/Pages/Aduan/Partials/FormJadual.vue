@@ -126,7 +126,9 @@ const search = () => router.visit(route('complaint.create',form),{
                             </div>
                             <div class="relative flex-grow max-w-full flex-1 px-4">
                                 <label>Pilih Tarikh</label>
-                                <input type="date" v-model="form.tarikh" class="multiselect__input">
+                                <div class="multiselect">
+                                <input type="date" v-model="form.tarikh" class="multiselect__input" style="height:40px;border: 1px solid #060818!important;">
+                                </div>
                             </div>
                         </div>
                     </td>

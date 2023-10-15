@@ -4,8 +4,9 @@
 @import "tailwindcss/utilities";
 @import "./main.css";
 @import "./structure.css";
-@import "./datatables.css";
-@import "./dt-global.css";
+/* @import "./datatables.css";
+@import "./dt-global.css"; */
+@import 'datatables.net-dt';
 /* @import "../../public/plugins/table/datatable/datatables.css"; */
 
 /* *, ::before, ::after {

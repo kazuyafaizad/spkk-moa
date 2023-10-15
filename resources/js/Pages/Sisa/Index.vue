@@ -15,19 +15,21 @@ const props = defineProps({
 })
 
 const form = useForm({
-    aktiviti: props.filters.aktiviti,
+    jenis: props.filters.jenis,
     negeri:props.filters.negeri,
     pbt:props.filters.pbt,
-    taman:props.filters.taman,
+    skim:props.filters.skim,
 });
 
+const data = ref();
 
-const aktivitiOptions = ref(['Kutipan', 'Pembersihan']);
+
+const jenisOptions = ref(['ICI', 'CND']);
 const pbtOptions = ref([{
     name:"",
     id:""
 }]);
-const tamanOptions = ref([{
+const skimOptions = ref([{
     name:"",
     id:""
 }]);
@@ -36,9 +38,53 @@ const changeNegeri = async () => {
     await axios.get('/pbt/'+form.negeri.id).then(response => pbtOptions.value = response.data).catch(error => console.log(error))
 }
 
-const changeTaman = async () => {
-    await axios.get('/taman/'+form.pbt.id).then(response => tamanOptions.value = response.data).catch(error => console.log(error))
+const changePbt = async () => {
+    await axios.get('/scheme/'+form.pbt.id).then(response => skimOptions.value = response.data).catch(error => console.log(error))
 }
+
+const search = async () => {
+
+    if(form.jenis === null)
+    {
+        form.setError('jenis', 'Sila pilih Jenis Sisa Industri');
+    }
+
+    if(form.negeri === null)
+    {
+        form.setError('negeri', 'Sila pilih Negeri');
+    }
+
+     if(form.pbt === null)
+    {
+        form.setError('pbt', 'Sila pilih PBT');
+    }
+
+
+
+    switch (form.jenis) {
+        case 'ICI':
+            await axios.post('http://spmtb.swcorp.my/api/edici/pemungut',{negeri_id:form.negeri.id,pbt_id:form.pbt.id,skim_id:form.skim?.id}).then(response => data.value = response.data.data).catch(error => console.log(error))
+            break;
+        case 'CND':
+             await axios.post('http://spmtb.swcorp.my/api/cnd/pemungut',{negeri_id:form.negeri.id,pbt_id:form.pbt.id,skim_id:form.skim?.id}).then(response => data.value = response.data.data).catch(error => console.log(error))
+            break;
+        default:
+            break;
+    }
+
+
+}
+
+const columns = [
+  { data: 'lesen_kenderaan', title: 'Lesen Kenderaan' },
+  { data: 'lesen_no', title: 'No Lesen' },
+  { data: 'lesen_pbt', title: 'PBT' },
+  { data: 'lesen_skim', title: 'Skim' },
+  { data: 'syarikat_alamat1', title: 'Alamat' },
+  { data: 'syarikat_nama', title: 'Nama Syarikat' },
+  { data: 'syarikat_negeri', title: 'Negeri' },
+];
+
 
 </script>
 
@@ -50,46 +96,40 @@ const changeTaman = async () => {
                 Kutipan Sisa Industri
             </h2>
         </template>
+
         <table class="w-full max-w-full mb-4 bg-transparent">
             <tbody>
                 <tr>
                     <td colspan="2">
                         <div class="flex flex-wrap -mr-1 -ml-1 mb-4">
                             <div class="relative flex-grow max-w-full flex-1 px-4">
-                                <label>Aktiviti</label>
-                                <Multiselect v-model="form.aktiviti" :options="aktivitiOptions" placeholder="Select one">
+                                <label>Jenis</label>
+                                <Multiselect v-model="form.jenis" :options="jenisOptions" placeholder="Select one">
                                 </Multiselect>
+                                 <div v-if="form.errors.neis" class="text-red-600">{{ form.errors.neis }}</div>
                             </div>
                             <div class="relative flex-grow max-w-full flex-1 px-4">
                                 <label>Negeri</label>
                                 <multiselect v-model="form.negeri" :options="$page.props.negeriOption"
                                     placeholder="Select one" label="name" track-by="id" @select="changeNegeri()">
                                 </multiselect>
+                                <div v-if="form.errors.negeri" class="text-red-600">{{ form.errors.negeri }}</div>
                             </div>
                             <div class="relative flex-grow max-w-full flex-1 px-4">
                                 <label>PBT</label>
                                 <multiselect v-model="form.pbt" :options="pbtOptions" placeholder="Select one" label="name"
-                                    track-by="id" @select="changeTaman()">
+                                    track-by="id" @select="changePbt()">
                                 </multiselect>
+                                 <div v-if="form.errors.pbt" class="text-red-600">{{ form.errors.pbt }}</div>
                             </div>
                             <div class="relative flex-grow max-w-full flex-1 px-4">
-                                <label>Taman</label>
-                                <multiselect v-model="form.taman" :options="tamanOptions" placeholder="Select one"
-                                    label="name" track-by="id" @select="changeTaman()">
+                                <label>Skim</label>
+                                <multiselect v-model="form.skim" :options="skimOptions" placeholder="Select one"
+                                    label="name" track-by="id" >
                                 </multiselect>
+                                 <div v-if="form.errors.skim" class="text-red-600">{{ form.errors.skim }}</div>
                             </div>
-                            <div class="relative flex-grow max-w-full flex-1 px-4">
-                                <label>Jalan</label>
-                                <multiselect v-model="form.taman" :options="tamanOptions" placeholder="Select one"
-                                    label="name" track-by="id" @select="changeTaman()">
-                                </multiselect>
-                            </div>
-                            <div class="relative flex-grow max-w-full flex-1 px-4">
-                                <label>Tarikh</label>
-                                <multiselect v-model="form.taman" :options="tamanOptions" placeholder="Select one"
-                                    label="name" track-by="id" @select="changeTaman()">
-                                </multiselect>
-                            </div>
+
                         </div>
                         <!-- <button class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded py-1 px-3 leading-normal no-underline text-blue-600 border-blue-600 hover:bg-blue-600 hover:text-white bg-white hover:bg-blue-600 mb-2">Primary</button> -->
                         <button @click="search" class="btn btn-primary rounded">Cari</button>
@@ -99,17 +139,10 @@ const changeTaman = async () => {
             </tbody>
         </table>
 
-        <DataTable :data="$page.props.jadual" class="display table" :columns="columns">
+        <DataTable :data="data" class="display table" :columns="columns">
             <thead>
                 <tr>
-                    <th>Jalan</th>
-                    <th>Premis</th>
-                    <th>Lokasi</th>
-                    <th>Aktiviti</th>
-                    <th>Tarikh</th>
-                    <th>Hari Kutipan</th>
-                    <th>Mula</th>
-                    <th>Tamat</th>
+
                 </tr>
             </thead>
         </DataTable>

@@ -31,7 +31,7 @@ const prop = defineProps({
               </div>
               <div>
                 <span class="block text-2xl font-bold">{{ totalAduan }}</span>
-                <span class="block text-gray-500">Jumlah Aduan</span>
+                <span class="block ">Jumlah Aduan</span>
               </div>
             </div>
             <div class="flex items-center p-8 bg-white shadow rounded-lg">
@@ -42,7 +42,7 @@ const prop = defineProps({
               </div>
               <div>
                 <span class="block text-2xl font-bold">{{ totalTindakan }}</span>
-                <span class="block text-gray-500">Telah Diambil Tindakan</span>
+                <span class="block ">Telah Diambil Tindakan</span>
               </div>
             </div>
             <div class="flex items-center p-8 bg-white shadow rounded-lg">
@@ -53,7 +53,7 @@ const prop = defineProps({
               </div>
               <div>
                 <span class="inline-block text-2xl font-bold">{{ totalBelumTindakan }}</span>
-                <span class="block text-gray-500">Belum Diambil Tindakan</span>
+                <span class="block ">Belum Diambil Tindakan</span>
               </div>
             </div>
             <div class="flex items-center p-8 bg-white shadow rounded-lg">
@@ -64,7 +64,7 @@ const prop = defineProps({
               </div>
               <div>
                 <span class="block text-2xl font-bold">83%</span>
-                <span class="block text-gray-500">Finished homeworks</span>
+                <span class="block ">Finished homeworks</span>
               </div>
             </div>
           </section>
