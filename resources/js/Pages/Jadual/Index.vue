@@ -70,11 +70,28 @@ const columns = [
 const data = [
 ];
 
-const search = () => router.visit(route('jadual.index',form),{
-     preserveState: true,
+const search = () => {
+
+    if(form.aktiviti === null)
+    {
+        form.setError('aktiviti', 'Sila pilih Aktiviti');
+    }
+
+    if(form.negeri === null)
+    {
+        form.setError('negeri', 'Sila pilih Negeri');
+    }
+
+     if(form.pbt === null)
+    {
+        form.setError('pbt', 'Sila pilih PBT');
+    }
+
+    router.visit(route('jadual.index',form),{
+    preserveState: true,
     only:['jadual'],
 
-});
+})};
 
 </script>
 
@@ -94,18 +111,21 @@ const search = () => router.visit(route('jadual.index',form),{
                                 <label>Pilih Jenis Jadual</label>
                                 <Multiselect v-model="form.aktiviti" :options="aktivitiOptions" placeholder="Sila Pilih">
                                 </Multiselect>
+                                <div v-if="form.errors.aktiviti" class="text-red-600">{{ form.errors.aktiviti }}</div>
                             </div>
                             <div class="relative flex-grow max-w-full flex-1 px-4">
                                 <label>Pilih Negeri</label>
                                 <multiselect v-model="form.negeri" :options="$page.props.negeriOption"
                                     placeholder="Sila Pilih" label="name" track-by="id" @select="changeNegeri()">
                                 </multiselect>
+                                <div v-if="form.errors.negeri" class="text-red-600">{{ form.errors.negeri }}</div>
                             </div>
                             <div class="relative flex-grow max-w-full flex-1 px-4">
                                 <label>Pilih PBT</label>
                                 <multiselect v-model="form.pbt" :options="pbtOptions" placeholder="Sila Pilih" label="name"
                                     track-by="id" @select="changeTaman()">
                                 </multiselect>
+                                <div v-if="form.errors.pbt" class="text-red-600">{{ form.errors.pbt }}</div>
                             </div>
                             <div class="relative flex-grow max-w-full flex-1 px-4">
                                 <label>Pilih Taman</label>
@@ -134,8 +154,9 @@ const search = () => router.visit(route('jadual.index',form),{
 
 
         <!-- <button class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded py-1 px-3 leading-normal no-underline text-blue-600 border-blue-600 hover:bg-blue-600 hover:text-white bg-white hover:bg-blue-600 mb-2">Primary</button> -->
-        <button @click="search" class="btn btn-primary rounded my-5" :class="{'p-10':form.processing}" >Cari</button>
+        <button @click="search" class="btn btn-primary rounded my-5" :class="{'bg-gray-200':form.processing}" :disabled="form.processing">Cari</button>
 
+        <div class="mt-4">
         <DataTable :data="$page.props.jadual" class="display table" :columns="columns">
             <thead>
                 <tr>
@@ -150,5 +171,6 @@ const search = () => router.visit(route('jadual.index',form),{
                 </tr>
             </thead>
         </DataTable>
+        </div>
     </AppLayout>
 </template>

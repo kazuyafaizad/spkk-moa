@@ -106,7 +106,7 @@ const columns = [
                                 <label>Jenis</label>
                                 <Multiselect v-model="form.jenis" :options="jenisOptions" placeholder="Select one">
                                 </Multiselect>
-                                 <div v-if="form.errors.neis" class="text-red-600">{{ form.errors.neis }}</div>
+                                 <div v-if="form.errors.jenis" class="text-red-600">{{ form.errors.jenis }}</div>
                             </div>
                             <div class="relative flex-grow max-w-full flex-1 px-4">
                                 <label>Negeri</label>
@@ -131,14 +131,16 @@ const columns = [
                             </div>
 
                         </div>
-                        <!-- <button class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded py-1 px-3 leading-normal no-underline text-blue-600 border-blue-600 hover:bg-blue-600 hover:text-white bg-white hover:bg-blue-600 mb-2">Primary</button> -->
-                        <button @click="search" class="btn btn-primary rounded">Cari</button>
                     </td>
 
                 </tr>
             </tbody>
         </table>
 
+                            <!-- <button class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded py-1 px-3 leading-normal no-underline text-blue-600 border-blue-600 hover:bg-blue-600 hover:text-white bg-white hover:bg-blue-600 mb-2">Primary</button> -->
+                            <button @click="search" class="btn btn-primary rounded my-5">Cari</button>
+
+        <div class="mt-4">
         <DataTable :data="data" class="display table" :columns="columns">
             <thead>
                 <tr>
@@ -146,6 +148,7 @@ const columns = [
                 </tr>
             </thead>
         </DataTable>
+        </div>
     </AppLayout>
 </template>
 

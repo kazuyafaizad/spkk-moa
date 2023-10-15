@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\IntegrationPbt;
 use App\Models\IntegrationState;
 use App\Models\Pemantauan;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Request as RequestFacade;
 use Inertia\Inertia;
@@ -28,8 +29,8 @@ class JadualController extends Controller
                 ->when(request('jalan'), function ($q) {
                      return $q->where('street_id', '=', request('jalan')['id']);
                 })
-                ->when(request('`tarikh`'), function ($q) {
-                     return $q->where('date', '=', request('tarikh'));
+                ->when(request('tarikh'), function ($q) {
+                     return $q->whereDate('date', Carbon::parse(request('tarikh'))->format('Y-m-d'));
                 })
                 ->when(!request('taman'), function ($q) {
                     return $q->limit(0);

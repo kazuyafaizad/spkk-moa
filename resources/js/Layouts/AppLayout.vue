@@ -318,20 +318,7 @@ const logout = () => {
                         </NavLink>
                         <NavLink :href="route('jadual.index')" :active="route().current('jadual.*')">
                             <div class="flex items-center justify-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-cpu">
-                                    <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
-                                    <rect x="9" y="9" width="6" height="6"></rect>
-                                    <line x1="9" y1="1" x2="9" y2="4"></line>
-                                    <line x1="15" y1="1" x2="15" y2="4"></line>
-                                    <line x1="9" y1="20" x2="9" y2="23"></line>
-                                    <line x1="15" y1="20" x2="15" y2="23"></line>
-                                    <line x1="20" y1="9" x2="23" y2="9"></line>
-                                    <line x1="20" y1="14" x2="23" y2="14"></line>
-                                    <line x1="1" y1="9" x2="4" y2="9"></line>
-                                    <line x1="1" y1="14" x2="4" y2="14"></line>
-                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
                                 <span>Jadual Kutipan/Pembersihan</span>
                             </div>
                         </NavLink>
@@ -361,13 +348,9 @@ const logout = () => {
                         </NavLink>
                         <NavLink :href="route('kitarsemula.index')" :active="route().current('kitarsemula.*')">
                             <div class="flex items-center justify-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-layout">
-                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                                    <line x1="3" y1="9" x2="21" y2="9"></line>
-                                    <line x1="9" y1="21" x2="9" y2="9"></line>
-                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-recycle" viewBox="0 0 16 16">
+      <path d="M9.302 1.256a1.5 1.5 0 0 0-2.604 0l-1.704 2.98a.5.5 0 0 0 .869.497l1.703-2.981a.5.5 0 0 1 .868 0l2.54 4.444-1.256-.337a.5.5 0 1 0-.26.966l2.415.647a.5.5 0 0 0 .613-.353l.647-2.415a.5.5 0 1 0-.966-.259l-.333 1.242-2.532-4.431zM2.973 7.773l-1.255.337a.5.5 0 1 1-.26-.966l2.416-.647a.5.5 0 0 1 .612.353l.647 2.415a.5.5 0 0 1-.966.259l-.333-1.242-2.545 4.454a.5.5 0 0 0 .434.748H5a.5.5 0 0 1 0 1H1.723A1.5 1.5 0 0 1 .421 12.24l2.552-4.467zm10.89 1.463a.5.5 0 1 0-.868.496l1.716 3.004a.5.5 0 0 1-.434.748h-5.57l.647-.646a.5.5 0 1 0-.708-.707l-1.5 1.5a.498.498 0 0 0 0 .707l1.5 1.5a.5.5 0 1 0 .708-.707l-.647-.647h5.57a1.5 1.5 0 0 0 1.302-2.244l-1.716-3.004z"/>
+    </svg>
                                 <span>Kemudahan Kitar Semula</span>
                             </div>
                         </NavLink>
@@ -385,12 +368,10 @@ const logout = () => {
                         </NavLink>
                         <NavLink :href="route('admin.index')" :active="route().current('admin.index')" v-if="$page.props.auth.user?.role_id === 2">
                             <div class="flex items-center justify-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-file">
-                                    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
-                                    <polyline points="13 2 13 9 20 9"></polyline>
-                                </svg>
+                               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-shield-check" viewBox="0 0 16 16">
+      <path d="M5.338 1.59a61.44 61.44 0 0 0-2.837.856.481.481 0 0 0-.328.39c-.554 4.157.726 7.19 2.253 9.188a10.725 10.725 0 0 0 2.287 2.233c.346.244.652.42.893.533.12.057.218.095.293.118a.55.55 0 0 0 .101.025.615.615 0 0 0 .1-.025c.076-.023.174-.061.294-.118.24-.113.547-.29.893-.533a10.726 10.726 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067c-.53 0-1.552.223-2.662.524zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.775 11.775 0 0 1-2.517 2.453 7.159 7.159 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7.158 7.158 0 0 1-1.048-.625 11.777 11.777 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 62.456 62.456 0 0 1 5.072.56z"/>
+      <path d="M10.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+    </svg>
                                 <span>Admin</span>
                             </div>
                         </NavLink>

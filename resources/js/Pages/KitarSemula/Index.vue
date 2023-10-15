@@ -81,16 +81,6 @@ const search = () => {
                     <tr>
                         <td colspan="2">
                             <div class="grid grid-cols-2 gap-2">
-                                <!-- <div class="relative flex-grow max-w-full flex-1 px-4">
-                                    <label>Pilih Senarai Kemudahan</label>
-                                    <Multiselect v-model="form.kemudahan" :options="kemudahanOption" placeholder="Sila Pilih">
-                                    </Multiselect>
-                                </div> -->
-                                <!-- <div class="relative flex-grow max-w-full flex-1 px-4">
-                                        <label>Pilih Senarai Barangan</label>
-                                        <Multiselect v-model="form.barangan" :options="baranganOptions" placeholder="Sila Pilih">
-                                        </Multiselect>
-                                    </div> -->
                                 <div class="relative flex-grow max-w-full flex-1 px-4">
                                     <label>Pilih Negeri</label>
                                     <multiselect v-model="form.negeri" :options="$page.props.negeriOption"
@@ -103,24 +93,7 @@ const search = () => {
                                         track-by="id" @select="changeTaman()">
                                     </multiselect>
                                 </div>
-                                <!-- <div class="relative flex-grow max-w-full flex-1 px-4">
-                                    <label>Pilih Taman</label>
-                                    <multiselect v-model="form.taman" :options="tamanOptions" placeholder="Sila Pilih"
-                                        label="name" track-by="id" @select="changeJalan()">
-                                    </multiselect>
-                                </div>
-                                <div class="relative flex-grow max-w-full flex-1 px-4">
-                                    <label>Pilih Jalan</label>
-                                    <multiselect v-model="form.jalan" :options="jalanOptions" placeholder="Sila Pilih"
-                                        label="name" track-by="id">
-                                    </multiselect>
-                                </div>
-                                <div class="relative flex-grow max-w-full flex-1 px-4">
-                                    <label>Pilih Radius</label>
-                                  <multiselect v-model="form.radius" :options="radiusOptions" placeholder="Sila Pilih"
-                                            label="name" track-by="id">
-                                        </multiselect>
-                                </div> -->
+
                             </div>
                         </td>
 
@@ -132,14 +105,7 @@ const search = () => {
               <DataTable :data="[]" class="display table" >
                 <thead>
                     <tr>
-                        <th>Jalan</th>
-                        <th>Premis</th>
-                        <th>Lokasi</th>
-                        <th>Aktiviti</th>
-                        <th>Tarikh</th>
-                        <th>Hari Kutipan</th>
-                        <th>Mula</th>
-                        <th>Tamat</th>
+
                     </tr>
                 </thead>
             </DataTable>
