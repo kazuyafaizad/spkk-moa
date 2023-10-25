@@ -23,10 +23,11 @@ const form = useForm({
     radius:props.filters.radius
 });
 
+const data = ref();
 
-const kemudahanOption = ref(['Kutipan Sisa Pepejal', 'Pembersihan Awam']);
+const kemudahanOptions = ref([{id:"drop",name:"Drop"}]);
 
-const baranganOptions = ref(['Kutipan Sisa Pepejal', 'Pembersihan Awam']);
+const baranganOptions = ref([{id:"kertas",name:"Kertas"}]);
 
 const radiusOptions = ref(['Kutipan Sisa Pepejal', 'Pembersihan Awam']);
 
@@ -35,36 +36,39 @@ const pbtOptions = ref([{
     id:""
 }]);
 
-const tamanOptions = ref([{
-    name:"",
-    id:""
-}]);
-
-const jalanOptions = ref([{
-    name:"",
-    id:""
-}]);
 
 const changeNegeri = async () => {
     await axios.get('/pbt/'+form.negeri.id).then(response => pbtOptions.value = response.data).catch(error => console.log(error))
 }
 
-const changeTaman = async () => {
-    await axios.get('/taman/'+form.pbt.id).then(response => tamanOptions.value = response.data).catch(error => console.log(error))
-}
-
-const changeJalan = async () => {
-    await axios.get('/jalan/'+form.taman.id).then(response => jalanOptions.value = response.data).catch(error => console.log(error))
-}
-
 const search = () => {
-    axios.post('http://spmtb.swcorp.my/api/spkkapi').then(response => {
+    axios.post('https://spmtb.swcorp.my/api/spkkapi?negeri=1&pbt=18&kemudahan=drop&barang=kertas',{
+        negeri:form.negeri.id,
+        pbt:form.pbt.id,
+        kemudahan:form.kemudahan.value,
+        barang:form.barangan.value
+    }).then(response => {
         if (response.data) {
+            data.value = response.data
            console.log(response)
         } else {
         }
     });
 };
+
+const columns = [
+  { data: 'alamat', title: 'Alamat' },
+  { data: 'harga', title: 'harga' },
+  { data: 'jenisKemudahan', title: 'Jenis Kemudahan' },
+  { data: 'kategori', title: 'Kategori' },
+  { data: 'komposisi', title: 'Komposisi' },
+  { data: 'namaPegawai', title: 'Nama Pegawao' },
+  { data: 'namaSyarikat', title: 'Nama Syarikat' },
+  { data: 'emel', title: 'emel' },
+  { data: 'noFaks', title: 'No Faks' },
+  { data: 'noPhone', title: 'No Telefon' },
+  { data: 'koordinat', title: 'Koordinat' },
+];
 
 </script>
 
@@ -75,7 +79,6 @@ const search = () => {
                 Kitar Semula(3R)
             </h2>
         </template>
-
          <table class="w-full max-w-full mb-4 bg-transparent">
                 <tbody>
                     <tr>
@@ -90,10 +93,22 @@ const search = () => {
                                 <div class="relative flex-grow max-w-full flex-1 px-4">
                                     <label>Pilih PBT</label>
                                     <multiselect v-model="form.pbt" :options="pbtOptions" placeholder="Sila Pilih" label="name"
-                                        track-by="id" @select="changeTaman()">
+                                        track-by="id" >
                                     </multiselect>
                                 </div>
 
+                                 <div class="relative flex-grow max-w-full flex-1 px-4">
+                                        <label>Pilih Kemudahan</label>
+                                        <multiselect v-model="form.kemudahan" :options="kemudahanOptions" placeholder="Sila Pilih" label="name"
+                                            track-by="id" >
+                                        </multiselect>
+                                    </div>
+                                <div class="relative flex-grow max-w-full flex-1 px-4">
+                                            <label>Pilih Barangan</label>
+                                            <multiselect v-model="form.barangan" :options="baranganOptions" placeholder="Sila Pilih" label="name"
+                                                track-by="id" >
+                                            </multiselect>
+                                        </div>
                             </div>
                         </td>
 
@@ -101,13 +116,14 @@ const search = () => {
                 </tbody>
             </table>
              <button @click="search" class="btn btn-primary rounded">Cari</button>
-
-              <DataTable :data="[]" class="display table" >
+             <div class="mt-4">
+              <DataTable :data="data" class="display table" :columns="columns">
                 <thead>
                     <tr>
 
                     </tr>
                 </thead>
             </DataTable>
+            </div>
     </AppLayout>
 </template>

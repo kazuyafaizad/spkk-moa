@@ -170,7 +170,7 @@ const logout = () => {
                         <Dropdown align="right" width="48" v-if="$page.props.auth.user">
                             <template #trigger>
                                 <button v-if="$page.props.jetstream.managesProfilePhotos"
-                                    class="flex text-sm border-2 border-transparent rounded-full text-black transition items-center gap-2 font-medium text-sm leading-4">
+                                    class="flex text-sm border-2 border-transparent rounded-full text-black transition items-center gap-2 font-medium leading-4">
                                     <img class="h-8 w-8 rounded-full object-cover"
                                         :src="$page.props.auth.user.profile_photo_url ? $page.props.auth.user.profile_photo_url : Profile"
                                         :alt="$page.props.auth.user.name">
@@ -179,7 +179,7 @@ const logout = () => {
 
                                 <span v-else class="inline-flex rounded-md">
                                     <button type="button"
-                                        class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md  bg-white hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition ease-in-out duration-150">
+                                        class="inline-flex items-center px-3 py-2 border border-transparent leading-4 font-medium rounded-md  bg-white hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition ease-in-out duration-150">
                                         {{ $page.props.auth.user ? $page.props.auth.user.name : 'Pelawat' }}
 
                                         <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -484,7 +484,12 @@ const logout = () => {
 
                         <div class="xl:w-full  lg:w-full   sm:w-full  layout-spacing">
                             <div class="widget-content widget-content-area br-6">
-                                <div class=" max-w-7xl mx-auto">
+                                <ul class="skip-links">
+                                <li>
+                                    <a href="#main" ref="skipLink" class="skip-link">Skip to main content</a>
+                                </li>
+                                </ul>
+                                <div class=" max-w-7xl mx-auto" id="main">
                                     <!-- Page Heading -->
 
                                     <div class="flex flex-wrap mb-5" v-if="$slots.header">
@@ -524,5 +529,20 @@ const logout = () => {
     height:100%;
     background: rgb(9,121,33);
     background: linear-gradient(90deg, rgba(9,121,33,0.29968483975621496) 0%, rgba(0,212,255,1) 100%);
+}
+.skip-link {
+  white-space: nowrap;
+  margin: 1em auto;
+  top: 0;
+  position: fixed;
+  left: 50%;
+  margin-left: -72px;
+  opacity: 0;
+}
+.skip-link:focus {
+  opacity: 1;
+  background-color: white;
+  padding: 0.5em;
+  border: 1px solid black;
 }
 </style>
