@@ -1,11 +1,9 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
-import FormMaklumatAsas from './Partials/FormMaklumatAsas.vue';
-import FormJadual from './Partials/FormJadual.vue';
 import FormAduan from './Partials/FormAduan.vue';
 
 defineProps({
-    filters: Object,
+    selected: Object,
 });
 
 </script>
@@ -19,6 +17,6 @@ defineProps({
         </template>
 
         <!-- <FormMaklumatAsas /> -->
-        <FormJadual :filters="filters"/>
+        <FormAduan :data="selected" />
     </AppLayout>
 </template>

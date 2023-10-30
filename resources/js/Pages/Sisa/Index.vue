@@ -139,6 +139,7 @@ const columns = [
 
                             <!-- <button class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded py-1 px-3 leading-normal no-underline text-blue-600 border-blue-600 hover:bg-blue-600 hover:text-white bg-white hover:bg-blue-600 mb-2">Primary</button> -->
                             <button @click="search" class="btn btn-primary rounded my-5">Cari</button>
+                            <button @click="form.reset()" class="btn btn-secondary rounded my-5 ml-4" :class="{ 'p-10': form.processing }">Reset</button>
 
         <div class="mt-4">
         <DataTable :data="data" class="display table" :columns="columns">

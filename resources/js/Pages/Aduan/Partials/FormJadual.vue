@@ -3,13 +3,49 @@ import { onMounted, ref,onBeforeMount } from 'vue';
 import { Head, useForm,router,usePage,Link } from '@inertiajs/vue3';
 import DataTable from 'datatables.net-vue3';
 import DataTablesCore from 'datatables.net';
+import 'datatables.net-select';
 import {Multiselect} from 'vue-multiselect';
 
 DataTable.use(DataTablesCore);
 
+let dt;
+const data = ref([]);
+const table = ref();
+
+onMounted(function () {
+  dt = table.value.dt;
+});
+
 const props = defineProps({
      filters: Object,
 })
+
+
+const chooseSchedule = ()=>{
+     dt.rows({ selected: true }).every(function () {
+        router.get(route('complaint.create'),{
+            data: this.data()
+        });
+    });
+}
+
+const sendWithoutSchedule = () => {
+      router.get(route('complaint.create'),{
+            data: {
+                schedule_id : "",
+                park_name : form.taman.name,
+                park_id : form.taman.id,
+                street_name : form.jalan?.name,
+                street_id : form.jalan?.id,
+                activity_code : form.aktiviti,
+                time_start : "",
+                time_end : "",
+                date : form.tarikh,
+                pbt_id : form.pbt.id,
+                scheme_id : "",
+            }
+        });
+}
 
 const form = useForm({
     aktiviti: props.filters.aktiviti,
@@ -17,11 +53,12 @@ const form = useForm({
     pbt:props.filters.pbt,
     taman:props.filters.taman,
     jalan:props.filters.jalan,
-    tarikh:props.filters.tarikh
+    tarikh:props.filters.tarikh,
 });
 
 
 const aktivitiOptions = ref(['Kutipan Sisa Pepejal', 'Pembersihan Awam']);
+
 const pbtOptions = ref([{
     name:"",
     id:""
@@ -65,16 +102,17 @@ const columns = [
   { data: 'time_end', title: 'Tamat' },
 ];
 
-const data = [
-];
 
 const showNoJadual = ref(false)
 
-const search = () => router.visit(route('complaint.create',form),{
+const search = () => router.visit(route('complaint.schedule',form),{
     preserveState: true,
     only:['jadual'],
     onSuccess:() =>{
-        showNoJadual.value = true;
+        console.log(usePage().props.jadual.length)
+        if(usePage().props.jadual.length == 0){
+            showNoJadual.value = true;
+        }
     }
 
 });
@@ -140,9 +178,10 @@ const search = () => router.visit(route('complaint.create',form),{
 
         <!-- <button class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded py-1 px-3 leading-normal no-underline text-blue-600 border-blue-600 hover:bg-blue-600 hover:text-white bg-white hover:bg-blue-600 mb-2">Primary</button> -->
         <button @click="search" class="btn btn-primary rounded my-5" :class="{ 'p-10': form.processing }">Cari</button>
+        <button @click="form.reset()" class="btn btn-secondary rounded my-5 ml-4" :class="{ 'p-10': form.processing }">Reset</button>
 
-        <template v-if="$page.props.jadual.length > 0">
-        <DataTable :data="$page.props.jadual" class="display table" :columns="columns">
+        <template v-if="!showNoJadual">
+        <DataTable :data="$page.props.jadual" class="display table" :columns="columns" :options="{ select: true }" ref="table">
             <thead>
                 <tr>
                     <th>Jalan</th>
@@ -156,12 +195,14 @@ const search = () => router.visit(route('complaint.create',form),{
                 </tr>
             </thead>
         </DataTable>
+         <button @click="chooseSchedule" class="btn btn-primary rounded my-5" :class="{ 'p-10': form.processing }">Pilih Jadual</button>
         </template>
-        <template v-if="showNoJadual  && $page.props.jadual.length == 0">
+        <template v-if="showNoJadual">
             <div class="flex justify-center">
                 Tiada Jadual Dijumpai
-             <Link href="#" class="btn btn-secondary" as="button" style="font-size:1.2rem!important">Cipta Aduan Tanpa Jadual</Link>
+             <button @click="sendWithoutSchedule" class="btn btn-secondary" as="button" style="font-size:1.2rem!important">Lapor Aduan Tanpa Jadual</button>
              </div>
         </template>
+
 
 </template>

@@ -5,7 +5,6 @@ import { Head, useForm,router,usePage  } from '@inertiajs/vue3';
 import DataTable from 'datatables.net-vue3';
 import DataTablesCore from 'datatables.net';
 import {Multiselect} from 'vue-multiselect';
-// import 'vue-multiselect/dist/vue3-multiselect.css';
 
 DataTable.use(DataTablesCore);
 
@@ -155,6 +154,7 @@ const search = () => {
 
         <!-- <button class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded py-1 px-3 leading-normal no-underline text-blue-600 border-blue-600 hover:bg-blue-600 hover:text-white bg-white hover:bg-blue-600 mb-2">Primary</button> -->
         <button @click="search" class="btn btn-primary rounded my-5" :class="{'bg-gray-200':form.processing}" :disabled="form.processing">Cari</button>
+        <button @click="form.reset()" class="btn btn-secondary rounded my-5 ml-4" :class="{ 'p-10': form.processing }">Reset</button>
 
         <div class="mt-4">
         <DataTable :data="$page.props.jadual" class="display table" :columns="columns">
