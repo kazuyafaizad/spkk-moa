@@ -49,7 +49,9 @@ use Illuminate\Support\Facades\Request as RequestFacade;
     Route::prefix('aduan')->name('complaint.')->group(function () {
         Route::get('/', [AduanController::class, 'index'])->name('index');
         Route::middleware('auth')->group(function () {
+            Route::get('/jadual', [AduanController::class, 'schedule'])->name('schedule');
             Route::get('/tambah', [AduanController::class, 'create'])->name('create');
+            Route::post('/simpan', [AduanController::class, 'store'])->name('store');
         });
     });
 

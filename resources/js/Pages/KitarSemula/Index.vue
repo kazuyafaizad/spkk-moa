@@ -15,7 +15,7 @@ const props = defineProps({
 
 const form = useForm({
     kemudahan: props.filters.kemudahan,
-    barangan: props.filters.barangan,
+    barangan: [],
     negeri:props.filters.negeri,
     pbt:props.filters.pbt,
     taman:props.filters.taman,
@@ -25,11 +25,37 @@ const form = useForm({
 
 const data = ref();
 
-const kemudahanOptions = ref([{id:"drop",name:"Drop"}]);
+const kemudahanOptions = ref([
+    {id:"drop",name:"Drop Off (Tong/Sangkar 3R)"},
+    {id:"drop",name:"Buy Back Center"},
+    {id:"drop",name:"Perniagaan Kitar Semula"},
+    {id:"drop",name:"CRC (CRC Box,Kloth, Tzu Chi)"},
+    {id:"drop",name:"KOSIS"},
+    {id:"drop",name:"Pusat E-Waste"},
+]);
 
-const baranganOptions = ref([{id:"kertas",name:"Kertas"}]);
 
-const radiusOptions = ref(['Kutipan Sisa Pepejal', 'Pembersihan Awam']);
+const baranganOptions = ref([
+    {id:"kertas",name:"Kertas Putih"},
+    {id:"2",name:"Surat Khabar, Kotak, Lain-Lain Kertas"},
+    {id:"3",name:"Kotak/Kadbod"},
+    {id:"4",name:"Kotak Minuman (Tetrapak)"},
+    {id:"5",name:"Lain-Lain Kertas"},
+    {id:"6",name:"Botol PET"},
+    {id:"7",name:"Botol HDPE/LDPE"},
+    {id:"8",name:"Plastik Campuran"},
+    {id:"9",name:"Tin Minuman Aluminium"},
+    {id:"10",name:"Lain-Lain Aluminium"},
+    {id:"11",name:"Tin Makanan"},
+    {id:"12",name:"Lain-Lain Besi"},
+    {id:"13",name:"Minyak Masak"},
+    {id:"14",name:"Sisa Elektronik (E-Waste)"},
+    {id:"15",name:"Tekstil"},
+    {id:"16",name:"Sisa Makanan"},
+]);
+
+
+const radiusOptions = ref(['1KM', '2KM','3KM', '5KM','10KM', '20KM','30KM','50KM']);
 
 const pbtOptions = ref([{
     name:"",
@@ -42,7 +68,7 @@ const changeNegeri = async () => {
 }
 
 const search = () => {
-    axios.post('https://spmtb.swcorp.my/api/spkkapi?negeri=1&pbt=18&kemudahan=drop&barang=kertas',{
+    axios.post('https://spmtb.swcorp.my/api/spkkapi',{
         negeri:form.negeri.id,
         pbt:form.pbt.id,
         kemudahan:form.kemudahan.value,
@@ -67,7 +93,10 @@ const columns = [
   { data: 'emel', title: 'emel' },
   { data: 'noFaks', title: 'No Faks' },
   { data: 'noPhone', title: 'No Telefon' },
-  { data: 'koordinat', title: 'Koordinat' },
+  { data: 'koordinat', title: 'Koordinat', "defaultContent": "<i>Not set</i>",
+  "render": function ( data, type, row, meta ) {
+      return '<a href="https://www.google.com/maps/search/?api=1&query='+data+'" style="text-decoration:underline" target="_blank">Buka map</a>';
+    } },
 ];
 
 </script>
@@ -105,7 +134,7 @@ const columns = [
                                     </div>
                                 <div class="relative flex-grow max-w-full flex-1 px-4">
                                             <label>Pilih Barangan</label>
-                                            <multiselect v-model="form.barangan" :options="baranganOptions" placeholder="Sila Pilih" label="name"
+                                            <multiselect v-model="form.barangan" :multiple="true" :options="baranganOptions" placeholder="Sila Pilih" label="name"
                                                 track-by="id" >
                                             </multiselect>
                                         </div>
@@ -116,6 +145,7 @@ const columns = [
                 </tbody>
             </table>
              <button @click="search" class="btn btn-primary rounded">Cari</button>
+             <button @click="form.reset()" class="btn btn-secondary rounded my-5 ml-4" :class="{ 'p-10': form.processing }">Reset</button>
              <div class="mt-4">
               <DataTable :data="data" class="display table" :columns="columns">
                 <thead>
@@ -123,6 +153,8 @@ const columns = [
 
                     </tr>
                 </thead>
+
+
             </DataTable>
             </div>
     </AppLayout>
