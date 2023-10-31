@@ -74,4 +74,6 @@ class AduanController extends Controller
 
         return redirect(route('complaint.index'));
     }
+
+
 }

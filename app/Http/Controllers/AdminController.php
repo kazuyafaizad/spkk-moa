@@ -16,4 +16,9 @@ class AdminController extends Controller
                 'recipe' => PublicRecipeLeftover::orderBy('id','desc')->paginate()
             ]);
     }
+
+    public function complaint()
+    {
+        return Inertia::render('Aduan/Tindakan');
+    }
 }

@@ -74,8 +74,9 @@ use Illuminate\Support\Facades\Request as RequestFacade;
 
 
     // Admin Routes
-    Route::prefix('admin')->name('admin.')->group(function () {
+    Route::prefix('admin')->name('admin.')->middleware('admin')->group(function () {
         Route::get('/', [AdminController::class, 'index'])->name('index');
+        Route::get('/complaint', [AdminController::class, 'complaint'])->name('complaint');
     });
 
 
