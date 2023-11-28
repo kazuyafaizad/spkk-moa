@@ -48,4 +48,11 @@ class RecipeLeftoverController extends Controller
     {
         (new EditRecipeLeftover)->__invoke($request);
     }
+
+    public function destroy(PublicRecipeLeftover $recipe)
+    {
+        $recipe->delete();
+
+        return back()->with('message', 'Telah Berjaya dipadam');
+    }
 }

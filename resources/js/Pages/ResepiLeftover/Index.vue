@@ -42,7 +42,7 @@ const form = useForm({
               </h4>
             <div class="mt-8 grid lg:grid-cols-3 gap-10">
             <template v-for="(r, i) in $page.props.recipe.data" :key="i">
-                <Link :href="route('resepileftover.show', { recipe: r.id })">
+                <Link :href="route('recipe.show', { recipe: r.id })">
                 <div class="card hover:shadow-lg transform transition duration-500 z-10" >
                     <img
                     :src="r.image"

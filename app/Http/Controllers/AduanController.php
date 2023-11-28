@@ -16,7 +16,7 @@ class AduanController extends Controller
     public function index()
     {
         return Inertia::render('Aduan/Index',[
-            'my_complaints' => PublicComplaint::with(['pbt','street','status'])->where('created_by',auth()->id())->get()
+            'my_complaints' => PublicComplaint::with(['pbt','street','status', 'schedule'])->where('created_by',auth()->id())->get()
         ]);
     }
 
@@ -57,15 +57,16 @@ class AduanController extends Controller
 
     public function store(Request $request)
     {
+
         PublicComplaint::create([
-            'running_no' => Str::random(),
+            'running_no' => $request->schedule_id ? 'SWCORP/ADUAN/' . $request->schedule_id . '/' . auth()->user()->id : 'SWCORP/ADUAN/'. auth()->user()->id,
             'schedule_id' => $request->schedule_id,
             'description' => $request->description,
             'pbt_id'  => $request->pbt_id,
             'scheme_id' => $request->scheme_id,
             'park_id' => $request->park_id,
             'street_id' => $request->street_id,
-            'status_id' => 5,
+            'status_id' => 64,
             'created_by' => auth()->user()->id,
         ]);
 
@@ -73,6 +74,17 @@ class AduanController extends Controller
         session()->flash('flash.bannerStyle', 'success');
 
         return redirect(route('complaint.index'));
+    }
+
+    public function assign_ppk(Request $request)
+    {
+        $complaint = PublicComplaint::find($request->complaint_id);
+
+        $complaint->update([
+            'status_id' => 65,
+            'take_action_by' => $request->ppk['id']
+        ]);
+        return back();
     }
 
 

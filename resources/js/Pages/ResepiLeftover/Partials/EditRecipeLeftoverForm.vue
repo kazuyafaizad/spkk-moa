@@ -30,7 +30,7 @@ const updateRecipe = () => {
         form.image = imageInput.value.files[0];
     }
 
-    form.post(route('resepileftover.update'), {
+    form.post(route('recipe.update'), {
         errorBag: 'updateRecipeLeftover',
         preserveScroll: true,
         onSuccess: () => clearImageFileInput(),

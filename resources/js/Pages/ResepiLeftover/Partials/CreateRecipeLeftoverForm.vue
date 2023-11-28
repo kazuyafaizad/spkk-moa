@@ -10,7 +10,7 @@ import SecondaryButton from '@/Components/SecondaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 
 const props = defineProps({
-    resepi: Object,
+    recipe: Object,
 });
 
 const form = useForm({
@@ -28,7 +28,7 @@ const storeRecipe = () => {
         form.image = imageInput.value.files[0];
     }
 
-    form.post(route('resepileftover.store'), {
+    form.post(route('recipe.store'), {
         errorBag: 'storeRecipe',
         preserveScroll: true,
         onSuccess: () => clearImageFileInput(),
@@ -102,7 +102,7 @@ const clearImageFileInput = () => {
                     Pilih imej di Komputer
                 </SecondaryButton>
 
-                <SecondaryButton v-if="resepi?.image" type="button" class="mt-2" @click.prevent="deleteImage">
+                <SecondaryButton v-if="recipe?.image" type="button" class="mt-2" @click.prevent="deleteImage">
                     Remove Image
                 </SecondaryButton>
 

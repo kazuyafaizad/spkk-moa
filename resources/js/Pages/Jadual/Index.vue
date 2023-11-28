@@ -71,6 +71,9 @@ const data = [
 
 const search = () => {
 
+
+    form.clearErrors()
+
     if(form.aktiviti === null)
     {
         form.setError('aktiviti', 'Sila pilih Aktiviti');
@@ -86,11 +89,13 @@ const search = () => {
         form.setError('pbt', 'Sila pilih PBT');
     }
 
-    router.visit(route('jadual.index',form),{
-    preserveState: true,
-    only:['jadual'],
+    if(!form.hasErrors){
+        router.visit(route('jadual.index',form),{
+        preserveState: true,
+        only:['jadual']});
+    }
 
-})};
+};
 
 </script>
 

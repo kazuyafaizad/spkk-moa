@@ -8,6 +8,7 @@ import {Multiselect} from 'vue-multiselect';
 
 DataTable.use(DataTablesCore);
 
+
 let dt;
 const data = ref([]);
 const table = ref();
@@ -30,11 +31,12 @@ const chooseSchedule = ()=>{
 }
 
 const sendWithoutSchedule = () => {
+
       router.get(route('complaint.create'),{
             data: {
                 schedule_id : "",
-                park_name : form.taman.name,
-                park_id : form.taman.id,
+                park_name : form.taman?.name,
+                park_id : form.taman?.id,
                 street_name : form.jalan?.name,
                 street_id : form.jalan?.id,
                 activity_code : form.aktiviti,
@@ -105,17 +107,42 @@ const columns = [
 
 const showNoJadual = ref(false)
 
-const search = () => router.visit(route('complaint.schedule',form),{
-    preserveState: true,
-    only:['jadual'],
-    onSuccess:() =>{
-        console.log(usePage().props.jadual.length)
-        if(usePage().props.jadual.length == 0){
-            showNoJadual.value = true;
-        }
+const search = () => {
+
+    form.clearErrors()
+
+    if(form.aktiviti === null)
+    {
+        form.setError('aktiviti', 'Sila pilih Aktiviti');
     }
 
-});
+    if(form.negeri === null)
+    {
+        form.setError('negeri', 'Sila pilih Negeri');
+    }
+
+     if(form.pbt === null)
+    {
+        form.setError('pbt', 'Sila pilih PBT');
+    }
+
+   if(!form.hasErrors){
+        router.visit(route('complaint.schedule',form),{
+        preserveState: true,
+        only:['jadual'],
+        onSuccess:() =>{
+            console.log(usePage().props.jadual.length)
+            if(usePage().props.jadual.length == 0){
+                showNoJadual.value = true;
+            }else{
+                showNoJadual.value = false;
+            }
+        }
+
+    })};
+   }
+
+
 
 </script>
 
@@ -137,18 +164,21 @@ const search = () => router.visit(route('complaint.schedule',form),{
                                 <label>Pilih Jenis Jadual</label>
                                 <Multiselect v-model="form.aktiviti" :options="aktivitiOptions" placeholder="Sila Pilih">
                                 </Multiselect>
+                                <div v-if="form.errors.aktiviti" class="text-red-600">{{ form.errors.aktiviti }}</div>
                             </div>
                             <div class="relative flex-grow max-w-full flex-1 px-4">
                                 <label>Pilih Negeri</label>
                                 <multiselect v-model="form.negeri" :options="$page.props.negeriOption"
                                     placeholder="Sila Pilih" label="name" track-by="id" @select="changeNegeri()">
                                 </multiselect>
+                                <div v-if="form.errors.negeri" class="text-red-600">{{ form.errors.negeri }}</div>
                             </div>
                             <div class="relative flex-grow max-w-full flex-1 px-4">
                                 <label>Pilih PBT</label>
                                 <multiselect v-model="form.pbt" :options="pbtOptions" placeholder="Sila Pilih" label="name"
                                     track-by="id" @select="changeTaman()">
                                 </multiselect>
+                                <div v-if="form.errors.pbt" class="text-red-600">{{ form.errors.pbt }}</div>
                             </div>
                             <div class="relative flex-grow max-w-full flex-1 px-4">
                                 <label>Pilih Taman</label>
@@ -198,9 +228,9 @@ const search = () => router.visit(route('complaint.schedule',form),{
          <button @click="chooseSchedule" class="btn btn-primary rounded my-5" :class="{ 'p-10': form.processing }">Pilih Jadual</button>
         </template>
         <template v-if="showNoJadual">
-            <div class="flex justify-center">
-                Tiada Jadual Dijumpai
-             <button @click="sendWithoutSchedule" class="btn btn-secondary" as="button" style="font-size:1.2rem!important">Lapor Aduan Tanpa Jadual</button>
+            <div class="flex justify-center flex-col text-center gap-4">
+                <span class="text-red-500 text-2xl">Tiada Jadual Dijumpai</span>
+                <button @click="sendWithoutSchedule" class="btn btn-secondary" as="button" style="font-size:1.2rem!important">Lapor Aduan Tanpa Jadual</button>
              </div>
         </template>
 

@@ -18,6 +18,7 @@ class PublicComplaint extends Model
             'street_id'  ,
             'status_id'  ,
             'created_by'  ,
+            'take_action_by'
     ];
 
     protected $casts = [
@@ -31,13 +32,19 @@ class PublicComplaint extends Model
         return $this->belongsTo(IntegrationPbt::class,'pbt_id','id');
     }
 
+
     public function status()
     {
-        return $this->belongsTo(Status::class, 'status_id', 'id');
+        return $this->belongsTo(RefSystem::class,'status_id','id');
     }
 
     public function street()
     {
         return $this->belongsTo(IntegrationStreet::class, 'street_id', 'id');
+    }
+
+    public function schedule()
+    {
+        return $this->belongsTo(Pemantauan::class,'schedule_id', 'jadual_id');
     }
 }

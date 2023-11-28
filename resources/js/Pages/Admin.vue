@@ -98,7 +98,7 @@ function update() {
                     </div>
 
                  <div v-if="pageView == 'announcement'">
-                        <Link class="btn btn-primary rounded my-4"  :href="route('announcement.create')" as="button" v-if="$page.props.auth.user?.role_id === 2">Tambah Pengumuman</Link>
+                        <Link class="btn btn-primary rounded my-4"  :href="route('admin.announcement.create')" as="button" v-if="$page.props.auth.user?.role_id === 2">Tambah Pengumuman</Link>
                         <table class="table w-full">
                             <thead class="border">
                                 <th class="p-2 bg-blue-100">Bil.</th>
@@ -117,7 +117,7 @@ function update() {
                 </div>
                 <div v-if="pageView == 'recipe'">
 
-                    <Link class="btn btn-primary rounded my-4"  :href="route('resepileftover.create')" as="button" v-if="$page.props.auth.user?.role_id === 2">Tambah Resipi</Link>
+                    <Link class="btn btn-primary rounded my-4"  :href="route('recipe.create')" as="button" v-if="$page.props.auth.user?.role_id === 2">Tambah Resipi</Link>
 <!--
                     <DataTable :data="$page.props.recipe" class="display table"  :columns="recipeColumns"  :options="{ select: true }" ref="table">
 
@@ -131,7 +131,7 @@ function update() {
                         <tbody class="border">
                             <tr v-for="(recipe,i) in $page.props.recipe.data" :key="i">
                                 <td class="p-2">{{ ($page.props.recipe.per_page * $page.props.recipe.current_page) - $page.props.recipe.per_page + i + 1 }}</td>
-                                <td class="p-2"><Link :href="route('resepileftover.edit',{recipe:recipe.id})">{{ recipe.title }}</Link></td>
+                                <td class="p-2"><Link :href="route('recipe.edit',{recipe:recipe.id})">{{ recipe.title }}</Link></td>
                             </tr>
                         </tbody>
                     </table>

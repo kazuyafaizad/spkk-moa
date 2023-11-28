@@ -1,12 +1,50 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
-import { Link } from '@inertiajs/vue3';
-import { ref } from 'vue';
+import { Link,useForm } from '@inertiajs/vue3';
+import { ref,onMounted } from 'vue';
+
+import DialogModal from '@/Components/DialogModal.vue';
+import SecondaryButton from '@/Components/SecondaryButton.vue';
+import AduanView from '@/Components/AduanView.vue';
 import DataTable from 'datatables.net-vue3';
 import DataTablesCore from 'datatables.net';
 import 'datatables.net-select';
+import PrimaryButton from '@/Components/PrimaryButton.vue';
 
 DataTable.use(DataTablesCore);
+
+let dt;
+const data = ref([]);
+const table = ref();
+
+const displayModal = ref(false);
+const selectedComplaint = ref();
+
+const ppks = ref([{
+    name:"",
+    id:""
+}]);
+
+
+const form = useForm({
+    ppk:"",
+    complaint_id:""
+})
+
+
+// Get a DataTables API reference
+onMounted(function () {
+  dt = table.value.dt;
+    dt.on('click', 'tbody tr', function () {
+        let data = dt.row(this).data();
+
+        console.log(data);
+        form.complaint_id = data.id
+        displayModal.value = true;
+        selectedComplaint.value = data;
+        getPpk(data.pbt.id);
+    });
+});
 
 const prop = defineProps({
     "totalAduan" : {default:0,type:Number},
@@ -15,12 +53,51 @@ const prop = defineProps({
 
 })
 
+const getPpk = async (pbt_id) => {
+    await axios.get('/ppk/'+pbt_id).then(response => ppks.value = response.data).catch(error => console.log(error))
+}
+
+
+const submitAssignation = () =>{
+    form.post(route('admin.assign_ppk'),{
+        onSuccess:() => {
+            displayModal.value = false;
+        }
+    });
+}
+
+
+
 const columns = [
   { data: 'created_at', title: 'Tarikh Aduan' },
   { data: 'pbt.name', title: 'PBT' },
   { data: 'street.name', title: 'Jalan' },
-  { data: 'status.name', title: 'Status' },
+  { data: 'status', title: 'Status',"defaultContent": "<i>Not set</i>",
+  "render": function ( data, type, row, meta ) {
+      return data.id == 64 ? "<span class='badge badge-info'>"+data.name+"</span>" : "<span class='badge badge-warning'>"+data.name+"</span>";
+    }}
 ];
+
+const chooseEdit = ()=>{
+     dt.rows({ selected: true }).every(function () {
+        displayModal.value = true
+        selectedComplaint
+        // router.get(route('complaint.create'),{
+        //     data: this.data()
+        // });
+    });
+}
+
+const assign_ppk = () => {
+    displayModal.value = true
+    // createApiTokenForm.post(route('api-tokens.store'), {
+    //     preserveScroll: true,
+    //     onSuccess: () => {
+    //         displayingToken.value = true;
+    //         createApiTokenForm.reset();
+    //     },
+    // });
+};
 
 
 </script>
@@ -106,7 +183,26 @@ const columns = [
                 <div class="flex items-center justify-center h-full px-4 py-24 text-gray-400 text-3xl font-semibold bg-gray-100 border-2 border-gray-200 border-dashed rounded-md">Chart</div>
               </div>
             </div> -->
-            <DataTable :data="[]" class="display" :columns="columns">
+              <!-- Token Value Modal -->
+            <DialogModal :show="displayModal" @close="displayModal = false">
+                <template #title>
+                    Agihkan Aduan
+                </template>
+
+                <template #content>
+                    <AduanView :selectedComplaint="selectedComplaint" :ppks="ppks" :form="form"/>
+                </template>
+
+                <template #footer>
+                    <SecondaryButton @click="displayModal = false">
+                        Close
+                    </SecondaryButton>
+                    <PrimaryButton @click="submitAssignation" class="ml-4">
+                            Agih
+                        </PrimaryButton>
+                </template>
+            </DialogModal>
+            <DataTable :data="$page.props.public_complaints" class="display" :columns="columns" ref="table" :options="{ select: false }" @click:row="alert('test')">
             </DataTable>
         </section>
     </div>

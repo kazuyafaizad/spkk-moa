@@ -12,6 +12,7 @@ use App\Models\IntegrationPark;
 use App\Models\IntegrationPbt;
 use App\Models\IntegrationScheme;
 use App\Models\IntegrationStreet;
+use App\Models\User;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -63,13 +64,9 @@ use Illuminate\Support\Facades\Request as RequestFacade;
 
 
     // Resepi Leftover Routes
-    Route::prefix('resepi-leftover')->name('resepileftover.')->group(function () {
+    Route::prefix('resepi-leftover')->name('recipe.')->group(function () {
         Route::get('/', [RecipeLeftoverController::class, 'index'])->name('index');
-        Route::get('/tambah', [RecipeLeftoverController::class, 'create'])->name('create');
-        Route::post('/', [RecipeLeftoverController::class, 'store'])->name('store');
-        Route::put('/', [RecipeLeftoverController::class, 'update'])->name('update');
         Route::get('/id/{recipe}', [RecipeLeftoverController::class, 'show'])->name('show');
-        Route::get('/edit/{recipe}', [RecipeLeftoverController::class, 'edit'])->name('edit');
     });
 
 
@@ -77,18 +74,33 @@ use Illuminate\Support\Facades\Request as RequestFacade;
     Route::prefix('admin')->name('admin.')->middleware('admin')->group(function () {
         Route::get('/', [AdminController::class, 'index'])->name('index');
         Route::get('/complaint', [AdminController::class, 'complaint'])->name('complaint');
+
+        Route::post('/complaint/assign_ppk', [AduanController::class, 'assign_ppk'])->name('assign_ppk');
+
+    // Annoucement Routes
+        Route::prefix('announcement')->name('announcement.')->group(function () {
+            Route::get('/', [AdminController::class, 'announcement'])->name('index');
+            Route::get('/tambah', [AnnouncementController::class, 'create'])->name('create');
+            Route::post('/', [AnnouncementController::class, 'store'])->name('store');
+            Route::put('/', [AnnouncementController::class, 'update'])->name('update');
+            Route::get('/id/{announcement}', [AnnouncementController::class, 'show'])->name('show');
+            Route::get('/edit/{announcement}', [AnnouncementController::class, 'edit'])->name('edit');
+            Route::delete('/delete/{announcement}', [AnnouncementController::class, 'destroy'])->name('destroy');
+        });
+
+        Route::prefix('resepi-leftover')->name('recipe.')->group(function () {
+            Route::get('/', [AdminController::class, 'recipe'])->name('index');
+            Route::get('/tambah', [RecipeLeftoverController::class, 'create'])->name('create');
+            Route::post('/', [RecipeLeftoverController::class, 'store'])->name('store');
+            Route::put('/', [RecipeLeftoverController::class, 'update'])->name('update');
+            Route::get('/edit/{recipe}', [RecipeLeftoverController::class, 'edit'])->name('edit');
+            Route::delete('/delete/{recipe}', [RecipeLeftoverController::class, 'destroy'])->name('destroy');
+        });
+
     });
 
 
-     // Annoucement Routes
-    Route::prefix('announcement')->name('announcement.')->group(function () {
-    Route::get('/', [AnnouncementController::class, 'index'])->name('index');
-    Route::get('/tambah', [AnnouncementController::class, 'create'])->name('create');
-    Route::post('/', [AnnouncementController::class, 'store'])->name('store');
-    Route::put('/', [AnnouncementController::class, 'update'])->name('update');
-    Route::get('/id/{announcement}', [AnnouncementController::class, 'show'])->name('show');
-    Route::get('/edit/{announcement}', [AnnouncementController::class, 'edit'])->name('edit');
-    });
+
 
 
 
@@ -111,6 +123,10 @@ use Illuminate\Support\Facades\Request as RequestFacade;
 
     Route::get('/scheme/{pbt_id}', function ($pbt_id) {
         return IntegrationScheme::select('id', 'name')->where('status',1)->where('pbts_id', $pbt_id)->get();
+    });
+
+    Route::get('/ppk/{pbt_id}', function ($pbt_id) {
+        return User::select('id', 'name')->where('pbt_id',$pbt_id)->where('role_id',4)->get();
     });
 
 

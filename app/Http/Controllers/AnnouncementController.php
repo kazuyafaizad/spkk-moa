@@ -48,4 +48,11 @@ class AnnouncementController extends Controller
     {
         (new EditAnnouncement)->__invoke($request);
     }
+
+    public function destroy(PublicAnnouncement $announcement)
+    {
+        $announcement->delete();
+
+        return back()->with('message','Telah Berjaya dipadam');
+    }
 }

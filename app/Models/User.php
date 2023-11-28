@@ -59,4 +59,9 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function pc_pbt()
+    {
+        return $this->belongsToMany(IntegrationPbt::class, 'pc_pbt', 'user_id', 'pbt_id');
+    }
 }
