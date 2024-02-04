@@ -3,10 +3,8 @@
 namespace App\Actions;
 
 use App\Models\PublicAnnouncement;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\Rule;
-use Mockery\Matcher\Any;
-use Illuminate\Http\UploadedFile;
 
 class EditAnnouncement
 {
@@ -21,46 +19,44 @@ class EditAnnouncement
             'id' => 'required',
             'title' => ['required', 'string', 'max:255'],
             'content' => ['required', 'string'],
+            'status' => ['required'],
             'image' => ['nullable', 'mimes:jpg,jpeg,png', 'max:1024'],
         ])->validateWithBag('updateRecipeLeftover');
 
+        $publicAnnouncement = (new PublicAnnouncement)->find($request->id);
 
-        $PublicAnnouncement = (new PublicAnnouncement);
+        $updateData = [
+            'title' => $input['title'] ?? $publicAnnouncement->title,
+            'content' => $input['content'] ?? $publicAnnouncement->content,
+            'status' => $input['status'] ?? $publicAnnouncement->status,
+        ];
 
-        if (isset($input['image'])) {
-            $file = $input['image'];
-            $filename = date('YmdHi') . $file->getClientOriginalName();
-            // Store the file in the 'public' disk (you can configure other disks if needed)
-            $file->storeAs('public/Image', $filename);
+        if (isset($input['image']) && $request->hasFile('image')) {
 
-            // Update the model's image attribute with the stored file path
-            $PublicAnnouncement->image = 'storage/Image/' . $filename;
+            //get filename with extension
+            $filenamewithextension = $request->file('image')->getClientOriginalName();
 
-            // tap($this->profile_photo_path, function ($previous) use ($photo, $storagePath) {
-            //     $this->forceFill([
-            //         'profile_photo_path' => $photo->storePublicly(
-            //             $storagePath,
-            //             ['disk' => $this->profilePhotoDisk()]
-            //         ),
-            //     ])->save();
+            //get filename without extension
+            $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
 
-            //     if ($previous) {
-            //         Storage::disk($this->profilePhotoDisk())->delete($previous);
-            //     }
-            // });
+            //get file extension
+            $extension = $request->file('image')->getClientOriginalExtension();
+
+            //filename to store
+            $filenametostore = 'announcement-'.$filename.'.'.$extension;
+
+            // Determine the remote path
+            $subfolder = 'announcement';
+            $remotePath = 'data/spkk/'.$subfolder;
+            $remotePath = $remotePath.'/'.$filenametostore;
+            Storage::disk('sftp')->delete($remotePath.$publicAnnouncement->image);
+            //Upload File to external server
+            Storage::disk('sftp')->put($remotePath, fopen($request->file('image'), 'r+'));
+
+            $updateData['image'] = $filenametostore;
+
         }
 
-        $PublicAnnouncement->title = $input['title'];
-        $PublicAnnouncement->content = $input['content'];
-        $PublicAnnouncement->status = 1;
-        $PublicAnnouncement->created_by = auth()->user()->id;
-
-        $PublicAnnouncement->where('id', $request->id)->update([
-            'title' => $PublicAnnouncement->title,
-            'content' => $PublicAnnouncement->content,
-            'status' => $PublicAnnouncement->status,
-            'created_by' => $PublicAnnouncement->created_by,
-            'image' => $PublicAnnouncement->image, // If you want to update the image as well
-        ]);
+        $publicAnnouncement->update($updateData);
     }
 }

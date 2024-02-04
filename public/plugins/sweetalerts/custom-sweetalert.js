@@ -1,19 +1,17 @@
-
 $('.widget-content .message').on('click', function () {
   swal({
-      title: 'Saved succesfully',
-      padding: '2em'
-    })
+    title: 'Saved succesfully',
+    padding: '2em'
+  })
 })
 
 $('.widget-content .success').on('click', function () {
   swal({
-      title: 'Good job!',
-      text: "You clicked the!",
-      type: 'success',
-      padding: '2em'
-    })
-
+    title: 'Good job!',
+    text: 'You clicked the!',
+    type: 'success',
+    padding: '2em'
+  })
 })
 
 $('.widget-content .html-jquery').on('click', function () {
@@ -27,48 +25,43 @@ $('.widget-content .html-jquery').on('click', function () {
 
 $('.widget-content .title-text').on('click', function () {
   swal({
-      title: 'The Internet?',
-      text: "That thing is still around?",
-      type: 'question',
-      padding: '2em'
+    title: 'The Internet?',
+    text: 'That thing is still around?',
+    type: 'question',
+    padding: '2em'
   })
-
 })
 
 $('.widget-content .custom-width-padding-background').on('click', function () {
   swal({
     title: 'Custom width, padding, background.',
     width: 600,
-    padding: "7em",
-    customClass: "background-modal",
-    background: '#fff url(../../../storage/img/640x426.jpg) no-repeat 100% 100%',
+    padding: '7em',
+    customClass: 'background-modal',
+    background: '#fff url(../../../storage/img/640x426.jpg) no-repeat 100% 100%'
   })
 })
 
 $('.widget-content .warning.confirm').on('click', function () {
   swal({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
-      type: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'Delete',
-      padding: '2em'
-    }).then(function(result) {
-      if (result.value) {
-        swal(
-          'Deleted!',
-          'Your file has been deleted.',
-          'success'
-        )
-      }
-    })
+    title: 'Are you sure?',
+    text: "You won't be able to revert this!",
+    type: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Delete',
+    padding: '2em'
+  }).then(function (result) {
+    if (result.value) {
+      swal('Deleted!', 'Your file has been deleted.', 'success')
+    }
+  })
 })
 
 $('.widget-content .warning.cancel').on('click', function () {
   const swalWithBootstrapButtons = swal.mixin({
     confirmButtonClass: 'btn btn-success',
     cancelButtonClass: 'btn btn-danger mr-3',
-    buttonsStyling: false,
+    buttonsStyling: false
   })
 
   swalWithBootstrapButtons({
@@ -80,22 +73,14 @@ $('.widget-content .warning.cancel').on('click', function () {
     cancelButtonText: 'No, cancel!',
     reverseButtons: true,
     padding: '2em'
-  }).then(function(result) {
+  }).then(function (result) {
     if (result.value) {
-      swalWithBootstrapButtons(
-        'Deleted!',
-        'Your file has been deleted.',
-        'success'
-      )
+      swalWithBootstrapButtons('Deleted!', 'Your file has been deleted.', 'success')
     } else if (
       // Read more about handling dismissals
       result.dismiss === swal.DismissReason.cancel
     ) {
-      swalWithBootstrapButtons(
-        'Cancelled',
-        'Your imaginary file is safe :)',
-        'error'
-      )
+      swalWithBootstrapButtons('Cancelled', 'Your imaginary file is safe :)', 'error')
     }
   })
 })
@@ -111,15 +96,12 @@ $('.widget-content .html').on('click', function () {
     showCloseButton: true,
     showCancelButton: true,
     focusConfirm: false,
-    confirmButtonText:
-      '<i class="flaticon-checked-1"></i> Great!',
+    confirmButtonText: '<i class="flaticon-checked-1"></i> Great!',
     confirmButtonAriaLabel: 'Thumbs up, great!',
-    cancelButtonText:
-    '<i class="flaticon-cancel-circle"></i> Cancel',
+    cancelButtonText: '<i class="flaticon-cancel-circle"></i> Cancel',
     cancelButtonAriaLabel: 'Thumbs down',
     padding: '2em'
   })
-
 })
 
 $('.widget-content .custom-image').on('click', function () {
@@ -155,60 +137,59 @@ $('.widget-content .timer').on('click', function () {
 })
 
 $('.widget-content .chaining-modals').on('click', function () {
-  swal.mixin({
-    input: 'text',
-    confirmButtonText: 'Next &rarr;',
-    showCancelButton: true,
-    progressSteps: ['1', '2', '3'],
-    padding: '2em',
-  }).queue([
-    {
-      title: 'Question 1',
-      text: 'Chaining swal2 modals is easy'
-    },
-    'Question 2',
-    'Question 3'
-  ]).then(function(result) {
-    if (result.value) {
-      swal({
-        title: 'All done!',
-        padding: '2em',
-        html:
-          'Your answers: <pre>' +
-            JSON.stringify(result.value) +
-          '</pre>',
-        confirmButtonText: 'Lovely!'
-      })
-    }
-  })
+  swal
+    .mixin({
+      input: 'text',
+      confirmButtonText: 'Next &rarr;',
+      showCancelButton: true,
+      progressSteps: ['1', '2', '3'],
+      padding: '2em'
+    })
+    .queue([
+      {
+        title: 'Question 1',
+        text: 'Chaining swal2 modals is easy'
+      },
+      'Question 2',
+      'Question 3'
+    ])
+    .then(function (result) {
+      if (result.value) {
+        swal({
+          title: 'All done!',
+          padding: '2em',
+          html: 'Your answers: <pre>' + JSON.stringify(result.value) + '</pre>',
+          confirmButtonText: 'Lovely!'
+        })
+      }
+    })
 })
 
 $('.widget-content .dynamic-queue').on('click', function () {
   const ipAPI = 'https://api.ipify.org?format=json'
-  swal.queue([{
-    title: 'Your public IP',
-    confirmButtonText: 'Show my public IP',
-    text:
-      'Your public IP will be received ' +
-      'via AJAX request',
-    showLoaderOnConfirm: true,
-    preConfirm: function() {
-      return fetch(ipAPI)
-        .then(function (response) { 
-            return response.json();
-        })
-        .then(function(data) {
-           return swal.insertQueueStep(data.ip)
-        })
-        .catch(function() {
-          swal.insertQueueStep({
-            type: 'error',
-            title: 'Unable to get your public IP'
+  swal.queue([
+    {
+      title: 'Your public IP',
+      confirmButtonText: 'Show my public IP',
+      text: 'Your public IP will be received ' + 'via AJAX request',
+      showLoaderOnConfirm: true,
+      preConfirm: function () {
+        return fetch(ipAPI)
+          .then(function (response) {
+            return response.json()
           })
-        })
+          .then(function (data) {
+            return swal.insertQueueStep(data.ip)
+          })
+          .catch(function () {
+            swal.insertQueueStep({
+              type: 'error',
+              title: 'Unable to get your public IP'
+            })
+          })
+      }
     }
-  }])
-
+  ])
 })
 
 $('.widget-content .footer').on('click', function () {
@@ -224,14 +205,13 @@ $('.widget-content .footer').on('click', function () {
 $('.widget-content .RTL').on('click', function () {
   swal({
     title: 'هل تريد الاستمرار؟',
-    confirmButtonText:  'نعم',
-    cancelButtonText:  'لا',
+    confirmButtonText: 'نعم',
+    cancelButtonText: 'لا',
     showCancelButton: true,
     showCloseButton: true,
     padding: '2em',
     target: document.getElementById('rtl-container')
   })
-
 })
 
 $('.widget-content .mixin').on('click', function () {
@@ -241,11 +221,10 @@ $('.widget-content .mixin').on('click', function () {
     showConfirmButton: false,
     timer: 3000,
     padding: '2em'
-  });
+  })
   toast({
     type: 'success',
     title: 'Signed in successfully',
-    padding: '2em',
+    padding: '2em'
   })
-
 })

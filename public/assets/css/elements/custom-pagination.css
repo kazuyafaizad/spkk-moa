@@ -18,7 +18,8 @@
   justify-content: center;
   margin-bottom: 0;
 }
-.paginating-container .prev svg, .paginating-container .next svg {
+.paginating-container .prev svg,
+.paginating-container .next svg {
   width: 18px;
   height: 18px;
   vertical-align: text-bottom;
@@ -48,73 +49,79 @@
   border: 2px solid #e0e6ed;
 }
 .pagination-default li:hover {
-  border: 2px solid #1b55e2 !important;
+  border: 2px solid #22577a !important;
 }
 .pagination-default li:hover a {
-  color: #1b55e2;
+  color: #22577a;
 }
 .pagination-default li.active {
-  border: 2px solid #1b55e2 !important;
-  color: #1b55e2;
+  border: 2px solid #22577a !important;
+  color: #22577a;
 }
-.pagination-default li a.active:hover, .pagination-default li.active a {
-  color: #1b55e2;
+.pagination-default li a.active:hover,
+.pagination-default li.active a {
+  color: #22577a;
 }
 .pagination-default .prev {
   border: 2px solid #e0e6ed;
 }
 .pagination-default .prev:hover {
-  border: 2px solid #1b55e2;
+  border: 2px solid #22577a;
 }
-.pagination-default .prev:hover a, .pagination-default .prev:hover svg {
-  color: #1b55e2;
+.pagination-default .prev:hover a,
+.pagination-default .prev:hover svg {
+  color: #22577a;
 }
 .pagination-default .next {
   border: 2px solid #e0e6ed;
 }
 .pagination-default .next:hover {
-  border: 2px solid #1b55e2;
+  border: 2px solid #22577a;
 }
-.pagination-default .next:hover a, .pagination-default .next:hover svg {
-  color: #1b55e2;
+.pagination-default .next:hover a,
+.pagination-default .next:hover svg {
+  color: #22577a;
 }
 
-/* 
+/*
     Solid Style
 */
 .pagination-solid li {
   background-color: #e0e6ed;
 }
 .pagination-solid li:hover a {
-  color: #1b55e2;
+  color: #22577a;
 }
 .pagination-solid li.active {
-  background-color: #1b55e2 !important;
+  background-color: #22577a !important;
   color: #fff;
 }
-.pagination-solid li a.active:hover, .pagination-solid li.active a {
+.pagination-solid li a.active:hover,
+.pagination-solid li.active a {
   color: #fff;
 }
 .pagination-solid .prev {
   background-color: #e0e6ed;
 }
 .pagination-solid .prev:hover {
-  background-color: #1b55e2;
+  background-color: #22577a;
 }
-.pagination-solid .prev:hover a, .pagination-solid .prev:hover svg {
+.pagination-solid .prev:hover a,
+.pagination-solid .prev:hover svg {
   color: #fff;
 }
 .pagination-solid .next {
   background-color: #e0e6ed;
 }
 .pagination-solid .next:hover {
-  background-color: #1b55e2;
+  background-color: #22577a;
 }
-.pagination-solid .next:hover a, .pagination-solid .next:hover svg {
+.pagination-solid .next:hover a,
+.pagination-solid .next:hover svg {
   color: #fff;
 }
 
-/*    
+/*
     ===================
         No Spacing
     ===================
@@ -131,7 +138,7 @@
   margin-right: 5px;
 }
 .pagination-no_spacing .prev:hover {
-  background-color: #1b55e2;
+  background-color: #22577a;
 }
 .pagination-no_spacing .prev:hover svg {
   color: #fff;
@@ -143,12 +150,13 @@
   margin-left: 5px;
 }
 .pagination-no_spacing .next:hover {
-  background-color: #1b55e2;
+  background-color: #22577a;
 }
 .pagination-no_spacing .next:hover svg {
   color: #fff;
 }
-.pagination-no_spacing .prev svg, .pagination-no_spacing .next svg {
+.pagination-no_spacing .prev svg,
+.pagination-no_spacing .next svg {
   width: 18px;
   height: 18px;
   vertical-align: text-bottom;
@@ -176,7 +184,7 @@
   color: #3b3f5c;
 }
 .pagination-no_spacing li a.active {
-  background-color: #1b55e2 !important;
+  background-color: #22577a !important;
   border-radius: 6px;
   color: #fff;
 }
@@ -184,7 +192,7 @@
   color: #fff;
 }
 .pagination-no_spacing li a:hover {
-  color: #1b55e2;
+  color: #22577a;
 }
 
 /*
@@ -207,7 +215,7 @@
   margin-right: 25px;
 }
 .pagination-custom_solid .prev:hover {
-  background-color: #1b55e2;
+  background-color: #22577a;
 }
 .pagination-custom_solid .prev:hover svg {
   color: #fff;
@@ -219,12 +227,13 @@
   margin-left: 25px;
 }
 .pagination-custom_solid .next:hover {
-  background-color: #1b55e2;
+  background-color: #22577a;
 }
 .pagination-custom_solid .next:hover svg {
   color: #fff;
 }
-.pagination-custom_solid .prev svg, .pagination-custom_solid .next svg {
+.pagination-custom_solid .prev svg,
+.pagination-custom_solid .next svg {
   width: 18px;
   height: 18px;
   vertical-align: text-bottom;
@@ -252,7 +261,7 @@
   color: #3b3f5c;
 }
 .pagination-custom_solid li a.active {
-  background-color: #1b55e2 !important;
+  background-color: #22577a !important;
   border-radius: 6px;
   color: #fff;
 }
@@ -260,7 +269,7 @@
   color: #fff;
 }
 .pagination-custom_solid li a:hover {
-  color: #1b55e2;
+  color: #22577a;
 }
 
 /*
@@ -278,10 +287,10 @@
   margin-right: 25px;
 }
 .pagination-custom_outline .prev:hover {
-  border: 2px solid #1b55e2;
+  border: 2px solid #22577a;
 }
 .pagination-custom_outline .prev:hover svg {
-  color: #1b55e2;
+  color: #22577a;
 }
 .pagination-custom_outline .next {
   border: 2px solid #e0e6ed;
@@ -290,12 +299,13 @@
   margin-left: 25px;
 }
 .pagination-custom_outline .next:hover {
-  border: 2px solid #1b55e2;
+  border: 2px solid #22577a;
 }
 .pagination-custom_outline .next:hover svg {
-  color: #1b55e2;
+  color: #22577a;
 }
-.pagination-custom_outline .prev svg, .pagination-custom_outline .next svg {
+.pagination-custom_outline .prev svg,
+.pagination-custom_outline .next svg {
   width: 16px;
   height: 16px;
   vertical-align: text-bottom;
@@ -326,11 +336,11 @@
   color: #3b3f5c;
 }
 .pagination-custom_outline li a:hover {
-  color: #1b55e2;
+  color: #22577a;
 }
 .pagination-custom_outline li.active a {
   background-color: #ffffff;
-  border: 2px solid #1b55e2 !important;
+  border: 2px solid #22577a !important;
   border-radius: 6px;
-  color: #1b55e2;
+  color: #22577a;
 }

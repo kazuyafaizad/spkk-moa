@@ -41,7 +41,7 @@
   Toggle
 
 */
-.switch.s-outline[class*=s-outline-] .slider:before {
+.switch.s-outline[class*='s-outline-'] .slider:before {
   bottom: 1px;
   left: 1px;
   border: 2px solid #bfc9d4;
@@ -51,7 +51,7 @@
   border: 2px solid #bfc9d4;
 }
 .switch.s-icons.s-outline-primary {
-  color: #1b55e2;
+  color: #22577a;
   margin: 0 3px 0 11px;
 }
 .switch.s-icons .slider:before {
@@ -110,7 +110,7 @@
 }
 .pricing-plan p {
   margin: 0;
-  color: #888ea8;
+  color: #3b3f5c;
   font-size: 14px;
   letter-spacing: 1px;
 }
@@ -129,7 +129,7 @@
 .pricing-plan-label {
   border-radius: 4px;
   font-size: 18px;
-  color: #888ea8;
+  color: #3b3f5c;
   text-align: center;
   line-height: 24px;
   padding: 15px;
@@ -161,7 +161,7 @@
   margin: 0;
   padding: 3px 0;
   line-height: 24px;
-  color: #888ea8;
+  color: #3b3f5c;
   font-size: 13px;
   letter-spacing: 1px;
 }
@@ -175,19 +175,19 @@
 }
 
 .billed-yearly-radio.billed-yearly-switch span.txt-monthly {
-  color: #888ea8;
+  color: #3b3f5c;
   font-weight: 600;
 }
 .billed-yearly-radio span.txt-yearly {
-  color: #888ea8;
+  color: #3b3f5c;
   font-weight: 600;
 }
 .billed-yearly-radio span.txt-monthly {
-  color: #1b55e2;
+  color: #22577a;
   font-weight: 700;
 }
 .billed-yearly-radio.billed-yearly-switch span.txt-yearly {
-  color: #1b55e2;
+  color: #22577a;
   font-weight: 700;
 }
 .billed-yearly-radio span.txt-yearly span.badge {
@@ -197,7 +197,8 @@
 .billed-yearly-radio.billed-yearly-switch span.txt-yearly span.badge {
   visibility: visible;
 }
-.billed-yearly-radio span.txt-monthly, .billed-yearly-radio span.txt-yearly {
+.billed-yearly-radio span.txt-monthly,
+.billed-yearly-radio span.txt-yearly {
   letter-spacing: 1px;
 }
 
@@ -207,7 +208,7 @@
   margin: 6rem 0 0 0;
 }
 .pricing-plan .recommended-badge {
-  background-color: #1b55e2;
+  background-color: #22577a;
   color: #fff;
   position: absolute;
   width: 100%;
@@ -226,14 +227,14 @@
   color: #acb0c3;
 }
 .recommended .pricing-plan-label strong {
-  color: #1b55e2;
+  color: #22577a;
   font-weight: 700;
   font-size: 44px;
 }
 
 .pricing-plan.recommended .button {
   color: #fff !important;
-  background-color: #1b55e2 !important;
+  background-color: #22577a !important;
 }
 
 @media (max-width: 767px) {
@@ -246,7 +247,7 @@
     border-radius: 6px;
   }
 }
-/* 
+/*
     Pricing
 */
 #pricingWrapper {
@@ -259,7 +260,8 @@
   background: #fff;
   border: 1px solid #bfc9d4;
 }
-#pricingWrapper .stacked .card-header, #pricingWrapper .stacked .card-footer {
+#pricingWrapper .stacked .card-header,
+#pricingWrapper .stacked .card-footer {
   padding: 30px;
   background: #fff;
   border-bottom: 1px solid #bfc9d4;
@@ -279,7 +281,7 @@
   font-size: 1.875rem;
   box-shadow: 0px 0px 15px 1px rgba(113, 106, 202, 0.2);
   border-radius: 0.25rem;
-  border: 2px solid #1b55e2;
+  border: 2px solid #22577a;
   background: #fff;
   font-weight: 700;
 }
@@ -312,11 +314,13 @@
   background: #fff;
   border-radius: 10px;
   border: 1px solid #3b3f5c;
-  transition: border-color 0.3s, background 0.3s;
+  transition:
+    border-color 0.3s,
+    background 0.3s;
 }
 .pricing--norbu .pricing__item:hover {
-  color: #1b55e2;
-  border: 1px solid #1b55e2;
+  color: #22577a;
+  border: 1px solid #22577a;
 }
 .pricing--norbu .pricing__title {
   font-size: 26px;
@@ -326,7 +330,7 @@
   position: relative;
 }
 .pricing--norbu .pricing__title::after {
-  content: "";
+  content: '';
   position: absolute;
   width: 20%;
   height: 1px;
@@ -335,7 +339,7 @@
   bottom: 0;
 }
 .pricing--norbu .pricing__item:hover .pricing__title::after {
-  background: #1b55e2;
+  background: #22577a;
 }
 .pricing--norbu .icon {
   display: inline-block;
@@ -386,18 +390,19 @@
   transition: background 0.3s;
 }
 .pricing--norbu .pricing__item:hover .pricing__action {
-  color: #1b55e2;
+  color: #22577a;
   background: #c2d5ff;
-  border: solid 1px #1b55e2;
+  border: solid 1px #22577a;
   box-shadow: 0px 5px 20px 0 rgba(0, 0, 0, 0.1);
   will-change: opacity, transform;
   transition: all 0.3s ease-out;
   -webkit-transition: all 0.3s ease-out;
 }
-.pricing--norbu .pricing__action:hover, .pricing--norbu .pricing__action:focus {
+.pricing--norbu .pricing__action:hover,
+.pricing--norbu .pricing__action:focus {
   color: #c2d5ff;
-  background: #1b55e2;
-  border-color: #1b55e2;
+  background: #22577a;
+  border-color: #22577a;
   box-shadow: 0px 5px 20px 0 rgba(0, 0, 0, 0.1);
   will-change: opacity, transform;
   transition: all 0.3s ease-out;
@@ -412,11 +417,13 @@
   background: #fff;
   border-radius: 10px;
   border: 1px solid #3b3f5c;
-  transition: border-color 0.3s, background 0.3s;
+  transition:
+    border-color 0.3s,
+    background 0.3s;
 }
 .pricing--norbu .pricing__item:hover {
-  color: #1b55e2;
-  border: 1px solid #1b55e2;
+  color: #22577a;
+  border: 1px solid #22577a;
 }
 .pricing--norbu .pricing__title {
   font-size: 26px;
@@ -426,7 +433,7 @@
   position: relative;
 }
 .pricing--norbu .pricing__title::after {
-  content: "";
+  content: '';
   position: absolute;
   width: 20%;
   height: 1px;
@@ -435,7 +442,7 @@
   bottom: 0;
 }
 .pricing--norbu .pricing__item:hover .pricing__title::after {
-  background: #1b55e2;
+  background: #22577a;
 }
 .pricing--norbu .icon {
   display: inline-block;
@@ -486,18 +493,19 @@
   transition: background 0.3s;
 }
 .pricing--norbu .pricing__item:hover .pricing__action {
-  color: #1b55e2;
+  color: #22577a;
   background: #c2d5ff;
-  border: solid 1px #1b55e2;
+  border: solid 1px #22577a;
   box-shadow: 0px 5px 20px 0 rgba(0, 0, 0, 0.1);
   will-change: opacity, transform;
   transition: all 0.3s ease-out;
   -webkit-transition: all 0.3s ease-out;
 }
-.pricing--norbu .pricing__action:hover, .pricing--norbu .pricing__action:focus {
+.pricing--norbu .pricing__action:hover,
+.pricing--norbu .pricing__action:focus {
   color: #c2d5ff;
-  background: #1b55e2;
-  border-color: #1b55e2;
+  background: #22577a;
+  border-color: #22577a;
   box-shadow: 0px 5px 20px 0 rgba(0, 0, 0, 0.1);
   will-change: opacity, transform;
   transition: all 0.3s ease-out;

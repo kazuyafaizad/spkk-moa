@@ -53,22 +53,24 @@ body {
   font-size: 40px;
   margin-top: 30px;
   font-weight: 700;
-  color: #1b55e2;
+  color: #22577a;
   margin-bottom: 0;
   text-shadow: 0px 5px 4px rgba(31, 45, 61, 0.1019607843);
 }
 .coming-soon-cont .coming-soon-content > p:not(.terms-conditions) {
   font-size: 16px;
-  color: #888ea8;
+  color: #3b3f5c;
   font-weight: 700;
   margin-bottom: 50px;
 }
 .coming-soon-cont #timer {
   display: flex;
 }
-.coming-soon-cont #timer .days, .coming-soon-cont #timer .hours, .coming-soon-cont #timer .min {
+.coming-soon-cont #timer .days,
+.coming-soon-cont #timer .hours,
+.coming-soon-cont #timer .min {
   padding: 28px 0;
-  background: #1b55e2;
+  background: #22577a;
   color: #fff;
   border-radius: 4px;
   font-weight: 600;
@@ -81,7 +83,7 @@ body {
 }
 .coming-soon-cont #timer .sec {
   padding: 28px 0;
-  background: #1b55e2;
+  background: #22577a;
   color: #fff;
   border-radius: 4px;
   font-weight: 600;
@@ -93,16 +95,20 @@ body {
   margin-right: 15px;
   margin-right: 0;
 }
-.coming-soon-cont #timer .days .count, .coming-soon-cont #timer .days .text {
+.coming-soon-cont #timer .days .count,
+.coming-soon-cont #timer .days .text {
   display: block;
 }
-.coming-soon-cont #timer .hours .count, .coming-soon-cont #timer .hours .text {
+.coming-soon-cont #timer .hours .count,
+.coming-soon-cont #timer .hours .text {
   display: block;
 }
-.coming-soon-cont #timer .min .count, .coming-soon-cont #timer .min .text {
+.coming-soon-cont #timer .min .count,
+.coming-soon-cont #timer .min .text {
   display: block;
 }
-.coming-soon-cont #timer .sec .count, .coming-soon-cont #timer .sec .text {
+.coming-soon-cont #timer .sec .count,
+.coming-soon-cont #timer .sec .text {
   display: block;
 }
 .coming-soon-cont .coming-soon-content > h3 {
@@ -120,19 +126,21 @@ body {
 .coming-soon-cont .coming-soon-wrap form .field-wrapper svg {
   position: absolute;
   top: 11px;
-  color: #1b55e2;
+  color: #22577a;
   fill: rgba(27, 85, 226, 0.2392156863);
   left: 8px;
 }
 .coming-soon-cont .coming-soon-wrap form .field-wrapper input {
   padding: 10px 97px 10px 45px;
 }
-.coming-soon-cont .coming-soon-wrap form .field-wrapper input::-webkit-input-placeholder, .coming-soon-cont .coming-soon-wrap form .field-wrapper input::-ms-input-placeholder, .coming-soon-cont .coming-soon-wrap form .field-wrapper input::-moz-placeholder {
+.coming-soon-cont .coming-soon-wrap form .field-wrapper input::-webkit-input-placeholder,
+.coming-soon-cont .coming-soon-wrap form .field-wrapper input::-ms-input-placeholder,
+.coming-soon-cont .coming-soon-wrap form .field-wrapper input::-moz-placeholder {
   color: #d3d3d3;
   font-size: 14px;
 }
 .coming-soon-cont .coming-soon-wrap form .field-wrapper input:focus {
-  border-bottom: 1px solid #1b55e2;
+  border-bottom: 1px solid #22577a;
 }
 .coming-soon-cont .coming-soon-wrap form .field-wrapper button.btn {
   align-self: center;
@@ -146,7 +154,7 @@ body {
 }
 .coming-soon-cont .social {
   text-align: center;
-  color: #1b55e2;
+  color: #22577a;
   margin: 45px 0 0 0;
 }
 .coming-soon-cont .social li {
@@ -158,7 +166,7 @@ body {
   border-right: 2px solid #d3d3d3;
 }
 .coming-soon-cont .social svg {
-  color: #1b55e2;
+  color: #22577a;
   width: 20px;
   height: 20px;
 }
@@ -170,7 +178,7 @@ body {
   margin-top: 70px;
 }
 .coming-soon-cont .terms-conditions a {
-  color: #1b55e2;
+  color: #22577a;
   font-weight: 700;
 }
 
@@ -238,7 +246,10 @@ body {
   .coming-soon-cont #timer .hours:not(:last-child) {
     margin-right: 0;
   }
-  .coming-soon-cont #timer .days, .coming-soon-cont #timer .hours, .coming-soon-cont #timer .min, .coming-soon-cont #timer .sec {
+  .coming-soon-cont #timer .days,
+  .coming-soon-cont #timer .hours,
+  .coming-soon-cont #timer .min,
+  .coming-soon-cont #timer .sec {
     flex: 0 0 40%;
     max-width: 40%;
     margin-bottom: 15px;

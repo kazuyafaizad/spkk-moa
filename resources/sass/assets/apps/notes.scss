@@ -2,19 +2,20 @@
 //      Imports
 //  =================
 
-@import '../../base/base';    // Base Variables
+@import '../../base/base'; // Base Variables
 
 #content:before {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    background: rgba(136, 142, 168, 0.21176470588235294);
-    width: 100%;
-    height: 183px;
-    z-index: -1;
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  background: rgba(136, 142, 168, 0.21176470588235294);
+  width: 100%;
+  height: 183px;
+  z-index: -1;
 }
-.main-container, #content {
+.main-container,
+#content {
   min-height: auto;
 }
 
@@ -75,7 +76,7 @@
 
   &.app-note-overlay-show {
     display: block;
-    opacity: .7;
+    opacity: 0.7;
   }
 }
 
@@ -99,7 +100,8 @@
   }
 
   .nav-pills {
-    .nav-link.active, .show > .nav-link {
+    .nav-link.active,
+    .show > .nav-link {
       background-color: $m-color_4;
       color: $dark;
       font-weight: 700;
@@ -142,7 +144,7 @@
       color: $dark;
       letter-spacing: 1px;
 
-      &[class*="g-dot-"]:before {
+      &[class*='g-dot-']:before {
         position: absolute;
         padding: 4px;
         content: '';
@@ -194,7 +196,7 @@
 
     .label:after {
       position: absolute;
-      content: "";
+      content: '';
       height: 6px;
       width: 6px;
       border-radius: 50%;
@@ -223,7 +225,8 @@
       fill: rgba(27, 85, 226, 0.2392156863);
     }
 
-    .view-list, .view-grid {
+    .view-list,
+    .view-grid {
       padding: 10px;
       background: $white;
       border-radius: 5px;
@@ -297,7 +300,8 @@
       .note-action {
         display: inline-block;
 
-        .fav-note, .delete-note {
+        .fav-note,
+        .delete-note {
           padding: 4px;
           border-radius: 5px;
           cursor: pointer;
@@ -334,7 +338,7 @@
           padding: 4px 6px;
           border-radius: 4px;
 
-          [class*="g-dot-"] {
+          [class*='g-dot-'] {
             content: '';
             background: transparent;
             border-radius: 50%;
@@ -369,7 +373,10 @@
       }
     }
 
-    &.note-personal .note-inner-content .note-footer .tags .g-dot-personal, &.note-work .note-inner-content .note-footer .tags .g-dot-work, &.note-social .note-inner-content .note-footer .tags .g-dot-social, &.note-important .note-inner-content .note-footer .tags .g-dot-important {
+    &.note-personal .note-inner-content .note-footer .tags .g-dot-personal,
+    &.note-work .note-inner-content .note-footer .tags .g-dot-work,
+    &.note-social .note-inner-content .note-footer .tags .g-dot-social,
+    &.note-important .note-inner-content .note-footer .tags .g-dot-important {
       display: inline-block;
     }
 
@@ -389,12 +396,13 @@
           }
 
           .dropdown-item {
-            &.active, &:active {
+            &.active,
+            &:active {
               background: transparent;
             }
           }
 
-          [class*="g-dot-"]:before {
+          [class*='g-dot-']:before {
             content: '';
             position: absolute;
             padding: 4px;
@@ -449,7 +457,10 @@
       }
     }
 
-    &.note-personal .note-inner-content .note-footer .nav-link .feather-more-vertical, &.note-work .note-inner-content .note-footer .nav-link .feather-more-vertical, &.note-social .note-inner-content .note-footer .nav-link .feather-more-vertical, &.note-important .note-inner-content .note-footer .nav-link .feather-more-vertical {
+    &.note-personal .note-inner-content .note-footer .nav-link .feather-more-vertical,
+    &.note-work .note-inner-content .note-footer .nav-link .feather-more-vertical,
+    &.note-social .note-inner-content .note-footer .nav-link .feather-more-vertical,
+    &.note-important .note-inner-content .note-footer .nav-link .feather-more-vertical {
       display: none;
     }
   }
@@ -465,7 +476,8 @@
 =====================
 */
 
-.new-control.new-radio .new-control-indicator {}
+.new-control.new-radio .new-control-indicator {
+}
 
 .modal-content {
   border: none;
@@ -474,7 +486,7 @@
   .modal-footer {
     border-top: none;
 
-    [data-dismiss="modal"] {
+    [data-dismiss='modal'] {
       background-color: $white;
       color: $primary;
       font-weight: 700;
@@ -482,7 +494,7 @@
       padding: 10px 25px;
     }
 
-    .btn[data-dismiss="modal"] svg {
+    .btn[data-dismiss='modal'] svg {
       margin-right: 5px;
       width: 18px;
       vertical-align: bottom;
@@ -517,9 +529,12 @@
   background: $white;
   border-radius: 5px;
   opacity: 1;
-  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.2);
+  box-shadow:
+    0 6px 10px 0 rgba(0, 0, 0, 0.14),
+    0 1px 18px 0 rgba(0, 0, 0, 0.12),
+    0 3px 5px -1px rgba(0, 0, 0, 0.2);
   cursor: pointer;
-  transition: .600s;
+  transition: 0.6s;
   color: $dark;
 }
 
@@ -528,13 +543,15 @@
     padding-top: 20px;
   }
 
-  input {}
+  input {
+  }
 
   .note-description {
     padding-top: 40px;
   }
 
-  textarea {}
+  textarea {
+  }
 }
 
 /*

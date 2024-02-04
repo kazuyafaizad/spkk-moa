@@ -13,6 +13,10 @@ class Pemantauan extends Model
 
     // protected $connection = 'spkk';
 
+    protected $casts = [
+        'date' => 'date:d/m/Y',
+    ];
+
     /**
      * Get the value used to index the model.
      */
@@ -39,5 +43,10 @@ class Pemantauan extends Model
         return [
             'park_name' => $this->park_name,
         ];
+    }
+
+    public function activity()
+    {
+        return $this->hasOne(IntegrationActivities::class, 'kod_aktiviti', 'activity_code');
     }
 }

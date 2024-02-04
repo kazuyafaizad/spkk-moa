@@ -2,8 +2,7 @@
 //      Imports
 //  =================
 
-@import '../../base/base';    // Base Variables
-
+@import '../../base/base'; // Base Variables
 
 html {
   height: 100%;
@@ -41,7 +40,7 @@ body {
     align-items: center;
     display: flex;
     flex-grow: 1;
-    padding: .71428571rem 2.85714286rem;
+    padding: 0.71428571rem 2.85714286rem;
     width: 100%;
     min-height: 100%;
 
@@ -153,7 +152,9 @@ body {
         border-bottom: 1px solid $m-color_3;
         padding: 0px 0 10px 35px;
 
-        &::-webkit-input-placeholder, &::-ms-input-placeholder, &::-moz-placeholder {
+        &::-webkit-input-placeholder,
+        &::-ms-input-placeholder,
+        &::-moz-placeholder {
           color: $m-color_5;
           font-size: 14px;
         }

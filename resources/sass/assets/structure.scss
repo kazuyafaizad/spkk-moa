@@ -2,24 +2,29 @@
 //      Imports
 //  =================
 
-@import '../base/base';    // Base Variables
+@import '../base/base'; // Base Variables
 
 html {
   min-height: 100%;
 }
 
 body {
-  color: #888ea8;
+  color: #3b3f5c;
   height: 100%;
   font-size: 0.875rem;
   background: $body-color;
   overflow-x: hidden;
   overflow-y: auto;
   letter-spacing: 0.0312rem;
-  font-family: 'Quicksand', sans-serif;
+  font-family: 'Afacad', sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: #3b3f5c;
 }
 
@@ -29,19 +34,19 @@ h1, h2, h3, h4, h5, h6 {
 
 ::-moz-selection {
   /* Code for Firefox */
-  color: #1b55e2;
+  color: #22577a;
   background: transparent;
 }
 
 ::selection {
-  color: #1b55e2;
+  color: #22577a;
   background: transparent;
 }
 
 p {
   margin-top: 0;
   margin-bottom: 0.625rem;
-  color: #515365;
+  color: #3b3f5c;
 }
 
 hr {
@@ -96,8 +101,8 @@ code {
   margin-top: 80px;
   margin-bottom: 0;
   margin-left: 255px;
-  -webkit-transition: .3s ease all;
-  transition: .3s ease all;
+  -webkit-transition: 0.3s ease all;
+  transition: 0.3s ease all;
 }
 
 .main-container-fluid > .main-content > .container {
@@ -106,10 +111,10 @@ code {
 }
 
 #content > .wrapper {
-  -webkit-transition: margin ease-in-out .1s;
-  -moz-transition: margin ease-in-out .1s;
-  -o-transition: margin ease-in-out .1s;
-  transition: margin ease-in-out .1s;
+  -webkit-transition: margin ease-in-out 0.1s;
+  -moz-transition: margin ease-in-out 0.1s;
+  -o-transition: margin ease-in-out 0.1s;
+  transition: margin ease-in-out 0.1s;
   position: relative;
 }
 
@@ -131,7 +136,7 @@ code {
 }
 
 .layout-px-spacing {
-  padding: 0 20px 0 20px !important;
+  //   padding: 0 20px 0 20px !important;
   min-height: calc(100vh - 140px) !important;
 }
 
@@ -142,7 +147,7 @@ code {
   border-top-left-radius: 6px;
 }
 
-.row [class*="col-"] .widget .widget-header h4 {
+.row [class*='col-'] .widget .widget-header h4 {
   color: #3b3f5c;
   font-size: 17px;
   font-weight: 600;
@@ -157,10 +162,10 @@ code {
   border-radius: 0;
 
   h4 {
-    color: #888ea8;
+    color: #3b3f5c;
     margin-bottom: 0;
     display: inline-block;
-    border: 2px dashed #888ea8;
+    border: 2px dashed #3b3f5c;
     line-height: 1.4;
     padding: 3px 6px;
     font-size: 15px;
@@ -175,13 +180,13 @@ code {
 
   &:before {
     display: table;
-    content: "";
+    content: '';
     line-height: 0;
   }
 
   &:after {
     display: table;
-    content: "";
+    content: '';
     line-height: 0;
     clear: both;
   }
@@ -200,9 +205,8 @@ code {
   margin-left: 80px;
 }
 
-
 //  ===============================
-//       _structure Imports 
+//       _structure Imports
 //  ===============================
 
 @import '_structure/_navbar';

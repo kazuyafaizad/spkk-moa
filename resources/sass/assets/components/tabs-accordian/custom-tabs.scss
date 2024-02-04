@@ -2,8 +2,7 @@
 //      Imports
 //  =================
 
-@import '../../../base/base';    // Base Variables
-
+@import '../../../base/base'; // Base Variables
 
 .nav-tabs {
   svg {
@@ -80,7 +79,8 @@ h4 {
     color: $dark;
   }
 
-  .nav-item.show .nav-link, .nav-link.active {
+  .nav-item.show .nav-link,
+  .nav-link.active {
     color: $primary;
     font-weight: 600;
     background-color: $white;
@@ -105,7 +105,8 @@ h4 {
       color: $dark;
     }
 
-    .nav-link.active, .show > .nav-link {
+    .nav-link.active,
+    .show > .nav-link {
       background-color: $primary;
       border-color: transparent;
     }
@@ -131,7 +132,8 @@ h4 {
       vertical-align: bottom;
     }
 
-    .nav-item.show .nav-link, .nav-link.active {
+    .nav-item.show .nav-link,
+    .nav-link.active {
       color: $m-color_16;
       background-color: $white;
       border-color: $m-color_3 $m-color_3 $white;
@@ -158,7 +160,8 @@ h4 {
       vertical-align: bottom;
     }
 
-    .nav-link.active, .show > .nav-link {
+    .nav-link.active,
+    .show > .nav-link {
       background-color: $warning;
       border-color: transparent;
     }
@@ -188,19 +191,24 @@ h4 {
   }
 
   .nav-tabs {
-    .nav-link.active, .show > .nav-link {
+    .nav-link.active,
+    .show > .nav-link {
       border-color: transparent;
       border-bottom: 1px solid $secondary;
       color: $secondary;
       background-color: transparent;
     }
 
-    .nav-link.active:hover, .show > .nav-link:hover, .nav-link.active:focus, .show > .nav-link:focus {
+    .nav-link.active:hover,
+    .show > .nav-link:hover,
+    .nav-link.active:focus,
+    .show > .nav-link:focus {
       border-bottom: 1px solid $secondary;
     }
 
     .nav-link {
-      &:focus, &:hover {
+      &:focus,
+      &:hover {
         border-color: transparent;
       }
     }
@@ -227,13 +235,15 @@ h4 {
   }
 
   .nav-tabs {
-    .nav-link.active, .show > .nav-link {
+    .nav-link.active,
+    .show > .nav-link {
       border-color: transparent;
       color: $secondary;
     }
 
     .nav-link {
-      &:focus, &:hover {
+      &:focus,
+      &:hover {
         border-color: transparent;
       }
 
@@ -243,7 +253,7 @@ h4 {
       }
 
       &:before {
-        content: "";
+        content: '';
         height: 1px;
         position: absolute;
         width: 100%;
@@ -252,7 +262,7 @@ h4 {
         background-color: $secondary;
         -webkit-transform: scale(0);
         transform: scale(0);
-        transition: all .3s;
+        transition: all 0.3s;
       }
     }
   }
@@ -268,7 +278,8 @@ h4 {
       color: $dark;
     }
 
-    .nav-item.show .nav-link, .nav-link.active {
+    .nav-item.show .nav-link,
+    .nav-link.active {
       color: $primary;
       background-color: $white;
       border-color: $m-color_3 $m-color_3 $white;
@@ -290,7 +301,8 @@ h4 {
       color: $dark;
     }
 
-    .nav-link.active, .show > .nav-link {
+    .nav-link.active,
+    .show > .nav-link {
       background-color: $info;
       border-color: transparent;
     }
@@ -311,7 +323,8 @@ h4 {
       color: $dark;
     }
 
-    .nav-item.show .nav-link, .nav-link.active {
+    .nav-item.show .nav-link,
+    .nav-link.active {
       color: $m-color_16;
       background-color: $white;
       border-color: $m-color_3 $m-color_3 $white;
@@ -333,7 +346,8 @@ h4 {
       color: $dark;
     }
 
-    .nav-link.active, .show > .nav-link {
+    .nav-link.active,
+    .show > .nav-link {
       background-color: $warning;
     }
   }
@@ -353,7 +367,8 @@ h4 {
       color: $dark;
     }
 
-    .nav-item.show .nav-link, .nav-link.active {
+    .nav-item.show .nav-link,
+    .nav-link.active {
       color: $primary;
       background-color: $white;
       border-color: $m-color_3 $m-color_3 $white;
@@ -371,7 +386,8 @@ h4 {
 
 .pill-justify-right {
   .nav-pills {
-    .nav-link.active, .show > .nav-link {
+    .nav-link.active,
+    .show > .nav-link {
       background-color: $info;
     }
   }
@@ -407,7 +423,8 @@ h4 {
       }
     }
 
-    .nav-link.active, .show > .nav-link {
+    .nav-link.active,
+    .show > .nav-link {
       box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.3);
       background-color: $m-color_14;
     }
@@ -446,7 +463,8 @@ h4 {
     }
   }
 
-  .nav-link.active, .show > .nav-link {
+  .nav-link.active,
+  .show > .nav-link {
     box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.3);
     background-color: $m-color_14;
     border-color: transparent;
@@ -469,7 +487,8 @@ h4 {
       }
     }
 
-    .nav-link.active, .show > .nav-link {
+    .nav-link.active,
+    .show > .nav-link {
       box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.3);
       background-color: $info;
     }
@@ -502,7 +521,8 @@ h4 {
     }
   }
 
-  .nav-link.active, .show > .nav-link {
+  .nav-link.active,
+  .show > .nav-link {
     box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.3);
     background-color: $info;
     border-color: transparent;
@@ -514,7 +534,8 @@ h4 {
 */
 
 .vertical-pill .nav-pills {
-  .nav-link.active, .show > .nav-link {
+  .nav-link.active,
+  .show > .nav-link {
     background-color: $m-color_14;
   }
 }
@@ -524,7 +545,8 @@ h4 {
 */
 
 .vertical-pill-right .nav-pills {
-  .nav-link.active, .show > .nav-link {
+  .nav-link.active,
+  .show > .nav-link {
     background-color: $m-color_14;
   }
 }
@@ -546,7 +568,7 @@ h4 {
     }
 
     .nav-link {
-      padding: .5rem 0;
+      padding: 0.5rem 0;
 
       &.active {
         position: relative;
@@ -566,7 +588,8 @@ h4 {
     }
 
     .nav-link {
-      &:focus, &:hover {
+      &:focus,
+      &:hover {
         border-color: transparent;
       }
 
@@ -577,7 +600,7 @@ h4 {
       }
 
       &:before {
-        content: "";
+        content: '';
         height: 100%;
         position: absolute;
         width: 1px;
@@ -585,7 +608,7 @@ h4 {
         background-color: $secondary;
         -webkit-transform: scale(0);
         transform: scale(0);
-        transition: all .3s;
+        transition: all 0.3s;
       }
     }
   }
@@ -640,7 +663,7 @@ h4 {
   }
 
   .nav-link {
-    padding: .5rem 0;
+    padding: 0.5rem 0;
     border: 1px solid $m-color_3;
     border-radius: 0;
     border-bottom: none;
@@ -706,7 +729,8 @@ h4 {
         border-top: 2px solid $secondary;
       }
 
-      &:focus, &:hover {
+      &:focus,
+      &:hover {
         border: 1px solid transparent;
         border-top: 2px solid $secondary;
       }

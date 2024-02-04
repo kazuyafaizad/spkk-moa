@@ -2,7 +2,7 @@
 //      Imports
 //  =================
 
-@import '../../../base/base';    // Base Variables
+@import '../../../base/base'; // Base Variables
 
 .theme-logo {
   width: 62px;
@@ -62,7 +62,8 @@ body.error500 {
     border: none;
     letter-spacing: 2px;
 
-    &:hover, &:not(:disabled):not(.disabled):active {
+    &:hover,
+    &:not(:disabled):not(.disabled):active {
       background-image: linear-gradient(to right, $primary 0%, $secondary 100%);
     }
   }

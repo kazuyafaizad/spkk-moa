@@ -9,7 +9,7 @@
 	===============================
 */
 #content:before {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   right: 0;
@@ -37,7 +37,7 @@
 }
 
 .modal-backdrop {
-  background-color: #888ea8;
+  background-color: #3b3f5c;
 }
 .modal-backdrop.show {
   opacity: 0.7;
@@ -64,7 +64,7 @@
   align-self: center;
   font-size: 19px;
   margin-right: 14px;
-  color: #1b55e2;
+  color: #22577a;
   font-weight: 600;
 }
 #addListModal .compose-box .list-title input {
@@ -72,7 +72,9 @@
   padding: 10px 16px;
   box-shadow: 2px 5px 17px 0 rgba(31, 45, 61, 0.1);
 }
-#addListModal .compose-box .list-title input::-webkit-input-placeholder, #addListModal .compose-box .list-title input::-ms-input-placeholder, #addListModal .compose-box .list-title input::-moz-placeholder {
+#addListModal .compose-box .list-title input::-webkit-input-placeholder,
+#addListModal .compose-box .list-title input::-ms-input-placeholder,
+#addListModal .compose-box .list-title input::-moz-placeholder {
   color: #acb0c3;
   font-weight: 600;
 }
@@ -81,9 +83,9 @@
   border: none;
   padding: 23px 20px;
 }
-#addListModal .modal-footer .btn[data-dismiss=modal] {
+#addListModal .modal-footer .btn[data-dismiss='modal'] {
   background-color: #fff;
-  color: #1b55e2;
+  color: #22577a;
   font-weight: 700;
   border: 1px solid #e0e6ed;
   padding: 10px 25px;
@@ -96,7 +98,7 @@
   padding: 10px 25px;
 }
 #addListModal .modal-footer .btn.add-list {
-  background-color: #1b55e2;
+  background-color: #22577a;
   color: #fff;
   font-weight: 600;
   border: 1px solid #e0e6ed;
@@ -107,7 +109,7 @@
 #addTaskModal .compose-box h5 {
   font-weight: 700;
   font-size: 18px;
-  color: #515365;
+  color: #3b3f5c;
   text-align: center;
   margin-bottom: 38px;
 }
@@ -135,35 +137,35 @@
   padding: 13px 21px;
   font-weight: 600;
   font-size: 16px;
-  color: #1b55e2;
+  color: #22577a;
 }
 #addTaskModal .modal-content svg {
   align-self: center;
   font-size: 19px;
   margin-right: 14px;
-  color: #1b55e2;
+  color: #22577a;
   font-weight: 600;
 }
 #addTaskModal .modal-content input {
   padding: 10px 16px;
 }
-#addTaskModal .modal-content input[type=range] {
+#addTaskModal .modal-content input[type='range'] {
   box-shadow: none;
   padding: 0;
 }
-#addTaskModal .modal-content input[type=range]::-webkit-slider-thumb {
+#addTaskModal .modal-content input[type='range']::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  background: #1b55e2;
+  background: #22577a;
   cursor: pointer;
   -webkit-transition: all 0.35s ease;
   transition: all 0.35s ease;
 }
-#addTaskModal .modal-content input[type=range]:active::-webkit-slider-thumb {
+#addTaskModal .modal-content input[type='range']:active::-webkit-slider-thumb {
   transform: scale(1.2);
   box-shadow: none;
 }
-#addTaskModal .modal-content input[type=range]:focus::-webkit-slider-thumb {
+#addTaskModal .modal-content input[type='range']:focus::-webkit-slider-thumb {
   box-shadow: none;
 }
 #addTaskModal .modal-content .range-count {
@@ -207,21 +209,21 @@
   border: none;
   padding-top: 0;
 }
-#addTaskModal .modal-footer .btn[data-dismiss=modal] {
+#addTaskModal .modal-footer .btn[data-dismiss='modal'] {
   background-color: #fff;
-  color: #1b55e2;
+  color: #22577a;
   font-weight: 700;
   border: 1px solid #e8e8e8;
   padding: 10px 25px;
 }
-#addTaskModal .modal-footer [data-btnfn=addTask] {
-  background-color: #1b55e2;
+#addTaskModal .modal-footer [data-btnfn='addTask'] {
+  background-color: #22577a;
   color: #fff;
   font-weight: 600;
-  border: 1px solid #1b55e2;
+  border: 1px solid #22577a;
   padding: 10px 25px;
 }
-#addTaskModal .modal-footer [data-btnfn=editTask] {
+#addTaskModal .modal-footer [data-btnfn='editTask'] {
   background-color: #009688;
   color: #fff;
   font-weight: 600;
@@ -261,7 +263,7 @@
   padding: 28px 0;
 }
 #deleteConformation .modal-content .modal-body p {
-  color: #888ea8;
+  color: #3b3f5c;
   font-size: 15px;
   font-weight: 600;
   margin-bottom: 0;
@@ -270,14 +272,14 @@
   padding: 0;
   border: none;
 }
-#deleteConformation .modal-content .modal-footer [data-dismiss=modal] {
+#deleteConformation .modal-content .modal-footer [data-dismiss='modal'] {
   background-color: #fff;
   color: #e7515a;
   font-weight: 700;
   border: 1px solid #e8e8e8;
   padding: 10px 25px;
 }
-#deleteConformation .modal-content .modal-footer [data-remove=task] {
+#deleteConformation .modal-content .modal-footer [data-remove='task'] {
   color: #fff;
   font-weight: 600;
   padding: 10px 25px;
@@ -302,14 +304,17 @@
   padding-right: 0;
 }
 
-/*  
+/*
     Connect Sorting Div
 */
 .connect-sorting {
   padding: 15px;
   background: #e0e6ed;
   border-radius: 10px;
-  box-shadow: 0 4px 6px 0 rgba(85, 85, 85, 0.08), 0 1px 20px 0 rgba(0, 0, 0, 0.07), 0px 1px 11px 0px rgba(0, 0, 0, 0.07);
+  box-shadow:
+    0 4px 6px 0 rgba(85, 85, 85, 0.08),
+    0 1px 20px 0 rgba(0, 0, 0, 0.07),
+    0px 1px 11px 0px rgba(0, 0, 0, 0.07);
 }
 .connect-sorting .task-container-header {
   display: flex;
@@ -325,9 +330,10 @@
   font-weight: 700;
 }
 .connect-sorting .task-container-header .dropdown .dropdown-menu .dropdown-item:hover {
-  color: #1b55e2;
+  color: #22577a;
 }
-.connect-sorting .task-container-header .dropdown .dropdown-menu .dropdown-item.active, .connect-sorting .task-container-header .dropdown .dropdown-menu .dropdown-item:active {
+.connect-sorting .task-container-header .dropdown .dropdown-menu .dropdown-item.active,
+.connect-sorting .task-container-header .dropdown .dropdown-menu .dropdown-item:active {
   background-color: transparent;
 }
 .connect-sorting .task-container-header h6 {
@@ -350,7 +356,7 @@
   text-align: center;
   padding: 13px 11px;
   border-radius: 4px;
-  background: #1b55e2;
+  background: #22577a;
 }
 .connect-sorting .add-s-task .addTask:hover {
   color: #fff;
@@ -374,7 +380,7 @@
 .scrumboard .task-header svg.feather-edit-2 {
   width: 18px;
   height: 18px;
-  color: #888ea8;
+  color: #3b3f5c;
   vertical-align: middle;
   fill: rgba(0, 23, 55, 0.08);
   cursor: pointer;
@@ -382,7 +388,7 @@
   margin-right: 5px;
 }
 .scrumboard .task-header svg.feather-edit-2:hover {
-  color: #1b55e2;
+  color: #22577a;
   fill: rgba(27, 85, 226, 0.2392156863);
 }
 .scrumboard .task-header svg.feather-trash-2 {
@@ -418,11 +424,11 @@
   height: 17px;
 }
 .scrumboard .card .card-body .task-body .task-bottom div.tb-section-1 span:hover {
-  color: #1b55e2;
+  color: #22577a;
   cursor: pointer;
 }
 .scrumboard .card .card-body .task-body .task-bottom div.tb-section-1 span:hover svg {
-  color: #1b55e2;
+  color: #22577a;
   fill: rgba(27, 85, 226, 0.2392156863);
 }
 .scrumboard .card .card-body .task-body .task-bottom div.tb-section-1 svg {
@@ -435,7 +441,7 @@
 .scrumboard .card .card-body .task-body .task-bottom div.tb-section-2 svg {
   width: 18px;
   cursor: pointer;
-  color: #888ea8;
+  color: #3b3f5c;
   margin-right: 6px;
   vertical-align: middle;
   width: 18px;
@@ -445,14 +451,14 @@
 .scrumboard .card .card-body .task-body .task-bottom div.tb-section-2 svg.feather-edit-2 {
   width: 18px;
   height: 18px;
-  color: #888ea8;
+  color: #3b3f5c;
   vertical-align: middle;
   fill: rgba(0, 23, 55, 0.08);
   cursor: pointer;
   padding: 0;
 }
 .scrumboard .card .card-body .task-body .task-bottom div.tb-section-2 svg.feather-edit-2:hover {
-  color: #1b55e2;
+  color: #22577a;
   fill: rgba(27, 85, 226, 0.2392156863);
 }
 .scrumboard .card .card-body .task-body .task-bottom div.tb-section-2 svg.feather-trash-2 {
@@ -510,7 +516,7 @@
   margin-bottom: 0;
 }
 .scrumboard .card.ui-sortable-helper {
-  background-color: #1b55e2;
+  background-color: #22577a;
 }
 .scrumboard .card.ui-sortable-helper .task-header span {
   color: #fff;
@@ -518,7 +524,8 @@
 .scrumboard .card.ui-sortable-helper .task-header span svg {
   color: #fff;
 }
-.scrumboard .card.ui-sortable-helper .task-header svg.feather-edit-2, .scrumboard .card.ui-sortable-helper .task-header svg.feather-trash-2 {
+.scrumboard .card.ui-sortable-helper .task-header svg.feather-edit-2,
+.scrumboard .card.ui-sortable-helper .task-header svg.feather-trash-2 {
   color: #fff;
 }
 .scrumboard .card.ui-sortable-helper .task-header h4 {
@@ -527,7 +534,12 @@
 .scrumboard .card.ui-sortable-helper.task-text-progress .card-body .task-content p {
   color: #fff;
 }
-.scrumboard .card.ui-sortable-helper.task-text-progress .card-body .task-content .progress .progress-bar {
+.scrumboard
+  .card.ui-sortable-helper.task-text-progress
+  .card-body
+  .task-content
+  .progress
+  .progress-bar {
   background-color: #2196f3 !important;
 }
 .scrumboard .card.ui-sortable-helper .task-header svg.feather-user {
@@ -558,22 +570,31 @@
 /* On Drag Task */
 .ui-state-highlight {
   position: relative;
-  border-color: #1b55e2;
+  border-color: #22577a;
   height: 141px;
   margin-bottom: 36px;
   border-radius: 15px;
-  border: 1px dashed #1b55e2;
-  background-image: linear-gradient(45deg, rgba(27, 85, 226, 0.09) 25%, transparent 25%, transparent 50%, rgba(27, 85, 226, 0.09) 50%, rgba(27, 85, 226, 0.09) 75%, transparent 75%, transparent);
+  border: 1px dashed #22577a;
+  background-image: linear-gradient(
+    45deg,
+    rgba(27, 85, 226, 0.09) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(27, 85, 226, 0.09) 50%,
+    rgba(27, 85, 226, 0.09) 75%,
+    transparent 75%,
+    transparent
+  );
   background-size: 1rem 1rem;
   -webkit-animation: progress-bar-stripes 1s linear infinite;
   animation: progress-bar-stripes 1s linear infinite;
 }
 .ui-state-highlight:before {
-  content: "Drop";
+  content: 'Drop';
   position: absolute;
   left: 41%;
   font-size: 19px;
-  color: #1b55e2;
+  color: #22577a;
   top: 50%;
   margin-top: -16px;
   font-weight: 600;

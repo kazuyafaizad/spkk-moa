@@ -37,7 +37,7 @@
   letter-spacing: 1px;
 }
 .media .media-body .media-text {
-  color: #515365;
+  color: #3b3f5c;
   margin-bottom: 0;
   font-size: 14px;
   letter-spacing: 0;
@@ -58,7 +58,7 @@
   margin-bottom: 9px;
 }
 .notation-text .media .media-body .media-notation a {
-  color: #515365;
+  color: #3b3f5c;
   font-size: 13px;
   font-weight: 700;
   margin-right: 8px;
@@ -73,13 +73,13 @@
   margin-bottom: 9px;
 }
 .notation-text-icon .media .media-body .media-notation a {
-  color: #515365;
+  color: #3b3f5c;
   font-size: 13px;
   font-weight: 700;
   margin-right: 8px;
 }
 .notation-text-icon .media .media-body .media-notation a svg {
-  color: #888ea8;
+  color: #3b3f5c;
   margin-right: 6px;
   vertical-align: sub;
   width: 18px;
@@ -105,7 +105,7 @@
 }
 .m-o-dropdown-list .media .media-heading div.dropdown-list {
   cursor: pointer;
-  color: #888ea8;
+  color: #3b3f5c;
   font-size: 18px;
   float: right;
 }
@@ -114,14 +114,14 @@
 }
 .m-o-dropdown-list .media .media-heading div.dropdown-list a.dropdown-item svg {
   margin-left: 20px;
-  color: #888ea8;
+  color: #3b3f5c;
   align-self: center;
   width: 20px;
   height: 20px;
   fill: rgba(0, 23, 55, 0.08);
 }
 .m-o-dropdown-list .media .media-heading div.dropdown-list a.dropdown-item:hover svg {
-  color: #1b55e2;
+  color: #22577a;
   fill: rgba(27, 85, 226, 0.2392156863);
 }
 .m-o-dropdown-list .dropdown-menu {
@@ -133,7 +133,7 @@
 }
 .m-o-dropdown-list .dropdown-item {
   font-size: 14px;
-  color: #888ea8;
+  color: #3b3f5c;
   padding: 5px 12px;
   display: flex;
   justify-content: space-between;
@@ -169,7 +169,7 @@
   border-top: none;
 }
 .m-o-chkbox .media .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
-  background-color: #515365;
+  background-color: #3b3f5c;
 }
 
 /* 	Checkbox	*/
@@ -177,7 +177,7 @@
   border-top: none;
 }
 .m-o-radio .media .custom-radio .custom-control-input:checked ~ .custom-control-label::before {
-  background-color: #515365;
+  background-color: #3b3f5c;
 }
 
 .custom-control-label::before {

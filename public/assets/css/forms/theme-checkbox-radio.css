@@ -46,7 +46,7 @@
   border-radius: 4px;
 }
 .new-control.new-checkbox > input:checked ~ span.new-control-indicator {
-  background: #888ea8;
+  background: #3b3f5c;
 }
 .new-control.new-checkbox > input:checked ~ span.new-control-indicator:after {
   display: block;
@@ -61,7 +61,7 @@
   height: 8px;
   border-width: 0 2px 2px 0 !important;
   transform: rotate(45deg);
-  content: "";
+  content: '';
   position: absolute;
   display: none;
   margin-left: -2px;
@@ -77,32 +77,58 @@
 }
 
 /*  line through colors   */
-.new-control.new-checkbox.new-checkbox-text > input:checked ~ span.new-chk-content, .new-control.new-checkbox.new-checkbox-text.checkbox-outline-default > input:checked ~ span.new-chk-content {
-  color: #888ea8;
+.new-control.new-checkbox.new-checkbox-text > input:checked ~ span.new-chk-content,
+.new-control.new-checkbox.new-checkbox-text.checkbox-outline-default
+  > input:checked
+  ~ span.new-chk-content {
+  color: #3b3f5c;
 }
-.new-control.new-checkbox.new-checkbox-text.checkbox-primary > input:checked ~ span.new-chk-content, .new-control.new-checkbox.new-checkbox-text.checkbox-outline-primary > input:checked ~ span.new-chk-content {
-  color: #1b55e2;
+.new-control.new-checkbox.new-checkbox-text.checkbox-primary > input:checked ~ span.new-chk-content,
+.new-control.new-checkbox.new-checkbox-text.checkbox-outline-primary
+  > input:checked
+  ~ span.new-chk-content {
+  color: #22577a;
 }
-.new-control.new-checkbox.new-checkbox-text.checkbox-success > input:checked ~ span.new-chk-content, .new-control.new-checkbox.new-checkbox-text.checkbox-outline-success > input:checked ~ span.new-chk-content {
+.new-control.new-checkbox.new-checkbox-text.checkbox-success > input:checked ~ span.new-chk-content,
+.new-control.new-checkbox.new-checkbox-text.checkbox-outline-success
+  > input:checked
+  ~ span.new-chk-content {
   color: #8dbf42;
 }
-.new-control.new-checkbox.new-checkbox-text.checkbox-info > input:checked ~ span.new-chk-content, .new-control.new-checkbox.new-checkbox-text.checkbox-outline-info > input:checked ~ span.new-chk-content {
+.new-control.new-checkbox.new-checkbox-text.checkbox-info > input:checked ~ span.new-chk-content,
+.new-control.new-checkbox.new-checkbox-text.checkbox-outline-info
+  > input:checked
+  ~ span.new-chk-content {
   color: #2196f3;
 }
-.new-control.new-checkbox.new-checkbox-text.checkbox-warning > input:checked ~ span.new-chk-content, .new-control.new-checkbox.new-checkbox-text.checkbox-outline-warning > input:checked ~ span.new-chk-content {
+.new-control.new-checkbox.new-checkbox-text.checkbox-warning > input:checked ~ span.new-chk-content,
+.new-control.new-checkbox.new-checkbox-text.checkbox-outline-warning
+  > input:checked
+  ~ span.new-chk-content {
   color: #e2a03f;
 }
-.new-control.new-checkbox.new-checkbox-text.checkbox-danger > input:checked ~ span.new-chk-content, .new-control.new-checkbox.new-checkbox-text.checkbox-outline-danger > input:checked ~ span.new-chk-content {
+.new-control.new-checkbox.new-checkbox-text.checkbox-danger > input:checked ~ span.new-chk-content,
+.new-control.new-checkbox.new-checkbox-text.checkbox-outline-danger
+  > input:checked
+  ~ span.new-chk-content {
   color: #e7515a;
 }
-.new-control.new-checkbox.new-checkbox-text.checkbox-secondary > input:checked ~ span.new-chk-content, .new-control.new-checkbox.new-checkbox-text.checkbox-outline-secondary > input:checked ~ span.new-chk-content {
-  color: #5c1ac3;
+.new-control.new-checkbox.new-checkbox-text.checkbox-secondary
+  > input:checked
+  ~ span.new-chk-content,
+.new-control.new-checkbox.new-checkbox-text.checkbox-outline-secondary
+  > input:checked
+  ~ span.new-chk-content {
+  color: #38a3a5;
 }
-.new-control.new-checkbox.new-checkbox-text.checkbox-dark > input:checked ~ span.new-chk-content, .new-control.new-checkbox.new-checkbox-text.checkbox-outline-dark > input:checked ~ span.new-chk-content {
+.new-control.new-checkbox.new-checkbox-text.checkbox-dark > input:checked ~ span.new-chk-content,
+.new-control.new-checkbox.new-checkbox-text.checkbox-outline-dark
+  > input:checked
+  ~ span.new-chk-content {
   color: #3b3f5c;
 }
 .new-control.new-checkbox.checkbox-primary > input:checked ~ span.new-control-indicator {
-  background: #1b55e2;
+  background: #22577a;
 }
 .new-control.new-checkbox.checkbox-success > input:checked ~ span.new-control-indicator {
   background: #8dbf42;
@@ -117,19 +143,19 @@
   background: #e7515a;
 }
 .new-control.new-checkbox.checkbox-secondary > input:checked ~ span.new-control-indicator {
-  background: #5c1ac3;
+  background: #38a3a5;
 }
 .new-control.new-checkbox.checkbox-dark > input:checked ~ span.new-control-indicator {
   background: #3b3f5c;
 }
-.new-control.new-checkbox[class*=checkbox-outline-] > input:checked ~ span.new-control-indicator {
+.new-control.new-checkbox[class*='checkbox-outline-'] > input:checked ~ span.new-control-indicator {
   background-color: transparent;
 }
 .new-control.new-checkbox.checkbox-outline-default > input:checked ~ span.new-control-indicator {
-  border: 2px solid #888ea8;
+  border: 2px solid #3b3f5c;
 }
 .new-control.new-checkbox.checkbox-outline-primary > input:checked ~ span.new-control-indicator {
-  border: 2px solid #1b55e2;
+  border: 2px solid #22577a;
 }
 .new-control.new-checkbox.checkbox-outline-success > input:checked ~ span.new-control-indicator {
   border: 2px solid #8dbf42;
@@ -144,31 +170,43 @@
   border: 2px solid #e7515a;
 }
 .new-control.new-checkbox.checkbox-outline-secondary > input:checked ~ span.new-control-indicator {
-  border: 2px solid #5c1ac3;
+  border: 2px solid #38a3a5;
 }
 .new-control.new-checkbox.checkbox-outline-dark > input:checked ~ span.new-control-indicator {
   border: 2px solid #3b3f5c;
 }
-.new-control.new-checkbox.checkbox-outline-default > input:checked ~ span.new-control-indicator:after {
-  border-color: #888ea8;
+.new-control.new-checkbox.checkbox-outline-default
+  > input:checked
+  ~ span.new-control-indicator:after {
+  border-color: #3b3f5c;
 }
-.new-control.new-checkbox.checkbox-outline-primary > input:checked ~ span.new-control-indicator:after {
-  border-color: #1b55e2;
+.new-control.new-checkbox.checkbox-outline-primary
+  > input:checked
+  ~ span.new-control-indicator:after {
+  border-color: #22577a;
 }
-.new-control.new-checkbox.checkbox-outline-success > input:checked ~ span.new-control-indicator:after {
+.new-control.new-checkbox.checkbox-outline-success
+  > input:checked
+  ~ span.new-control-indicator:after {
   border-color: #8dbf42;
 }
 .new-control.new-checkbox.checkbox-outline-info > input:checked ~ span.new-control-indicator:after {
   border-color: #2196f3;
 }
-.new-control.new-checkbox.checkbox-outline-warning > input:checked ~ span.new-control-indicator:after {
+.new-control.new-checkbox.checkbox-outline-warning
+  > input:checked
+  ~ span.new-control-indicator:after {
   border-color: #e2a03f;
 }
-.new-control.new-checkbox.checkbox-outline-danger > input:checked ~ span.new-control-indicator:after {
+.new-control.new-checkbox.checkbox-outline-danger
+  > input:checked
+  ~ span.new-control-indicator:after {
   border-color: #e7515a;
 }
-.new-control.new-checkbox.checkbox-outline-secondary > input:checked ~ span.new-control-indicator:after {
-  border-color: #5c1ac3;
+.new-control.new-checkbox.checkbox-outline-secondary
+  > input:checked
+  ~ span.new-control-indicator:after {
+  border-color: #38a3a5;
 }
 .new-control.new-checkbox.checkbox-outline-dark > input:checked ~ span.new-control-indicator:after {
   border-color: #3b3f5c;
@@ -195,14 +233,14 @@
   border-radius: 50%;
 }
 .new-control.new-radio > input:checked ~ span.new-control-indicator {
-  background: #888ea8;
+  background: #3b3f5c;
 }
 .new-control.new-radio span.new-control-indicator:after {
   top: 50%;
   left: 50%;
   margin-left: -3px;
   margin-top: -3px;
-  content: "";
+  content: '';
   position: absolute;
   display: none;
   border-radius: 50%;
@@ -210,11 +248,12 @@
   width: 6px;
   background-color: #fff;
 }
-.new-control.new-radio.square-radio .new-control-indicator, .new-control.new-radio.square-radio span.new-control-indicator:after {
+.new-control.new-radio.square-radio .new-control-indicator,
+.new-control.new-radio.square-radio span.new-control-indicator:after {
   border-radius: 0;
 }
 .new-control.new-radio.radio-primary > input:checked ~ span.new-control-indicator {
-  background: #1b55e2;
+  background: #22577a;
 }
 .new-control.new-radio.radio-success > input:checked ~ span.new-control-indicator {
   background: #8dbf42;
@@ -229,19 +268,19 @@
   background: #e7515a;
 }
 .new-control.new-radio.radio-secondary > input:checked ~ span.new-control-indicator {
-  background: #5c1ac3;
+  background: #38a3a5;
 }
 .new-control.new-radio.radio-dark > input:checked ~ span.new-control-indicator {
   background: #3b3f5c;
 }
-.new-control.new-radio[class*=radio-classic-] > input:checked ~ span.new-control-indicator {
+.new-control.new-radio[class*='radio-classic-'] > input:checked ~ span.new-control-indicator {
   background-color: transparent;
 }
 .new-control.new-radio.radio-classic-default > input:checked ~ span.new-control-indicator {
-  border: 3px solid #888ea8;
+  border: 3px solid #3b3f5c;
 }
 .new-control.new-radio.radio-classic-primary > input:checked ~ span.new-control-indicator {
-  border: 3px solid #1b55e2;
+  border: 3px solid #22577a;
 }
 .new-control.new-radio.radio-classic-success > input:checked ~ span.new-control-indicator {
   border: 3px solid #8dbf42;
@@ -256,16 +295,16 @@
   border: 3px solid #e7515a;
 }
 .new-control.new-radio.radio-classic-secondary > input:checked ~ span.new-control-indicator {
-  border: 3px solid #5c1ac3;
+  border: 3px solid #38a3a5;
 }
 .new-control.new-radio.radio-classic-dark > input:checked ~ span.new-control-indicator {
   border: 3px solid #3b3f5c;
 }
 .new-control.new-radio.radio-classic-default > input:checked ~ span.new-control-indicator:after {
-  background-color: #888ea8;
+  background-color: #3b3f5c;
 }
 .new-control.new-radio.radio-classic-primary > input:checked ~ span.new-control-indicator:after {
-  background-color: #1b55e2;
+  background-color: #22577a;
 }
 .new-control.new-radio.radio-classic-success > input:checked ~ span.new-control-indicator:after {
   background-color: #8dbf42;
@@ -280,33 +319,53 @@
   background-color: #e7515a;
 }
 .new-control.new-radio.radio-classic-secondary > input:checked ~ span.new-control-indicator:after {
-  background-color: #5c1ac3;
+  background-color: #38a3a5;
 }
 .new-control.new-radio.radio-classic-dark > input:checked ~ span.new-control-indicator:after {
   background-color: #3b3f5c;
 }
-.new-control.new-radio.new-radio-text > input:checked ~ span.new-radio-content, .new-control.new-radio.new-radio-text.radio-classic-default > input:checked ~ span.new-radio-content {
-  color: #888ea8;
+.new-control.new-radio.new-radio-text > input:checked ~ span.new-radio-content,
+.new-control.new-radio.new-radio-text.radio-classic-default
+  > input:checked
+  ~ span.new-radio-content {
+  color: #3b3f5c;
 }
-.new-control.new-radio.new-radio-text.radio-primary > input:checked ~ span.new-radio-content, .new-control.new-radio.new-radio-text.radio-classic-primary > input:checked ~ span.new-radio-content {
-  color: #1b55e2;
+.new-control.new-radio.new-radio-text.radio-primary > input:checked ~ span.new-radio-content,
+.new-control.new-radio.new-radio-text.radio-classic-primary
+  > input:checked
+  ~ span.new-radio-content {
+  color: #22577a;
 }
-.new-control.new-radio.new-radio-text.radio-success > input:checked ~ span.new-radio-content, .new-control.new-radio.new-radio-text.radio-classic-success > input:checked ~ span.new-radio-content {
+.new-control.new-radio.new-radio-text.radio-success > input:checked ~ span.new-radio-content,
+.new-control.new-radio.new-radio-text.radio-classic-success
+  > input:checked
+  ~ span.new-radio-content {
   color: #8dbf42;
 }
-.new-control.new-radio.new-radio-text.radio-info > input:checked ~ span.new-radio-content, .new-control.new-radio.new-radio-text.radio-classic-info > input:checked ~ span.new-radio-content {
+.new-control.new-radio.new-radio-text.radio-info > input:checked ~ span.new-radio-content,
+.new-control.new-radio.new-radio-text.radio-classic-info > input:checked ~ span.new-radio-content {
   color: #2196f3;
 }
-.new-control.new-radio.new-radio-text.radio-warning > input:checked ~ span.new-radio-content, .new-control.new-radio.new-radio-text.radio-classic-warning > input:checked ~ span.new-radio-content {
+.new-control.new-radio.new-radio-text.radio-warning > input:checked ~ span.new-radio-content,
+.new-control.new-radio.new-radio-text.radio-classic-warning
+  > input:checked
+  ~ span.new-radio-content {
   color: #e2a03f;
 }
-.new-control.new-radio.new-radio-text.radio-danger > input:checked ~ span.new-radio-content, .new-control.new-radio.new-radio-text.radio-classic-danger > input:checked ~ span.new-radio-content {
+.new-control.new-radio.new-radio-text.radio-danger > input:checked ~ span.new-radio-content,
+.new-control.new-radio.new-radio-text.radio-classic-danger
+  > input:checked
+  ~ span.new-radio-content {
   color: #e7515a;
 }
-.new-control.new-radio.new-radio-text.radio-secondary > input:checked ~ span.new-radio-content, .new-control.new-radio.new-radio-text.radio-classic-secondary > input:checked ~ span.new-radio-content {
-  color: #5c1ac3;
+.new-control.new-radio.new-radio-text.radio-secondary > input:checked ~ span.new-radio-content,
+.new-control.new-radio.new-radio-text.radio-classic-secondary
+  > input:checked
+  ~ span.new-radio-content {
+  color: #38a3a5;
 }
-.new-control.new-radio.new-radio-text.radio-dark > input:checked ~ span.new-radio-content, .new-control.new-radio.new-radio-text.radio-classic-dark > input:checked ~ span.new-radio-content {
+.new-control.new-radio.new-radio-text.radio-dark > input:checked ~ span.new-radio-content,
+.new-control.new-radio.new-radio-text.radio-classic-dark > input:checked ~ span.new-radio-content {
   color: #3b3f5c;
 }
 

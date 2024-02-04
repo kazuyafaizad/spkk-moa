@@ -12,7 +12,7 @@
 
 table.dataTable {
   clear: both;
-  width: 100%!important;
+  width: 100% !important;
   margin-top: 6px !important;
   margin-bottom: 6px !important;
   max-width: none !important;
@@ -37,8 +37,8 @@ div.dataTables_wrapper div.dataTables_length label {
   font-weight: normal;
   text-align: left;
   white-space: nowrap;
-    color: #acb0c3;
-    font-weight: 600;
+  color: #acb0c3;
+  font-weight: 600;
 }
 div.dataTables_wrapper div.dataTables_length select {
   width: 75px;
@@ -51,8 +51,8 @@ div.dataTables_wrapper div.dataTables_filter label {
   font-weight: normal;
   white-space: nowrap;
   text-align: left;
-      color: #acb0c3;
-    font-weight: 600;
+  color: #acb0c3;
+  font-weight: 600;
 }
 div.dataTables_wrapper div.dataTables_filter input {
   margin-left: 0.5em;
@@ -60,20 +60,20 @@ div.dataTables_wrapper div.dataTables_filter input {
   width: auto;
 }
 table.dataTable .form-control {
-    color: #888ea8;
-    font-size: 0.875rem;
+  color: #3b3f5c;
+  font-size: 0.875rem;
 }
 table.dataTable .form-control::-webkit-input-placeholder {
-    color: #888ea8;
-    font-size: 0.875rem;
+  color: #3b3f5c;
+  font-size: 0.875rem;
 }
 table.dataTable .form-control::-ms-input-placeholder {
-    color: #888ea8;
-    font-size: 0.875rem;
+  color: #3b3f5c;
+  font-size: 0.875rem;
 }
 table.dataTable .form-control::-moz-placeholder {
-    color: #888ea8;
-    font-size: 0.875rem;
+  color: #3b3f5c;
+  font-size: 0.875rem;
 }
 
 div.dataTables_wrapper div.dataTables_info {
@@ -100,7 +100,9 @@ div.dataTables_wrapper div.dataTables_processing {
   text-align: center;
   padding: 1em 0;
 }
-table.dataTable thead > tr > th.sorting_asc, table.dataTable thead > tr > th.sorting_desc, table.dataTable thead > tr > th.sorting,
+table.dataTable thead > tr > th.sorting_asc,
+table.dataTable thead > tr > th.sorting_desc,
+table.dataTable thead > tr > th.sorting,
 table.dataTable thead > tr > td.sorting_asc,
 table.dataTable thead > tr > td.sorting_desc,
 table.dataTable thead > tr > td.sorting {
@@ -118,7 +120,8 @@ table.dataTable thead .sorting_desc_disabled {
   cursor: pointer;
   position: relative;
 }
-table.dataTable thead .sorting:before, table.dataTable thead .sorting:after,
+table.dataTable thead .sorting:before,
+table.dataTable thead .sorting:after,
 table.dataTable thead .sorting_asc:before,
 table.dataTable thead .sorting_asc:after,
 table.dataTable thead .sorting_desc:before,
@@ -138,7 +141,7 @@ table.dataTable thead .sorting_desc:before,
 table.dataTable thead .sorting_asc_disabled:before,
 table.dataTable thead .sorting_desc_disabled:before {
   right: 1em;
-  content: "\2191";
+  content: '\2191';
 }
 table.dataTable thead .sorting:after,
 table.dataTable thead .sorting_asc:after,
@@ -146,7 +149,7 @@ table.dataTable thead .sorting_desc:after,
 table.dataTable thead .sorting_asc_disabled:after,
 table.dataTable thead .sorting_desc_disabled:after {
   right: 0.5em;
-  content: "\2193";
+  content: '\2193';
 }
 table.dataTable thead .sorting_asc:before,
 table.dataTable thead .sorting_desc:after {
@@ -210,7 +213,8 @@ table.table-bordered.dataTable th,
 table.table-bordered.dataTable td {
   border-left-width: 0;
 }
-table.table-bordered.dataTable th:last-child, table.table-bordered.dataTable th:last-child,
+table.table-bordered.dataTable th:last-child,
+table.table-bordered.dataTable th:last-child,
 table.table-bordered.dataTable td:last-child,
 table.table-bordered.dataTable td:last-child {
   border-right-width: 0;
@@ -225,9 +229,9 @@ div.dataTables_scrollHead table.table-bordered {
 div.table-responsive > div.dataTables_wrapper > div.row {
   margin: 0;
 }
-div.table-responsive > div.dataTables_wrapper > div.row > div[class^="col-"]:first-child {
+div.table-responsive > div.dataTables_wrapper > div.row > div[class^='col-']:first-child {
   padding-left: 0;
 }
-div.table-responsive > div.dataTables_wrapper > div.row > div[class^="col-"]:last-child {
+div.table-responsive > div.dataTables_wrapper > div.row > div[class^='col-']:last-child {
   padding-right: 0;
 }

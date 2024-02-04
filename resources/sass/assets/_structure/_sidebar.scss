@@ -1,4 +1,4 @@
-/* 
+/*
 ===============
     Sidebar
 ===============
@@ -8,16 +8,25 @@
   width: 255px;
   position: fixed;
   z-index: 1030;
-  transition: .550s;
+  transition: 0.55s;
   top: 80px;
   height: 100vh;
   touch-action: none;
   user-select: none;
   -webkit-user-drag: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  -webkit-box-shadow: 4px 0 6px 0 rgba(85, 85, 85, 0.08), 1px 0 20px 0 rgba(0, 0, 0, 0.07), 1px 0 11px 0px rgba(0, 0, 0, 0.07);
-  -moz-box-shadow: 4px 0 6px 0 rgba(85, 85, 85, 0.08), 1px 0 20px 0 rgba(0, 0, 0, 0.07), 1px 0 11px 0px rgba(0, 0, 0, 0.07);
-  box-shadow: 4px 0 6px 0 rgba(85, 85, 85, 0.08), 1px 0 20px 0 rgba(0, 0, 0, 0.07), 1px 0 11px 0px rgba(0, 0, 0, 0.07);
+  -webkit-box-shadow:
+    4px 0 6px 0 rgba(85, 85, 85, 0.08),
+    1px 0 20px 0 rgba(0, 0, 0, 0.07),
+    1px 0 11px 0px rgba(0, 0, 0, 0.07);
+  -moz-box-shadow:
+    4px 0 6px 0 rgba(85, 85, 85, 0.08),
+    1px 0 20px 0 rgba(0, 0, 0, 0.07),
+    1px 0 11px 0px rgba(0, 0, 0, 0.07);
+  box-shadow:
+    4px 0 6px 0 rgba(85, 85, 85, 0.08),
+    1px 0 20px 0 rgba(0, 0, 0, 0.07),
+    1px 0 11px 0px rgba(0, 0, 0, 0.07);
   box-shadow: 0 0 40px 0 rgba(94, 92, 154, 0.06);
   border-right: 1px solid #e0e6ed;
 }
@@ -50,13 +59,13 @@
   background: #fafafa;
 
   * {
-    transition: .600s;
+    transition: 0.6s;
   }
 
   figure {
     width: 100%;
     height: 82px;
-    background: url("../../../storage/img/255x255.jpg") center (center / cover) no-repeat;
+    background: url('../../../storage/img/255x255.jpg') center (center / cover) no-repeat;
     margin-bottom: 0;
   }
 
@@ -93,7 +102,7 @@
       font-weight: 600;
       letter-spacing: 0;
       opacity: 1;
-      color: #888ea8;
+      color: #3b3f5c;
     }
   }
 }
@@ -140,7 +149,11 @@
   left: -4px;
   -webkit-filter: blur(5px);
   filter: blur(7px);
-  background: -webkit-linear-gradient(#fafafac4 41%, rgba(255, 255, 255, 0.14) 95%, rgba(255, 255, 255, 0));
+  background: -webkit-linear-gradient(
+    #fafafac4 41%,
+    rgba(255, 255, 255, 0.14) 95%,
+    rgba(255, 255, 255, 0)
+  );
   background: linear-gradient(#fafafac4 41%, rgba(255, 255, 255, 0.14) 95%, rgba(255, 255, 255, 0));
 }
 
@@ -157,7 +170,7 @@
     }
 
     &:hover > .ps__rail-y .ps__thumb-y {
-      background-color: #888ea8;
+      background-color: #3b3f5c;
     }
 
     height: calc(100vh - 282px) !important;
@@ -175,7 +188,7 @@
 }
 
 #sidebar ul.menu-categories li {
-  > .dropdown-toggle[aria-expanded="true"] svg.feather-chevron-right {
+  > .dropdown-toggle[aria-expanded='true'] svg.feather-chevron-right {
     transform: rotate(90deg);
   }
 
@@ -195,7 +208,7 @@
   cursor: pointer;
   font-size: 13px;
   font-weight: 700;
-  color: #515365;
+  color: #3b3f5c;
   padding: 20px 0 20px 12px;
   letter-spacing: 1px;
 
@@ -211,7 +224,7 @@
 
 #sidebar ul.menu-categories {
   li.menu {
-    transition: .600s;
+    transition: 0.6s;
     margin: 0px 15px 3px 15px;
 
     > .dropdown-toggle {
@@ -222,7 +235,7 @@
       color: #3b3f5c;
       padding: 14px 10px;
       font-weight: 600;
-      transition: .600s;
+      transition: 0.6s;
       border-radius: 6px;
       letter-spacing: 0;
 
@@ -237,17 +250,17 @@
 
     > .dropdown-toggle {
       svg {
-        color: #888ea8;
+        color: #3b3f5c;
         margin-right: 18px;
         vertical-align: middle;
         width: 24px;
         height: 24px;
         stroke-width: 1px;
         fill: rgba(172, 176, 195, 0.35);
-        transition: all .2s ease-in-out;
+        transition: all 0.2s ease-in-out;
       }
 
-      &[aria-expanded="true"] {
+      &[aria-expanded='true'] {
         svg {
           color: #fff;
           fill: rgba(136, 142, 168, 0.2784313725);
@@ -259,17 +272,18 @@
           border-radius: 12px;
           font-weight: 600;
           position: relative;
-          transition: all .2s ease-in-out;
+          transition: all 0.2s ease-in-out;
         }
       }
     }
 
     &:not(.active) > .dropdown-toggle {
-      &[aria-expanded="true"] {
+      &[aria-expanded='true'] {
         background: #445ede;
       }
 
-      &:not([aria-expanded="true"]):hover svg:not(.feather-chevron-right), &:hover svg:not(.feather-chevron-right) {
+      &:not([aria-expanded='true']):hover svg:not(.feather-chevron-right),
+      &:hover svg:not(.feather-chevron-right) {
         margin-right: 30px;
       }
     }
@@ -282,8 +296,9 @@
           width: 15px;
         }
 
-        &[aria-expanded="true"] svg {
-          &.flaticon-right-arrow, &.flaticon-down-arrow {
+        &[aria-expanded='true'] svg {
+          &.flaticon-right-arrow,
+          &.flaticon-down-arrow {
             background-color: transparent;
           }
         }
@@ -336,7 +351,7 @@
       transform: rotate(90deg);
     }
 
-    &[aria-expanded="false"] {
+    &[aria-expanded='false'] {
       svg {
         color: #fff;
         stroke-width: 2px;
@@ -359,11 +374,11 @@
     }
 
     li > {
-      [aria-expanded="true"]:before {
+      [aria-expanded='true']:before {
         background-color: #304aca !important;
       }
 
-      a[aria-expanded="true"] {
+      a[aria-expanded='true'] {
         color: #304aca;
         font-size: 14px;
       }
@@ -394,7 +409,7 @@
 
         &:before {
           content: '';
-          background-color: #515365;
+          background-color: #3b3f5c;
           position: absolute;
           top: 15px !important;
           border-radius: 50%;
@@ -439,7 +454,8 @@
           height: 36px;
         }
 
-        h6, p {
+        h6,
+        p {
           opacity: 0;
         }
       }
@@ -465,7 +481,7 @@
   #sidebar {
     ul.menu-categories li.menu > .dropdown-toggle {
       padding: 11px 7px;
-      transition: .600s;
+      transition: 0.6s;
       position: relative;
 
       svg.feather-chevron-right {
@@ -500,7 +516,8 @@
           height: 90px;
         }
 
-        h6, p {
+        h6,
+        p {
           opacity: 1;
         }
       }
@@ -517,7 +534,7 @@
     }
 
     #sidebar ul.menu-categories li.menu > .dropdown-toggle {
-      &[aria-expanded="true"]:before {
+      &[aria-expanded='true']:before {
         display: none;
       }
 
@@ -525,7 +542,7 @@
         display: inline-block;
       }
 
-      &[aria-expanded="true"] svg {
+      &[aria-expanded='true'] svg {
         padding: 0;
         background: transparent;
         border-radius: 0;
@@ -545,7 +562,7 @@
 
     #sidebar ul.menu-categories li.menu > .dropdown-toggle {
       padding: 14px 10px;
-      transition: .600s;
+      transition: 0.6s;
     }
   }
 }

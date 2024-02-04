@@ -27,7 +27,7 @@
   align-self: center;
 }
 .breadcrumb-one .breadcrumb-item a {
-  color: #888ea8;
+  color: #3b3f5c;
   vertical-align: text-bottom;
 }
 .breadcrumb-one .breadcrumb-item a svg {
@@ -37,7 +37,7 @@
   fill: #e0e6ed;
 }
 .breadcrumb-one .breadcrumb-item.active a {
-  color: #515365;
+  color: #3b3f5c;
 }
 .breadcrumb-one .breadcrumb-item span {
   vertical-align: text-bottom;
@@ -50,7 +50,7 @@
   padding: 0px;
 }
 .breadcrumb-one .breadcrumb-item + .breadcrumb-item::before {
-  color: #888ea8;
+  color: #3b3f5c;
   padding: 0 6px 0 6px;
 }
 
@@ -69,7 +69,7 @@
   color: #fff;
 }
 .breadcrumb-two .breadcrumb li a {
-  color: #1b55e2;
+  color: #22577a;
   text-decoration: none;
   padding: 6px 0 6px 40px;
   background: #ebedf2;
@@ -78,7 +78,7 @@
   float: left;
 }
 .breadcrumb-two .breadcrumb li a:after {
-  content: " ";
+  content: ' ';
   display: block;
   width: 0;
   height: 0;
@@ -93,7 +93,7 @@
   z-index: 2;
 }
 .breadcrumb-two .breadcrumb li a:before {
-  content: " ";
+  content: ' ';
   display: block;
   width: 0;
   height: 0;
@@ -117,11 +117,11 @@
   border-bottom-left-radius: 6px;
 }
 .breadcrumb-two .breadcrumb li.active a {
-  background: #1b55e2;
+  background: #22577a;
   color: #fff;
 }
 .breadcrumb-two .breadcrumb li.active a:after {
-  border-left-color: #1b55e2;
+  border-left-color: #22577a;
 }
 .breadcrumb-two .breadcrumb li:last-child a {
   pointer-events: none;
@@ -146,21 +146,21 @@
   padding: 0;
 }
 .breadcrumb-three .breadcrumb-item {
-  color: #888ea8;
+  color: #3b3f5c;
   padding: 9px 9px;
   background: #f1f2f3;
   border-bottom-right-radius: 13px;
   border-top-right-radius: 13px;
 }
 .breadcrumb-three .breadcrumb-item.active {
-  color: #1b55e2;
+  color: #22577a;
   font-weight: 600;
 }
 .breadcrumb-three .breadcrumb-item + .breadcrumb-item::before {
-  color: #515365;
+  color: #3b3f5c;
   font-weight: 700;
   font-size: 13px;
-  content: "";
+  content: '';
   padding: 0px 6px;
   vertical-align: sub;
 }
@@ -189,12 +189,12 @@
   margin-right: 0;
 }
 .breadcrumb-four .breadcrumb li:not(:first-child):before {
-  content: "";
+  content: '';
   position: absolute;
   border-radius: 50%;
   height: 4px;
   width: 4px;
-  background: #1b55e2;
+  background: #22577a;
   left: -13px;
   top: 50%;
 }
@@ -215,11 +215,11 @@
   width: 20px;
 }
 .breadcrumb-four .breadcrumb li.active a {
-  color: #1b55e2 !important;
+  color: #22577a !important;
   font-weight: 600;
 }
 .breadcrumb-four .breadcrumb li.active svg {
-  color: #1b55e2;
+  color: #22577a;
 }
 .breadcrumb-four .breadcrumb li span {
   vertical-align: text-bottom;
@@ -243,12 +243,12 @@
   margin-right: 0;
 }
 .breadcrumb-five .breadcrumb li:not(:first-child):before {
-  content: "";
+  content: '';
   position: absolute;
   border-radius: 50%;
   height: 4px;
   width: 4px;
-  background: #1b55e2;
+  background: #22577a;
   left: -13px;
   top: 50%;
 }
@@ -266,7 +266,7 @@
   width: 20px;
 }
 .breadcrumb-five .breadcrumb li.active a {
-  color: #1b55e2 !important;
+  color: #22577a !important;
   font-weight: 600;
 }
 
@@ -281,7 +281,8 @@
   .breadcrumb-two .breadcrumb li a:after {
     display: none;
   }
-  .breadcrumb-two .breadcrumb-item + .breadcrumb-item::before, .breadcrumb-two .breadcrumb li a:before {
+  .breadcrumb-two .breadcrumb-item + .breadcrumb-item::before,
+  .breadcrumb-two .breadcrumb li a:before {
     display: none;
   }
 }

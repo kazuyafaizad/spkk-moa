@@ -2,7 +2,7 @@
 //      Imports
 //  =================
 
-@import '../../base/base';    // Base Variables
+@import '../../base/base'; // Base Variables
 
 .modal-backdrop {
   background-color: $m-color_9;
@@ -64,7 +64,7 @@
       padding: 10px 25px;
       letter-spacing: 1px;
 
-      &[data-dismiss="modal"] {
+      &[data-dismiss='modal'] {
         background-color: $white;
         color: $primary;
         font-weight: 700;
@@ -106,14 +106,17 @@
   }
 
   .modal {
-    &#videoMedia1 .modal-header, &#videoMedia2 .modal-header {
+    &#videoMedia1 .modal-header,
+    &#videoMedia2 .modal-header {
       border: none;
       padding: 0;
     }
   }
 
   .video-container {
-    iframe, object, embed {
+    iframe,
+    object,
+    embed {
       position: absolute;
       top: 0;
       left: 0;
@@ -123,7 +126,8 @@
   }
 
   .modal {
-    &#videoMedia1 .modal-header .close, &#videoMedia2 .modal-header .close {
+    &#videoMedia1 .modal-header .close,
+    &#videoMedia2 .modal-header .close {
       color: #fff !important;
       opacity: 1;
     }
@@ -173,7 +177,8 @@
     margin-top: 8px;
   }
 
-  .modal-header, .modal-footer {
+  .modal-header,
+  .modal-footer {
     border: none;
   }
 
@@ -269,7 +274,8 @@
     Login
 */
 
-.login-modal, .register-modal {
+.login-modal,
+.register-modal {
   .modal-header {
     text-align: center;
     border: none;
@@ -340,7 +346,8 @@
 */
 
 @media (min-width: 576px) {
-  .login-modal .modal-dialog, .register-modal .modal-dialog {
+  .login-modal .modal-dialog,
+  .register-modal .modal-dialog {
     max-width: 330px;
   }
 }

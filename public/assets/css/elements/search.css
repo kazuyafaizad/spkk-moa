@@ -36,19 +36,19 @@
 }
 .filtered-list-search form input::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */
-  color: #888ea8;
+  color: #3b3f5c;
 }
 .filtered-list-search form input::-moz-placeholder {
   /* Firefox 19+ */
-  color: #888ea8;
+  color: #3b3f5c;
 }
 .filtered-list-search form input:-ms-input-placeholder {
   /* IE 10+ */
-  color: #888ea8;
+  color: #3b3f5c;
 }
 .filtered-list-search form input:-moz-placeholder {
   /* Firefox 18- */
-  color: #888ea8;
+  color: #3b3f5c;
 }
 
 .searchable-container {
@@ -100,9 +100,11 @@
   height: 43px;
   border-radius: 5px;
 }
-.searchable-container .items .user-name p, .searchable-container .items .user-work p, .searchable-container .items .user-email p {
+.searchable-container .items .user-name p,
+.searchable-container .items .user-work p,
+.searchable-container .items .user-email p {
   margin-bottom: 0;
-  color: #888ea8;
+  color: #3b3f5c;
   font-weight: 600;
 }
 .searchable-container .items .user-status span.badge {
@@ -118,8 +120,8 @@
   border: 2px dashed #e7515a;
 }
 .searchable-container .items .user-status span.badge.badge-primary {
-  color: #1b55e2;
-  border: 2px dashed #1b55e2;
+  color: #22577a;
+  border: 2px dashed #22577a;
 }
 .searchable-container .items .action-btn p {
   margin-bottom: 0;
@@ -127,8 +129,12 @@
   cursor: pointer;
   font-weight: 600;
 }
-.searchable-container .items:hover .serial-number p, .searchable-container .items:hover .user-name p, .searchable-container .items:hover .user-work p, .searchable-container .items:hover .user-email p, .searchable-container .items:hover .action-btn p {
-  color: #1b55e2;
+.searchable-container .items:hover .serial-number p,
+.searchable-container .items:hover .user-name p,
+.searchable-container .items:hover .user-work p,
+.searchable-container .items:hover .user-email p,
+.searchable-container .items:hover .action-btn p {
+  color: #22577a;
 }
 
 /*
@@ -164,7 +170,7 @@
   font-weight: 600;
   margin: 4px 10px;
   cursor: pointer;
-  color: #888ea8;
+  color: #3b3f5c;
 }
 .search-form-overlay.input-focused .form-inline svg {
   margin: 0;
@@ -182,7 +188,7 @@
   padding-top: 8px;
   padding-bottom: 8px;
   border: none;
-  color: #515365;
+  color: #3b3f5c;
   letter-spacing: 1px;
 }
 .search-form-overlay .form-inline.search .search-form-control {
@@ -226,7 +232,7 @@
   background-color: #ffffff;
 }
 .search-input-group-style.input-group .input-group-prepend .input-group-text svg {
-  color: #1b55e2;
+  color: #22577a;
 }
 .search-input-group-style input {
   border: none;

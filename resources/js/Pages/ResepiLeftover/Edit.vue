@@ -1,7 +1,6 @@
 <script setup>
-import AppLayout from '@/Layouts/AppLayout.vue';
-import SectionBorder from '@/Components/SectionBorder.vue';
-import EditRecipeLeftoverForm from './Partials/EditRecipeLeftoverForm.vue';
+import AppLayout from "@/Layouts/AppLayout.vue";
+import EditRecipeLeftoverForm from "./Partials/EditRecipeLeftoverForm.vue";
 
 defineProps({
     confirmsTwoFactorAuthentication: Boolean,
@@ -10,11 +9,9 @@ defineProps({
 </script>
 
 <template>
-    <AppLayout title="Tambah Resepi Leftover">
+    <AppLayout title="Tambah Discover More">
         <template #header>
-            <h2 class="font-semibold text-2xl  text-[#3b3f5c]">
-                Resepi Leftover
-            </h2>
+            <h2 class="font-semibold text-2xl text-[#3b3f5c]">Discover More</h2>
         </template>
 
         <div>

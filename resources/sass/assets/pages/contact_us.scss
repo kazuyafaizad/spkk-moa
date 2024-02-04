@@ -2,8 +2,7 @@
 //      Imports
 //  =================
 
-@import '../../base/base';    // Base Variables
-
+@import '../../base/base'; // Base Variables
 
 /*      Map     */
 
@@ -60,9 +59,18 @@
       border-radius: 10px;
       margin-top: 24px;
       margin-bottom: 24px;
-      -webkit-box-shadow: 0 4px 6px 0 rgba(85, 85, 85, 0.0901960784), 0 1px 20px 0 rgba(0, 0, 0, 0.08), 0px 1px 11px 0px rgba(0, 0, 0, 0.06);
-      -moz-box-shadow: 0 4px 6px 0 rgba(85, 85, 85, 0.0901960784), 0 1px 20px 0 rgba(0, 0, 0, 0.08), 0px 1px 11px 0px rgba(0, 0, 0, 0.06);
-      box-shadow: 0 4px 6px 0 rgba(85, 85, 85, 0.0901960784), 0 1px 20px 0 rgba(0, 0, 0, 0.08), 0px 1px 11px 0px rgba(0, 0, 0, 0.06);
+      -webkit-box-shadow:
+        0 4px 6px 0 rgba(85, 85, 85, 0.0901960784),
+        0 1px 20px 0 rgba(0, 0, 0, 0.08),
+        0px 1px 11px 0px rgba(0, 0, 0, 0.06);
+      -moz-box-shadow:
+        0 4px 6px 0 rgba(85, 85, 85, 0.0901960784),
+        0 1px 20px 0 rgba(0, 0, 0, 0.08),
+        0px 1px 11px 0px rgba(0, 0, 0, 0.06);
+      box-shadow:
+        0 4px 6px 0 rgba(85, 85, 85, 0.0901960784),
+        0 1px 20px 0 rgba(0, 0, 0, 0.08),
+        0px 1px 11px 0px rgba(0, 0, 0, 0.06);
 
       .input-fields {
         position: relative;
@@ -93,7 +101,9 @@
         background-color: transparent;
         font-weight: 600;
 
-        &::-webkit-input-placeholder, &::-ms-input-placeholder, &::-moz-placeholder {
+        &::-webkit-input-placeholder,
+        &::-ms-input-placeholder,
+        &::-moz-placeholder {
           color: $m-color_5;
           font-size: 14px;
         }
@@ -116,7 +126,9 @@
     margin-top: 15px;
     resize: none;
 
-    &::-webkit-input-placeholder, &::-ms-input-placeholder, &::-moz-placeholder {
+    &::-webkit-input-placeholder,
+    &::-ms-input-placeholder,
+    &::-moz-placeholder {
       color: $m-color_5;
       font-size: 14px;
     }

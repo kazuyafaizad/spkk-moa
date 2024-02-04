@@ -59,7 +59,10 @@
   border-radius: 10px;
   margin-top: 24px;
   margin-bottom: 24px;
-  box-shadow: 0 4px 6px 0 rgba(85, 85, 85, 0.0901960784), 0 1px 20px 0 rgba(0, 0, 0, 0.08), 0px 1px 11px 0px rgba(0, 0, 0, 0.06);
+  box-shadow:
+    0 4px 6px 0 rgba(85, 85, 85, 0.0901960784),
+    0 1px 20px 0 rgba(0, 0, 0, 0.08),
+    0px 1px 11px 0px rgba(0, 0, 0, 0.06);
 }
 .cu-contact-section .contact-form form .input-fields {
   position: relative;
@@ -67,7 +70,7 @@
 .cu-contact-section .contact-form form .input-fields svg {
   position: absolute;
   top: 11px;
-  color: #1b55e2;
+  color: #22577a;
   width: 20px;
   left: 25px;
 }
@@ -86,7 +89,9 @@
   background-color: transparent;
   font-weight: 600;
 }
-.cu-contact-section .contact-form form input::-webkit-input-placeholder, .cu-contact-section .contact-form form input::-ms-input-placeholder, .cu-contact-section .contact-form form input::-moz-placeholder {
+.cu-contact-section .contact-form form input::-webkit-input-placeholder,
+.cu-contact-section .contact-form form input::-ms-input-placeholder,
+.cu-contact-section .contact-form form input::-moz-placeholder {
   color: #d3d3d3;
   font-size: 14px;
 }
@@ -103,7 +108,9 @@
   margin-top: 15px;
   resize: none;
 }
-.cu-contact-section .form-group textarea::-webkit-input-placeholder, .cu-contact-section .form-group textarea::-ms-input-placeholder, .cu-contact-section .form-group textarea::-moz-placeholder {
+.cu-contact-section .form-group textarea::-webkit-input-placeholder,
+.cu-contact-section .form-group textarea::-ms-input-placeholder,
+.cu-contact-section .form-group textarea::-moz-placeholder {
   color: #d3d3d3;
   font-size: 14px;
 }

@@ -2,7 +2,7 @@
 //      Imports
 //  =================
 
-@import '../../base/base';    // Base Variables
+@import '../../base/base'; // Base Variables
 
 .table-controls {
   padding: 0;
@@ -38,69 +38,79 @@
 /*Table Colors*/
 
 .contextual-table.table > {
-  thead > tr > th, tbody > tr > td {
+  thead > tr > th,
+  tbody > tr > td {
     border: none;
   }
 }
 
 .table-default > {
-  td, th {
+  td,
+  th {
     background-color: $m-color_1;
     color: $dark;
   }
 }
 
 .table-primary > {
-  td, th {
+  td,
+  th {
     background-color: #c7d8fd;
     color: $info;
   }
 }
 
 .table-secondary > {
-  td, th {
+  td,
+  th {
     background-color: #e0d4f9;
     color: $secondary;
   }
 }
 
 .table-success > {
-  td, th {
+  td,
+  th {
     background-color: #cbfdf3;
     color: $success;
   }
 }
 
 .table-danger > {
-  td, th {
+  td,
+  th {
     background-color: $l-danger;
     color: $danger;
   }
 }
 
 .table-warning > {
-  td, th {
+  td,
+  th {
     background-color: #fdefd5;
     color: $warning;
   }
 }
 
 .table-info > {
-  td, th {
+  td,
+  th {
     background-color: $l-info;
     color: $info;
   }
 }
 
 .table-light > {
-  td, th {
+  td,
+  th {
     background-color: #ffffff;
     color: $m-color_6;
   }
 }
 
 .table-dark > {
-  td, th {
+  td,
+  th {
     background-color: $l-dark;
     color: $m-color_9;
     border-color: #fff !important;

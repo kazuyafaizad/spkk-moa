@@ -56,6 +56,30 @@ return [
             'throw' => false,
         ],
 
+        'ftp' => [
+            'driver' => 'ftp',
+            'host' => env('FTP_HOST', '10.17.222.112'),
+            'username' => env('FTP_USERNAME', 'root'),
+            'password' => env('FTP_PASSWORD', 'P@ssw0rd01'),
+            'root' => env('FTP_ROOT'), // for example: /public_html/images
+            // 'port' => env('FTP_PORT', 21),
+            // 'passive' => true,
+            // 'ssl' => true,
+            // 'timeout' => 30,
+        ],
+        'sftp' => [
+            'driver' => 'sftp',
+            'host' => env('SFTP_HOST', '10.17.222.112'),
+            'port' => (int) env('SFTP_PORT', 22),
+            'username' => env('SFTP_USERNAME', 'root'),
+            'password' => env('SFTP_PASSWORD', 'P@ssw0rd01'),
+            'root' => env('SFTP_ROOT'),
+            'permPublic' => 0755,
+            'directoryPerm' => 0755,
+            'visibility' => 'public',
+            'timeout' => 30,
+        ],
+
     ],
 
     /*

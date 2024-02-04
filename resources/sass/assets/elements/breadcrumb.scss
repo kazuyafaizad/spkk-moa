@@ -2,8 +2,7 @@
 //      Imports
 //  =================
 
-@import '../../base/base';    // Base Variables
-
+@import '../../base/base'; // Base Variables
 
 .breadcrumb {
   background-color: transparent;
@@ -91,7 +90,7 @@
       float: left;
 
       &:after {
-        content: " ";
+        content: ' ';
         display: block;
         width: 0;
         height: 0;
@@ -108,7 +107,7 @@
       }
 
       &:before {
-        content: " ";
+        content: ' ';
         display: block;
         width: 0;
         height: 0;
@@ -337,7 +336,8 @@
       }
     }
 
-    .breadcrumb-item + .breadcrumb-item::before, .breadcrumb li a:before {
+    .breadcrumb-item + .breadcrumb-item::before,
+    .breadcrumb li a:before {
       display: none;
     }
   }

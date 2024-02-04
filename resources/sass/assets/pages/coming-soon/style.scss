@@ -2,7 +2,7 @@
 //      Imports
 //  =================
 
-@import '../../../base/base';    // Base Variables
+@import '../../../base/base'; // Base Variables
 
 html {
   height: 100%;
@@ -69,7 +69,9 @@ body {
   #timer {
     display: flex;
 
-    .days, .hours, .min {
+    .days,
+    .hours,
+    .min {
       padding: 28px 0;
       background: $primary;
       color: $white;
@@ -99,25 +101,29 @@ body {
     }
 
     .days {
-      .count, .text {
+      .count,
+      .text {
         display: block;
       }
     }
 
     .hours {
-      .count, .text {
+      .count,
+      .text {
         display: block;
       }
     }
 
     .min {
-      .count, .text {
+      .count,
+      .text {
         display: block;
       }
     }
 
     .sec {
-      .count, .text {
+      .count,
+      .text {
         display: block;
       }
     }
@@ -143,7 +149,9 @@ body {
     input {
       padding: 10px 97px 10px 45px;
 
-      &::-webkit-input-placeholder, &::-ms-input-placeholder, &::-moz-placeholder {
+      &::-webkit-input-placeholder,
+      &::-ms-input-placeholder,
+      &::-moz-placeholder {
         color: $m-color_5;
         font-size: 14px;
       }
@@ -285,7 +293,10 @@ body {
     margin-left: -15px;
     justify-content: center;
 
-    .days, .hours, .min, .sec {
+    .days,
+    .hours,
+    .min,
+    .sec {
       -ms-flex: 0 0 40%;
       flex: 0 0 40%;
       max-width: 40%;

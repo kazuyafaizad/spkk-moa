@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\PublicComplaint;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Http\Request;
@@ -36,5 +37,12 @@ class RouteServiceProvider extends ServiceProvider
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
         });
+
+        Route::bind('complaint', function (string $value) {
+            // dd($value);
+
+            return PublicComplaint::where('running_no', base64_decode($value))->firstOrFail();
+        });
+
     }
 }

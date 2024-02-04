@@ -23,8 +23,8 @@ var DTcustomsetting = {
     },
 
     languagePaginate: {
-        "previous": "<i class='flaticon-left-arrow-1'></i> Previous",
-        "next": "Next <i class='flaticon-right-arrow-1'></i>"
+        "previous": "<i class='flaticon-left-arrow-1'></i> Sebelumnya",
+        "next": "Seterusnya <i class='flaticon-right-arrow-1'></i>"
     }
 
     languageInfo: {

@@ -27,7 +27,7 @@
   padding: 5px 20px;
   white-space: nowrap;
   overflow: hidden;
-  color: #888ea8;
+  color: #3b3f5c;
   letter-spacing: 1px;
 }
 
@@ -41,7 +41,7 @@
 
 .autocomplete-suggestions strong {
   font-weight: bold;
-  color: #1b55e2;
+  color: #22577a;
 }
 
 .autocomplete-group {

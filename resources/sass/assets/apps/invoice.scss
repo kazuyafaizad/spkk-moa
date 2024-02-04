@@ -2,7 +2,7 @@
 //      Imports
 //  =================
 
-@import '../../base/base';    // Base Variables
+@import '../../base/base'; // Base Variables
 
 @keyframes fadeInUp {
   from {
@@ -68,9 +68,18 @@
   display: flex;
   background: $white;
   border-radius: 6px;
-  -webkit-box-shadow: 0 4px 6px 0 rgba(85, 85, 85, 0.08), 0 1px 20px 0 rgba(0, 0, 0, 0.07), 0px 1px 11px 0px rgba(0, 0, 0, 0.07);
-  -moz-box-shadow: 0 4px 6px 0 rgba(85, 85, 85, 0.08), 0 1px 20px 0 rgba(0, 0, 0, 0.07), 0px 1px 11px 0px rgba(0, 0, 0, 0.07);
-  box-shadow: 0 4px 6px 0 rgba(85, 85, 85, 0.08), 0 1px 20px 0 rgba(0, 0, 0, 0.07), 0px 1px 11px 0px rgba(0, 0, 0, 0.07);
+  -webkit-box-shadow:
+    0 4px 6px 0 rgba(85, 85, 85, 0.08),
+    0 1px 20px 0 rgba(0, 0, 0, 0.07),
+    0px 1px 11px 0px rgba(0, 0, 0, 0.07);
+  -moz-box-shadow:
+    0 4px 6px 0 rgba(85, 85, 85, 0.08),
+    0 1px 20px 0 rgba(0, 0, 0, 0.07),
+    0px 1px 11px 0px rgba(0, 0, 0, 0.07);
+  box-shadow:
+    0 4px 6px 0 rgba(85, 85, 85, 0.08),
+    0 1px 20px 0 rgba(0, 0, 0, 0.07),
+    0px 1px 11px 0px rgba(0, 0, 0, 0.07);
 }
 
 .tab-title {
@@ -332,7 +341,8 @@
       margin-bottom: 15px;
     }
 
-    .inv-street-addr, .inv-email-address {
+    .inv-street-addr,
+    .inv-email-address {
       font-weight: 600;
       margin-bottom: 2px;
       font-size: 13px;
@@ -353,7 +363,8 @@
       }
     }
 
-    .inv-created-date, .inv-due-date {
+    .inv-created-date,
+    .inv-due-date {
       margin-bottom: 2px;
 
       .inv-title {
@@ -415,7 +426,8 @@
     font-weight: 600;
     margin-bottom: 52px;
 
-    .grand-total-title h4, .grand-total-amount h4 {
+    .grand-total-title h4,
+    .grand-total-amount h4 {
       position: relative;
       font-weight: 700;
       font-size: 16px;
@@ -530,7 +542,7 @@
   }
 }
 @media (max-width: 991px) {
-    .layout-top-spacing {
-        margin-top: 37px;
-    }
+  .layout-top-spacing {
+    margin-top: 37px;
+  }
 }

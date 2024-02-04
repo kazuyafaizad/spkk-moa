@@ -1,6 +1,6 @@
 <script setup>
-import { computed } from 'vue';
-import { Link } from '@inertiajs/vue3';
+import { computed } from "vue";
+import { Link } from "@inertiajs/vue3";
 
 const props = defineProps({
     href: String,
@@ -8,18 +8,14 @@ const props = defineProps({
 });
 
 const classes = computed(() => {
-    return props.active
-        ? 'menu single-menu active'
-        : 'menu single-menu';
+    return props.active ? "menu single-menu active " : "menu single-menu";
 });
 </script>
 
 <template>
-     <li   :class="classes">
-                                <Link :href="href">
-                                     <slot />
-                                </Link>
-                            </li>
+    <li :class="classes">
+        <Link :href="href">
+            <slot />
+        </Link>
+    </li>
 </template>
-
-

@@ -2,7 +2,7 @@
 //      Imports
 //  =================
 
-@import '../../base/base';    // Base Variables
+@import '../../base/base'; // Base Variables
 
 .wrapper {
   position: relative;
@@ -17,9 +17,18 @@
 
 .chat-system {
   display: flex;
-  -webkit-box-shadow: 0 4px 6px 0 rgba(85, 85, 85, 0.08), 0 1px 20px 0 rgba(0, 0, 0, 0.07), 0px 1px 11px 0px rgba(0, 0, 0, 0.07);
-  -moz-box-shadow: 0 4px 6px 0 rgba(85, 85, 85, 0.08), 0 1px 20px 0 rgba(0, 0, 0, 0.07), 0px 1px 11px 0px rgba(0, 0, 0, 0.07);
-  box-shadow: 0 4px 6px 0 rgba(85, 85, 85, 0.08), 0 1px 20px 0 rgba(0, 0, 0, 0.07), 0px 1px 11px 0px rgba(0, 0, 0, 0.07);
+  -webkit-box-shadow:
+    0 4px 6px 0 rgba(85, 85, 85, 0.08),
+    0 1px 20px 0 rgba(0, 0, 0, 0.07),
+    0px 1px 11px 0px rgba(0, 0, 0, 0.07);
+  -moz-box-shadow:
+    0 4px 6px 0 rgba(85, 85, 85, 0.08),
+    0 1px 20px 0 rgba(0, 0, 0, 0.07),
+    0px 1px 11px 0px rgba(0, 0, 0, 0.07);
+  box-shadow:
+    0 4px 6px 0 rgba(85, 85, 85, 0.08),
+    0 1px 20px 0 rgba(0, 0, 0, 0.07),
+    0px 1px 11px 0px rgba(0, 0, 0, 0.07);
   height: calc(100vh - 150px);
 
   .hamburger {
@@ -40,7 +49,7 @@
       display: flex;
 
       svg {
-        content: "\f169";
+        content: '\f169';
         position: absolute;
         left: 11px;
         color: $l-dark;
@@ -147,13 +156,15 @@
       }
 
       .f-body .meta-info {
-        .user-name, .user-meta-time {
+        .user-name,
+        .user-meta-time {
           color: $primary;
         }
       }
     }
 
-    &.active:after, &:hover:after {
+    &.active:after,
+    &:hover:after {
       display: none;
     }
   }
@@ -256,7 +267,8 @@
             margin-top: 7px;
             color: $white;
 
-            .minutes, .seconds {
+            .minutes,
+            .seconds {
               color: #ffffff;
             }
           }
@@ -378,7 +390,8 @@
             font-weight: 600;
             color: $white;
 
-            .minutes, .seconds {
+            .minutes,
+            .seconds {
               margin-bottom: 0;
               color: #ffffff;
             }
@@ -418,7 +431,8 @@
               margin-right: 7px;
             }
 
-            &.switch-to-phone-call {}
+            &.switch-to-phone-call {
+            }
 
             &.switch-to-microphone {
               position: relative;
@@ -435,12 +449,14 @@
               }
             }
 
-            &.add-more-caller {}
+            &.add-more-caller {
+            }
 
             &.cancel-call {
               background-color: $danger;
 
-              &:hover {}
+              &:hover {
+              }
             }
           }
         }
@@ -531,7 +547,8 @@
               }
 
               &.dropdown-item {
-                &.active, &:active {
+                &.active,
+                &:active {
                   background-color: transparent;
                 }
               }
@@ -552,7 +569,8 @@
         height: calc(100% - 79px);
         overflow: auto;
 
-        .chat-conversation-box-scroll {}
+        .chat-conversation-box-scroll {
+        }
 
         .chat {
           position: relative;
@@ -927,7 +945,8 @@
     }
 
     .conversation-start span {
-      &:before, &:after {
+      &:before,
+      &:after {
         background-color: transparent;
       }
     }

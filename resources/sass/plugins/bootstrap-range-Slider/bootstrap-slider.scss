@@ -2,7 +2,7 @@
 //      Imports
 //  =================
 
-@import '../../base/base';    // Base Variables
+@import '../../base/base'; // Base Variables
 
 .custom-progress {
   &.progress-up .range-count {
@@ -29,7 +29,8 @@
 }
 
 .custom-progress {
-  &.top-right .range-count, &.bottom-right .range-count {
+  &.top-right .range-count,
+  &.bottom-right .range-count {
     text-align: right;
   }
 }

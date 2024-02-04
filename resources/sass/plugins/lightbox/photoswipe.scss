@@ -2,8 +2,7 @@
 //      Imports
 //  =================
 
-@import '../../base/base';    // Base Variables
-
+@import '../../base/base'; // Base Variables
 
 /*! PhotoSwipe main CSS by Dmitry Semenov | photoswipe.com | MIT license */
 /*
@@ -103,7 +102,8 @@
   overflow: hidden;
 }
 
-.pswp__container, .pswp__zoom-wrap {
+.pswp__container,
+.pswp__zoom-wrap {
   -ms-touch-action: none;
   touch-action: none;
   position: absolute;
@@ -115,7 +115,8 @@
 
 /* Prevent selection and tap highlights */
 
-.pswp__container, .pswp__img {
+.pswp__container,
+.pswp__img {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -145,13 +146,15 @@
 }
 
 .pswp--animated-in {
-  .pswp__bg, .pswp__zoom-wrap {
+  .pswp__bg,
+  .pswp__zoom-wrap {
     -webkit-transition: none;
     transition: none;
   }
 }
 
-.pswp__container, .pswp__zoom-wrap {
+.pswp__container,
+.pswp__zoom-wrap {
   -webkit-backface-visibility: hidden;
 }
 
@@ -211,10 +214,10 @@
   font-size: 14px;
   line-height: 16px;
   margin-top: -8px;
-  color: #CCC;
+  color: #ccc;
 
   a {
-    color: #CCC;
+    color: #ccc;
     text-decoration: underline;
   }
 }

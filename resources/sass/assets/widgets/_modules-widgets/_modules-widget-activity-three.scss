@@ -48,7 +48,7 @@
     position: relative;
 
     div {
-      background: #1b55e2;
+      background: #22577a;
       border-radius: 50%;
       padding: 5px;
       margin-right: 11px;
@@ -58,8 +58,8 @@
       width: 36px;
 
       &.t-primary {
-        background-color: #1b55e2;
-        box-shadow: 0 10px 20px -10px #1b55e2;
+        background-color: #22577a;
+        box-shadow: 0 10px 20px -10px #22577a;
       }
 
       &.t-success {
@@ -110,7 +110,7 @@
         margin-bottom: 0;
         font-size: 11px;
         font-weight: 500;
-        color: #888ea8;
+        color: #3b3f5c;
       }
     }
 
@@ -118,7 +118,7 @@
       margin-bottom: 8px;
       font-size: 13px;
       font-weight: 500;
-      color: #888ea8;
+      color: #3b3f5c;
     }
 
     div.tags {
@@ -131,7 +131,7 @@
 
       .badge-primary {
         background-color: #c2d5ff;
-        color: #1b55e2;
+        color: #22577a;
       }
 
       .badge-success {

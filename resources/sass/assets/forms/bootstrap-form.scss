@@ -2,7 +2,7 @@
 //      Imports
 //  =================
 
-@import '../../base/base';    // Base Variables
+@import '../../base/base'; // Base Variables
 
 .row .col-lg-12 .widget .widget-header h4 {
   color: #000000;
@@ -17,9 +17,10 @@ body {
 .form-control {
   border: 1px solid $m-color_2;
   border-radius: 4px;
-  color: #F49499;
+  color: #f49499;
 
-  &:disabled, &[readonly] {
+  &:disabled,
+  &[readonly] {
     background-color: $m-color_1;
   }
 
@@ -28,7 +29,8 @@ body {
   }
 }
 
-.help-block, .help-inline {
+.help-block,
+.help-inline {
   color: $m-color_6;
 }
 
@@ -42,7 +44,8 @@ body {
 }
 
 .has-warning {
-  .control-label, .help-block {
+  .control-label,
+  .help-block {
     color: $m-color_15;
   }
 
@@ -52,7 +55,8 @@ body {
 }
 
 .has-error {
-  .control-label, .help-block {
+  .control-label,
+  .help-block {
     color: #ee3d49;
   }
 
@@ -62,7 +66,8 @@ body {
 }
 
 .has-success {
-  .control-label, .help-block {
+  .control-label,
+  .help-block {
     color: $m-color_14;
   }
 
@@ -77,7 +82,8 @@ body {
 }
 
 .form-horizontal {
-  .radio, .radio-inline {
+  .radio,
+  .radio-inline {
     color: $m-color_6;
     font-weight: normal;
   }
@@ -121,13 +127,15 @@ div.tagsinput {
   }
 }
 
-.checkbox, .radio {
+.checkbox,
+.radio {
   position: relative;
   display: block;
   cursor: pointer;
 }
 
-.checkbox-inline, .radio-inline {
+.checkbox-inline,
+.radio-inline {
   position: relative;
   display: inline-block;
   vertical-align: middle;
@@ -135,13 +143,17 @@ div.tagsinput {
 }
 
 .form-horizontal {
-  .checkbox, .checkbox-inline, .radio, .radio-inline {
+  .checkbox,
+  .checkbox-inline,
+  .radio,
+  .radio-inline {
     padding-top: 7px;
     margin-top: 0;
     margin-bottom: 0;
   }
 
-  .checkbox, .radio {
+  .checkbox,
+  .radio {
     min-height: 27px;
   }
 }

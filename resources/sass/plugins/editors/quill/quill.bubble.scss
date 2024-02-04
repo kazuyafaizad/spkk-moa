@@ -2,7 +2,7 @@
 //      Imports
 //  =================
 
-@import '../../../base/base';    // Base Variables
+@import '../../../base/base'; // Base Variables
 
 /*!
  * Quill Editor v1.3.6
@@ -60,13 +60,24 @@
     cursor: text;
   }
 
-  p, ol, ul, pre, blockquote, h1, h2, h3, h4, h5, h6 {
+  p,
+  ol,
+  ul,
+  pre,
+  blockquote,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     margin: 0;
     padding: 0;
     counter-reset: list-1 list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9;
   }
 
-  ol, ul {
+  ol,
+  ul {
     padding-left: 1.5em;
   }
 
@@ -83,25 +94,28 @@
       }
     }
 
-    &[data-checked=true], &[data-checked=false] {
+    &[data-checked='true'],
+    &[data-checked='false'] {
       pointer-events: none;
     }
 
-    &[data-checked=true] > li *, &[data-checked=false] > li * {
+    &[data-checked='true'] > li *,
+    &[data-checked='false'] > li * {
       pointer-events: all;
     }
 
-    &[data-checked=true] > li::before, &[data-checked=false] > li::before {
+    &[data-checked='true'] > li::before,
+    &[data-checked='false'] > li::before {
       color: #777;
       cursor: pointer;
       pointer-events: all;
     }
 
-    &[data-checked=true] > li::before {
+    &[data-checked='true'] > li::before {
       content: '\2611';
     }
 
-    &[data-checked=false] > li::before {
+    &[data-checked='false'] > li::before {
       content: '\2610';
     }
   }
@@ -125,11 +139,13 @@
     }
   }
 
-  ol li:not(.ql-direction-rtl), ul li:not(.ql-direction-rtl) {
+  ol li:not(.ql-direction-rtl),
+  ul li:not(.ql-direction-rtl) {
     padding-left: 1.5em;
   }
 
-  ol li.ql-direction-rtl, ul li.ql-direction-rtl {
+  ol li.ql-direction-rtl,
+  ul li.ql-direction-rtl {
     padding-right: 1.5em;
   }
 
@@ -138,14 +154,14 @@
     counter-increment: list-0;
 
     &:before {
-      content: counter(list-0, decimal) ". ";
+      content: counter(list-0, decimal) '. ';
     }
 
     &.ql-indent-1 {
       counter-increment: list-1;
 
       &:before {
-        content: counter(list-1, lower-alpha) ". ";
+        content: counter(list-1, lower-alpha) '. ';
       }
 
       counter-reset: list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9;
@@ -155,7 +171,7 @@
       counter-increment: list-2;
 
       &:before {
-        content: counter(list-2, lower-roman) ". ";
+        content: counter(list-2, lower-roman) '. ';
       }
 
       counter-reset: list-3 list-4 list-5 list-6 list-7 list-8 list-9;
@@ -165,7 +181,7 @@
       counter-increment: list-3;
 
       &:before {
-        content: counter(list-3, decimal) ". ";
+        content: counter(list-3, decimal) '. ';
       }
 
       counter-reset: list-4 list-5 list-6 list-7 list-8 list-9;
@@ -175,7 +191,7 @@
       counter-increment: list-4;
 
       &:before {
-        content: counter(list-4, lower-alpha) ". ";
+        content: counter(list-4, lower-alpha) '. ';
       }
 
       counter-reset: list-5 list-6 list-7 list-8 list-9;
@@ -185,7 +201,7 @@
       counter-increment: list-5;
 
       &:before {
-        content: counter(list-5, lower-roman) ". ";
+        content: counter(list-5, lower-roman) '. ';
       }
 
       counter-reset: list-6 list-7 list-8 list-9;
@@ -195,7 +211,7 @@
       counter-increment: list-6;
 
       &:before {
-        content: counter(list-6, decimal) ". ";
+        content: counter(list-6, decimal) '. ';
       }
 
       counter-reset: list-7 list-8 list-9;
@@ -205,7 +221,7 @@
       counter-increment: list-7;
 
       &:before {
-        content: counter(list-7, lower-alpha) ". ";
+        content: counter(list-7, lower-alpha) '. ';
       }
 
       counter-reset: list-8 list-9;
@@ -215,7 +231,7 @@
       counter-increment: list-8;
 
       &:before {
-        content: counter(list-8, lower-roman) ". ";
+        content: counter(list-8, lower-roman) '. ';
       }
 
       counter-reset: list-9;
@@ -225,7 +241,7 @@
       counter-increment: list-9;
 
       &:before {
-        content: counter(list-9, decimal) ". ";
+        content: counter(list-9, decimal) '. ';
       }
     }
   }
@@ -444,11 +460,17 @@
   }
 
   .ql-font-serif {
-    font-family: Georgia, Times New Roman, serif;
+    font-family:
+      Georgia,
+      Times New Roman,
+      serif;
   }
 
   .ql-font-monospace {
-    font-family: Monaco, Courier New, monospace;
+    font-family:
+      Monaco,
+      Courier New,
+      monospace;
   }
 
   .ql-size-small {
@@ -492,13 +514,15 @@
 }
 
 .ql-bubble {
-  &.ql-toolbar:after, .ql-toolbar:after {
+  &.ql-toolbar:after,
+  .ql-toolbar:after {
     clear: both;
     content: '';
     display: table;
   }
 
-  &.ql-toolbar button, .ql-toolbar button {
+  &.ql-toolbar button,
+  .ql-toolbar button {
     background: none;
     border: none;
     cursor: pointer;
@@ -509,28 +533,98 @@
     width: 28px;
   }
 
-  &.ql-toolbar button svg, .ql-toolbar button svg {
+  &.ql-toolbar button svg,
+  .ql-toolbar button svg {
     float: left;
     height: 100%;
   }
 
-  &.ql-toolbar button:active:hover, .ql-toolbar button:active:hover {
+  &.ql-toolbar button:active:hover,
+  .ql-toolbar button:active:hover {
     outline: none;
   }
 
-  &.ql-toolbar input.ql-image[type=file], .ql-toolbar input.ql-image[type=file] {
+  &.ql-toolbar input.ql-image[type='file'],
+  .ql-toolbar input.ql-image[type='file'] {
     display: none;
   }
 
-  &.ql-toolbar button:hover, .ql-toolbar button:hover, &.ql-toolbar button:focus, .ql-toolbar button:focus, &.ql-toolbar button.ql-active, .ql-toolbar button.ql-active, &.ql-toolbar .ql-picker-label:hover, .ql-toolbar .ql-picker-label:hover, &.ql-toolbar .ql-picker-label.ql-active, .ql-toolbar .ql-picker-label.ql-active, &.ql-toolbar .ql-picker-item:hover, .ql-toolbar .ql-picker-item:hover, &.ql-toolbar .ql-picker-item.ql-selected, .ql-toolbar .ql-picker-item.ql-selected {
+  &.ql-toolbar button:hover,
+  .ql-toolbar button:hover,
+  &.ql-toolbar button:focus,
+  .ql-toolbar button:focus,
+  &.ql-toolbar button.ql-active,
+  .ql-toolbar button.ql-active,
+  &.ql-toolbar .ql-picker-label:hover,
+  .ql-toolbar .ql-picker-label:hover,
+  &.ql-toolbar .ql-picker-label.ql-active,
+  .ql-toolbar .ql-picker-label.ql-active,
+  &.ql-toolbar .ql-picker-item:hover,
+  .ql-toolbar .ql-picker-item:hover,
+  &.ql-toolbar .ql-picker-item.ql-selected,
+  .ql-toolbar .ql-picker-item.ql-selected {
     color: $white;
   }
 
-  &.ql-toolbar button:hover .ql-fill, .ql-toolbar button:hover .ql-fill, &.ql-toolbar button:focus .ql-fill, .ql-toolbar button:focus .ql-fill, &.ql-toolbar button.ql-active .ql-fill, .ql-toolbar button.ql-active .ql-fill, &.ql-toolbar .ql-picker-label:hover .ql-fill, .ql-toolbar .ql-picker-label:hover .ql-fill, &.ql-toolbar .ql-picker-label.ql-active .ql-fill, .ql-toolbar .ql-picker-label.ql-active .ql-fill, &.ql-toolbar .ql-picker-item:hover .ql-fill, .ql-toolbar .ql-picker-item:hover .ql-fill, &.ql-toolbar .ql-picker-item.ql-selected .ql-fill, .ql-toolbar .ql-picker-item.ql-selected .ql-fill, &.ql-toolbar button:hover .ql-stroke.ql-fill, .ql-toolbar button:hover .ql-stroke.ql-fill, &.ql-toolbar button:focus .ql-stroke.ql-fill, .ql-toolbar button:focus .ql-stroke.ql-fill, &.ql-toolbar button.ql-active .ql-stroke.ql-fill, .ql-toolbar button.ql-active .ql-stroke.ql-fill, &.ql-toolbar .ql-picker-label:hover .ql-stroke.ql-fill, .ql-toolbar .ql-picker-label:hover .ql-stroke.ql-fill, &.ql-toolbar .ql-picker-label.ql-active .ql-stroke.ql-fill, .ql-toolbar .ql-picker-label.ql-active .ql-stroke.ql-fill, &.ql-toolbar .ql-picker-item:hover .ql-stroke.ql-fill, .ql-toolbar .ql-picker-item:hover .ql-stroke.ql-fill, &.ql-toolbar .ql-picker-item.ql-selected .ql-stroke.ql-fill, .ql-toolbar .ql-picker-item.ql-selected .ql-stroke.ql-fill {
+  &.ql-toolbar button:hover .ql-fill,
+  .ql-toolbar button:hover .ql-fill,
+  &.ql-toolbar button:focus .ql-fill,
+  .ql-toolbar button:focus .ql-fill,
+  &.ql-toolbar button.ql-active .ql-fill,
+  .ql-toolbar button.ql-active .ql-fill,
+  &.ql-toolbar .ql-picker-label:hover .ql-fill,
+  .ql-toolbar .ql-picker-label:hover .ql-fill,
+  &.ql-toolbar .ql-picker-label.ql-active .ql-fill,
+  .ql-toolbar .ql-picker-label.ql-active .ql-fill,
+  &.ql-toolbar .ql-picker-item:hover .ql-fill,
+  .ql-toolbar .ql-picker-item:hover .ql-fill,
+  &.ql-toolbar .ql-picker-item.ql-selected .ql-fill,
+  .ql-toolbar .ql-picker-item.ql-selected .ql-fill,
+  &.ql-toolbar button:hover .ql-stroke.ql-fill,
+  .ql-toolbar button:hover .ql-stroke.ql-fill,
+  &.ql-toolbar button:focus .ql-stroke.ql-fill,
+  .ql-toolbar button:focus .ql-stroke.ql-fill,
+  &.ql-toolbar button.ql-active .ql-stroke.ql-fill,
+  .ql-toolbar button.ql-active .ql-stroke.ql-fill,
+  &.ql-toolbar .ql-picker-label:hover .ql-stroke.ql-fill,
+  .ql-toolbar .ql-picker-label:hover .ql-stroke.ql-fill,
+  &.ql-toolbar .ql-picker-label.ql-active .ql-stroke.ql-fill,
+  .ql-toolbar .ql-picker-label.ql-active .ql-stroke.ql-fill,
+  &.ql-toolbar .ql-picker-item:hover .ql-stroke.ql-fill,
+  .ql-toolbar .ql-picker-item:hover .ql-stroke.ql-fill,
+  &.ql-toolbar .ql-picker-item.ql-selected .ql-stroke.ql-fill,
+  .ql-toolbar .ql-picker-item.ql-selected .ql-stroke.ql-fill {
     fill: $white;
   }
 
-  &.ql-toolbar button:hover .ql-stroke, .ql-toolbar button:hover .ql-stroke, &.ql-toolbar button:focus .ql-stroke, .ql-toolbar button:focus .ql-stroke, &.ql-toolbar button.ql-active .ql-stroke, .ql-toolbar button.ql-active .ql-stroke, &.ql-toolbar .ql-picker-label:hover .ql-stroke, .ql-toolbar .ql-picker-label:hover .ql-stroke, &.ql-toolbar .ql-picker-label.ql-active .ql-stroke, .ql-toolbar .ql-picker-label.ql-active .ql-stroke, &.ql-toolbar .ql-picker-item:hover .ql-stroke, .ql-toolbar .ql-picker-item:hover .ql-stroke, &.ql-toolbar .ql-picker-item.ql-selected .ql-stroke, .ql-toolbar .ql-picker-item.ql-selected .ql-stroke, &.ql-toolbar button:hover .ql-stroke-miter, .ql-toolbar button:hover .ql-stroke-miter, &.ql-toolbar button:focus .ql-stroke-miter, .ql-toolbar button:focus .ql-stroke-miter, &.ql-toolbar button.ql-active .ql-stroke-miter, .ql-toolbar button.ql-active .ql-stroke-miter, &.ql-toolbar .ql-picker-label:hover .ql-stroke-miter, .ql-toolbar .ql-picker-label:hover .ql-stroke-miter, &.ql-toolbar .ql-picker-label.ql-active .ql-stroke-miter, .ql-toolbar .ql-picker-label.ql-active .ql-stroke-miter, &.ql-toolbar .ql-picker-item:hover .ql-stroke-miter, .ql-toolbar .ql-picker-item:hover .ql-stroke-miter, &.ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter, .ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter {
+  &.ql-toolbar button:hover .ql-stroke,
+  .ql-toolbar button:hover .ql-stroke,
+  &.ql-toolbar button:focus .ql-stroke,
+  .ql-toolbar button:focus .ql-stroke,
+  &.ql-toolbar button.ql-active .ql-stroke,
+  .ql-toolbar button.ql-active .ql-stroke,
+  &.ql-toolbar .ql-picker-label:hover .ql-stroke,
+  .ql-toolbar .ql-picker-label:hover .ql-stroke,
+  &.ql-toolbar .ql-picker-label.ql-active .ql-stroke,
+  .ql-toolbar .ql-picker-label.ql-active .ql-stroke,
+  &.ql-toolbar .ql-picker-item:hover .ql-stroke,
+  .ql-toolbar .ql-picker-item:hover .ql-stroke,
+  &.ql-toolbar .ql-picker-item.ql-selected .ql-stroke,
+  .ql-toolbar .ql-picker-item.ql-selected .ql-stroke,
+  &.ql-toolbar button:hover .ql-stroke-miter,
+  .ql-toolbar button:hover .ql-stroke-miter,
+  &.ql-toolbar button:focus .ql-stroke-miter,
+  .ql-toolbar button:focus .ql-stroke-miter,
+  &.ql-toolbar button.ql-active .ql-stroke-miter,
+  .ql-toolbar button.ql-active .ql-stroke-miter,
+  &.ql-toolbar .ql-picker-label:hover .ql-stroke-miter,
+  .ql-toolbar .ql-picker-label:hover .ql-stroke-miter,
+  &.ql-toolbar .ql-picker-label.ql-active .ql-stroke-miter,
+  .ql-toolbar .ql-picker-label.ql-active .ql-stroke-miter,
+  &.ql-toolbar .ql-picker-item:hover .ql-stroke-miter,
+  .ql-toolbar .ql-picker-item:hover .ql-stroke-miter,
+  &.ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter,
+  .ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter {
     stroke: $white;
   }
 
@@ -544,7 +638,8 @@
     display: none;
   }
 
-  .ql-out-bottom, .ql-out-top {
+  .ql-out-bottom,
+  .ql-out-top {
     visibility: hidden;
   }
 
@@ -588,7 +683,8 @@
     stroke-width: 2;
   }
 
-  .ql-fill, .ql-stroke.ql-fill {
+  .ql-fill,
+  .ql-stroke.ql-fill {
     fill: #ccc;
   }
 
@@ -600,7 +696,8 @@
     fill-rule: evenodd;
   }
 
-  .ql-thin, .ql-stroke.ql-thin {
+  .ql-thin,
+  .ql-stroke.ql-thin {
     stroke-width: 1;
   }
 
@@ -754,11 +851,13 @@
     }
   }
 
-  .ql-color-picker, .ql-icon-picker {
+  .ql-color-picker,
+  .ql-icon-picker {
     width: 28px;
   }
 
-  .ql-color-picker .ql-picker-label, .ql-icon-picker .ql-picker-label {
+  .ql-color-picker .ql-picker-label,
+  .ql-icon-picker .ql-picker-label {
     padding: 2px 4px;
   }
 
@@ -807,67 +906,78 @@
       width: 18px;
     }
 
-    &.ql-header .ql-picker-label[data-label]:not([data-label=''])::before, &.ql-font .ql-picker-label[data-label]:not([data-label=''])::before, &.ql-size .ql-picker-label[data-label]:not([data-label=''])::before, &.ql-header .ql-picker-item[data-label]:not([data-label=''])::before, &.ql-font .ql-picker-item[data-label]:not([data-label=''])::before, &.ql-size .ql-picker-item[data-label]:not([data-label=''])::before {
+    &.ql-header .ql-picker-label[data-label]:not([data-label=''])::before,
+    &.ql-font .ql-picker-label[data-label]:not([data-label=''])::before,
+    &.ql-size .ql-picker-label[data-label]:not([data-label=''])::before,
+    &.ql-header .ql-picker-item[data-label]:not([data-label=''])::before,
+    &.ql-font .ql-picker-item[data-label]:not([data-label=''])::before,
+    &.ql-size .ql-picker-item[data-label]:not([data-label=''])::before {
       content: attr(data-label);
     }
 
     &.ql-header {
       width: 98px;
 
-      .ql-picker-label::before, .ql-picker-item::before {
+      .ql-picker-label::before,
+      .ql-picker-item::before {
         content: 'Normal';
       }
 
-      .ql-picker-label[data-value="1"]::before, .ql-picker-item[data-value="1"]::before {
+      .ql-picker-label[data-value='1']::before,
+      .ql-picker-item[data-value='1']::before {
         content: 'Heading 1';
       }
 
-      .ql-picker-label[data-value="2"]::before, .ql-picker-item[data-value="2"]::before {
+      .ql-picker-label[data-value='2']::before,
+      .ql-picker-item[data-value='2']::before {
         content: 'Heading 2';
       }
 
-      .ql-picker-label[data-value="3"]::before, .ql-picker-item[data-value="3"]::before {
+      .ql-picker-label[data-value='3']::before,
+      .ql-picker-item[data-value='3']::before {
         content: 'Heading 3';
       }
 
-      .ql-picker-label[data-value="4"]::before, .ql-picker-item[data-value="4"]::before {
+      .ql-picker-label[data-value='4']::before,
+      .ql-picker-item[data-value='4']::before {
         content: 'Heading 4';
       }
 
-      .ql-picker-label[data-value="5"]::before, .ql-picker-item[data-value="5"]::before {
+      .ql-picker-label[data-value='5']::before,
+      .ql-picker-item[data-value='5']::before {
         content: 'Heading 5';
       }
 
-      .ql-picker-label[data-value="6"]::before {
+      .ql-picker-label[data-value='6']::before {
         content: 'Heading 6';
       }
 
       .ql-picker-item {
-        &[data-value="6"]::before {
+        &[data-value='6']::before {
           content: 'Heading 6';
         }
 
-        &[data-value="1"]::before {
+        &[data-value='1']::before {
           font-size: 2em;
         }
 
-        &[data-value="2"]::before {
+        &[data-value='2']::before {
           font-size: 1.5em;
         }
 
-        &[data-value="3"]::before {
+        &[data-value='3']::before {
           font-size: 1.17em;
         }
 
-        &[data-value="4"]::before {
+        &[data-value='4']::before {
           font-size: 1em;
         }
 
-        &[data-value="5"]::before {
+        &[data-value='5']::before {
           font-size: 0.83em;
         }
 
-        &[data-value="6"]::before {
+        &[data-value='6']::before {
           font-size: 0.67em;
         }
       }
@@ -876,29 +986,37 @@
     &.ql-font {
       width: 108px;
 
-      .ql-picker-label::before, .ql-picker-item::before {
+      .ql-picker-label::before,
+      .ql-picker-item::before {
         content: 'Sans Serif';
       }
 
-      .ql-picker-label[data-value=serif]::before, .ql-picker-item[data-value=serif]::before {
+      .ql-picker-label[data-value='serif']::before,
+      .ql-picker-item[data-value='serif']::before {
         content: 'Serif';
       }
 
-      .ql-picker-label[data-value=monospace]::before {
+      .ql-picker-label[data-value='monospace']::before {
         content: 'Monospace';
       }
 
       .ql-picker-item {
-        &[data-value=monospace]::before {
+        &[data-value='monospace']::before {
           content: 'Monospace';
         }
 
-        &[data-value=serif]::before {
-          font-family: Georgia, Times New Roman, serif;
+        &[data-value='serif']::before {
+          font-family:
+            Georgia,
+            Times New Roman,
+            serif;
         }
 
-        &[data-value=monospace]::before {
-          font-family: Monaco, Courier New, monospace;
+        &[data-value='monospace']::before {
+          font-family:
+            Monaco,
+            Courier New,
+            monospace;
         }
       }
     }
@@ -906,36 +1024,39 @@
     &.ql-size {
       width: 98px;
 
-      .ql-picker-label::before, .ql-picker-item::before {
+      .ql-picker-label::before,
+      .ql-picker-item::before {
         content: 'Normal';
       }
 
-      .ql-picker-label[data-value=small]::before, .ql-picker-item[data-value=small]::before {
+      .ql-picker-label[data-value='small']::before,
+      .ql-picker-item[data-value='small']::before {
         content: 'Small';
       }
 
-      .ql-picker-label[data-value=large]::before, .ql-picker-item[data-value=large]::before {
+      .ql-picker-label[data-value='large']::before,
+      .ql-picker-item[data-value='large']::before {
         content: 'Large';
       }
 
-      .ql-picker-label[data-value=huge]::before {
+      .ql-picker-label[data-value='huge']::before {
         content: 'Huge';
       }
 
       .ql-picker-item {
-        &[data-value=huge]::before {
+        &[data-value='huge']::before {
           content: 'Huge';
         }
 
-        &[data-value=small]::before {
+        &[data-value='small']::before {
           font-size: 10px;
         }
 
-        &[data-value=large]::before {
+        &[data-value='large']::before {
           font-size: 18px;
         }
 
-        &[data-value=huge]::before {
+        &[data-value='huge']::before {
           font-size: 32px;
         }
       }
@@ -966,7 +1087,8 @@
     }
 
     .ql-picker-item {
-      &.ql-selected, &:hover {
+      &.ql-selected,
+      &:hover {
         border-color: $white;
       }
     }
@@ -981,7 +1103,7 @@
   .ql-tooltip-arrow {
     border-left: 6px solid transparent;
     border-right: 6px solid transparent;
-    content: " ";
+    content: ' ';
     display: block;
     left: 50%;
     margin-left: -6px;
@@ -1013,7 +1135,7 @@
   .ql-tooltip-editor {
     display: none;
 
-    input[type=text] {
+    input[type='text'] {
       background: transparent;
       border: none;
       color: $white;
@@ -1032,7 +1154,7 @@
 
       &:before {
         color: #ccc;
-        content: "\D7";
+        content: '\D7';
         font-size: 16px;
         font-weight: bold;
       }
@@ -1042,15 +1164,22 @@
 
 @media (pointer: coarse) {
   .ql-bubble {
-    &.ql-toolbar button:hover:not(.ql-active), .ql-toolbar button:hover:not(.ql-active) {
+    &.ql-toolbar button:hover:not(.ql-active),
+    .ql-toolbar button:hover:not(.ql-active) {
       color: #ccc;
     }
 
-    &.ql-toolbar button:hover:not(.ql-active) .ql-fill, .ql-toolbar button:hover:not(.ql-active) .ql-fill, &.ql-toolbar button:hover:not(.ql-active) .ql-stroke.ql-fill, .ql-toolbar button:hover:not(.ql-active) .ql-stroke.ql-fill {
+    &.ql-toolbar button:hover:not(.ql-active) .ql-fill,
+    .ql-toolbar button:hover:not(.ql-active) .ql-fill,
+    &.ql-toolbar button:hover:not(.ql-active) .ql-stroke.ql-fill,
+    .ql-toolbar button:hover:not(.ql-active) .ql-stroke.ql-fill {
       fill: #ccc;
     }
 
-    &.ql-toolbar button:hover:not(.ql-active) .ql-stroke, .ql-toolbar button:hover:not(.ql-active) .ql-stroke, &.ql-toolbar button:hover:not(.ql-active) .ql-stroke-miter, .ql-toolbar button:hover:not(.ql-active) .ql-stroke-miter {
+    &.ql-toolbar button:hover:not(.ql-active) .ql-stroke,
+    .ql-toolbar button:hover:not(.ql-active) .ql-stroke,
+    &.ql-toolbar button:hover:not(.ql-active) .ql-stroke-miter,
+    .ql-toolbar button:hover:not(.ql-active) .ql-stroke-miter {
       stroke: #ccc;
     }
   }
@@ -1079,12 +1208,13 @@
     border-left: 6px solid transparent;
     border-right: 6px solid transparent;
     top: 0;
-    content: " ";
+    content: ' ';
     height: 0;
     width: 0;
   }
 
-  &::before, &::after {
+  &::before,
+  &::after {
     left: 0;
     margin-left: 50%;
     position: absolute;
@@ -1094,7 +1224,8 @@
   }
 
   &:hover {
-    &::before, &::after {
+    &::before,
+    &::after {
       visibility: visible;
     }
   }

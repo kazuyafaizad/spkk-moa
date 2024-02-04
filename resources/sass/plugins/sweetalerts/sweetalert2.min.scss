@@ -2,7 +2,7 @@
 //      Imports
 //  =================
 
-@import '../../base/base';    // Base Variables
+@import '../../base/base'; // Base Variables
 
 body {
   &.swal2-shown:not(.swal2-no-backdrop) {
@@ -336,19 +336,25 @@ body {
     -ms-flex-direction: column;
     flex-direction: column;
 
-    &.swal2-bottom, &.swal2-center, &.swal2-top {
+    &.swal2-bottom,
+    &.swal2-center,
+    &.swal2-top {
       -webkit-box-align: center;
       -ms-flex-align: center;
       align-items: center;
     }
 
-    &.swal2-bottom-left, &.swal2-center-left, &.swal2-top-left {
+    &.swal2-bottom-left,
+    &.swal2-center-left,
+    &.swal2-top-left {
       -webkit-box-align: start;
       -ms-flex-align: start;
       align-items: flex-start;
     }
 
-    &.swal2-bottom-right, &.swal2-center-right, &.swal2-top-right {
+    &.swal2-bottom-right,
+    &.swal2-center-right,
+    &.swal2-top-right {
       -webkit-box-align: end;
       -ms-flex-align: end;
       align-items: flex-end;
@@ -369,13 +375,16 @@ body {
     }
   }
 
-  &:not(.swal2-top):not(.swal2-top-left):not(.swal2-top-right):not(.swal2-center-left):not(.swal2-center-right):not(.swal2-bottom):not(.swal2-bottom-left):not(.swal2-bottom-right) > .swal2-modal {
+  &:not(.swal2-top):not(.swal2-top-left):not(.swal2-top-right):not(.swal2-center-left):not(
+      .swal2-center-right
+    ):not(.swal2-bottom):not(.swal2-bottom-left):not(.swal2-bottom-right)
+    > .swal2-modal {
     margin: auto;
   }
 
   &.swal2-fade {
-    -webkit-transition: background-color .1s;
-    transition: background-color .1s;
+    -webkit-transition: background-color 0.1s;
+    transition: background-color 0.1s;
   }
 
   &.swal2-shown {
@@ -395,7 +404,7 @@ body {
   -ms-flex-direction: column;
   flex-direction: column;
   background-color: $white;
-  font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   border-radius: 5px;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -441,20 +450,22 @@ body {
         height: 32px;
       }
 
-      &.swal2-info, &.swal2-question, &.swal2-warning {
+      &.swal2-info,
+      &.swal2-question,
+      &.swal2-warning {
         font-size: 26px;
         line-height: 32px;
       }
 
-      &.swal2-error [class^=swal2-x-mark-line] {
+      &.swal2-error [class^='swal2-x-mark-line'] {
         top: 14px;
         width: 22px;
 
-        &[class$=left] {
+        &[class$='left'] {
           left: 5px;
         }
 
-        &[class$=right] {
+        &[class$='right'] {
           right: 5px;
         }
       }
@@ -469,8 +480,12 @@ body {
       padding: 5px 10px;
 
       &:focus {
-        -webkit-box-shadow: 0 0 0 1px #fff, 0 0 0 2px rgba(50, 100, 150, 0.4);
-        box-shadow: 0 0 0 1px #fff, 0 0 0 2px rgba(50, 100, 150, 0.4);
+        -webkit-box-shadow:
+          0 0 0 1px #fff,
+          0 0 0 2px rgba(50, 100, 150, 0.4);
+        box-shadow:
+          0 0 0 1px #fff,
+          0 0 0 2px rgba(50, 100, 150, 0.4);
       }
     }
 
@@ -482,7 +497,7 @@ body {
     .swal2-success {
       border-color: #a5dc86;
 
-      [class^=swal2-success-circular-line] {
+      [class^='swal2-success-circular-line'] {
         border-radius: 50%;
         position: absolute;
         width: 32px;
@@ -490,7 +505,7 @@ body {
         -webkit-transform: rotate(45deg);
         transform: rotate(45deg);
 
-        &[class$=left] {
+        &[class$='left'] {
           border-radius: 64px 0 0 64px;
           top: -4px;
           left: -15px;
@@ -500,7 +515,7 @@ body {
           transform-origin: 32px 32px;
         }
 
-        &[class$=right] {
+        &[class$='right'] {
           border-radius: 0 64px 64px 0;
           top: -5px;
           left: 14px;
@@ -521,16 +536,16 @@ body {
         top: 8px;
       }
 
-      [class^=swal2-success-line] {
+      [class^='swal2-success-line'] {
         height: 5px;
 
-        &[class$=tip] {
+        &[class$='tip'] {
           width: 12px;
           left: 3px;
           top: 18px;
         }
 
-        &[class$=long] {
+        &[class$='long'] {
           width: 22px;
           right: 3px;
           top: 15px;
@@ -539,13 +554,13 @@ body {
     }
 
     .swal2-animate-success-line-tip {
-      -webkit-animation: animate-toast-success-tip .75s;
-      animation: animate-toast-success-tip .75s;
+      -webkit-animation: animate-toast-success-tip 0.75s;
+      animation: animate-toast-success-tip 0.75s;
     }
 
     .swal2-animate-success-line-long {
-      -webkit-animation: animate-toast-success-long .75s;
-      animation: animate-toast-success-long .75s;
+      -webkit-animation: animate-toast-success-long 0.75s;
+      animation: animate-toast-success-long 0.75s;
     }
   }
 
@@ -564,7 +579,7 @@ body {
     font-weight: 600;
     text-transform: none;
     position: relative;
-    margin: 0 0 .4em;
+    margin: 0 0 0.4em;
     padding: 0;
     display: block;
     word-wrap: break-word;
@@ -580,7 +595,7 @@ body {
     margin-top: 15px;
 
     &:not(.swal2-loading) .swal2-styled[disabled] {
-      opacity: .4;
+      opacity: 0.4;
       cursor: no-drop;
     }
 
@@ -646,8 +661,12 @@ body {
 
     &:focus {
       outline: 0;
-      -webkit-box-shadow: 0 0 0 2px #fff, 0 0 0 4px rgba(50, 100, 150, 0.4);
-      box-shadow: 0 0 0 2px #fff, 0 0 0 4px rgba(50, 100, 150, 0.4);
+      -webkit-box-shadow:
+        0 0 0 2px #fff,
+        0 0 0 4px rgba(50, 100, 150, 0.4);
+      box-shadow:
+        0 0 0 2px #fff,
+        0 0 0 4px rgba(50, 100, 150, 0.4);
     }
   }
 
@@ -671,8 +690,8 @@ body {
     right: 8px;
     cursor: pointer;
     color: #ccc;
-    -webkit-transition: color .1s ease;
-    transition: color .1s ease;
+    -webkit-transition: color 0.1s ease;
+    transition: color 0.1s ease;
 
     &:hover {
       color: #d55;
@@ -680,7 +699,12 @@ body {
   }
 
   > {
-    .swal2-checkbox, .swal2-file, .swal2-input, .swal2-radio, .swal2-select, .swal2-textarea {
+    .swal2-checkbox,
+    .swal2-file,
+    .swal2-input,
+    .swal2-radio,
+    .swal2-select,
+    .swal2-textarea {
       display: none;
     }
   }
@@ -698,11 +722,18 @@ body {
     word-wrap: break-word;
   }
 
-  .swal2-checkbox, .swal2-file, .swal2-input, .swal2-radio, .swal2-select, .swal2-textarea {
+  .swal2-checkbox,
+  .swal2-file,
+  .swal2-input,
+  .swal2-radio,
+  .swal2-select,
+  .swal2-textarea {
     margin: 20px auto;
   }
 
-  .swal2-file, .swal2-input, .swal2-textarea {
+  .swal2-file,
+  .swal2-input,
+  .swal2-textarea {
     width: 100%;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -711,26 +742,50 @@ body {
     border: 1px solid #d9d9d9;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.06);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.06);
-    -webkit-transition: border-color .3s,-webkit-box-shadow .3s;
-    transition: border-color .3s,-webkit-box-shadow .3s;
-    transition: border-color .3s,box-shadow .3s;
-    transition: border-color .3s,box-shadow .3s,-webkit-box-shadow .3s;
+    -webkit-transition:
+      border-color 0.3s,
+      -webkit-box-shadow 0.3s;
+    transition:
+      border-color 0.3s,
+      -webkit-box-shadow 0.3s;
+    transition:
+      border-color 0.3s,
+      box-shadow 0.3s;
+    transition:
+      border-color 0.3s,
+      box-shadow 0.3s,
+      -webkit-box-shadow 0.3s;
   }
 
-  .swal2-file.swal2-inputerror, .swal2-input.swal2-inputerror, .swal2-textarea.swal2-inputerror {
+  .swal2-file.swal2-inputerror,
+  .swal2-input.swal2-inputerror,
+  .swal2-textarea.swal2-inputerror {
     border-color: #f27474 !important;
     -webkit-box-shadow: 0 0 2px #f27474 !important;
     box-shadow: 0 0 2px #f27474 !important;
   }
 
-  .swal2-file:focus, .swal2-input:focus, .swal2-textarea:focus {
+  .swal2-file:focus,
+  .swal2-input:focus,
+  .swal2-textarea:focus {
     outline: 0;
     border: 1px solid #b4dbed;
     -webkit-box-shadow: 0 0 3px #c4e6f5;
     box-shadow: 0 0 3px #c4e6f5;
   }
 
-  .swal2-file::-webkit-input-placeholder, .swal2-input::-webkit-input-placeholder, .swal2-textarea::-webkit-input-placeholder, .swal2-file:-ms-input-placeholder, .swal2-input:-ms-input-placeholder, .swal2-textarea:-ms-input-placeholder, .swal2-file::-ms-input-placeholder, .swal2-input::-ms-input-placeholder, .swal2-textarea::-ms-input-placeholder, .swal2-file::placeholder, .swal2-input::placeholder, .swal2-textarea::placeholder {
+  .swal2-file::-webkit-input-placeholder,
+  .swal2-input::-webkit-input-placeholder,
+  .swal2-textarea::-webkit-input-placeholder,
+  .swal2-file:-ms-input-placeholder,
+  .swal2-input:-ms-input-placeholder,
+  .swal2-textarea:-ms-input-placeholder,
+  .swal2-file::-ms-input-placeholder,
+  .swal2-input::-ms-input-placeholder,
+  .swal2-textarea::-ms-input-placeholder,
+  .swal2-file::placeholder,
+  .swal2-input::placeholder,
+  .swal2-textarea::placeholder {
     color: #ccc;
   }
 
@@ -748,7 +803,8 @@ body {
       text-align: center;
     }
 
-    input, output {
+    input,
+    output {
       height: 43px;
       line-height: 43px;
       vertical-align: middle;
@@ -761,7 +817,7 @@ body {
     height: 43px;
     padding: 0 12px;
 
-    &[type=number] {
+    &[type='number'] {
       max-width: 150px;
     }
   }
@@ -790,7 +846,8 @@ body {
       margin-left: 20px;
     }
 
-    input, span {
+    input,
+    span {
       vertical-align: middle;
     }
 
@@ -802,7 +859,8 @@ body {
   .swal2-checkbox {
     color: #545454;
 
-    input, span {
+    input,
+    span {
       vertical-align: middle;
     }
   }
@@ -880,7 +938,7 @@ body {
       display: block;
     }
 
-    [class^=swal2-x-mark-line] {
+    [class^='swal2-x-mark-line'] {
       position: absolute;
       height: 5px;
       width: 47px;
@@ -889,13 +947,13 @@ body {
       top: 37px;
       border-radius: 2px;
 
-      &[class$=left] {
+      &[class$='left'] {
         -webkit-transform: rotate(45deg);
         transform: rotate(45deg);
         left: 17px;
       }
 
-      &[class$=right] {
+      &[class$='right'] {
         -webkit-transform: rotate(-45deg);
         transform: rotate(-45deg);
         right: 16px;
@@ -904,7 +962,7 @@ body {
   }
 
   &.swal2-warning {
-    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     color: #f8bb86;
     border-color: #facea8;
     font-size: 60px;
@@ -913,7 +971,7 @@ body {
   }
 
   &.swal2-info {
-    font-family: 'Open Sans',sans-serif;
+    font-family: 'Open Sans', sans-serif;
     color: #3fc3ee;
     border-color: #9de0f6;
     font-size: 60px;
@@ -922,7 +980,7 @@ body {
   }
 
   &.swal2-question {
-    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     color: #87adbd;
     border-color: #c9dae1;
     font-size: 60px;
@@ -933,7 +991,7 @@ body {
   &.swal2-success {
     border-color: #a5dc86;
 
-    [class^=swal2-success-circular-line] {
+    [class^='swal2-success-circular-line'] {
       border-radius: 50%;
       position: absolute;
       width: 60px;
@@ -941,7 +999,7 @@ body {
       -webkit-transform: rotate(45deg);
       transform: rotate(45deg);
 
-      &[class$=left] {
+      &[class$='left'] {
         border-radius: 120px 0 0 120px;
         top: -7px;
         left: -33px;
@@ -951,7 +1009,7 @@ body {
         transform-origin: 60px 60px;
       }
 
-      &[class$=right] {
+      &[class$='right'] {
         border-radius: 0 120px 120px 0;
         top: -11px;
         left: 30px;
@@ -986,7 +1044,7 @@ body {
       transform: rotate(-45deg);
     }
 
-    [class^=swal2-success-line] {
+    [class^='swal2-success-line'] {
       height: 5px;
       background-color: #a5dc86;
       display: block;
@@ -994,7 +1052,7 @@ body {
       position: absolute;
       z-index: 2;
 
-      &[class$=tip] {
+      &[class$='tip'] {
         width: 25px;
         left: 14px;
         top: 46px;
@@ -1002,7 +1060,7 @@ body {
         transform: rotate(45deg);
       }
 
-      &[class$=long] {
+      &[class$='long'] {
         width: 47px;
         right: 8px;
         top: 38px;
@@ -1045,7 +1103,8 @@ body {
       background: #3085d6;
 
       ~ {
-        .swal2-progresscircle, .swal2-progressline {
+        .swal2-progresscircle,
+        .swal2-progressline {
           background: #add8e6;
         }
       }
@@ -1054,13 +1113,13 @@ body {
 
   .swal2-progressline {
     background: #3085d6;
-    height: .4em;
+    height: 0.4em;
     margin: 0 -1px;
     z-index: 10;
   }
 }
 
-[class^=swal2] {
+[class^='swal2'] {
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -1074,13 +1133,13 @@ body {
   33% {
     -webkit-transform: translateY(0) rotateZ(-2deg);
     transform: translateY(0) rotateZ(-2deg);
-    opacity: .5;
+    opacity: 0.5;
   }
 
   66% {
     -webkit-transform: translateY(5px) rotateZ(2deg);
     transform: translateY(5px) rotateZ(2deg);
-    opacity: .7;
+    opacity: 0.7;
   }
 
   100% {
@@ -1100,13 +1159,13 @@ body {
   33% {
     -webkit-transform: translateY(0) rotateZ(-2deg);
     transform: translateY(0) rotateZ(-2deg);
-    opacity: .5;
+    opacity: 0.5;
   }
 
   66% {
     -webkit-transform: translateY(5px) rotateZ(2deg);
     transform: translateY(5px) rotateZ(2deg);
-    opacity: .7;
+    opacity: 0.7;
   }
 
   100% {
@@ -1122,7 +1181,7 @@ body {
   }
 
   33% {
-    opacity: .5;
+    opacity: 0.5;
   }
 
   100% {
@@ -1138,7 +1197,7 @@ body {
   }
 
   33% {
-    opacity: .5;
+    opacity: 0.5;
   }
 
   100% {
@@ -1221,12 +1280,12 @@ body {
 }
 
 .swal2-show {
-  -webkit-animation: showSweetAlert .3s;
-  animation: showSweetAlert .3s;
+  -webkit-animation: showSweetAlert 0.3s;
+  animation: showSweetAlert 0.3s;
 
   &.swal2-toast {
-    -webkit-animation: showSweetToast .5s;
-    animation: showSweetToast .5s;
+    -webkit-animation: showSweetToast 0.5s;
+    animation: showSweetToast 0.5s;
   }
 
   &.swal2-noanimation {
@@ -1236,12 +1295,12 @@ body {
 }
 
 .swal2-hide {
-  -webkit-animation: hideSweetAlert .15s forwards;
-  animation: hideSweetAlert .15s forwards;
+  -webkit-animation: hideSweetAlert 0.15s forwards;
+  animation: hideSweetAlert 0.15s forwards;
 
   &.swal2-toast {
-    -webkit-animation: hideSweetToast .2s forwards;
-    animation: hideSweetToast .2s forwards;
+    -webkit-animation: hideSweetToast 0.2s forwards;
+    animation: hideSweetToast 0.2s forwards;
   }
 
   &.swal2-noanimation {
@@ -1527,13 +1586,13 @@ body {
 }
 
 .swal2-animate-success-line-tip {
-  -webkit-animation: animate-success-tip .75s;
-  animation: animate-success-tip .75s;
+  -webkit-animation: animate-success-tip 0.75s;
+  animation: animate-success-tip 0.75s;
 }
 
 .swal2-animate-success-line-long {
-  -webkit-animation: animate-success-long .75s;
-  animation: animate-success-long .75s;
+  -webkit-animation: animate-success-long 0.75s;
+  animation: animate-success-long 0.75s;
 }
 
 .swal2-success.swal2-animate-success-icon .swal2-success-circular-line-right {
@@ -1570,8 +1629,8 @@ body {
 }
 
 .swal2-animate-error-icon {
-  -webkit-animation: animate-error-icon .5s;
-  animation: animate-error-icon .5s;
+  -webkit-animation: animate-error-icon 0.5s;
+  animation: animate-error-icon 0.5s;
 }
 
 @-webkit-keyframes animate-x-mark {
@@ -1633,8 +1692,8 @@ body {
 }
 
 .swal2-animate-x-mark {
-  -webkit-animation: animate-x-mark .5s;
-  animation: animate-x-mark .5s;
+  -webkit-animation: animate-x-mark 0.5s;
+  animation: animate-x-mark 0.5s;
 }
 
 @-webkit-keyframes rotate-loading {

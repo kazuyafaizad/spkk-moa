@@ -8,7 +8,8 @@
 			@Import	Mixins
 	===============================
 */
-.carousel-caption h3, .carousel-caption h5 {
+.carousel-caption h3,
+.carousel-caption h5 {
   color: #fff;
 }
 
@@ -74,7 +75,8 @@
   margin: auto;
   right: 33px;
 }
-.style-custom-1 .carousel-control-next, .style-custom-1 .carousel-control-prev {
+.style-custom-1 .carousel-control-next,
+.style-custom-1 .carousel-control-prev {
   top: auto;
   bottom: 32px;
   background-color: transparent;
@@ -113,7 +115,8 @@
 /*
 	Default Style of the carousel arrows
 */
-.carousel-control-next, .carousel-control-prev {
+.carousel-control-next,
+.carousel-control-prev {
   top: 0;
   bottom: 0;
   width: 50px;
@@ -167,7 +170,8 @@
     border-radius: 18px;
     height: 10px;
   }
-  .style-custom-1 .carousel-control-next, .style-custom-1 .carousel-control-prev {
+  .style-custom-1 .carousel-control-next,
+  .style-custom-1 .carousel-control-prev {
     display: none;
   }
 }

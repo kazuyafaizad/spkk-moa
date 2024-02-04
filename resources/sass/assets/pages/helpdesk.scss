@@ -2,7 +2,7 @@
 //      Imports
 //  =================
 
-@import '../../base/base';    // Base Variables
+@import '../../base/base'; // Base Variables
 
 body {
   font-family: 'Nunito', sans-serif;
@@ -11,7 +11,7 @@ body {
 
 .helpdesk {
   &:before {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
@@ -145,7 +145,7 @@ body {
         color: $m-color_6;
       }
 
-      &[aria-expanded="true"] svg {
+      &[aria-expanded='true'] svg {
         color: $primary;
       }
     }
@@ -279,7 +279,8 @@ body {
   }
 }
 
-.carousel-control-next, .carousel-control-prev {
+.carousel-control-next,
+.carousel-control-prev {
   opacity: 1;
   background: $m-color_1;
 }
@@ -382,13 +383,15 @@ body {
 }
 
 @media (max-width: 1199px) {
-  .carousel-control-next, .carousel-control-prev {
+  .carousel-control-next,
+  .carousel-control-prev {
     background: transparent;
   }
 }
 
 @media (max-width: 991px) {
-  .carousel-control-next, .carousel-control-prev {
+  .carousel-control-next,
+  .carousel-control-prev {
     display: none;
   }
 }

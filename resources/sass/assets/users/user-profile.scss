@@ -2,14 +2,14 @@
 //      Imports
 //  =================
 
-@import '../../base/base';    // Base Variables
+@import '../../base/base'; // Base Variables
 
 .widget-content-area {
   border: 1px solid #e0e6ed;
-  box-shadow: 0 0 40px 0 rgba(94,92,154,.06);
+  box-shadow: 0 0 40px 0 rgba(94, 92, 154, 0.06);
 }
 .layout-spacing {
-    padding-bottom: 25px;
+  padding-bottom: 25px;
 }
 /* 
 ===================
@@ -50,7 +50,7 @@
 
     &:after {
       position: absolute;
-      content: "";
+      content: '';
       height: 2px;
       width: 55px;
       background: $primary;
@@ -65,7 +65,10 @@
 
     img {
       border-radius: 9px;
-      box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.2);
+      box-shadow:
+        0 6px 10px 0 rgba(0, 0, 0, 0.14),
+        0 1px 18px 0 rgba(0, 0, 0, 0.12),
+        0 3px 5px -1px rgba(0, 0, 0, 0.2);
     }
 
     p {
@@ -147,7 +150,7 @@
 
     &:after {
       position: absolute;
-      content: "";
+      content: '';
       height: 2px;
       width: 47px;
       background: $primary;
@@ -173,7 +176,9 @@
       background-color: $primary;
       background: linear-gradient(to right, #0081ff 0%, #0045ff 100%);
       border-radius: 1rem;
-      box-shadow: 0 2px 4px rgba(0, 69, 255, 0.15), 0 8px 16px rgba(0, 69, 255, 0.2);
+      box-shadow:
+        0 2px 4px rgba(0, 69, 255, 0.15),
+        0 8px 16px rgba(0, 69, 255, 0.2);
       font-size: 12px;
       letter-spacing: 1px;
       font-weight: 100;
@@ -210,7 +215,7 @@
 
     &:after {
       position: absolute;
-      content: "";
+      content: '';
       height: 2px;
       width: 30px;
       background: $primary;
@@ -279,7 +284,7 @@
 
     &:after {
       position: absolute;
-      content: "";
+      content: '';
       height: 2px;
       width: 97px;
       background: $primary;
@@ -380,7 +385,8 @@
     display: block;
     text-align: center;
 
-    .t-meta-date p, .t-usr-txt p {
+    .t-meta-date p,
+    .t-usr-txt p {
       margin: 0 auto;
     }
   }
@@ -404,7 +410,7 @@
 
     &:after {
       position: absolute;
-      content: "";
+      content: '';
       height: 2px;
       width: 173px;
       background: $primary;
@@ -505,7 +511,8 @@
     display: block;
     text-align: center;
 
-    .t-meta-date p, .t-usr-txt p {
+    .t-meta-date p,
+    .t-usr-txt p {
       margin: 0 auto;
     }
   }

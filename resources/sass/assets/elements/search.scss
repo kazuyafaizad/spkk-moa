@@ -2,8 +2,7 @@
 //      Imports
 //  =================
 
-@import '../../base/base';    // Base Variables
-
+@import '../../base/base'; // Base Variables
 
 /*
   Live Search
@@ -86,7 +85,7 @@
     flex-direction: row;
     -ms-flex-align: center;
     align-items: center;
-    padding: .75rem .625rem;
+    padding: 0.75rem 0.625rem;
     position: relative;
     display: -ms-flexbox;
     display: flex;
@@ -121,7 +120,9 @@
       }
     }
 
-    .user-name p, .user-work p, .user-email p {
+    .user-name p,
+    .user-work p,
+    .user-email p {
       margin-bottom: 0;
       color: $m-color_6;
       font-weight: 600;
@@ -155,7 +156,11 @@
     }
 
     &:hover {
-      .serial-number p, .user-name p, .user-work p, .user-email p, .action-btn p {
+      .serial-number p,
+      .user-name p,
+      .user-work p,
+      .user-email p,
+      .action-btn p {
         color: $primary;
       }
     }
@@ -255,7 +260,7 @@
 
   &.show {
     display: block;
-    opacity: .1;
+    opacity: 0.1;
   }
 }
 

@@ -2,8 +2,7 @@
 //      Imports
 //  =================
 
-@import '../../base/base';    // Base Variables
-
+@import '../../base/base'; // Base Variables
 
 /*      Alert       */
 
@@ -111,7 +110,8 @@
     color: $m-color_10;
   }
 
-  &.solid-alert-3 .close, &.solid-alert-4 .close {
+  &.solid-alert-3 .close,
+  &.solid-alert-4 .close {
     color: $black;
   }
 }
@@ -221,7 +221,8 @@
   .alert-text {
     margin-right: 10px;
 
-    strong, span {
+    strong,
+    span {
       vertical-align: sub;
     }
   }
@@ -273,7 +274,7 @@
 }
 
 .alert {
-  &[class*=alert-arrow-]:before {
+  &[class*='alert-arrow-']:before {
     content: '';
     display: inline-block;
     position: absolute;

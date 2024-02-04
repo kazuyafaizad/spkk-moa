@@ -4,9 +4,6 @@ namespace App\Actions;
 
 use App\Models\PublicRecipeLeftover;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\Rule;
-use Mockery\Matcher\Any;
-use Illuminate\Http\UploadedFile;
 
 class StoreRecipeLeftover
 {
@@ -21,19 +18,23 @@ class StoreRecipeLeftover
             'title' => ['required', 'string', 'max:255'],
             'description' => ['required', 'string'],
             'image' => ['nullable', 'mimes:jpg,jpeg,png', 'max:1024'],
-        ])->validateWithBag('updateProfileInformation');
-
+        ], [
+            'title.required' => 'Sila masukkan tajuk',
+            'title.max' => 'Tajuk tidak boleh melebihi 255 aksara.',
+            'description.required' => 'Sila masukkan Keterangan',
+            'image.mimes' => 'Imej mestilah dalam format JPG, JPEG, atau PNG.',
+            'image.max' => 'Imej tidak boleh melebihi 1024 kilobytes.',
+        ])->validateWithBag('storeRecipe');
 
         $PublicRecipeLeftover = new PublicRecipeLeftover();
-        //  dd($input);
+
         if (isset($input['image'])) {
             $file = $input['image'];
-            $filename = date('YmdHi') . $file->getClientOriginalName();
-            // Store the file in the 'public' disk (you can configure other disks if needed)
+            $filename = date('YmdHi').$file->getClientOriginalName();
+
             $file->storeAs('public/Image', $filename);
 
-            // Update the model's image attribute with the stored file path
-            $PublicRecipeLeftover->image = 'storage/Image/' . $filename;
+            $PublicRecipeLeftover->image = 'storage/Image/'.$filename;
 
             // tap($this->profile_photo_path, function ($previous) use ($photo, $storagePath) {
             //     $this->forceFill([
@@ -54,8 +55,6 @@ class StoreRecipeLeftover
         $PublicRecipeLeftover->status = 1;
         $PublicRecipeLeftover->created_by = auth()->user()->id;
 
-
         $PublicRecipeLeftover->save();
     }
-
 }

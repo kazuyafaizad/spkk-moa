@@ -9,7 +9,7 @@
 	===============================
 */
 #content:before {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   right: 0;
@@ -61,30 +61,31 @@
 }
 .filtered-list-search form input::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */
-  color: #888ea8;
+  color: #3b3f5c;
 }
 .filtered-list-search form input::-moz-placeholder {
   /* Firefox 19+ */
-  color: #888ea8;
+  color: #3b3f5c;
 }
 .filtered-list-search form input:-ms-input-placeholder {
   /* IE 10+ */
-  color: #888ea8;
+  color: #3b3f5c;
 }
 .filtered-list-search form input:-moz-placeholder {
   /* Firefox 18- */
-  color: #888ea8;
+  color: #3b3f5c;
 }
 
 .searchable-container .switch {
   text-align: right;
 }
-.searchable-container .switch .view-grid, .searchable-container .switch .view-list {
+.searchable-container .switch .view-grid,
+.searchable-container .switch .view-list {
   padding: 10px;
   background: #fff;
   border-radius: 5px;
   cursor: pointer;
-  color: #515365;
+  color: #3b3f5c;
   box-shadow: 0px 2px 4px rgba(126, 142, 177, 0.12);
   width: 43px;
   height: 41px;
@@ -99,11 +100,11 @@
   box-shadow: 0px 2px 4px rgba(126, 142, 177, 0.12);
   width: 43px;
   height: 41px;
-  color: #1b55e2;
+  color: #22577a;
   fill: rgba(27, 85, 226, 0.2392156863);
 }
 .searchable-container #btn-add-contact:hover {
-  color: #515365;
+  color: #3b3f5c;
   fill: rgba(0, 23, 55, 0.08);
 }
 
@@ -126,11 +127,18 @@
   border-radius: 5px;
   opacity: 1;
   color: #2196f3;
-  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.2);
+  box-shadow:
+    0 6px 10px 0 rgba(0, 0, 0, 0.14),
+    0 1px 18px 0 rgba(0, 0, 0, 0.12),
+    0 3px 5px -1px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   transition: 0.6s;
 }
-.searchable-container .add-contact-box .add-contact-content .contact-name .validation-text, .searchable-container .add-contact-box .add-contact-content .contact-email .validation-text, .searchable-container .add-contact-box .add-contact-content .contact-occupation .validation-text, .searchable-container .add-contact-box .add-contact-content .contact-phone .validation-text, .searchable-container .add-contact-box .add-contact-content .contact-location .validation-text {
+.searchable-container .add-contact-box .add-contact-content .contact-name .validation-text,
+.searchable-container .add-contact-box .add-contact-content .contact-email .validation-text,
+.searchable-container .add-contact-box .add-contact-content .contact-occupation .validation-text,
+.searchable-container .add-contact-box .add-contact-content .contact-phone .validation-text,
+.searchable-container .add-contact-box .add-contact-content .contact-location .validation-text {
   display: none;
   color: #e7515a;
   font-weight: 600;
@@ -139,18 +147,99 @@
   font-size: 12px;
   letter-spacing: 1px;
 }
-.searchable-container .add-contact-box .add-contact-content .contact-name svg, .searchable-container .add-contact-box .add-contact-content .contact-email svg, .searchable-container .add-contact-box .add-contact-content .contact-occupation svg, .searchable-container .add-contact-box .add-contact-content .contact-phone svg, .searchable-container .add-contact-box .add-contact-content .contact-location svg {
+.searchable-container .add-contact-box .add-contact-content .contact-name svg,
+.searchable-container .add-contact-box .add-contact-content .contact-email svg,
+.searchable-container .add-contact-box .add-contact-content .contact-occupation svg,
+.searchable-container .add-contact-box .add-contact-content .contact-phone svg,
+.searchable-container .add-contact-box .add-contact-content .contact-location svg {
   align-self: center;
   font-size: 19px;
   margin-right: 14px;
   color: #2196f3;
   font-weight: 600;
 }
-.searchable-container .add-contact-box .add-contact-content .contact-name #c-name::-webkit-input-placeholder, .searchable-container .add-contact-box .add-contact-content .contact-email #c-email::-webkit-input-placeholder, .searchable-container .add-contact-box .add-contact-content .contact-occupation #c-occupation::-webkit-input-placeholder, .searchable-container .add-contact-box .add-contact-content .contact-phone #c-phone::-webkit-input-placeholder, .searchable-container .add-contact-box .add-contact-content .contact-location #c-location::-webkit-input-placeholder, .searchable-container .add-contact-box .add-contact-content .contact-name #c-name::-ms-input-placeholder, .searchable-container .add-contact-box .add-contact-content .contact-email #c-email::-ms-input-placeholder, .searchable-container .add-contact-box .add-contact-content .contact-occupation #c-occupation::-ms-input-placeholder, .searchable-container .add-contact-box .add-contact-content .contact-phone #c-phone::-ms-input-placeholder, .searchable-container .add-contact-box .add-contact-content .contact-location #c-location::-ms-input-placeholder, .searchable-container .add-contact-box .add-contact-content .contact-name #c-name::-moz-input-placeholder, .searchable-container .add-contact-box .add-contact-content .contact-email #c-email::-moz-input-placeholder, .searchable-container .add-contact-box .add-contact-content .contact-occupation #c-occupation::-moz-input-placeholder, .searchable-container .add-contact-box .add-contact-content .contact-phone #c-phone::-moz-input-placeholder, .searchable-container .add-contact-box .add-contact-content .contact-location #c-location::-moz-input-placeholder {
+.searchable-container
+  .add-contact-box
+  .add-contact-content
+  .contact-name
+  #c-name::-webkit-input-placeholder,
+.searchable-container
+  .add-contact-box
+  .add-contact-content
+  .contact-email
+  #c-email::-webkit-input-placeholder,
+.searchable-container
+  .add-contact-box
+  .add-contact-content
+  .contact-occupation
+  #c-occupation::-webkit-input-placeholder,
+.searchable-container
+  .add-contact-box
+  .add-contact-content
+  .contact-phone
+  #c-phone::-webkit-input-placeholder,
+.searchable-container
+  .add-contact-box
+  .add-contact-content
+  .contact-location
+  #c-location::-webkit-input-placeholder,
+.searchable-container
+  .add-contact-box
+  .add-contact-content
+  .contact-name
+  #c-name::-ms-input-placeholder,
+.searchable-container
+  .add-contact-box
+  .add-contact-content
+  .contact-email
+  #c-email::-ms-input-placeholder,
+.searchable-container
+  .add-contact-box
+  .add-contact-content
+  .contact-occupation
+  #c-occupation::-ms-input-placeholder,
+.searchable-container
+  .add-contact-box
+  .add-contact-content
+  .contact-phone
+  #c-phone::-ms-input-placeholder,
+.searchable-container
+  .add-contact-box
+  .add-contact-content
+  .contact-location
+  #c-location::-ms-input-placeholder,
+.searchable-container
+  .add-contact-box
+  .add-contact-content
+  .contact-name
+  #c-name::-moz-input-placeholder,
+.searchable-container
+  .add-contact-box
+  .add-contact-content
+  .contact-email
+  #c-email::-moz-input-placeholder,
+.searchable-container
+  .add-contact-box
+  .add-contact-content
+  .contact-occupation
+  #c-occupation::-moz-input-placeholder,
+.searchable-container
+  .add-contact-box
+  .add-contact-content
+  .contact-phone
+  #c-phone::-moz-input-placeholder,
+.searchable-container
+  .add-contact-box
+  .add-contact-content
+  .contact-location
+  #c-location::-moz-input-placeholder {
   color: #acb0c3;
   font-weight: 600;
 }
-.searchable-container .add-contact-box .add-contact-content .contact-name, .searchable-container .add-contact-box .add-contact-content .contact-email, .searchable-container .add-contact-box .add-contact-content .contact-occupation, .searchable-container .add-contact-box .add-contact-content .contact-phone {
+.searchable-container .add-contact-box .add-contact-content .contact-name,
+.searchable-container .add-contact-box .add-contact-content .contact-email,
+.searchable-container .add-contact-box .add-contact-content .contact-occupation,
+.searchable-container .add-contact-box .add-contact-content .contact-phone {
   padding-top: 20px;
 }
 .searchable-container .add-contact-box .add-contact-content .contact-location {
@@ -163,23 +252,23 @@
   border: none;
   padding: 0 15px 14px 15px;
 }
-.searchable-container .modal-footer .btn[data-dismiss=modal] {
+.searchable-container .modal-footer .btn[data-dismiss='modal'] {
   background-color: #fff;
-  color: #1b55e2;
+  color: #22577a;
   font-weight: 700;
   border: 1px solid #e8e8e8;
   padding: 10px 25px;
 }
-.searchable-container .modal-footer .btn[data-dismiss=modal] svg {
+.searchable-container .modal-footer .btn[data-dismiss='modal'] svg {
   font-size: 11px;
   font-weight: 600;
   margin-right: 8px;
 }
 .searchable-container .modal-footer .btn#btn-add {
-  background-color: #1b55e2;
+  background-color: #22577a;
   color: #fff;
   font-weight: 600;
-  border: 1px solid #1b55e2;
+  border: 1px solid #22577a;
   padding: 10px 25px;
 }
 .searchable-container .modal-footer .btn#btn-edit {
@@ -189,8 +278,10 @@
   border: 1px solid #e0e6ed;
   padding: 10px 25px;
 }
-.searchable-container .switch .view-grid:hover, .searchable-container .switch .view-list:hover, .searchable-container .switch .active-view {
-  color: #1b55e2;
+.searchable-container .switch .view-grid:hover,
+.searchable-container .switch .view-list:hover,
+.searchable-container .switch .active-view {
+  color: #22577a;
   fill: rgba(27, 85, 226, 0.2392156863);
 }
 .searchable-container .searchable-items.list .items.items-header-section h4 {
@@ -242,13 +333,13 @@
 }
 .searchable-container .searchable-items.list .items .user-meta-info .user-work {
   margin-bottom: 0;
-  color: #888ea8;
+  color: #3b3f5c;
   font-weight: 500;
   font-size: 13px;
 }
 .searchable-container .searchable-items.list .items .user-email p {
   margin-bottom: 0;
-  color: #888ea8;
+  color: #3b3f5c;
   font-weight: 600;
 }
 .searchable-container .searchable-items.list .items .user-email .info-title {
@@ -264,7 +355,7 @@
 }
 .searchable-container .searchable-items.list .items .user-phone p {
   margin-bottom: 0;
-  color: #888ea8;
+  color: #3b3f5c;
   font-weight: 600;
   font-size: 13px;
 }
@@ -278,22 +369,24 @@
 .searchable-container .searchable-items.list .items .action-btn .delete-multiple {
   margin-right: 5px;
   cursor: pointer;
-  color: #515365;
+  color: #3b3f5c;
   width: 20px;
   fill: rgba(27, 85, 226, 0.2392156863);
 }
 .searchable-container .searchable-items.list .items .action-btn .delete-multiple:hover {
-  color: #1b55e2;
+  color: #22577a;
 }
-.searchable-container .searchable-items.list .items .action-btn .edit, .searchable-container .searchable-items.list .items .action-btn .delete {
+.searchable-container .searchable-items.list .items .action-btn .edit,
+.searchable-container .searchable-items.list .items .action-btn .delete {
   margin-right: 5px;
   cursor: pointer;
-  color: #515365;
+  color: #3b3f5c;
   width: 20px;
   fill: rgba(27, 85, 226, 0.2392156863);
 }
-.searchable-container .searchable-items.list .items .action-btn .edit:hover, .searchable-container .searchable-items.list .items .action-btn .delete:hover {
-  color: #1b55e2;
+.searchable-container .searchable-items.list .items .action-btn .edit:hover,
+.searchable-container .searchable-items.list .items .action-btn .delete:hover {
+  color: #22577a;
 }
 
 .searchable-items.grid {
@@ -363,7 +456,7 @@
   margin-bottom: 11px;
 }
 .searchable-container .searchable-items.grid .items .user-email p {
-  color: #888ea8;
+  color: #3b3f5c;
   font-size: 13px;
   margin-bottom: 11px;
 }
@@ -379,7 +472,7 @@
   margin-right: 10px;
 }
 .searchable-container .searchable-items.grid .items .user-location p {
-  color: #888ea8;
+  color: #3b3f5c;
   font-size: 13px;
   margin-bottom: 11px;
 }
@@ -394,7 +487,7 @@
   margin-bottom: 11px;
 }
 .searchable-container .searchable-items.grid .items .user-phone p {
-  color: #888ea8;
+  color: #3b3f5c;
   font-size: 13px;
   margin-bottom: 11px;
   margin-right: 10px;
@@ -405,15 +498,17 @@
   text-align: center;
   margin: 20px 0;
 }
-.searchable-container .searchable-items.grid .items .action-btn .edit, .searchable-container .searchable-items.grid .items .action-btn .delete {
+.searchable-container .searchable-items.grid .items .action-btn .edit,
+.searchable-container .searchable-items.grid .items .action-btn .delete {
   margin-right: 5px;
   cursor: pointer;
-  color: #515365;
+  color: #3b3f5c;
   width: 20px;
   fill: rgba(27, 85, 226, 0.2392156863);
 }
-.searchable-container .searchable-items.grid .items .action-btn .edit:hover, .searchable-container .searchable-items.grid .items .action-btn .delete:hover {
-  color: #1b55e2;
+.searchable-container .searchable-items.grid .items .action-btn .edit:hover,
+.searchable-container .searchable-items.grid .items .action-btn .delete:hover {
+  color: #22577a;
 }
 
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {

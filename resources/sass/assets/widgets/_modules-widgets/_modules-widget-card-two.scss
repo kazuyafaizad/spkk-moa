@@ -79,7 +79,8 @@
       letter-spacing: 1px;
 
       &.btn {
-        &:hover, &:focus {
+        &:hover,
+        &:focus {
           border-color: $primary;
         }
       }

@@ -2,7 +2,7 @@
 //      Imports
 //  =================
 
-@import '../../../base/base';    // Base Variables
+@import '../../../base/base'; // Base Variables
 
 /*
  * This combined file was created by the DataTables downloader builder:
@@ -25,18 +25,21 @@ table.dataTable {
   border-collapse: separate !important;
   border: none;
 
-  td, th {
+  td,
+  th {
     -webkit-box-sizing: content-box;
     box-sizing: content-box;
     padding: 12px 7px;
   }
 
-  td.dataTables_empty, th.dataTables_empty {
+  td.dataTables_empty,
+  th.dataTables_empty {
     text-align: center;
   }
 
   &.nowrap {
-    th, td {
+    th,
+    td {
       white-space: nowrap;
     }
   }
@@ -81,7 +84,9 @@ table.dataTable .form-control {
   color: $m-color_6;
   font-size: 0.875rem;
 
-  &::-webkit-input-placeholder, &::-ms-input-placeholder, &::-moz-placeholder {
+  &::-webkit-input-placeholder,
+  &::-ms-input-placeholder,
+  &::-moz-placeholder {
     color: $m-color_6;
     font-size: 0.875rem;
   }
@@ -120,29 +125,39 @@ div.dataTables_wrapper div {
 table.dataTable thead {
   > tr > {
     th {
-      &.sorting_asc, &.sorting_desc, &.sorting {
+      &.sorting_asc,
+      &.sorting_desc,
+      &.sorting {
         padding-right: 30px;
       }
     }
 
     td {
-      &.sorting_asc, &.sorting_desc, &.sorting {
+      &.sorting_asc,
+      &.sorting_desc,
+      &.sorting {
         padding-right: 30px;
       }
     }
 
-    th:active, td:active {
+    th:active,
+    td:active {
       outline: none;
     }
   }
 
-  .sorting, .sorting_asc, .sorting_desc, .sorting_asc_disabled, .sorting_desc_disabled {
+  .sorting,
+  .sorting_asc,
+  .sorting_desc,
+  .sorting_asc_disabled,
+  .sorting_desc_disabled {
     cursor: pointer;
     position: relative;
   }
 
   .sorting {
-    &:before, &:after {
+    &:before,
+    &:after {
       position: absolute;
       bottom: 0.9em;
       display: block;
@@ -151,7 +166,8 @@ table.dataTable thead {
   }
 
   .sorting_asc {
-    &:before, &:after {
+    &:before,
+    &:after {
       position: absolute;
       bottom: 0.9em;
       display: block;
@@ -160,7 +176,8 @@ table.dataTable thead {
   }
 
   .sorting_desc {
-    &:before, &:after {
+    &:before,
+    &:after {
       position: absolute;
       bottom: 0.9em;
       display: block;
@@ -169,7 +186,8 @@ table.dataTable thead {
   }
 
   .sorting_asc_disabled {
-    &:before, &:after {
+    &:before,
+    &:after {
       position: absolute;
       bottom: 0.9em;
       display: block;
@@ -178,7 +196,8 @@ table.dataTable thead {
   }
 
   .sorting_desc_disabled {
-    &:before, &:after {
+    &:before,
+    &:after {
       position: absolute;
       bottom: 0.9em;
       display: block;
@@ -186,21 +205,31 @@ table.dataTable thead {
     }
   }
 
-  .sorting:before, .sorting_asc:before, .sorting_desc:before, .sorting_asc_disabled:before, .sorting_desc_disabled:before {
+  .sorting:before,
+  .sorting_asc:before,
+  .sorting_desc:before,
+  .sorting_asc_disabled:before,
+  .sorting_desc_disabled:before {
     right: 1em;
-    content: "\2191";
+    content: '\2191';
   }
 
-  .sorting:after, .sorting_asc:after, .sorting_desc:after, .sorting_asc_disabled:after, .sorting_desc_disabled:after {
+  .sorting:after,
+  .sorting_asc:after,
+  .sorting_desc:after,
+  .sorting_asc_disabled:after,
+  .sorting_desc_disabled:after {
     right: 0.5em;
-    content: "\2193";
+    content: '\2193';
   }
 
-  .sorting_asc:before, .sorting_desc:after {
+  .sorting_asc:before,
+  .sorting_desc:after {
     opacity: 1;
   }
 
-  .sorting_asc_disabled:before, .sorting_desc_disabled:after {
+  .sorting_asc_disabled:before,
+  .sorting_desc_disabled:after {
     opacity: 0;
   }
 }
@@ -216,13 +245,16 @@ div {
     margin-bottom: 0 !important;
 
     thead {
-      .sorting:after, .sorting_asc:after, .sorting_desc:after {
+      .sorting:after,
+      .sorting_asc:after,
+      .sorting_desc:after {
         display: none;
       }
     }
 
     tbody tr:first-child {
-      th, td {
+      th,
+      td {
         border-top: none;
       }
     }
@@ -240,7 +272,10 @@ div {
 
 @media screen and (max-width: 767px) {
   div.dataTables_wrapper div {
-    &.dataTables_length, &.dataTables_filter, &.dataTables_info, &.dataTables_paginate {
+    &.dataTables_length,
+    &.dataTables_filter,
+    &.dataTables_info,
+    &.dataTables_paginate {
       text-align: center;
     }
   }
@@ -252,27 +287,34 @@ table {
       padding-right: 20px;
     }
 
-    .sorting:before, .sorting_asc:before, .sorting_desc:before {
+    .sorting:before,
+    .sorting_asc:before,
+    .sorting_desc:before {
       top: 5px;
       right: 0.85em;
     }
 
-    .sorting:after, .sorting_asc:after, .sorting_desc:after {
+    .sorting:after,
+    .sorting_asc:after,
+    .sorting_desc:after {
       top: 5px;
     }
   }
 
   &.table-bordered.dataTable {
-    th, td {
+    th,
+    td {
       border-left-width: 0;
     }
 
-    th:last-child, td:last-child {
+    th:last-child,
+    td:last-child {
       border-right-width: 0;
     }
 
     tbody {
-      th, td {
+      th,
+      td {
         border-bottom-width: 0;
       }
     }
@@ -287,7 +329,7 @@ div {
   &.table-responsive > div.dataTables_wrapper > div.row {
     margin: 0;
 
-    > div[class^="col-"] {
+    > div[class^='col-'] {
       &:first-child {
         padding-left: 0;
       }

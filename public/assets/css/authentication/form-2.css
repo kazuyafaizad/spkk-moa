@@ -52,7 +52,10 @@ body {
   text-align: center;
   border-radius: 15px;
   border: 1px solid #e0e6ed;
-  box-shadow: 0 4px 6px 0 rgba(85, 85, 85, 0.0901960784), 0 1px 20px 0 rgba(0, 0, 0, 0.08), 0px 1px 11px 0px rgba(0, 0, 0, 0.06);
+  box-shadow:
+    0 4px 6px 0 rgba(85, 85, 85, 0.0901960784),
+    0 1px 20px 0 rgba(0, 0, 0, 0.08),
+    0px 1px 11px 0px rgba(0, 0, 0, 0.06);
 }
 .form-form .form-container .form-content h1 {
   font-size: 32px;
@@ -60,7 +63,7 @@ body {
 }
 .form-form .form-container .form-content > p {
   font-size: 13px;
-  color: #888ea8;
+  color: #3b3f5c;
   font-weight: 600;
   margin-bottom: 35px;
 }
@@ -96,7 +99,7 @@ body {
 }
 .form-form .form-form-wrap p.signup-link.register {
   font-size: 13px;
-  color: #888ea8;
+  color: #3b3f5c;
   font-weight: 600;
   margin-bottom: 25px;
   margin-top: 0;
@@ -105,7 +108,7 @@ body {
   margin-top: 0;
 }
 .form-form .form-form-wrap p.signup-link a {
-  color: #1b55e2;
+  color: #22577a;
   border-bottom: 1px solid;
 }
 .form-form .form-form-wrap form .field-wrapper {
@@ -139,12 +142,12 @@ body {
 }
 .form-form .form-form-wrap form .field-wrapper.terms_condition label {
   font-size: 14px;
-  color: #888ea8;
+  color: #3b3f5c;
   padding-left: 31px;
   font-weight: 100;
 }
 .form-form .form-form-wrap form .field-wrapper.terms_condition a {
-  color: #1b55e2;
+  color: #22577a;
 }
 .form-form .form-form-wrap form .field-wrapper svg.feather-user {
   top: 53px;
@@ -161,7 +164,7 @@ body {
 .form-form .form-form-wrap form .field-wrapper svg:not(.feather-eye) {
   position: absolute;
   left: 12px;
-  color: #888ea8;
+  color: #3b3f5c;
   fill: rgba(0, 23, 55, 0.08);
   width: 20px;
   height: 20px;
@@ -170,7 +173,7 @@ body {
   position: absolute;
   top: 49px;
   right: 13px;
-  color: #888ea8;
+  color: #3b3f5c;
   fill: rgba(0, 23, 55, 0.08);
   width: 17px;
   cursor: pointer;
@@ -188,7 +191,9 @@ body {
   font-size: 16px;
   padding: 13px 35px 13px 46px;
 }
-.form-form .form-form-wrap form .field-wrapper input::-webkit-input-placeholder, .form-form .form-form-wrap form .field-wrapper input::-ms-input-placeholder, .form-form .form-form-wrap form .field-wrapper input::-moz-placeholder {
+.form-form .form-form-wrap form .field-wrapper input::-webkit-input-placeholder,
+.form-form .form-form-wrap form .field-wrapper input::-ms-input-placeholder,
+.form-form .form-form-wrap form .field-wrapper input::-moz-placeholder {
   color: #d3d3d3;
   font-size: 14px;
 }
@@ -201,7 +206,7 @@ body {
 }
 .form-form .form-form-wrap form .field-wrapper a.forgot-pass-link {
   font-weight: 600;
-  color: #888ea8;
+  color: #3b3f5c;
   display: block;
   letter-spacing: 1px;
   font-size: 12px;
@@ -238,8 +243,9 @@ body {
 .form-form .form-form-wrap form .social a.social-fb {
   margin-right: 15px;
 }
-.form-form .form-form-wrap form .social a.social-fb svg, .form-form .form-form-wrap form .social a.social-fb .brand-name {
-  color: #1b55e2;
+.form-form .form-form-wrap form .social a.social-fb svg,
+.form-form .form-form-wrap form .social a.social-fb .brand-name {
+  color: #22577a;
 }
 
 @media (max-width: 991px) {
@@ -258,7 +264,8 @@ body {
   .form-form .form-form-wrap form .field-wrapper.toggle-pass {
     margin-bottom: 28px;
   }
-  .form-form .form-form-wrap form .social a.social-fb, .form-form .form-form-wrap form .social a.social-github {
+  .form-form .form-form-wrap form .social a.social-fb,
+  .form-form .form-form-wrap form .social a.social-github {
     margin-right: auto;
     margin-left: auto;
     margin-bottom: 10px;

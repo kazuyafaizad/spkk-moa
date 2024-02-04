@@ -2,20 +2,16 @@
 //      Imports
 //  =================
 
-@import '../../../base/base';    // Base Variables
-
-
-
+@import '../../../base/base'; // Base Variables
 
 //  ===============================
-//       _timeline Imports 
+//       _timeline Imports
 //  ===============================
 
 @import '_timeline/_timeline-profile';
 @import '_timeline/_timeline-modern';
 @import '_timeline/_timeline-alter';
 @import '_timeline/_timeline-basic';
-
 
 @media (max-width: 767px) {
   .timeline-simple .timeline-list .timeline-post-content .post-gallery-img img {
@@ -29,7 +25,8 @@
     display: block;
     text-align: center;
 
-    .t-meta-time p, .t-usr-txt p {
+    .t-meta-time p,
+    .t-usr-txt p {
       margin: 0 auto;
     }
   }
@@ -50,7 +47,8 @@
       }
     }
 
-    h4, .meta-time-date {
+    h4,
+    .meta-time-date {
       text-align: center;
     }
   }

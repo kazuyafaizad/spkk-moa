@@ -1,209 +1,380 @@
 <script setup>
-import AppLayout from '@/Layouts/AppLayout.vue';
-import { Link,useForm } from '@inertiajs/vue3';
-import { ref,onMounted } from 'vue';
+import AppLayout from "@/Layouts/AppLayout.vue";
+import { useForm, usePage, router } from "@inertiajs/vue3";
+import { ref, onMounted } from "vue";
 
-import DialogModal from '@/Components/DialogModal.vue';
-import SecondaryButton from '@/Components/SecondaryButton.vue';
-import AduanView from '@/Components/AduanView.vue';
-import DataTable from 'datatables.net-vue3';
-import DataTablesCore from 'datatables.net';
-import 'datatables.net-select';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
+import DialogModal from "@/Components/DialogModal.vue";
+import SecondaryButton from "@/Components/SecondaryButton.vue";
+import AduanView from "@/Components/AduanView.vue";
+import DataTable from "datatables.net-vue3";
+import DataTablesCore from "datatables.net";
+import "datatables.net-select";
+import PrimaryButton from "@/Components/PrimaryButton.vue";
+import ActionMessage from "@/Components/ActionMessage.vue";
 
 DataTable.use(DataTablesCore);
 
 let dt;
-const data = ref([]);
 const table = ref();
 
 const displayModal = ref(false);
 const selectedComplaint = ref();
+const oData = ref(usePage().props.public_complaints);
 
-const ppks = ref([{
-    name:"",
-    id:""
-}]);
-
+const ppks = ref([
+    {
+        name: "",
+        id: "",
+    },
+]);
 
 const form = useForm({
-    ppk:"",
-    complaint_id:""
-})
-
+    ppk: "",
+    complaint_id: "",
+});
 
 // Get a DataTables API reference
 onMounted(function () {
-  dt = table.value.dt;
-    dt.on('click', 'tbody tr', function () {
-        let data = dt.row(this).data();
+    dt = table.value.dt;
 
-        console.log(data);
-        form.complaint_id = data.id
+    dt.on("click", "tbody tr .lihat", function () {
+        let data = dt.row(this.parentNode.parentNode).data();
+        router.get(route("complaint.show", { complaint: data.btoa }));
+    });
+
+    dt.on("click", "tbody tr .agih", function () {
+        let data = dt.row(this.parentNode.parentNode).data();
+        form.complaint_id = data.id;
         displayModal.value = true;
         selectedComplaint.value = data;
         getPpk(data.pbt.id);
     });
 });
 
-const prop = defineProps({
-    "totalAduan" : {default:0,type:Number},
-    "totalTindakan" : {default:0,type:Number},
-    "totalBelumTindakan" : {default:0,type:Number},
-
-})
+defineProps({
+    totalAduan: { default: 0, type: Number },
+    aduanBaru: { default: 0, type: Number },
+    aduanAktif: { default: 0, type: Number },
+    aduanSelesai: { default: 0, type: Number },
+    aduanTolak: { default: 0, type: Number },
+});
 
 const getPpk = async (pbt_id) => {
-    await axios.get('/ppk/'+pbt_id).then(response => ppks.value = response.data).catch(error => console.log(error))
-}
-
-
-const submitAssignation = () =>{
-    form.post(route('admin.assign_ppk'),{
-        onSuccess:() => {
-            displayModal.value = false;
-        }
-    });
-}
-
-
-
-const columns = [
-  { data: 'created_at', title: 'Tarikh Aduan' },
-  { data: 'pbt.name', title: 'PBT' },
-  { data: 'street.name', title: 'Jalan' },
-  { data: 'status', title: 'Status',"defaultContent": "<i>Not set</i>",
-  "render": function ( data, type, row, meta ) {
-      return data.id == 64 ? "<span class='badge badge-info'>"+data.name+"</span>" : "<span class='badge badge-warning'>"+data.name+"</span>";
-    }}
-];
-
-const chooseEdit = ()=>{
-     dt.rows({ selected: true }).every(function () {
-        displayModal.value = true
-        selectedComplaint
-        // router.get(route('complaint.create'),{
-        //     data: this.data()
-        // });
-    });
-}
-
-const assign_ppk = () => {
-    displayModal.value = true
-    // createApiTokenForm.post(route('api-tokens.store'), {
-    //     preserveScroll: true,
-    //     onSuccess: () => {
-    //         displayingToken.value = true;
-    //         createApiTokenForm.reset();
-    //     },
-    // });
+    await axios
+        .get("/ppk/" + pbt_id)
+        .then((response) => (ppks.value = response.data));
 };
 
+const submitAssignation = () => {
+    form.post(route("admin.assign_ppk"), {
+        onFinish: () => {
+            setTimeout(() => {
+                displayModal.value = false;
+                form.reset();
+                selectedComplaint.value = null;
+                oData.value = usePage().props.public_complaints;
+            }, 1200);
+        },
+    });
+};
 
+const columns = [
+    { data: "running_no", title: "No. Rujukan" },
+    { data: "created_at", title: "Tarikh Aduan" },
+    { data: "pbt.name", title: "PBT" },
+    { data: "street.name", title: "Jalan" },
+    { data: "ppk.name", title: "Pegawai Penguat Kuasa" },
+    {
+        data: "status",
+        title: "Status",
+        defaultContent: "<i>Not set</i>",
+        render: function (data) {
+            let badgeColor = "badge-info";
+
+            switch (data.id) {
+                case 64:
+                    badgeColor = "badge-info";
+                    break;
+                case 65:
+                    badgeColor = "badge-warning";
+                    break;
+                case 66:
+                    badgeColor = "badge-success";
+                    break;
+                case 67:
+                    badgeColor = "badge-danger";
+                    break;
+                default:
+                    break;
+            }
+
+            return (
+                "<span class='badge " +
+                badgeColor +
+                "'>" +
+                data.name +
+                "</span>"
+            );
+        },
+    },
+    {
+        data: "status",
+        title: "Tindakan",
+        defaultContent: "<i>Not set</i>",
+        render: function (data) {
+            let btn =
+                '<div class="flex gap-2"><span class="lihat cursor-pointer text-primary" title="Lihat"><i class="bi bi-file-earmark-text shadow"></i></span>';
+
+            if (
+                usePage().props.auth.user.role_id == 5 &&
+                data.id == 64 &&
+                data.take_action_by == null
+            ) {
+                btn +=
+                    ' <span class="agih cursor-pointer text-primary" title="Agih"><i class="bi bi-tag shadow"></i></span>';
+            }
+            btn += "</div>";
+            return btn;
+        },
+    },
+];
+
+const filterActive = () => {
+    oData.value = usePage().props.public_complaints.filter(
+        (i) => i.status_id == 65,
+    );
+};
+const filterBaru = () => {
+    oData.value = usePage().props.public_complaints.filter(
+        (i) => i.status_id == 64,
+    );
+};
+const filterAll = () => {
+    oData.value = usePage().props.public_complaints;
+};
+
+const filterSelesai = () => {
+    oData.value = usePage().props.public_complaints.filter(
+        (i) => i.status_id == 66,
+    );
+};
+const filterTolak = () => {
+    oData.value = usePage().props.public_complaints.filter(
+        (i) => i.status_id == 67,
+    );
+};
 </script>
 
 <template>
     <AppLayout title="Aduan">
         <template #header>
-            <h2 class="font-semibold text-2xl  text-[#3b3f5c]">
+            <h2 class="font-semibold text-2xl text-[#3b3f5c]">
                 Aduan Pengguna
             </h2>
         </template>
 
         <div class="w-full max-w-full mb-4 bg-transparent">
-
-
-            <section class="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
-                <div class="flex items-center p-8 bg-white shadow rounded-lg">
+            <section class="grid md:grid-cols-2 xl:grid-cols-5 gap-1">
+                <div
+                    style="border-color: #38a3a5 !important"
+                    class="flex items-center p-8 bg-white hover:bg-green-400/40 transition cursor-pointer"
+                    @click="filterBaru"
+                >
                     <div
-                        class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-blue-600 bg-blue-100 rounded-full mr-6">
-                        <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                        class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-blue-600 bg-blue-100 rounded-full mr-6"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            fill="currentColor"
+                            class="bi bi-circle h-6 w-6"
+                            viewBox="0 0 16 16"
+                        >
+                            <path
+                                d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"
+                            />
                         </svg>
                     </div>
                     <div>
-                        <span class="block text-2xl font-bold">{{ totalAduan }}</span>
-                        <span class="block ">Jumlah Aduan</span>
+                        <span class="block text-2xl font-bold">{{
+                            aduanBaru
+                        }}</span>
+                        <span class="block">Baru</span>
                     </div>
                 </div>
-                <div class="flex items-center p-8 bg-white shadow rounded-lg">
+                <div
+                    style="border-color: #38a3a5 !important"
+                    class="flex items-center p-8 bg-white hover:bg-green-400/40 transition cursor-pointer"
+                    @click="filterActive"
+                >
                     <div
-                        class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-green-600 bg-green-100 rounded-full mr-6">
-                        <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                        class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-amber-600 bg-amber-100 rounded-full mr-6"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            fill="currentColor"
+                            class="bi bi-stopwatch h-6 w-6"
+                            viewBox="0 0 16 16"
+                        >
+                            <path
+                                d="M8.5 5.6a.5.5 0 1 0-1 0v2.9h-3a.5.5 0 0 0 0 1H8a.5.5 0 0 0 .5-.5z"
+                            />
+                            <path
+                                d="M6.5 1A.5.5 0 0 1 7 .5h2a.5.5 0 0 1 0 1v.57c1.36.196 2.594.78 3.584 1.64a.715.715 0 0 1 .012-.013l.354-.354-.354-.353a.5.5 0 0 1 .707-.708l1.414 1.415a.5.5 0 1 1-.707.707l-.353-.354-.354.354a.512.512 0 0 1-.013.012A7 7 0 1 1 7 2.071V1.5a.5.5 0 0 1-.5-.5M8 3a6 6 0 1 0 .001 12A6 6 0 0 0 8 3"
+                            />
                         </svg>
                     </div>
                     <div>
-                        <span class="block text-2xl font-bold">{{ totalTindakan }}</span>
-                        <span class="block ">Telah Diambil Tindakan</span>
+                        <span class="block text-2xl font-bold">{{
+                            aduanAktif
+                        }}</span>
+                        <span class="block">Dalam Tindakan</span>
                     </div>
                 </div>
-                <div class="flex items-center p-8 bg-white shadow rounded-lg">
+                <div
+                    style="border-color: #38a3a5 !important"
+                    class="flex items-center p-8 bg-white hover:bg-green-400/40 transition cursor-pointer"
+                    @click="filterTolak"
+                >
                     <div
-                        class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-red-600 bg-red-100 rounded-full mr-6">
-                        <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6" />
+                        class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-red-600 bg-red-100 rounded-full mr-6"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            fill="currentColor"
+                            class="bi bi-x-circle h-6 w-6"
+                            viewBox="0 0 16 16"
+                        >
+                            <path
+                                d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"
+                            />
+                            <path
+                                d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"
+                            />
                         </svg>
                     </div>
                     <div>
-                        <span class="inline-block text-2xl font-bold">{{ totalBelumTindakan }}</span>
-                        <span class="block ">Belum Diambil Tindakan</span>
+                        <span class="block text-2xl font-bold">{{
+                            aduanTolak
+                        }}</span>
+                        <span class="block">Tolak</span>
                     </div>
                 </div>
-                <div class="flex items-center p-8 bg-white shadow rounded-lg">
+                <div
+                    style="border-color: #38a3a5 !important"
+                    class="flex items-center p-8 bg-white hover:bg-green-400/40 transition cursor-pointer"
+                    @click="filterSelesai"
+                >
                     <div
-                        class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-blue-600 bg-blue-100 rounded-full mr-6">
-                        <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                        class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-green-600 bg-green-100 rounded-full mr-6"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            fill="currentColor"
+                            class="bi bi-check-circle-fill h-6 w-6"
+                            viewBox="0 0 16 16"
+                        >
+                            <path
+                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"
+                            />
                         </svg>
                     </div>
                     <div>
-                        <span class="block text-2xl font-bold">83%</span>
-                        <span class="block ">Finished homeworks</span>
+                        <span class="inline-block text-2xl font-bold">{{
+                            aduanSelesai
+                        }}</span>
+                        <span class="block">Selesai</span>
+                    </div>
+                </div>
+                <div
+                    style="border-color: #38a3a5 !important"
+                    class="flex items-center p-8 bg-white hover:bg-green-400/40 transition cursor-pointer"
+                    @click="filterAll"
+                >
+                    <div
+                        class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-purple-600 bg-purple-100 rounded-full mr-6"
+                    >
+                        <svg
+                            aria-hidden="true"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            class="h-6 w-6"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                            />
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="block text-2xl font-bold">{{
+                            totalAduan
+                        }}</span>
+                        <span class="block">Jumlah Aduan</span>
                     </div>
                 </div>
             </section>
+            <section>
+                <h2 class="text-lg font-semibold">Tindakan Saya</h2>
+                <p class="text-sm text-gray-500">
+                    Klik pada senarai untuk membuat agihan
+                </p>
 
-            <section class="mt-4">
-                <!-- <Link class="btn btn-warning rounded text-2xl flex justify-center gap-2 my-4"
-                    :href="route('complaint.schedule')" as="button">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-flag-fill"
-                    viewBox="0 0 16 16">
-                    <path
-                        d="M14.778.085A.5.5 0 0 1 15 .5V8a.5.5 0 0 1-.314.464L14.5 8l.186.464-.003.001-.006.003-.023.009a12.435 12.435 0 0 1-.397.15c-.264.095-.631.223-1.047.35-.816.252-1.879.523-2.71.523-.847 0-1.548-.28-2.158-.525l-.028-.01C7.68 8.71 7.14 8.5 6.5 8.5c-.7 0-1.638.23-2.437.477A19.626 19.626 0 0 0 3 9.342V15.5a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 1 0v.282c.226-.079.496-.17.79-.26C4.606.272 5.67 0 6.5 0c.84 0 1.524.277 2.121.519l.043.018C9.286.788 9.828 1 10.5 1c.7 0 1.638-.23 2.437-.477a19.587 19.587 0 0 0 1.349-.476l.019-.007.004-.002h.001" />
-                </svg><span class="text-lg">Lapor Aduan</span>
-                </Link> -->
-                <!-- <div class="flex flex-col row-span-3 bg-white shadow rounded-lg">
-              <div class="px-6 py-5 font-semibold border-b border-gray-100"></div>
-              <div class="p-4 flex-grow">
-                <div class="flex items-center justify-center h-full px-4 py-24 text-gray-400 text-3xl font-semibold bg-gray-100 border-2 border-gray-200 border-dashed rounded-md">Chart</div>
-              </div>
-            </div> -->
-              <!-- Token Value Modal -->
-            <DialogModal :show="displayModal" @close="displayModal = false">
-                <template #title>
-                    Agihkan Aduan
-                </template>
+                <DialogModal :show="displayModal" @close="displayModal = false">
+                    <template #title> Agihkan Aduan </template>
 
-                <template #content>
-                    <AduanView :selectedComplaint="selectedComplaint" :ppks="ppks" :form="form"/>
-                </template>
+                    <template #content>
+                        <AduanView
+                            :selected-complaint="selectedComplaint"
+                            :ppks="ppks"
+                            :form="form"
+                        />
+                        <ActionMessage :on="form.recentlySuccessful">
+                            <p class="text-success text-xl text-center mt-8">
+                                Telah Berjaya diagihkan kepada
+                                {{ ppks.find((v) => v == form.ppk)?.name }}
+                            </p>
+                        </ActionMessage>
+                    </template>
 
-                <template #footer>
-                    <SecondaryButton @click="displayModal = false">
-                        Close
-                    </SecondaryButton>
-                    <PrimaryButton @click="submitAssignation" class="ml-4">
+                    <template #footer>
+                        <SecondaryButton @click="displayModal = false">
+                            Tutup
+                        </SecondaryButton>
+                        <PrimaryButton
+                            v-if="
+                                selectedComplaint !== 66 &&
+                                !form.recentlySuccessful
+                            "
+                            class="ml-4"
+                            @click="submitAssignation"
+                        >
+                            <i class="bi bi-check"></i>
                             Agih
                         </PrimaryButton>
-                </template>
-            </DialogModal>
-            <DataTable :data="$page.props.public_complaints" class="display" :columns="columns" ref="table" :options="{ select: false }" @click:row="alert('test')">
-            </DataTable>
-        </section>
-    </div>
-</AppLayout></template>
+                    </template>
+                </DialogModal>
+                <div class="overflow-auto">
+                    <DataTable
+                        ref="table"
+                        :data="oData"
+                        class="display"
+                        :columns="columns"
+                        :options="{ select: false, order: [[4, 'asc']] }"
+                    >
+                    </DataTable>
+                </div>
+            </section>
+        </div>
+    </AppLayout>
+</template>

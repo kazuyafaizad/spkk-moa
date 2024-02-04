@@ -2,7 +2,7 @@
 //      Imports
 //  =================
 
-@import '../../base/base';    // Base Variables
+@import '../../base/base'; // Base Variables
 
 body {
   &.swal2-shown {
@@ -33,8 +33,8 @@ body {
   z-index: 1060;
 
   &.swal2-fade {
-    -webkit-transition: background-color .1s;
-    transition: background-color .1s;
+    -webkit-transition: background-color 0.1s;
+    transition: background-color 0.1s;
   }
 
   &.swal2-shown {
@@ -70,7 +70,7 @@ body {
     font-weight: normal;
     text-transform: none;
     position: relative;
-    margin: 0 0 .4em;
+    margin: 0 0 0.4em;
     padding: 0;
     display: block;
     word-wrap: break-word;
@@ -84,7 +84,7 @@ body {
     margin-top: 15px;
 
     &:not(.swal2-loading) .swal2-styled[disabled] {
-      opacity: .4;
+      opacity: 0.4;
       cursor: no-drop;
     }
 
@@ -159,7 +159,9 @@ body {
 }
 
 .swal2-modal {
-  .swal2-confirm.swal2-styled, .swal2-cancel.swal2-styled {}
+  .swal2-confirm.swal2-styled,
+  .swal2-cancel.swal2-styled {
+  }
 
   .swal2-image {
     margin: 20px auto;
@@ -183,8 +185,8 @@ body {
     right: 8px;
     cursor: pointer;
     color: #cccccc;
-    -webkit-transition: color .1s ease;
-    transition: color .1s ease;
+    -webkit-transition: color 0.1s ease;
+    transition: color 0.1s ease;
 
     &:hover {
       color: #d55;
@@ -192,7 +194,12 @@ body {
   }
 
   > {
-    .swal2-input, .swal2-file, .swal2-textarea, .swal2-select, .swal2-radio, .swal2-checkbox {
+    .swal2-input,
+    .swal2-file,
+    .swal2-textarea,
+    .swal2-select,
+    .swal2-radio,
+    .swal2-checkbox {
       display: none;
     }
   }
@@ -210,11 +217,18 @@ body {
     word-wrap: break-word;
   }
 
-  .swal2-input, .swal2-file, .swal2-textarea, .swal2-select, .swal2-radio, .swal2-checkbox {
+  .swal2-input,
+  .swal2-file,
+  .swal2-textarea,
+  .swal2-select,
+  .swal2-radio,
+  .swal2-checkbox {
     margin: 20px auto;
   }
 
-  .swal2-input, .swal2-file, .swal2-textarea {
+  .swal2-input,
+  .swal2-file,
+  .swal2-textarea {
     width: 100%;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -223,17 +237,20 @@ body {
     border: 1px solid $m-color_2;
     -webkit-box-shadow: inset 0px 3px 25px 0px rgba(113, 106, 202, 0.1);
     box-shadow: 0px 3px 25px 0px rgba(113, 106, 202, 0.1);
-    -webkit-transition: border-color box-shadow .3s;
-    transition: border-color box-shadow .3s;
+    -webkit-transition: border-color box-shadow 0.3s;
+    transition: border-color box-shadow 0.3s;
   }
 
-  .swal2-input.swal2-inputerror, .swal2-file.swal2-inputerror, .swal2-textarea.swal2-inputerror {
+  .swal2-input.swal2-inputerror,
+  .swal2-file.swal2-inputerror,
+  .swal2-textarea.swal2-inputerror {
     border-color: $danger !important;
     -webkit-box-shadow: 0 0 2px #f27474 !important;
     box-shadow: 0 0 2px #f27474 !important;
   }
 
-  .swal2-input:focus, .swal2-textarea:focus {
+  .swal2-input:focus,
+  .swal2-textarea:focus {
     outline: none;
     border: 1px solid $dark;
     -webkit-box-shadow: 0 0 3px #c4e6f5;
@@ -246,13 +263,35 @@ body {
     box-shadow: 0 0 3px #c4e6f5;
   }
 
-  .swal2-input:focus::-webkit-input-placeholder, .swal2-file:focus::-webkit-input-placeholder, .swal2-textarea:focus::-webkit-input-placeholder, .swal2-input:focus::-moz-placeholder, .swal2-file:focus::-moz-placeholder, .swal2-textarea:focus::-moz-placeholder, .swal2-input:focus:-ms-input-placeholder, .swal2-file:focus:-ms-input-placeholder, .swal2-textarea:focus:-ms-input-placeholder, .swal2-input:focus::placeholder, .swal2-file:focus::placeholder, .swal2-textarea:focus::placeholder {
-    -webkit-transition: opacity .3s .03s ease;
-    transition: opacity .3s .03s ease;
-    opacity: .8;
+  .swal2-input:focus::-webkit-input-placeholder,
+  .swal2-file:focus::-webkit-input-placeholder,
+  .swal2-textarea:focus::-webkit-input-placeholder,
+  .swal2-input:focus::-moz-placeholder,
+  .swal2-file:focus::-moz-placeholder,
+  .swal2-textarea:focus::-moz-placeholder,
+  .swal2-input:focus:-ms-input-placeholder,
+  .swal2-file:focus:-ms-input-placeholder,
+  .swal2-textarea:focus:-ms-input-placeholder,
+  .swal2-input:focus::placeholder,
+  .swal2-file:focus::placeholder,
+  .swal2-textarea:focus::placeholder {
+    -webkit-transition: opacity 0.3s 0.03s ease;
+    transition: opacity 0.3s 0.03s ease;
+    opacity: 0.8;
   }
 
-  .swal2-input::-webkit-input-placeholder, .swal2-file::-webkit-input-placeholder, .swal2-textarea::-webkit-input-placeholder, .swal2-input::-moz-placeholder, .swal2-file::-moz-placeholder, .swal2-textarea::-moz-placeholder, .swal2-input:-ms-input-placeholder, .swal2-file:-ms-input-placeholder, .swal2-textarea:-ms-input-placeholder, .swal2-input::placeholder, .swal2-file::placeholder, .swal2-textarea::placeholder {
+  .swal2-input::-webkit-input-placeholder,
+  .swal2-file::-webkit-input-placeholder,
+  .swal2-textarea::-webkit-input-placeholder,
+  .swal2-input::-moz-placeholder,
+  .swal2-file::-moz-placeholder,
+  .swal2-textarea::-moz-placeholder,
+  .swal2-input:-ms-input-placeholder,
+  .swal2-file:-ms-input-placeholder,
+  .swal2-textarea:-ms-input-placeholder,
+  .swal2-input::placeholder,
+  .swal2-file::placeholder,
+  .swal2-textarea::placeholder {
     color: $m-color_2;
   }
 
@@ -270,7 +309,8 @@ body {
       text-align: center;
     }
 
-    input, output {
+    input,
+    output {
       height: 43px;
       line-height: 41px;
       vertical-align: middle;
@@ -304,8 +344,8 @@ body {
     border: 1px solid $m-color_2;
     -webkit-box-shadow: 0px 3px 25px 0px rgba(113, 106, 202, 0.1);
     box-shadow: 0px 3px 25px 0px rgba(113, 106, 202, 0.1);
-    -webkit-transition: border-color box-shadow .3s;
-    transition: border-color box-shadow .3s;
+    -webkit-transition: border-color box-shadow 0.3s;
+    transition: border-color box-shadow 0.3s;
   }
 
   .swal2-file {
@@ -318,8 +358,8 @@ body {
     border: 1px solid $m-color_2;
     -webkit-box-shadow: 0px 3px 25px 0px rgba(113, 106, 202, 0.1);
     box-shadow: 0px 3px 25px 0px rgba(113, 106, 202, 0.1);
-    -webkit-transition: border-color box-shadow .3s;
-    transition: border-color box-shadow .3s;
+    -webkit-transition: border-color box-shadow 0.3s;
+    transition: border-color box-shadow 0.3s;
   }
 
   .swal2-select {
@@ -339,7 +379,8 @@ body {
       margin-left: 20px;
     }
 
-    input, span {
+    input,
+    span {
       vertical-align: middle;
       outline: none;
     }
@@ -352,7 +393,8 @@ body {
   .swal2-checkbox {
     color: $danger;
 
-    input, span {
+    input,
+    span {
       vertical-align: middle;
       outline: none;
     }
@@ -605,7 +647,8 @@ body {
       background: $m-color_13 !important;
 
       ~ {
-        .swal2-progresscircle, .swal2-progressline {
+        .swal2-progresscircle,
+        .swal2-progressline {
           background: $m-color_2 !important;
         }
       }
@@ -614,7 +657,7 @@ body {
 
   .swal2-progressline {
     background: $primary;
-    height: .4em;
+    height: 0.4em;
     margin: 0 -1px;
     z-index: 10;
   }

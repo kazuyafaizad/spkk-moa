@@ -2,8 +2,7 @@
 //      Imports
 //  =================
 
-@import '../../base/base';    // Base Variables
-
+@import '../../base/base'; // Base Variables
 
 .flatpickr-calendar {
   width: 336.875px;
@@ -31,7 +30,8 @@
 }
 
 .flatpickr-months {
-  .flatpickr-prev-month, .flatpickr-next-month {
+  .flatpickr-prev-month,
+  .flatpickr-next-month {
     top: 8%;
     padding: 5px 13px;
     background: #fbfbfb;
@@ -39,7 +39,8 @@
     height: 40px;
   }
 
-  .flatpickr-prev-month:hover svg, .flatpickr-next-month:hover svg {
+  .flatpickr-prev-month:hover svg,
+  .flatpickr-next-month:hover svg {
     fill: $primary;
   }
 }
@@ -95,7 +96,24 @@ span.flatpickr-weekday {
   color: $dark;
   font-weight: 700;
 
-  &.selected, &.startRange, &.endRange, &.selected.inRange, &.startRange.inRange, &.endRange.inRange, &.selected:focus, &.startRange:focus, &.endRange:focus, &.selected:hover, &.startRange:hover, &.endRange:hover, &.selected.prevMonthDay, &.startRange.prevMonthDay, &.endRange.prevMonthDay, &.selected.nextMonthDay, &.startRange.nextMonthDay, &.endRange.nextMonthDay {
+  &.selected,
+  &.startRange,
+  &.endRange,
+  &.selected.inRange,
+  &.startRange.inRange,
+  &.endRange.inRange,
+  &.selected:focus,
+  &.startRange:focus,
+  &.endRange:focus,
+  &.selected:hover,
+  &.startRange:hover,
+  &.endRange:hover,
+  &.selected.prevMonthDay,
+  &.startRange.prevMonthDay,
+  &.endRange.prevMonthDay,
+  &.selected.nextMonthDay,
+  &.startRange.nextMonthDay,
+  &.endRange.nextMonthDay {
     background: $primary;
     color: $white;
     border-color: $primary;

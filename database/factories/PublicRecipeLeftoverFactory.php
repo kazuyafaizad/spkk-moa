@@ -20,7 +20,7 @@ class PublicRecipeLeftoverFactory extends Factory
             'title' => $this->faker->title(),
             'image' => $this->faker->imageUrl(),
             'description' => $this->faker->text(),
-            'status' => 1
+            'status' => 1,
         ];
     }
 }

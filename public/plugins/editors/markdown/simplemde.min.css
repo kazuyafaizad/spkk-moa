@@ -27,7 +27,8 @@
   padding: 0 4px;
 }
 
-.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler {
+.CodeMirror-gutter-filler,
+.CodeMirror-scrollbar-filler {
   background-color: #fff;
 }
 
@@ -41,7 +42,7 @@
   padding: 0 3px 0 5px;
   min-width: 20px;
   text-align: right;
-  color: #888ea8;
+  color: #3b3f5c;
   white-space: nowrap;
 }
 
@@ -50,7 +51,7 @@
 }
 
 .CodeMirror-guttermarker-subtle {
-  color: #888ea8;
+  color: #3b3f5c;
 }
 
 .CodeMirror-cursor {
@@ -114,7 +115,8 @@
   color: #292;
 }
 
-.cm-header, .cm-strong {
+.cm-header,
+.cm-strong {
   font-weight: 700;
 }
 
@@ -157,7 +159,8 @@
 .cm-s-default .cm-string-2 {
   color: #f50;
 }
-.cm-s-default .cm-meta, .cm-s-default .cm-qualifier {
+.cm-s-default .cm-meta,
+.cm-s-default .cm-qualifier {
   color: #555;
 }
 .cm-s-default .cm-builtin {
@@ -173,13 +176,14 @@
   color: #00c;
 }
 .cm-s-default .cm-hr {
-  color: #888ea8;
+  color: #3b3f5c;
 }
 .cm-s-default .cm-link {
   color: #00c;
 }
 
-.cm-invalidchar, .cm-s-default .cm-error {
+.cm-invalidchar,
+.cm-s-default .cm-error {
   color: red;
 }
 
@@ -223,7 +227,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
   border-right: 30px solid transparent;
 }
 
-.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler {
+.CodeMirror-gutter-filler,
+.CodeMirror-hscrollbar,
+.CodeMirror-scrollbar-filler {
   position: absolute;
   z-index: 6;
   display: none;
@@ -280,7 +286,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-      user-select: none;
+  user-select: none;
 }
 
 .CodeMirror-gutter-background {
@@ -344,7 +350,11 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
   outline: 0;
 }
 
-.CodeMirror-gutter, .CodeMirror-gutters, .CodeMirror-linenumber, .CodeMirror-scroll, .CodeMirror-sizer {
+.CodeMirror-gutter,
+.CodeMirror-gutters,
+.CodeMirror-linenumber,
+.CodeMirror-scroll,
+.CodeMirror-sizer {
   box-sizing: content-box;
 }
 
@@ -370,7 +380,8 @@ div.CodeMirror-cursors {
   z-index: 3;
 }
 
-.CodeMirror-focused div.CodeMirror-cursors, div.CodeMirror-dragcursors {
+.CodeMirror-focused div.CodeMirror-cursors,
+div.CodeMirror-dragcursors {
   visibility: visible;
 }
 
@@ -389,10 +400,12 @@ div.CodeMirror-cursors {
 .CodeMirror-line::selection {
   background: #d7d4f0;
 }
-.CodeMirror-line > span::-moz-selection, .CodeMirror-line > span > span::-moz-selection {
+.CodeMirror-line > span::-moz-selection,
+.CodeMirror-line > span > span::-moz-selection {
   background: #d7d4f0;
 }
-.CodeMirror-line > span::selection, .CodeMirror-line > span > span::selection {
+.CodeMirror-line > span::selection,
+.CodeMirror-line > span > span::selection {
   background: #d7d4f0;
 }
 
@@ -403,7 +416,8 @@ div.CodeMirror-cursors {
 .CodeMirror-line::-moz-selection {
   background: #d7d4f0;
 }
-.CodeMirror-line > span::-moz-selection, .CodeMirror-line > span > span::-moz-selection {
+.CodeMirror-line > span::-moz-selection,
+.CodeMirror-line > span > span::-moz-selection {
   background: #d7d4f0;
 }
 
@@ -422,7 +436,7 @@ div.CodeMirror-cursors {
   }
 }
 .cm-tab-wrap-hack:after {
-  content: "";
+  content: '';
 }
 
 span.CodeMirror-selectedtext {
@@ -476,12 +490,12 @@ span.CodeMirror-selectedtext {
 }
 .editor-toolbar:after {
   display: block;
-  content: " ";
+  content: ' ';
   height: 1px;
 }
 .editor-toolbar:before {
   display: block;
-  content: " ";
+  content: ' ';
   height: 1px;
   margin-bottom: 8px;
 }
@@ -492,7 +506,8 @@ span.CodeMirror-selectedtext {
   opacity: 0.8;
 }
 
-.editor-wrapper input.title:focus, .editor-wrapper input.title:hover {
+.editor-wrapper input.title:focus,
+.editor-wrapper input.title:hover {
   opacity: 0.8;
 }
 
@@ -537,7 +552,7 @@ span.CodeMirror-selectedtext {
   display: inline-block;
   text-align: center;
   text-decoration: none !important;
-  color: #1b55e2 !important;
+  color: #22577a !important;
   width: 30px;
   height: 30px;
   margin: 0;
@@ -545,7 +560,8 @@ span.CodeMirror-selectedtext {
   border-radius: 3px;
   cursor: pointer;
 }
-.editor-toolbar a.active, .editor-toolbar a:hover {
+.editor-toolbar a.active,
+.editor-toolbar a:hover {
   background: #fcfcfc;
   border-color: #95a5a6;
 }
@@ -562,26 +578,26 @@ span.CodeMirror-selectedtext {
   margin: 0 6px;
 }
 .editor-toolbar a.fa-header-x:after {
-  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
   font-size: 65%;
   vertical-align: text-bottom;
   position: relative;
   top: 2px;
 }
 .editor-toolbar a.fa-header-1:after {
-  content: "1";
+  content: '1';
 }
 .editor-toolbar a.fa-header-2:after {
-  content: "2";
+  content: '2';
 }
 .editor-toolbar a.fa-header-3:after {
-  content: "3";
+  content: '3';
 }
 .editor-toolbar a.fa-header-bigger:after {
-  content: "\25B2";
+  content: '\25B2';
 }
 .editor-toolbar a.fa-header-smaller:after {
-  content: "\25BC";
+  content: '\25BC';
 }
 .editor-toolbar.disabled-for-preview a:not(.no-disable) {
   pointer-events: none;
@@ -607,7 +623,8 @@ span.CodeMirror-selectedtext {
   margin-left: 1em;
 }
 
-.editor-preview, .editor-preview-side {
+.editor-preview,
+.editor-preview-side {
   padding: 10px;
   background: #fafafa;
   overflow: auto;
@@ -616,13 +633,13 @@ span.CodeMirror-selectedtext {
 }
 
 .editor-statusbar .lines:before {
-  content: "lines: ";
+  content: 'lines: ';
 }
 .editor-statusbar .words:before {
-  content: "words: ";
+  content: 'words: ';
 }
 .editor-statusbar .characters:before {
-  content: "characters: ";
+  content: 'characters: ';
 }
 
 .editor-preview {
@@ -644,7 +661,8 @@ span.CodeMirror-selectedtext {
   border: 1px solid #ddd;
 }
 
-.editor-preview-active, .editor-preview-active-side {
+.editor-preview-active,
+.editor-preview-active-side {
   display: block;
 }
 
@@ -665,12 +683,14 @@ span.CodeMirror-selectedtext {
   margin-bottom: 10px;
 }
 
-.editor-preview table td, .editor-preview table th {
+.editor-preview table td,
+.editor-preview table th {
   border: 1px solid #ddd;
   padding: 5px;
 }
 
-.editor-preview-side table td, .editor-preview-side table th {
+.editor-preview-side table td,
+.editor-preview-side table th {
   border: 1px solid #ddd;
   padding: 5px;
 }

@@ -36,15 +36,18 @@
   border-radius: 0 0 4px 0;
   bottom: 0;
 }
-.bootstrap-touchspin .input-group-addon[class*=btn-] .input-group-text {
+.bootstrap-touchspin .input-group-addon[class*='btn-'] .input-group-text {
   background-color: transparent;
   border: none;
 }
 
-.btn[class*=btn-].bootstrap-touchspin-up [class*=flaticon-], .btn[class*=btn-].bootstrap-touchspin-down [class*=flaticon-] {
+.btn[class*='btn-'].bootstrap-touchspin-up [class*='flaticon-'],
+.btn[class*='btn-'].bootstrap-touchspin-down [class*='flaticon-'] {
   font-size: 10px;
 }
 
-.input-group-sm > .form-control, .input-group-sm > .input-group-prepend > .btn, .input-group-sm > .input-group-append > .btn {
+.input-group-sm > .form-control,
+.input-group-sm > .input-group-prepend > .btn,
+.input-group-sm > .input-group-append > .btn {
   height: auto !important;
 }

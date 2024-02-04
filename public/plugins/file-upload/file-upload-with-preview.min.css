@@ -14,7 +14,7 @@
   display: block;
 }
 .custom-file-container label {
-  color: #1b55e2;
+  color: #22577a;
 }
 .custom-file-container label .custom-file-container__image-clear {
   color: #3b3f5c;
@@ -42,7 +42,7 @@
   opacity: 0;
 }
 .custom-file-container__custom-file__custom-file-input:focus ~ span {
-  outline: 1px dotted #515365;
+  outline: 1px dotted #3b3f5c;
   outline: 5px auto -webkit-focus-ring-color;
 }
 
@@ -57,9 +57,9 @@
   overflow: hidden;
   line-height: 1.5;
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   background-clip: padding-box;
   border-radius: 0.25rem;
   height: auto;
@@ -82,7 +82,7 @@
   padding: 10px 16px;
   line-height: 1.25;
   background-color: rgba(27, 85, 226, 0.2392156863);
-  color: #1b55e2;
+  color: #22577a;
   border-left: 1px solid #e0e6ed;
   box-sizing: border-box;
 }
@@ -134,7 +134,7 @@
 }
 
 .custom-file-container__image-multi-preview__single-image-clear__icon {
-  color: #1b55e2;
+  color: #22577a;
   display: block;
   margin-top: -2px;
 }

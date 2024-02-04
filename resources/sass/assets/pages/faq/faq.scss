@@ -2,8 +2,7 @@
 //      Imports
 //  =================
 
-@import '../../../base/base';    // Base Variables
-
+@import '../../../base/base'; // Base Variables
 
 body {
   background-color: $m-color_1;
@@ -176,7 +175,7 @@ nav .navbar-brand {
       }
 
       .card-header div {
-        &[aria-expanded="true"] svg.feather-code {
+        &[aria-expanded='true'] svg.feather-code {
           color: $primary;
         }
 
@@ -201,7 +200,7 @@ nav .navbar-brand {
       }
 
       .card-header div {
-        &[aria-expanded="true"] svg.feather-thumbs-up {
+        &[aria-expanded='true'] svg.feather-thumbs-up {
           color: $primary;
           fill: rgba(27, 85, 226, 0.2392156863);
         }
@@ -214,12 +213,14 @@ nav .navbar-brand {
         }
       }
 
-      &:hover .card-header div span.faq-like-count, .card-header div[aria-expanded="true"] span.faq-like-count {
+      &:hover .card-header div span.faq-like-count,
+      .card-header div[aria-expanded='true'] span.faq-like-count {
         color: $primary;
         fill: rgba(27, 85, 226, 0.2392156863);
       }
 
-      .collapse {}
+      .collapse {
+      }
 
       .card-body p {
         font-size: 14px;

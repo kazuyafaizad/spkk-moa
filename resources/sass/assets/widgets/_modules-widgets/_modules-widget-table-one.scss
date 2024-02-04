@@ -9,7 +9,8 @@
     display: flex;
   }
 
-  .widget-content {}
+  .widget-content {
+  }
 
   .transactions-list {
     padding: 12px 12px;
@@ -111,13 +112,15 @@
         }
 
         &.rate-inc {
-          p, svg {
+          p,
+          svg {
             color: $m-color_14;
           }
         }
 
         &.rate-dec {
-          p, svg {
+          p,
+          svg {
             color: $danger;
           }
         }

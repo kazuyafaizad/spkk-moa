@@ -63,7 +63,6 @@ return [
             ]) : [],
         ],
 
-
         'spkk' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL_SPKK'),

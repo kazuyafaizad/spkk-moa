@@ -2,7 +2,7 @@
 //      Imports
 //  =================
 
-@import '../../base/base';    // Base Variables
+@import '../../base/base'; // Base Variables
 
 /*
     ============================
@@ -15,7 +15,8 @@
   justify-content: center;
   margin-bottom: 0;
 
-  .prev svg, .next svg {
+  .prev svg,
+  .next svg {
     width: 18px;
     height: 18px;
     vertical-align: text-bottom;
@@ -64,7 +65,8 @@
       color: $primary;
     }
 
-    a.active:hover, &.active a {
+    a.active:hover,
+    &.active a {
       color: $primary;
     }
   }
@@ -75,7 +77,8 @@
     &:hover {
       border: 2px solid $primary;
 
-      a, svg {
+      a,
+      svg {
         color: $primary;
       }
     }
@@ -87,7 +90,8 @@
     &:hover {
       border: 2px solid $primary;
 
-      a, svg {
+      a,
+      svg {
         color: $primary;
       }
     }
@@ -111,7 +115,8 @@
       color: $white;
     }
 
-    a.active:hover, &.active a {
+    a.active:hover,
+    &.active a {
       color: $white;
     }
   }
@@ -122,7 +127,8 @@
     &:hover {
       background-color: $primary;
 
-      a, svg {
+      a,
+      svg {
         color: $white;
       }
     }
@@ -134,7 +140,8 @@
     &:hover {
       background-color: $primary;
 
-      a, svg {
+      a,
+      svg {
         color: $white;
       }
     }
@@ -182,7 +189,8 @@
     }
   }
 
-  .prev svg, .next svg {
+  .prev svg,
+  .next svg {
     width: 18px;
     height: 18px;
     vertical-align: text-bottom;
@@ -276,7 +284,8 @@
     }
   }
 
-  .prev svg, .next svg {
+  .prev svg,
+  .next svg {
     width: 18px;
     height: 18px;
     vertical-align: text-bottom;
@@ -364,7 +373,8 @@
     }
   }
 
-  .prev svg, .next svg {
+  .prev svg,
+  .next svg {
     width: 16px;
     height: 16px;
     vertical-align: text-bottom;

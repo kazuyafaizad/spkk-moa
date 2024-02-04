@@ -2,8 +2,7 @@
 //      Imports
 //  =================
 
-@import '../../base/base';    // Base Variables
-
+@import '../../base/base'; // Base Variables
 
 /*
 ==================
@@ -31,16 +30,16 @@
     right: 0;
     bottom: 0;
     background-color: $m-color_2;
-    -webkit-transition: .4s;
-    transition: .4s;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
 
     &:before {
       position: absolute;
-      content: "";
+      content: '';
       background-color: white;
-      -webkit-transition: .4s;
-      -ms-transition: .4s;
-      transition: .4s;
+      -webkit-transition: 0.4s;
+      -ms-transition: 0.4s;
+      transition: 0.4s;
       height: 14px;
       width: 14px;
       left: 2px;
@@ -99,7 +98,7 @@
 .new-control.new-checkbox {
   .new-control-indicator {
     position: absolute;
-    top: .25rem;
+    top: 0.25rem;
     left: 0;
     display: block;
     width: 1rem;
@@ -143,7 +142,7 @@
     display: none;
   }
 
-  &[class*="checkbox-outline-"] > input:checked ~ span.new-control-indicator {
+  &[class*='checkbox-outline-'] > input:checked ~ span.new-control-indicator {
     background-color: transparent;
   }
 
@@ -212,7 +211,8 @@ code {
         }
 
         .media-body {
-          h6, p {
+          h6,
+          p {
             color: $white;
             font-weight: 500;
           }
@@ -251,7 +251,8 @@ code {
       background-color: $m-color_6;
 
       .media .media-body {
-        h6, p {
+        h6,
+        p {
           color: $white;
           font-weight: 500;
         }

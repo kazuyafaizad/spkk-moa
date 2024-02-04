@@ -2,21 +2,24 @@
 //      Imports
 //  =================
 
-@import '../../../base/base';    // Base Variables
+@import '../../../base/base'; // Base Variables
 
 body {
   background-color: $m-color_1;
 }
 
-.h5, h5 {
+.h5,
+h5 {
   font-size: 1.25rem;
 }
 
-.h4, h4 {
+.h4,
+h4 {
   font-size: 1.5rem;
 }
 
-.h6, h6 {
+.h6,
+h6 {
   font-size: 1rem;
 }
 
@@ -36,7 +39,7 @@ body {
   padding: 30px 50px;
 
   &:before {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: 0;

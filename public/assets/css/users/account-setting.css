@@ -33,7 +33,14 @@
   font-size: 20px;
 }
 
-.general-info .info h6, .about .info h5, .work-platforms .info h5, .contact .info h5, .social .info h5, .skill .info h5, .edu-experience .info h5, .work-experience .info h5 {
+.general-info .info h6,
+.about .info h5,
+.work-platforms .info h5,
+.contact .info h5,
+.social .info h5,
+.skill .info h5,
+.edu-experience .info h5,
+.work-experience .info h5 {
   color: #3b3f5c;
   margin: 4px 8px 40px 8px;
   font-weight: 700;
@@ -48,7 +55,8 @@
   background-color: #fff;
   border-radius: 6px;
 }
-.general-info .info, .general-info .save-info {
+.general-info .info,
+.general-info .save-info {
   padding: 20px;
 }
 .general-info .info .form {
@@ -60,15 +68,15 @@
 .general-info .info .upload p {
   font-size: 14px;
   font-weight: 600;
-  color: #1b55e2;
+  color: #22577a;
 }
 .general-info .info .upload p i {
   font-size: 22px;
-  color: #1b55e2;
+  color: #22577a;
   vertical-align: middle;
 }
 .general-info .info label {
-  color: #888ea8;
+  color: #3b3f5c;
   font-size: 13px;
   letter-spacing: 1px;
 }
@@ -91,10 +99,22 @@
 .general-info .info .dropify-wrapper .dropify-clear:hover {
   background-color: transparent;
 }
-.general-info .info .dropify-wrapper .dropify-preview .dropify-infos .dropify-infos-inner p.dropify-infos-message {
+.general-info
+  .info
+  .dropify-wrapper
+  .dropify-preview
+  .dropify-infos
+  .dropify-infos-inner
+  p.dropify-infos-message {
   padding-top: 27px;
 }
-.general-info .info .dropify-wrapper .dropify-preview .dropify-infos .dropify-infos-inner p.dropify-infos-message::before {
+.general-info
+  .info
+  .dropify-wrapper
+  .dropify-preview
+  .dropify-infos
+  .dropify-infos-inner
+  p.dropify-infos-message::before {
   height: 20px;
   position: absolute;
   top: -1px;
@@ -106,20 +126,31 @@
   height: 0;
   font-size: 28px;
   width: 24px;
-  content: " ";
+  content: ' ';
   background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-upload-cloud'%3e%3cpolyline points='16 16 12 12 8 16'%3e%3c/polyline%3e%3cline x1='12' y1='12' x2='12' y2='21'%3e%3c/line%3e%3cpath d='M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3'%3e%3c/path%3e%3cpolyline points='16 16 12 12 8 16'%3e%3c/polyline%3e%3c/svg%3e");
   height: 20px;
 }
 .general-info .info .dropify-wrapper.touch-fallback {
   border: 1px solid #ebedf2;
 }
-.general-info .info .dropify-wrapper.touch-fallback .dropify-preview .dropify-infos .dropify-infos-inner {
+.general-info
+  .info
+  .dropify-wrapper.touch-fallback
+  .dropify-preview
+  .dropify-infos
+  .dropify-infos-inner {
   padding: 0;
 }
 .general-info .info .dropify-wrapper.touch-fallback .dropify-clear {
-  color: #515365;
+  color: #3b3f5c;
 }
-.general-info .info .dropify-wrapper.touch-fallback .dropify-preview .dropify-infos .dropify-infos-inner p.dropify-filename {
+.general-info
+  .info
+  .dropify-wrapper.touch-fallback
+  .dropify-preview
+  .dropify-infos
+  .dropify-infos-inner
+  p.dropify-filename {
   margin-top: 10px;
 }
 
@@ -133,11 +164,12 @@
   background-color: #fff;
   border-radius: 6px;
 }
-.about .info, .about .save-info {
+.about .info,
+.about .save-info {
   padding: 20px;
 }
 .about .info label {
-  color: #888ea8;
+  color: #3b3f5c;
   font-size: 13px;
   letter-spacing: 1px;
 }
@@ -168,11 +200,12 @@
   background-color: #fff;
   border-radius: 6px;
 }
-.contact .info, .contact .save-info {
+.contact .info,
+.contact .save-info {
   padding: 20px;
 }
 .contact .info label {
-  color: #888ea8;
+  color: #3b3f5c;
   font-size: 13px;
   letter-spacing: 1px;
 }
@@ -184,7 +217,8 @@
   background-color: #fff;
   border-radius: 6px;
 }
-.social .info, .social .save-info {
+.social .info,
+.social .save-info {
   padding: 20px;
 }
 .social .input-group-prepend .input-group-text {
@@ -194,7 +228,7 @@
 }
 
 .input-group .input-group-prepend .input-group-text svg {
-  color: #1b55e2;
+  color: #22577a;
 }
 
 .social .info input {
@@ -215,7 +249,7 @@
   margin-right: auto;
   margin-left: auto;
 }
-.skill input[type=text] {
+.skill input[type='text'] {
   margin-right: 10px;
 }
 .skill .info {
@@ -249,16 +283,17 @@
   background: #ffffff;
   padding: 3px 8px;
   border-radius: 5px;
-  color: #1b55e2;
+  color: #22577a;
   border: 1px solid #e0e6ed;
 }
-.skill .custom-progress.top-right .range-count, .skill .custom-progress.bottom-right .range-count {
+.skill .custom-progress.top-right .range-count,
+.skill .custom-progress.bottom-right .range-count {
   text-align: right;
 }
 .skill .progress-range-counter::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  background: #1b55e2;
+  background: #22577a;
   cursor: pointer;
   height: 16px;
   width: 16px;
@@ -270,7 +305,7 @@
   transform: scale(1.2);
 }
 .skill .progress-range-counter:focus::-webkit-slider-thumb {
-  background: #1b55e2;
+  background: #22577a;
   cursor: pointer;
   height: 16px;
   width: 16px;
@@ -278,7 +313,7 @@
   box-shadow: none;
 }
 .skill .progress-range-counter::-moz-range-thumb {
-  background: #1b55e2;
+  background: #22577a;
   cursor: pointer;
   height: 16px;
   width: 16px;
@@ -300,11 +335,12 @@
 .edu-experience .edu-section:last-child {
   margin-bottom: 40px;
 }
-.edu-experience .info, .edu-experience .save-info {
+.edu-experience .info,
+.edu-experience .save-info {
   padding: 20px;
 }
 .edu-experience .info label {
-  color: #888ea8;
+  color: #3b3f5c;
   font-size: 13px;
   letter-spacing: 1px;
 }
@@ -324,11 +360,12 @@
 .work-experience .work-section:last-child {
   margin-bottom: 40px;
 }
-.work-experience .info, .work-experience .save-info {
+.work-experience .info,
+.work-experience .save-info {
   padding: 20px;
 }
 .work-experience .info label {
-  color: #888ea8;
+  color: #3b3f5c;
   font-size: 13px;
   letter-spacing: 1px;
 }

@@ -2,7 +2,7 @@
 //      Imports
 //  =================
 
-@import '../../base/base';    // Base Variables
+@import '../../base/base'; // Base Variables
 
 html {
   height: 100%;
@@ -49,9 +49,18 @@ body {
       text-align: center;
       border-radius: 15px;
       border: 1px solid $m-color_3;
-      -webkit-box-shadow: 0 4px 6px 0 rgba(85, 85, 85, 0.0901960784), 0 1px 20px 0 rgba(0, 0, 0, 0.08), 0px 1px 11px 0px rgba(0, 0, 0, 0.06);
-      -moz-box-shadow: 0 4px 6px 0 rgba(85, 85, 85, 0.0901960784), 0 1px 20px 0 rgba(0, 0, 0, 0.08), 0px 1px 11px 0px rgba(0, 0, 0, 0.06);
-      box-shadow: 0 4px 6px 0 rgba(85, 85, 85, 0.0901960784), 0 1px 20px 0 rgba(0, 0, 0, 0.08), 0px 1px 11px 0px rgba(0, 0, 0, 0.06);
+      -webkit-box-shadow:
+        0 4px 6px 0 rgba(85, 85, 85, 0.0901960784),
+        0 1px 20px 0 rgba(0, 0, 0, 0.08),
+        0px 1px 11px 0px rgba(0, 0, 0, 0.06);
+      -moz-box-shadow:
+        0 4px 6px 0 rgba(85, 85, 85, 0.0901960784),
+        0 1px 20px 0 rgba(0, 0, 0, 0.08),
+        0px 1px 11px 0px rgba(0, 0, 0, 0.06);
+      box-shadow:
+        0 4px 6px 0 rgba(85, 85, 85, 0.0901960784),
+        0 1px 20px 0 rgba(0, 0, 0, 0.08),
+        0px 1px 11px 0px rgba(0, 0, 0, 0.06);
 
       h1 {
         font-size: 32px;
@@ -216,7 +225,9 @@ body {
         font-size: 16px;
         padding: 13px 35px 13px 46px;
 
-        &::-webkit-input-placeholder, &::-ms-input-placeholder, &::-moz-placeholder {
+        &::-webkit-input-placeholder,
+        &::-ms-input-placeholder,
+        &::-moz-placeholder {
           color: $m-color_5;
           font-size: 14px;
         }
@@ -278,7 +289,8 @@ body {
       &.social-fb {
         margin-right: 15px;
 
-        svg, .brand-name {
+        svg,
+        .brand-name {
           color: $primary;
         }
       }
@@ -308,7 +320,8 @@ body {
     }
 
     .social a {
-      &.social-fb, &.social-github {
+      &.social-fb,
+      &.social-github {
         margin-right: auto;
         margin-left: auto;
         margin-bottom: 10px;

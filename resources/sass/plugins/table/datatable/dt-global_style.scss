@@ -2,17 +2,26 @@
 //      Imports
 //  =================
 
-@import '../../../base/base';    // Base Variables
-
+@import '../../../base/base'; // Base Variables
 
 .widget-content-area {
-  -webkit-box-shadow: 0 4px 6px 0 rgba(85, 85, 85, 0.0901960784), 0 1px 20px 0 rgba(0, 0, 0, 0.08), 0px 1px 11px 0px rgba(0, 0, 0, 0.06);
-  -moz-box-shadow: 0 4px 6px 0 rgba(85, 85, 85, 0.0901960784), 0 1px 20px 0 rgba(0, 0, 0, 0.08), 0px 1px 11px 0px rgba(0, 0, 0, 0.06);
-  box-shadow: 0 4px 6px 0 rgba(85, 85, 85, 0.0901960784), 0 1px 20px 0 rgba(0, 0, 0, 0.08), 0px 1px 11px 0px rgba(0, 0, 0, 0.06);
+  -webkit-box-shadow:
+    0 4px 6px 0 rgba(85, 85, 85, 0.0901960784),
+    0 1px 20px 0 rgba(0, 0, 0, 0.08),
+    0px 1px 11px 0px rgba(0, 0, 0, 0.06);
+  -moz-box-shadow:
+    0 4px 6px 0 rgba(85, 85, 85, 0.0901960784),
+    0 1px 20px 0 rgba(0, 0, 0, 0.08),
+    0px 1px 11px 0px rgba(0, 0, 0, 0.06);
+  box-shadow:
+    0 4px 6px 0 rgba(85, 85, 85, 0.0901960784),
+    0 1px 20px 0 rgba(0, 0, 0, 0.08),
+    0px 1px 11px 0px rgba(0, 0, 0, 0.06);
 }
 
 .no-content {
-  &:before, &:after {
+  &:before,
+  &:after {
     display: none !important;
   }
 }
@@ -32,41 +41,47 @@
 table.dataTable {
   thead {
     .sorting {
-      &:before, &:after {
+      &:before,
+      &:after {
         opacity: 1;
         color: $m-color_5;
       }
     }
 
     .sorting_asc {
-      &:before, &:after {
+      &:before,
+      &:after {
         opacity: 1;
         color: $m-color_5;
       }
     }
 
     .sorting_desc {
-      &:before, &:after {
+      &:before,
+      &:after {
         opacity: 1;
         color: $m-color_5;
       }
     }
 
     .sorting_asc_disabled {
-      &:before, &:after {
+      &:before,
+      &:after {
         opacity: 1;
         color: $m-color_5;
       }
     }
 
     .sorting_desc_disabled {
-      &:before, &:after {
+      &:before,
+      &:after {
         opacity: 1;
         color: $m-color_5;
       }
     }
 
-    .sorting_asc:before, .sorting_desc:after {
+    .sorting_asc:before,
+    .sorting_desc:after {
       color: $m-color_10;
     }
   }
@@ -82,7 +97,7 @@ table.dataTable {
   tbody {
     &:before {
       line-height: 1em;
-      content: "_";
+      content: '_';
       color: white;
       display: block;
     }
@@ -185,7 +200,9 @@ div.dataTables_wrapper div.dataTables_filter input {
 
   /* Safari and Chrome */
   appearance: none;
-  background: #fff url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23d3d3d3' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-chevron-down'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e") 50px 9px no-repeat;
+  background: #fff
+    url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23d3d3d3' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-chevron-down'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e")
+    50px 9px no-repeat;
 }
 
 div.dataTables_wrapper div.dataTables_paginate {
@@ -221,7 +238,8 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
     }
   }
 
-  &:first-child .page-link, &:last-child .page-link {
+  &:first-child .page-link,
+  &:last-child .page-link {
     border-radius: 50%;
     padding: 5px 9px;
 
@@ -235,12 +253,14 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
   }
 }
 
-#alter_pagination_next a, #alter_pagination_previous a {
+#alter_pagination_next a,
+#alter_pagination_previous a {
   border-radius: 50%;
   padding: 5px 9px;
 }
 
-#alter_pagination_next a svg, #alter_pagination_previous a svg {
+#alter_pagination_next a svg,
+#alter_pagination_previous a svg {
   width: 17px;
 }
 

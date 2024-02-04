@@ -2,10 +2,11 @@
 //      Imports
 //  =================
 
-@import '../../base/base';    // Base Variables
+@import '../../base/base'; // Base Variables
 
 select {
-  &.bs-select-hidden, &.selectpicker {
+  &.bs-select-hidden,
+  &.selectpicker {
     display: none !important;
   }
 }
@@ -22,7 +23,7 @@ select {
     letter-spacing: 1px;
     background-color: $white;
     height: auto;
-    padding: .75rem 1.25rem;
+    padding: 0.75rem 1.25rem;
     border-radius: 6px;
     box-shadow: none;
   }
@@ -36,7 +37,9 @@ select {
       &.bs-placeholder {
         color: $m-color_6;
 
-        &:hover, &:focus, &:active {
+        &:hover,
+        &:focus,
+        &:active {
           color: $m-color_6;
         }
       }
@@ -64,7 +67,8 @@ select {
   }
 }
 
-.has-error .bootstrap-select .dropdown-toggle, .error .bootstrap-select .dropdown-toggle {
+.has-error .bootstrap-select .dropdown-toggle,
+.error .bootstrap-select .dropdown-toggle {
   border-color: #b94a48;
 }
 
@@ -73,7 +77,7 @@ select {
     width: auto !important;
   }
 
-  &:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
+  &:not([class*='col-']):not([class*='form-control']):not(.input-group-btn) {
     width: 220px;
   }
 
@@ -109,7 +113,7 @@ select {
     border: 0;
     background: transparent;
 
-    &:not([class*=col-]) {
+    &:not([class*='col-']) {
       width: 100%;
     }
 
@@ -123,31 +127,37 @@ select {
   }
 
   &.btn-group {
-    &:not(.input-group-btn), &[class*=col-] {
+    &:not(.input-group-btn),
+    &[class*='col-'] {
       float: none;
       display: inline-block;
       margin-left: 0;
     }
 
-    &.dropdown-menu-right, &[class*=col-].dropdown-menu-right {
+    &.dropdown-menu-right,
+    &[class*='col-'].dropdown-menu-right {
       float: right;
     }
   }
 }
 
-.row .bootstrap-select.btn-group[class*=col-].dropdown-menu-right {
+.row .bootstrap-select.btn-group[class*='col-'].dropdown-menu-right {
   float: right;
 }
 
-.form-inline .bootstrap-select.btn-group, .form-horizontal .bootstrap-select.btn-group, .form-group .bootstrap-select.btn-group {
+.form-inline .bootstrap-select.btn-group,
+.form-horizontal .bootstrap-select.btn-group,
+.form-group .bootstrap-select.btn-group {
   margin-bottom: 0;
 }
 
-.form-group-lg .bootstrap-select.btn-group.form-control, .form-group-sm .bootstrap-select.btn-group.form-control {
+.form-group-lg .bootstrap-select.btn-group.form-control,
+.form-group-sm .bootstrap-select.btn-group.form-control {
   padding: 0;
 }
 
-.form-group-lg .bootstrap-select.btn-group.form-control .dropdown-toggle, .form-group-sm .bootstrap-select.btn-group.form-control .dropdown-toggle {
+.form-group-lg .bootstrap-select.btn-group.form-control .dropdown-toggle,
+.form-group-sm .bootstrap-select.btn-group.form-control .dropdown-toggle {
   height: 100%;
   font-size: inherit;
   line-height: inherit;
@@ -219,7 +229,7 @@ select {
 
 .bootstrap-select {
   &.btn-group {
-    &[class*=col-] .dropdown-toggle {
+    &[class*='col-'] .dropdown-toggle {
       width: 100%;
     }
 
@@ -273,7 +283,8 @@ select {
   }
 
   .dropdown-item {
-    &.active, &:active {
+    &.active,
+    &:active {
       background-color: transparent;
       color: $m-color_9;
     }
@@ -287,7 +298,7 @@ select {
           padding: 9px 19px;
           font-weight: 600;
 
-          &:not([class*="bg-"]):hover {
+          &:not([class*='bg-']):hover {
             color: $primary;
             background-color: rgba(27, 85, 226, 0.2392156863);
           }
@@ -335,7 +346,7 @@ select {
         -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
         box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
         pointer-events: none;
-        opacity: .9;
+        opacity: 0.9;
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
@@ -433,14 +444,17 @@ select {
     }
 
     &.open > .dropdown-toggle {
-      &:before, &:after {
+      &:before,
+      &:after {
         display: block;
       }
     }
   }
 }
 
-.bs-searchbox, .bs-actionsbox, .bs-donebutton {
+.bs-searchbox,
+.bs-actionsbox,
+.bs-donebutton {
   padding: 4px 8px;
 }
 
@@ -504,13 +518,18 @@ select {
 }
 
 .bootstrap-select.btn-group > .dropdown-toggle {
-  &.btn-outline-primary, &.btn-outline-success, &.btn-outline-info, &.btn-outline-danger, &.btn-outline-warning {
+  &.btn-outline-primary,
+  &.btn-outline-success,
+  &.btn-outline-info,
+  &.btn-outline-danger,
+  &.btn-outline-warning {
     background-color: transparent;
   }
 }
 
 .btn-outline-primary:not(:disabled):not(.disabled) {
-  &.active, &:active {
+  &.active,
+  &:active {
     background-color: transparent;
     color: $primary !important;
   }
@@ -522,7 +541,8 @@ select {
 }
 
 .btn-outline-success:not(:disabled):not(.disabled) {
-  &.active, &:active {
+  &.active,
+  &:active {
     background-color: transparent;
     color: $success !important;
   }
@@ -534,7 +554,8 @@ select {
 }
 
 .btn-outline-info:not(:disabled):not(.disabled) {
-  &.active, &:active {
+  &.active,
+  &:active {
     background-color: transparent;
     color: $info !important;
   }
@@ -546,7 +567,8 @@ select {
 }
 
 .btn-outline-danger:not(:disabled):not(.disabled) {
-  &.active, &:active {
+  &.active,
+  &:active {
     background-color: transparent;
     color: $danger !important;
   }
@@ -558,7 +580,8 @@ select {
 }
 
 .btn-outline-warning:not(:disabled):not(.disabled) {
-  &.active, &:active {
+  &.active,
+  &:active {
     background-color: transparent;
     color: $warning !important;
   }

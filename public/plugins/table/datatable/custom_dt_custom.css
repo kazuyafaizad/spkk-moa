@@ -25,7 +25,7 @@ table.dataTable {
   border-left: none !important;
 }
 .table-hover:not(.table-dark) tbody tr:hover .new-control.new-checkbox .new-control-indicator {
-  border: 2px solid #1b55e2;
+  border: 2px solid #22577a;
 }
 
 /*Style. 1*/
@@ -62,8 +62,8 @@ table.dataTable {
   transform: none;
 }
 .style-2 .badge-primary {
-  color: #1b55e2;
-  border: 2px dashed #1b55e2;
+  color: #22577a;
+  border: 2px dashed #22577a;
 }
 .style-2 .badge-warning {
   color: #e2a03f;
@@ -95,8 +95,8 @@ table.dataTable {
   transform: none;
 }
 .style-3 .badge-primary {
-  color: #1b55e2;
-  border: 2px dashed #1b55e2;
+  color: #22577a;
+  border: 2px dashed #22577a;
 }
 .style-3 .badge-warning {
   color: #e2a03f;
@@ -114,7 +114,7 @@ table.dataTable {
   display: inline;
 }
 .style-3 .table-controls li svg {
-  color: #888ea8;
+  color: #3b3f5c;
   vertical-align: middle;
   width: 28px;
   height: 28px;
@@ -126,5 +126,5 @@ table.dataTable {
   fill: rgba(231, 81, 90, 0.2196078431);
 }
 .style-3.table-hover:not(.table-dark) tbody tr:hover td:first-child {
-  color: #1b55e2 !important;
+  color: #22577a !important;
 }

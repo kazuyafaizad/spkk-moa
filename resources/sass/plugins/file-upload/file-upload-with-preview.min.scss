@@ -2,7 +2,7 @@
 //      Imports
 //  =================
 
-@import '../../base/base';    // Base Variables
+@import '../../base/base'; // Base Variables
 
 .custom-file-container {
   box-sizing: border-box;
@@ -58,7 +58,7 @@
   line-height: 1.5;
   user-select: none;
   background-clip: padding-box;
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   height: auto;
   border: 1px solid $m-color_1;
   color: $dark;
@@ -83,7 +83,8 @@
   border-left: 1px solid $m-color_3;
   box-sizing: border-box;
 
-  &:hover {}
+  &:hover {
+  }
 }
 
 .custom-file-container__image-preview {

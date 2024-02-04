@@ -1,12 +1,14 @@
-
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
-@import "./main.css";
-@import "./structure.css";
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import './main.css';
+@import './structure.css';
 /* @import "./datatables.css";
 @import "./dt-global.css"; */
 @import 'datatables.net-dt';
+
+@import 'maplibre-gl/dist/maplibre-gl.css';
+@import 'vue-maplibre-gl/dist/vue-maplibre-gl.css';
 /* @import "../../public/plugins/table/datatable/datatables.css"; */
 
 /* *, ::before, ::after {
@@ -16,9 +18,6 @@
     border-color: transparent!important;
 } */
 
-
 [x-cloak] {
-    display: none;
+  display: none;
 }
-
-

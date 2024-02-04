@@ -2,8 +2,7 @@
 //      Imports
 //  =================
 
-@import '../../base/base';    // Base Variables
-
+@import '../../base/base'; // Base Variables
 
 .loader {
   border: 7px solid $m-color_1;
@@ -69,13 +68,13 @@
   height: 2rem;
   overflow: hidden;
   text-indent: -999em;
-  border: .25em solid;
+  border: 0.25em solid;
   border-color: currentColor transparent currentColor currentColor;
   border-radius: 50%;
   -webkit-animation-name: spinner-border;
   animation-name: spinner-border;
-  -webkit-animation-duration: .75s;
-  animation-duration: .75s;
+  -webkit-animation-duration: 0.75s;
+  animation-duration: 0.75s;
   -webkit-animation-timing-function: linear;
   animation-timing-function: linear;
   -webkit-animation-iteration-count: infinite;
@@ -87,12 +86,12 @@
 
   &::after {
     position: absolute;
-    top: -.25em;
-    right: -.25em;
-    bottom: -.25em;
-    left: -.25em;
+    top: -0.25em;
+    right: -0.25em;
+    bottom: -0.25em;
+    left: -0.25em;
     display: inline-block;
-    content: "";
+    content: '';
     border: 0.25em solid rgba(0, 0, 0, 0.1);
     border-radius: 50%;
   }
@@ -145,8 +144,8 @@
   border-radius: 50%;
   -webkit-animation-name: spinner-grow;
   animation-name: spinner-grow;
-  -webkit-animation-duration: .75s;
-  animation-duration: .75s;
+  -webkit-animation-duration: 0.75s;
+  animation-duration: 0.75s;
   -webkit-animation-timing-function: linear;
   animation-timing-function: linear;
   -webkit-animation-iteration-count: infinite;

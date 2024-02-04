@@ -2,11 +2,11 @@
 //      Imports
 //  =================
 
-@import '../../base/base';    // Base Variables
-
+@import '../../base/base'; // Base Variables
 
 .carousel-caption {
-  h3, h5 {
+  h3,
+  h5 {
     color: $white;
   }
 }
@@ -91,7 +91,8 @@
     right: 33px;
   }
 
-  .carousel-control-next, .carousel-control-prev {
+  .carousel-control-next,
+  .carousel-control-prev {
     top: auto;
     bottom: 32px;
     background-color: transparent;
@@ -138,7 +139,8 @@
 	Default Style of the carousel arrows
 */
 
-.carousel-control-next, .carousel-control-prev {
+.carousel-control-next,
+.carousel-control-prev {
   top: 0;
   bottom: 0;
   width: 50px;
@@ -202,7 +204,8 @@
       }
     }
 
-    .carousel-control-next, .carousel-control-prev {
+    .carousel-control-next,
+    .carousel-control-prev {
       display: none;
     }
   }

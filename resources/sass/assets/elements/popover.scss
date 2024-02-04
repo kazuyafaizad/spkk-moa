@@ -2,8 +2,7 @@
 //      Imports
 //  =================
 
-@import '../../base/base';    // Base Variables
-
+@import '../../base/base'; // Base Variables
 
 .popovers-section h6 {
   color: $dark;
@@ -52,43 +51,50 @@
 /* 		popover Arrow 	*/
 
 .popover-primary .arrow {
-  &:after, &:before {
+  &:after,
+  &:before {
     border-top-color: $l-primary;
   }
 }
 
 .popover-success .arrow {
-  &:after, &:before {
+  &:after,
+  &:before {
     border-top-color: $l-success;
   }
 }
 
 .popover-info .arrow {
-  &:after, &:before {
+  &:after,
+  &:before {
     border-top-color: $l-info;
   }
 }
 
 .popover-danger .arrow {
-  &:after, &:before {
+  &:after,
+  &:before {
     border-top-color: $l-danger;
   }
 }
 
 .popover-warning .arrow {
-  &:after, &:before {
+  &:after,
+  &:before {
     border-top-color: $l-warning;
   }
 }
 
 .popover-secondary .arrow {
-  &:after, &:before {
+  &:after,
+  &:before {
     border-top-color: $l-secondary;
   }
 }
 
 .popover-dark .arrow {
-  &:after, &:before {
+  &:after,
+  &:before {
     border-top-color: $l-dark;
   }
 }

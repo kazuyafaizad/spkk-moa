@@ -16,7 +16,7 @@ class IsAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::user() &&  Auth::user()->role_id === 2) {
+        if (Auth::user() && (Auth::user()->role_id === 5 || Auth::user()->role_id === 16 || Auth::user()->role_id === 2)) {
             return $next($request);
         }
 

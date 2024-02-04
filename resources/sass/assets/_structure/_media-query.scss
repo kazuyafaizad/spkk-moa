@@ -52,7 +52,8 @@
     padding: 0.9px 12px 0.9px 24px;
   }
 
-  .main-container:not(.sbar-open) .sidebar-wrapper, body.alt-menu .sidebar-closed > .sidebar-wrapper {
+  .main-container:not(.sbar-open) .sidebar-wrapper,
+  body.alt-menu .sidebar-closed > .sidebar-wrapper {
     width: 0;
     left: -52px;
   }
@@ -87,7 +88,7 @@
 
   .overlay.show {
     display: block;
-    opacity: .7;
+    opacity: 0.7;
   }
 
   .navbar .navbar-item .nav-item {
@@ -127,7 +128,8 @@
 }
 
 @media (min-width: 992px) {
-  .sidebar-closed #sidebar .theme-brand li.theme-text a, .md-visible {
+  .sidebar-closed #sidebar .theme-brand li.theme-text a,
+  .md-visible {
     display: none;
   }
 
@@ -181,13 +183,17 @@
       .form-inline.search {
         .search-form-control {
           opacity: 0;
-          transition: opacity 200ms, top 200ms;
+          transition:
+            opacity 200ms,
+            top 200ms;
         }
 
         &.input-focused {
           .search-form-control {
             opacity: 1;
-            transition: opacity 200ms, top 200ms;
+            transition:
+              opacity 200ms,
+              top 200ms;
           }
 
           position: absolute;
@@ -202,11 +208,15 @@
           margin-top: 0px !important;
           display: flex;
           opacity: 1;
-          transition: opacity 200ms, top 200ms;
+          transition:
+            opacity 200ms,
+            top 200ms;
         }
 
         opacity: 0;
-        transition: opacity 200ms, top 200ms;
+        transition:
+          opacity 200ms,
+          top 200ms;
         top: -25px;
       }
 
@@ -269,7 +279,8 @@
   .navbar {
     .navbar-item .nav-item {
       &.dropdown {
-        &.message-dropdown, &.notification-dropdown {
+        &.message-dropdown,
+        &.notification-dropdown {
           margin-left: 15px;
         }
       }
@@ -296,7 +307,8 @@
           display: block;
         }
 
-        span, svg {
+        span,
+        svg {
           display: none;
         }
       }

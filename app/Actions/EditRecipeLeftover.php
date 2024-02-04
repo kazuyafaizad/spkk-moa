@@ -4,9 +4,6 @@ namespace App\Actions;
 
 use App\Models\PublicRecipeLeftover;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\Rule;
-use Mockery\Matcher\Any;
-use Illuminate\Http\UploadedFile;
 
 class EditRecipeLeftover
 {
@@ -21,47 +18,42 @@ class EditRecipeLeftover
             'id' => 'required',
             'title' => ['required', 'string', 'max:255'],
             'description' => ['required', 'string'],
+            'status' => ['required'],
             'image' => ['nullable', 'mimes:jpg,jpeg,png', 'max:1024'],
+        ], [
+            'title.required' => 'Sila masukkan tajuk',
+            'title.max' => 'Tajuk tidak boleh melebihi 255 aksara.',
+            'description.required' => 'Sila masukkan Keterangan',
+            'image.mimes' => 'Imej mestilah dalam format JPG, JPEG, atau PNG.',
+            'image.max' => 'Imej tidak boleh melebihi 1024 kilobytes.',
         ])->validateWithBag('updateRecipeLeftover');
 
-
-        $PublicRecipeLeftover = (new PublicRecipeLeftover);
+        $PublicRecipeLeftover = (new PublicRecipeLeftover)->find($request->id);
 
         if (isset($input['image'])) {
             $file = $input['image'];
-            $filename = date('YmdHi') . $file->getClientOriginalName();
-            // Store the file in the 'public' disk (you can configure other disks if needed)
+            $filename = date('YmdHi').$file->getClientOriginalName();
+
             $file->storeAs('public/Image', $filename);
 
-            // Update the model's image attribute with the stored file path
-            $PublicRecipeLeftover->image = 'storage/Image/' . $filename;
-
-            // tap($this->profile_photo_path, function ($previous) use ($photo, $storagePath) {
-            //     $this->forceFill([
-            //         'profile_photo_path' => $photo->storePublicly(
-            //             $storagePath,
-            //             ['disk' => $this->profilePhotoDisk()]
-            //         ),
-            //     ])->save();
-
-            //     if ($previous) {
-            //         Storage::disk($this->profilePhotoDisk())->delete($previous);
-            //     }
-            // });
+            $PublicRecipeLeftover->image = 'storage/Image/'.$filename;
         }
 
         $PublicRecipeLeftover->title = $input['title'];
         $PublicRecipeLeftover->description = $input['description'];
-        $PublicRecipeLeftover->status = 1;
-        $PublicRecipeLeftover->created_by = auth()->user()->id;
+        $PublicRecipeLeftover->status = $input['status'];
 
-        $PublicRecipeLeftover->where('id', $request->id)->update([
+        $updateData = [
             'title' => $PublicRecipeLeftover->title,
             'description' => $PublicRecipeLeftover->description,
             'status' => $PublicRecipeLeftover->status,
-            'created_by' => $PublicRecipeLeftover->created_by,
-            'image' => $PublicRecipeLeftover->image, // If you want to update the image as well
-        ]);
+        ];
 
+        // Check if the image is provided in the request
+        if (isset($input['image'])) {
+            $updateData['image'] = $PublicRecipeLeftover->image;
+        }
+
+        $PublicRecipeLeftover->update($updateData);
     }
 }

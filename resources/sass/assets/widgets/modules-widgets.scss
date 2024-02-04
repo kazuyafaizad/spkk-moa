@@ -2,8 +2,7 @@
 //      Imports
 //  =================
 
-@import '../../base/base';    // Base Variables
-
+@import '../../base/base'; // Base Variables
 
 /*
     ===============================
@@ -25,12 +24,11 @@
   border-radius: 6px;
   border: none;
   border: 1px solid #e0e6ed;
-  box-shadow: 0 0 40px 0 rgba(94,92,154,.06);
+  box-shadow: 0 0 40px 0 rgba(94, 92, 154, 0.06);
 }
 
-
 //  ===================================
-//       _modules-widgets Imports 
+//       _modules-widgets Imports
 //  ===================================
 
 @import '_modules-widgets/_modules-widget-card-four';
@@ -43,9 +41,6 @@
 @import '_modules-widgets/_modules-widget-four';
 @import '_modules-widgets/_modules-widget-card-two';
 @import '_modules-widgets/_modules-widget-five';
-
-
-
 
 /*
     ===========================
@@ -79,7 +74,6 @@
     color: $m-color_9;
   }
 }
-
 
 @import '_modules-widgets/_modules-widget-two';
 @import '_modules-widgets/_modules-widget-one';

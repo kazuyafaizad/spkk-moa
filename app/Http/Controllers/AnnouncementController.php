@@ -15,7 +15,7 @@ class AnnouncementController extends Controller
         $announcement = PublicAnnouncement::with('created_by_user')->orderBy('id', 'desc')->paginate();
 
         return Inertia::render('Announcement/Index', [
-            'announcement' => $announcement
+            'announcement' => $announcement,
         ]);
     }
 
@@ -28,31 +28,37 @@ class AnnouncementController extends Controller
     public function store(Request $request)
     {
         (new StoreAnnouncement)->__invoke($request);
+
+        return redirect(route('admin.announcement.index'));
     }
 
     public function show(PublicAnnouncement $announcement)
     {
         return Inertia::render('Announcement/Show', [
-            'announcement' => $announcement
+            'announcement' => $announcement,
         ]);
     }
 
     public function edit(PublicAnnouncement $announcement)
     {
         return Inertia::render('Announcement/Edit', [
-            'announcement' => $announcement
+            'announcement' => $announcement,
         ]);
     }
 
     public function update(Request $request)
     {
         (new EditAnnouncement)->__invoke($request);
+
+        return redirect(route('admin.announcement.index'));
     }
 
     public function destroy(PublicAnnouncement $announcement)
     {
         $announcement->delete();
+        session()->flash('flash.banner', 'Pengumuman Awam Telah dipadam');
+        session()->flash('flash.bannerStyle', 'error');
 
-        return back()->with('message','Telah Berjaya dipadam');
+        return redirect(route('admin.announcement.index'));
     }
 }

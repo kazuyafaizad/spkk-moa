@@ -2,7 +2,7 @@
 //      Imports
 //  =================
 
-@import '../../../base/base';    // Base Variables
+@import '../../../base/base'; // Base Variables
 
 /*
     Tab Section
@@ -12,9 +12,18 @@
   padding: 35px 50px;
   background: $white;
   border-radius: 6px;
-  -webkit-box-shadow: 0 4px 6px 0 rgba(85, 85, 85, 0.0901960784), 0 1px 20px 0 rgba(0, 0, 0, 0.08), 0px 1px 11px 0px rgba(0, 0, 0, 0.06);
-  -moz-box-shadow: 0 4px 6px 0 rgba(85, 85, 85, 0.0901960784), 0 1px 20px 0 rgba(0, 0, 0, 0.08), 0px 1px 11px 0px rgba(0, 0, 0, 0.06);
-  box-shadow: 0 4px 6px 0 rgba(85, 85, 85, 0.0901960784), 0 1px 20px 0 rgba(0, 0, 0, 0.08), 0px 1px 11px 0px rgba(0, 0, 0, 0.06);
+  -webkit-box-shadow:
+    0 4px 6px 0 rgba(85, 85, 85, 0.0901960784),
+    0 1px 20px 0 rgba(0, 0, 0, 0.08),
+    0px 1px 11px 0px rgba(0, 0, 0, 0.06);
+  -moz-box-shadow:
+    0 4px 6px 0 rgba(85, 85, 85, 0.0901960784),
+    0 1px 20px 0 rgba(0, 0, 0, 0.08),
+    0px 1px 11px 0px rgba(0, 0, 0, 0.06);
+  box-shadow:
+    0 4px 6px 0 rgba(85, 85, 85, 0.0901960784),
+    0 1px 20px 0 rgba(0, 0, 0, 0.08),
+    0px 1px 11px 0px rgba(0, 0, 0, 0.06);
 
   h2 {
     font-size: 25px;
@@ -45,7 +54,7 @@
         color: $primary;
         cursor: pointer;
 
-        &[aria-expanded="true"] {
+        &[aria-expanded='true'] {
           border-bottom: 2px solid $m-color_3;
         }
       }
@@ -59,7 +68,7 @@
           letter-spacing: 1px;
         }
 
-        &[aria-expanded="true"] .faq-q-title {
+        &[aria-expanded='true'] .faq-q-title {
           color: $primary;
         }
 
@@ -72,7 +81,7 @@
           }
         }
 
-        &[aria-expanded="true"] .icons svg {
+        &[aria-expanded='true'] .icons svg {
           color: $primary;
         }
 
@@ -93,7 +102,7 @@
     }
 
     .card-header div {
-      &[aria-expanded="true"] svg.feather-thumbs-up {
+      &[aria-expanded='true'] svg.feather-thumbs-up {
         color: $primary;
         fill: rgba(27, 85, 226, 0.2392156863);
       }
@@ -106,12 +115,14 @@
       }
     }
 
-    &:hover .card-header div span.faq-like-count, .card-header div[aria-expanded="true"] span.faq-like-count {
+    &:hover .card-header div span.faq-like-count,
+    .card-header div[aria-expanded='true'] span.faq-like-count {
       color: $primary;
       fill: rgba(27, 85, 226, 0.2392156863);
     }
 
-    .collapse {}
+    .collapse {
+    }
 
     .card-body {
       padding: 19px 30px;

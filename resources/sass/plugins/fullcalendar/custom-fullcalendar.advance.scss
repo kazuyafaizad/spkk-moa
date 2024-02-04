@@ -2,7 +2,7 @@
 //      Imports
 //  =================
 
-@import '../../base/base';    // Base Variables
+@import '../../base/base'; // Base Variables
 
 .ps--active-y > .ps__rail-y {
   z-index: 20;
@@ -33,7 +33,8 @@
 
 .popover-primary {
   .arrow {
-    &:after, &:before {
+    &:after,
+    &:before {
       display: none;
       border-top-color: $primary;
     }
@@ -130,12 +131,15 @@
 }
 
 button {
-  &.fc-month-button, &.fc-agendaWeek-button, &.fc-agendaDay-button {
+  &.fc-month-button,
+  &.fc-agendaWeek-button,
+  &.fc-agendaDay-button {
     padding: 6px 10px;
     letter-spacing: 1px;
   }
 
-  &.fc-prev-button, &.fc-next-button {
+  &.fc-prev-button,
+  &.fc-next-button {
     padding: 6px 10px;
   }
 
@@ -179,7 +183,10 @@ button {
 }
 
 a {
-  &.bg-primary:hover, &.bg-success:hover, &.bg-warning:hover, &.bg-danger:hover {
+  &.bg-primary:hover,
+  &.bg-success:hover,
+  &.bg-warning:hover,
+  &.bg-danger:hover {
     background-color: inherit !important;
     border-width: 2px !important;
   }
@@ -195,7 +202,8 @@ a {
   }
 }
 
-.fc-agendaWeek-view .fc-scroller.fc-time-grid-container, .fc-agendaDay-view .fc-scroller.fc-time-grid-container {
+.fc-agendaWeek-view .fc-scroller.fc-time-grid-container,
+.fc-agendaDay-view .fc-scroller.fc-time-grid-container {
   height: calc(100vh - 380px) !important;
 }
 
@@ -247,7 +255,8 @@ a {
       }
     }
 
-    label {}
+    label {
+    }
 
     input {
       margin-bottom: 25px;
@@ -297,7 +306,7 @@ input[readonly] {
     padding: 10px 25px;
   }
 
-  [data-dismiss="modal"] {
+  [data-dismiss='modal'] {
     background-color: $white;
     color: $primary;
     font-weight: 700;
@@ -345,8 +354,8 @@ td.fc-today.fc-state-highlight span {
 }
 
 .animated {
-  -webkit-animation-duration: .500s;
-  animation-duration: .500s;
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
 }
@@ -385,7 +394,10 @@ td.fc-today.fc-state-highlight span {
     height: auto !important;
   }
 
-  .fc-scroller, .fc-agendaWeek-view .fc-scroller.fc-time-grid-container, .fc-agendaDay-view .fc-scroller.fc-time-grid-container, .fc-view {
+  .fc-scroller,
+  .fc-agendaWeek-view .fc-scroller.fc-time-grid-container,
+  .fc-agendaDay-view .fc-scroller.fc-time-grid-container,
+  .fc-view {
     height: auto !important;
   }
 

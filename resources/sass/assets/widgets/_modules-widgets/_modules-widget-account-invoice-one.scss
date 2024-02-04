@@ -34,7 +34,7 @@
     border-bottom: 1px dashed $m-color_4;
   }
 
-  [class*="info-detail-"] {
+  [class*='info-detail-'] {
     &:not(.info-sub) {
       display: flex;
       justify-content: space-between;
